@@ -1,0 +1,63 @@
+This is BibTeX, Version 0.99d (TeX Live 2022/dev/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+A level-1 auxiliary file: ./txt/frontespizio.aux
+A level-1 auxiliary file: ./txt/dedica.aux
+A level-1 auxiliary file: txt/introduction/introduzione.aux
+A level-1 auxiliary file: ./txt/state_of_the_art/SOTA.aux
+A level-1 auxiliary file: ./txt/state_of_the_art/compartmental_model/compartmental_model.aux
+A level-1 auxiliary file: ./txt/state_of_the_art/agente_based/agent_based_model.aux
+A level-1 auxiliary file: ./txt/state_of_the_art/epidemiology/epidemiology.aux
+A level-1 auxiliary file: ./txt/state_of_the_art/julia/julia.aux
+A level-1 auxiliary file: ./txt/methods/metodi.aux
+A level-1 auxiliary file: ./txt/methods/covid.aux
+A level-1 auxiliary file: ./txt/methods/epidemics.aux
+A level-1 auxiliary file: ./txt/methods/monitoring.aux
+A level-1 auxiliary file: ./txt/results/results.aux
+A level-1 auxiliary file: ./txt/conclusions/conclusion.aux
+The style file: alpha.bst
+Database file #1: references.bib
+Warning--can't use both author and editor fields in Allen2008
+Warning--can't use both author and editor fields in Brauer2008
+You've used 37 entries,
+            2543 wiz_defined-function locations,
+            835 strings with 13347 characters,
+and the built_in function-call counts, 17927 in all, are:
+= -- 1687
+> -- 1205
+< -- 7
++ -- 451
+- -- 446
+* -- 1591
+:= -- 3093
+add.period$ -- 112
+call.type$ -- 37
+change.case$ -- 318
+chr.to.int$ -- 37
+cite$ -- 39
+duplicate$ -- 543
+empty$ -- 1070
+format.name$ -- 477
+if$ -- 3483
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 38
+newline$ -- 190
+num.names$ -- 111
+pop$ -- 239
+preamble$ -- 1
+purify$ -- 357
+quote$ -- 0
+skip$ -- 459
+stack$ -- 0
+substring$ -- 898
+swap$ -- 61
+text.length$ -- 7
+text.prefix$ -- 4
+top$ -- 0
+type$ -- 288
+warning$ -- 2
+while$ -- 150
+width$ -- 40
+write$ -- 485
+(There were 2 warnings)

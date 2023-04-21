@@ -1,0 +1,230 @@
+\newcommand{\etalchar}[1]{$^{#1}$}
+\begin{thebibliography}{RMM{\etalchar{+}}20}
+
+\bibitem[AFD22]{JSSv104i04}
+Justin Angevaare, Zeny Feng, and Rob Deardon.
+\newblock Pathogen.jl: Infectious disease transmission network modeling with
+  julia.
+\newblock {\em Journal of Statistical Software}, 104(4):1–30, 2022.
+
+\bibitem[AK15]{Altman2015}
+Naomi Altman and Martin Krzywinski.
+\newblock Association, correlation and causation.
+\newblock {\em Nature Methods}, 12(10):899--900, Oct 2015.
+
+\bibitem[All08]{Allen2008}
+Linda J.~S. Allen.
+\newblock {\em An Introduction to Stochastic Epidemic Models}, pages 81--130.
+\newblock Springer Berlin Heidelberg, Berlin, Heidelberg, 2008.
+
+\bibitem[ASC{\etalchar{+}}22]{10.1371/journal.pdig.0000142}
+Azam Asanjarani, Aminath Shausan, Keng Chew, Thomas Graham, Shane~G. Henderson,
+  Hermanus~M. Jansen, Kirsty~R. Short, Peter~G. Taylor, Aapeli Vuorinen, Yuvraj
+  Yadav, Ilze Ziedins, and Yoni Nazarathy.
+\newblock Emulation of epidemics via bluetooth-based virtual safe virus spread:
+  Experimental setup, software, and data.
+\newblock {\em PLOS Digital Health}, 1(12):1--23, 12 2022.
+
+\bibitem[ATLO17]{ABAR201713}
+Sameera Abar, Georgios~K. Theodoropoulos, Pierre Lemarinier, and Gregory~M.P.
+  O’Hare.
+\newblock Agent based modelling and simulation tools: A review of the
+  state-of-art software.
+\newblock {\em Computer Science Review}, 24:13--33, 2017.
+
+\bibitem[BCKK21]{Bissett2021}
+Keith~R. Bissett, Jose Cadena, Maleq Khan, and Chris~J. Kuhlman.
+\newblock Agent-based computational epidemiological modeling.
+\newblock {\em Journal of the Indian Institute of Science}, 101(3):303--327,
+  Jul 2021.
+
+\bibitem[Bra08]{Brauer2008}
+Fred Brauer.
+\newblock {\em Compartmental Models in Epidemiology}, pages 19--79.
+\newblock Springer Berlin Heidelberg, Berlin, Heidelberg, 2008.
+
+\bibitem[BSKA20]{Bjørnstad2020}
+Ottar~N. Bj{\o}rnstad, Katriona Shea, Martin Krzywinski, and Naomi Altman.
+\newblock The seirs model for infectious disease dynamics.
+\newblock {\em Nature Methods}, 17(6):557--558, Jun 2020.
+
+\bibitem[CBRY22]{CIUNKIEWICZ2022105396}
+P.~Ciunkiewicz, W.~Brooke, M.~Rogers, and S.~Yanushkevich.
+\newblock Agent-based epidemiological modeling of covid-19 in localized
+  environments.
+\newblock {\em Computers in Biology and Medicine}, 144:105396, 2022.
+
+\bibitem[DHJ{\etalchar{+}}21]{DANDEKAR2021100220}
+Raj Dandekar, Shane~G. Henderson, Hermanus~M. Jansen, Joshua McDonald, Sarat
+  Moka, Yoni Nazarathy, Christopher Rackauckas, Peter~G. Taylor, and Aapeli
+  Vuorinen.
+\newblock Safe blues: The case for virtual safe virus spread in the long-term
+  fight against epidemics.
+\newblock {\em Patterns}, 2(3):100220, 2021.
+
+\bibitem[DVD22]{Agents.jl}
+George Datseris, Ali~R. Vahdati, and Timothy~C. DuBois.
+\newblock Agents.jl: a performant and feature-full agent-based modeling
+  software of minimal code complexity.
+\newblock {\em {SIMULATION}}, 0(0):003754972110688, January 2022.
+
+\bibitem[ESSSG12]{El-Sayed2012-ac}
+Abdulrahman~M El-Sayed, Peter Scarborough, Lars Seemann, and Sandro Galea.
+\newblock Social network analysis and agent-based modeling in social
+  epidemiology.
+\newblock {\em Epidemiol Perspect Innov}, 9(1):1, February 2012.
+
+\bibitem[FLA{\etalchar{+}}18]{10.1371/journal.pone.0208442}
+Mathilde Frérot, Annick Lefebvre, Simon Aho, Patrick Callier, Karine Astruc,
+  and Ludwig~Serge Aho~Glélé.
+\newblock What is epidemiology? changing definitions of epidemiology 1978-2017.
+\newblock {\em PLOS ONE}, 13(12):1--27, 12 2018.
+
+\bibitem[GBB{\etalchar{+}}20]{Giordano2020}
+Giulia Giordano, Franco Blanchini, Raffaele Bruno, Patrizio Colaneri,
+  Alessandro Di~Filippo, Angela Di~Matteo, and Marta Colaneri.
+\newblock Modelling the covid-19 epidemic and implementation of population-wide
+  interventions in italy.
+\newblock {\em Nature Medicine}, 26(6):855--860, Jun 2020.
+
+\bibitem[GJT19]{Groff2019}
+Elizabeth~R. Groff, Shane~D. Johnson, and Amy Thornton.
+\newblock State of the art in agent-based modeling of urban crime: An overview.
+\newblock {\em Journal of Quantitative Criminology}, 35(1):155--193, Mar 2019.
+
+\bibitem[GPV20]{ijerph17103535}
+Alberto Godio, Francesca Pace, and Andrea Vergnano.
+\newblock Seir modeling of the italian epidemic of sars-cov-2 using
+  computational swarm intelligence.
+\newblock {\em International Journal of Environmental Research and Public
+  Health}, 17(10), 2020.
+
+\bibitem[GRK09]{Galea2009-lj}
+Sandro Galea, Matthew Riddle, and George~A Kaplan.
+\newblock Causal thinking and complex system approaches in epidemiology.
+\newblock {\em Int J Epidemiol}, 39(1):97--106, October 2009.
+
+\bibitem[JOV20]{jalayer2020covabm}
+Masoud Jalayer, Carlotta Orsenigo, and Carlo Vercellis.
+\newblock Cov-abm: A stochastic discrete-event agent-based framework to
+  simulate spatiotemporal dynamics of covid-19, 2020.
+
+\bibitem[KSM{\etalchar{+}}21]{10.1371/journal.pcbi.1009149}
+Cliff~C. Kerr, Robyn~M. Stuart, Dina Mistry, Romesh~G. Abeysuriya, Katherine
+  Rosenfeld, Gregory~R. Hart, Rafael~C. Núñez, Jamie~A. Cohen, Prashanth
+  Selvaraj, Brittany Hagedorn, Lauren George, Michał Jastrzębski, Amanda~S.
+  Izzo, Greer Fowler, Anna Palmer, Dominic Delport, Nick Scott, Sherrie~L.
+  Kelly, Caroline~S. Bennette, Bradley~G. Wagner, Stewart~T. Chang, Assaf~P.
+  Oron, Edward~A. Wenger, Jasmina Panovska-Griffiths, Michael Famulare, and
+  Daniel~J. Klein.
+\newblock Covasim: An agent-based model of covid-19 dynamics and interventions.
+\newblock {\em PLOS Computational Biology}, 17(7):1--32, 07 2021.
+
+\bibitem[KSRS20]{KONSTANTINOUDIS2020100319}
+Garyfallos Konstantinoudis, Dominic Schuhmacher, Håvard Rue, and Ben~D
+  Spycher.
+\newblock Discrete versus continuous domain models for disease mapping.
+\newblock {\em Spatial and Spatio-temporal Epidemiology}, 32:100319, 2020.
+
+\bibitem[LLW13]{Ladyman2013}
+James Ladyman, James Lambert, and Karoline Wiesner.
+\newblock What is a complex system?
+\newblock {\em European Journal for Philosophy of Science}, 3(1):33--67, Jan
+  2013.
+
+\bibitem[MHJR21]{Marzban2021-pd}
+Sadegh Marzban, Renji Han, N{\'o}ra Juh{\'a}sz, and Gergely R{\"o}st.
+\newblock A hybrid {PDE-ABM} model for viral dynamics with application to
+  {SARS-CoV-2} and influenza.
+\newblock {\em R Soc Open Sci}, 8(11):210787, November 2021.
+
+\bibitem[MKO{\etalchar{+}}20]{Mwalili2020}
+Samuel Mwalili, Mark Kimathi, Viona Ojiambo, Duncan Gathungu, and Rachel Mbogo.
+\newblock Seir model for covid-19 dynamics incorporating the environment and
+  social distancing.
+\newblock {\em BMC Research Notes}, 13(1):352, Jul 2020.
+
+\bibitem[NBSF21]{Nardini2021-pu}
+John~T Nardini, Ruth~E Baker, Matthew~J Simpson, and Kevin~B Flores.
+\newblock Learning differential equation models from stochastic agent-based
+  model simulations.
+\newblock {\em J R Soc Interface}, 18(176):20200987, March 2021.
+
+\bibitem[Nis10]{Nishiura2010-hg}
+Hiroshi Nishiura.
+\newblock Correcting the actual reproduction number: a simple method to
+  estimate r(0) from early epidemic growth data.
+\newblock {\em Int J Environ Res Public Health}, 7(1):291--302, January 2010.
+
+\bibitem[NM22]{NOVAKOVIC2022108790}
+Aleksandar Novakovic and Adele~H. Marshall.
+\newblock The cp‐abm approach for modelling covid‐19 infection dynamics and
+  quantifying the effects of non‐pharmaceutical interventions.
+\newblock {\em Pattern Recognition}, 130:108790, 2022.
+
+\bibitem[PBK23]{PRAJAPATI20232299}
+Sunny~Prakash Prajapati, Rahul Bhaumik, and Tarun Kumar.
+\newblock An intelligent abm-based framework for developing pandemic-resilient
+  urban spaces in post-covid smart cities.
+\newblock {\em Procedia Computer Science}, 218:2299--2308, 2023.
+\newblock International Conference on Machine Learning and Data Engineering.
+
+\bibitem[PW01]{Parascandola2001-kw}
+M~Parascandola and D~L Weed.
+\newblock Causation in epidemiology.
+\newblock {\em J Epidemiol Community Health}, 55(12):905--912, December 2001.
+
+\bibitem[RIM{\etalchar{+}}19]{rackauckas2019diffeqflux}
+Chris Rackauckas, Mike Innes, Yingbo Ma, Jesse Bettencourt, Lyndon White, and
+  Vaibhav Dixit.
+\newblock Diffeqflux.jl-a julia library for neural differential equations.
+\newblock {\em arXiv preprint arXiv:1902.02376}, 2019.
+
+\bibitem[RMM{\etalchar{+}}20]{rackauckas2020universal}
+Christopher Rackauckas, Yingbo Ma, Julius Martensen, Collin Warner, Kirill
+  Zubov, Rohit Supekar, Dominic Skinner, and Ali Ramadhan.
+\newblock Universal differential equations for scientific machine learning.
+\newblock {\em arXiv preprint arXiv:2001.04385}, 2020.
+
+\bibitem[RN17]{rackauckas2017differentialequations}
+Christopher Rackauckas and Qing Nie.
+\newblock Differentialequations.jl--a performant and feature-rich ecosystem for
+  solving differential equations in julia.
+\newblock {\em Journal of Open Research Software}, 5(1):15, 2017.
+
+\bibitem[SGP{\etalchar{+}}21]{Silverman2021}
+Eric Silverman, Umberto Gostoli, Stefano Picascia, Jonatan Almagor, Mark
+  McCann, Richard Shaw, and Claudio Angione.
+\newblock Situating agent-based modelling in population health research.
+\newblock {\em Emerging Themes in Epidemiology}, 18(1):10, Jul 2021.
+
+\bibitem[SR13]{doi:10.4161/viru.24041}
+Constantinos~I. Siettos and Lucia Russo.
+\newblock Mathematical modeling of infectious disease dynamics.
+\newblock {\em Virulence}, 4(4):295--306, 2013.
+\newblock PMID: 23552814.
+
+\bibitem[TCK18]{Tracy2018-lc}
+Melissa Tracy, Magdalena Cerd{\'a}, and Katherine~M Keyes.
+\newblock {Agent-Based} modeling in public health: Current applications and
+  future directions.
+\newblock {\em Annu Rev Public Health}, 39:77--94, January 2018.
+
+\bibitem[WMH16]{7822080}
+Christopher~W. Weimer, J.~O. Miller, and Raymond~R. Hill.
+\newblock Agent-based modeling: An introduction and primer.
+\newblock In {\em 2016 Winter Simulation Conference (WSC)}, pages 65--79, 2016.
+
+\bibitem[XLW{\etalchar{+}}21]{10.1093/cid/ciab746}
+Hualei Xin, Yu~Li, Peng Wu, Zhili Li, Eric H~Y Lau, Ying Qin, Liping Wang,
+  Benjamin~J Cowling, Tim~K Tsang, and Zhongjie Li.
+\newblock {Estimating the Latent Period of Coronavirus Disease 2019
+  (COVID-19)}.
+\newblock {\em Clinical Infectious Diseases}, 74(9):1678--1681, 09 2021.
+
+\bibitem[Zac04]{Zaccai2004-ob}
+J~H Zaccai.
+\newblock How to assess epidemiological studies.
+\newblock {\em Postgrad Med J}, 80(941):140--147, March 2004.
+
+\end{thebibliography}

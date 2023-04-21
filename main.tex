@@ -1,0 +1,68 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage[T1]{fontenc}
+
+% provvisorio
+\title{AGENT-BASED MODELING AND LEARNING FOR EPIDEMIOLOGICAL STUDIES}
+\author{m.stievano1@campus.unimib.it}
+
+\pagenumbering{roman}
+\begin{document}
+\include{./txt/frontespizio}TITLE
+
+\begin{abstract}
+    % inserire abstract della tesi. 
+    % forse deve essere sia in eng che ita
+    L'abstract, che probabilmente dovrà essere presentato in doppia lingua (ITA, ENG)
+    rappresenta un breve sunto di tutto l'elaborato di cui fa da cappello. 
+    Ovviamente non dovrà entrare nel dettaglio, e anzi dovrà essere scorrevole e 
+    chiaro, senza soffermarsi troppo su alcun dettaglio, in quanto ci saranno 
+    le sezioni successive per espandere tali conoscenze. Ad occhio e croce potrebbe
+    prendere al massimo mezza pagina (così che se necessario ci stiano le due versioni su una pagina).
+\end{abstract}
+
+% se mai volessi scrivere una piccola dedica
+\include{./txt/dedica}
+
+% indice dei contenuti
+\tableofcontents
+\newpage
+
+\pagenumbering{arabic}
+% introduzione al testo
+\include{txt/introduction/introduzione}
+
+% descrizione dell'attuale stato delle cose
+\include{./txt/state_of_the_art/SOTA}
+% modelli compartimentali: deterministici e stocastici
+\include{./txt/state_of_the_art/compartmental_model/compartmental_model}
+% modelli ad agente: discreti e continui in spazio e tempo
+\include{./txt/state_of_the_art/agente_based/agent_based_model.tex}
+% epidemiologia
+\include{./txt/state_of_the_art/epidemiology/epidemiology.tex}
+% julia
+\include{./txt/state_of_the_art/julia/julia.tex}
+
+% descrizione dei metodi, strumenti e approcci utilizzati
+\include{./txt/methods/metodi}
+\include{./txt/methods/covid.tex}
+\include{./txt/methods/epidemics.tex}
+\include{./txt/methods/monitoring.tex}
+
+% discussione dei risultati ottenuti
+\include{./txt/results/results}
+
+% discussione delle conclusioni e possibili ringraziamenti
+\include{./txt/conclusions/conclusion}
+% \include{./txt/conclusions/ringraziamenti}
+
+\nocite{*}
+
+% \bibliographystyle{IEEEtran}
+\bibliographystyle{alpha}
+\bibliography{references.bib}
+
+\end{document}
