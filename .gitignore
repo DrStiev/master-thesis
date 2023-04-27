@@ -1,0 +1,11 @@
+*.aux
+txt/*.aux
+txt/conclusions/*.aux
+txt/introduction/*.aux
+txt/methods/*.aux
+txt/results/*.aux
+txt/state_of_the_art/julia/*.aux
+main.fdb_latexmk
+main.fls
+main.log
+main.synctex.gz

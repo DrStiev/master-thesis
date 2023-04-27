@@ -59,7 +59,7 @@ genere ha avuto sull’economia \cite{world_bank_group_2023},
 portando disagi generalizzati ovunque. 
 
 Legato al disagio economico vi è un altro dato preoccupante 
-definito come poverty trap \cite{wiki:Cycle_of_poverty}. 
+definito come poverty trap \cite{Bonds2009-sg} \cite{wiki:Cycle_of_poverty}. 
 Questo fenomeno nasce in quegli ambienti in cui le 
 condizioni di povertà economica e la prevalenza di malattie 
 possono imprigionare una società in uno stato persistente 
@@ -69,8 +69,8 @@ di positive feedback \cite{wiki:Positive_feedback}.
 Per ultimo, ma non per questo meno importante, l’effetto di 
 una pandemia può portare ad instabilità governative le 
 quali possono portare a un arretramento del sistema 
-sanitario e di welfare \cite{https://doi.org/10.1002/epa2.1152}, ricadendo come sopra descritto 
-all’interno del fenomeno di positive feedback.
+sanitario e di welfare \cite{https://doi.org/10.1002/epa2.1152}, 
+ricadendo come sopra descritto all’interno del fenomeno di positive feedback.
 
 Questi sono solamente alcuni esempi dei problemi che 
 possono sorgere, e che sono sorti con lo scoppio di una 
@@ -122,80 +122,114 @@ Dato lo scopo dell’epidemiologia, questa necessita di
 avvalersi di modelli matematici \cite{doi:10.4161/viru.24041} 
 che aiutano i ricercatori a trarre conclusioni sul sistema 
 che analizza. Sistemi simili vengono definiti come complessi,
-\cite{Galea2009-lj} \cite{Ladyman2013} ovvero sistemi dinamici a 
-multicomponenti che tipicamente interagiscono tra loro, 
-e che sono descrivibili tramite modelli matematici. 
+\cite{Galea2009-lj} \cite{Ladyman2013} ovvero sistemi 
+dinamici a multicomponenti che tipicamente interagiscono 
+tra loro, e che sono descrivibili tramite modelli matematici. 
 
 I primi modelli chiamati compartimentali \cite{Bjørnstad2020} 
 basano il proprio funzionamento sullo studio di gruppi di 
 individui disgiunti che interagiscono tra loro, 
 analizzabili tramite un sistema di equazioni ordinarie 
 differenziali (ODE) \cite{Brauer2008}. 
-Questo approccio è stato teorizzato da Kermack e McKendrick nel 1927 applicando 
-una modellazione matematica al comportamento delle malattie infettive su un gruppo di individui, 
-tenendo in considerazione la variabile del tempo. 
-Da qui è nato il famoso modello Susceptible-Infectious-Recovered (SIR), 
+Questo approccio è stato teorizzato da Kermack e McKendrick 
+nel 1927 applicando una modellazione matematica al comportamento 
+delle malattie infettive su un gruppo di individui, tenendo in 
+considerazione la variabile del tempo. Da qui è nato il famoso modello 
+Susceptible-Infectious-Recovered (SIR) \cite{wiki:Compartmental_models_in_epidemiology}, 
 il quale tuttora viene utilizzato ampiamente insieme alle sue varianti. 
 Successivamente con l’unione di svariate discipline come: 
 la teoria dei giochi, i sistemi complessi, i comportamento emergente, 
-la sociologia computazionale, i sistemi multiagente e la programmazione evoluzionaria 
-sono nati i modelli ad agente, modelli computazionali autonomi per la simulazione di sistemi complessi. 
+la sociologia computazionale, i sistemi multiagente e 
+la programmazione evoluzionaria sono nati i modelli ad agente 
+\cite{7822080} \cite{Bissett2021}, modelli computazionali 
+autonomi per la simulazione di sistemi complessi. 
 
-Grazie alla loro teorizzazione negli anni 1940 ma soprattutto grazie al loro uso concreto dagli 
-anni 1990 il mondo della simulazione ha avuto un grande balzo in avanti. 
-Ciò che rende questi sistemi molto flessibili e potenti è la capacità di 
-far emergere spontaneamente dei comportamenti complessi da un insieme di regole semplici. 
-Ovviamente però la richiesta di risorse e capacità computazionale è estremamente elevata 
-in rispetto alla controparte di modelli puramente matematici SIR. 
+Grazie alla loro teorizzazione negli anni 1940 ma soprattutto 
+grazie al loro uso concreto dagli anni 1990 il mondo della 
+simulazione ha avuto un grande balzo in avanti. 
+Ciò che rende questi sistemi molto flessibili e potenti è la 
+capacità di far emergere spontaneamente dei comportamenti 
+complessi da un insieme di regole semplici. 
+Ovviamente però la richiesta di risorse e capacità 
+computazionale è estremamente elevata rispetto alla 
+controparte di modelli puramente matematici. 
 
-Ogni approccio ha dei pro e dei contro e la vera potenza di questi modelli sta principalmente 
-nella acutezza di chi deve poi farne uso. In base ai compromessi e le assunzioni fatte durante 
-la fase di modellazione ogni approccio può rivelarsi vincente. 
-Uno dei compromessi maggiori che viene generalmente applicato a questi modelli è 
-quello della discretizzazione dell’ambiente. La realtà è a tutti gli effetti un insieme 
-continuo di eventi, ma essendo tutti i dispositivi di calcolo discreti è impossibile simulare avvenimenti 
-continui (siano essi nel tempo o nello spazio) in maniera diretta e perciò bisogna fare dei compromessi, 
-trasformando il proprio spazio di lavoro in uno più adatto alle macchine che lo devono simulare. 
+Ogni approccio ha dei pro e dei contro e la vera potenza di 
+questi modelli sta principalmente nella acutezza di chi deve 
+poi farne uso. In base ai compromessi e le assunzioni fatte 
+durante la fase di modellazione ogni approccio può rivelarsi 
+vincente. Uno dei compromessi maggiori che viene generalmente 
+applicato a questi modelli è quello della discretizzazione 
+dell’ambiente \cite{KONSTANTINOUDIS2020100319}. 
+La realtà è a tutti gli effetti un insieme continuo di eventi, 
+ma essendo tutti i dispositivi di calcolo discreti è 
+impossibile simulare avvenimenti continui 
+(siano essi nel tempo o nello spazio) in maniera diretta e 
+perciò bisogna fare dei compromessi, trasformando il proprio 
+spazio di lavoro in uno più adatto alle macchine che lo devono 
+simulare. 
 
-Un altra assunzione generalista e approssimativa per definizione, ma necessaria per la costruzione 
-di un modello che analizzi il decorso di un’epidemia all’interno di una società, 
-è quella legata alla tipologia di comportamento che verrà mostrato 
-dagli esseri umani in condizioni di pericolo. 
-Queste sono solo alcune delle assunzioni e compromessi che bisogna fare quando ci si approccia 
-al mondo della simulazione. Tuttavia applicare delle assunzioni, 
-alle volte anche forti e controintuitive, non sempre è sinonimo di errore. 
+Un altra assunzione generalista e approssimativa per 
+definizione, ma necessaria per la costruzione di un modello 
+che analizzi il decorso di un’epidemia all’interno di una 
+società, è quella legata alla tipologia di comportamento che 
+verrà mostrato dagli esseri umani in condizioni di pericolo 
+\cite{Tracy2018-lc} \cite{El-Sayed2012-ac}. 
+Queste sono solo alcune delle assunzioni e compromessi che 
+bisogna fare quando ci si approccia al mondo della simulazione. 
+Tuttavia applicare delle assunzioni, alle volte anche forti e 
+controintuitive, non sempre è sinonimo di errore. 
+Alle volte tramite lo studio della causalità degli eventi 
+\cite{Galea2009-lj} \cite{Parascandola2001-kw} è possibile 
+astrarre un set minimale di assunzioni che se applicate danno 
+la capacità al modello di rappresentare molto bene il 
+comportamento desiderato. 
 
-Alle volte tramite lo studio della causalità degli eventi è possibile astrarre un set minimale 
-di assunzioni che se applicate danno la capacità al modello di rappresentare molto 
-bene il comportamento desiderato. 
-Certamente ci saranno alcune discrepanze soprattutto in casi estremi, 
-ma è un’eventualità che viene tenuta in considerazione ogni qualvolta si parla di simulazione, 
-e che non è possibile eliminare del tutto. 
+Certamente ci saranno alcune discrepanze soprattutto in casi 
+estremi, ma è un’eventualità che viene tenuta in considerazione 
+ogni qualvolta si parla di simulazione,e che non è possibile 
+eliminare del tutto. 
 
-La causalità o causa effetto, è quell’influenza per cui un evento, un processo, 
-uno stato o un oggetto contribuiscono nella produzione di un nuovo evento, processo, 
-stato o effetto, dove la causa è parzialmente responsabile dell’effetto e l’effetto 
-è parzialmente dipendente dalla causa. 
-A prima vista non sembra una tematica molto complessa o di difficile approccio, 
-complice il fatto che in quanto esseri umani siamo una specie che si è evoluta per trovare una 
-correlazione tra gli eventi, ma correlazione non significa, e soprattutto non implica, causalità. 
-Questo tema si riferisce all’incapacità legittima di dedurre la relazione di causa - effetto tra due eventi 
-o variabili solamente sulla base di una osservazione della loro associatività o correlazione. 
-Diventa chiaro come una delle parti più complesse dell’epidemiologia sia 
-proprio quella di stabilire le cause di un dato fenomeno e comprendere come 
-un determinato intervento su di esse influenzi quest’ultimo. 
+\begin{quotation}
+    "La causalità o causa effetto, è quell’influenza per cui un evento, 
+    un processo, uno stato o un oggetto contribuiscono nella produzione 
+    di un nuovo evento, processo, stato o effetto, dove la causa è 
+    parzialmente responsabile dell’effetto e l’effetto è parzialmente 
+    dipendente dalla causa."
+\end{quotation}
 
-Questa rapida introduzione all’epidemiologia e alla simulazione di sistemi complessi 
-tramite l’utilizzo in particolare di modelli ad agente sarà l’argomento cardine dell’intero elaborato. 
-Nelle sezioni successive verrà proposta un analisi dello stato dell’arte dell’attuale 
-panorama epidemiologico e simulativo, con alcune rapide digressioni sul problema della discretizzazione, 
-problema assai sentito nell’ambito della simulazione. 
+A prima vista non sembra una tematica molto complessa o di 
+difficile approccio, complice il fatto che in quanto esseri 
+umani siamo una specie che si è evoluta per trovare una 
+correlazione tra gli eventi, ma correlazione non significa, 
+e soprattutto non implica, causalità \cite{Altman2015}. 
+Questo tema si riferisce all’incapacità legittima di dedurre 
+la relazione di causa - effetto tra due eventi o variabili 
+solamente sulla base di una osservazione della loro 
+associatività o correlazione. 
 
-Successivamente verranno portati alla luce alcuni esempi e modelli di sistemi ad agente 
-che si occupano di modellare differenti tipi di epidemie, 
-tutte caratterizzate però dal fatto di essere epidemie infettive a diffusione principalmente aerea, 
-come ad esempio l’ebola, l’aviaria e l’influenza. 
+Diventa chiaro come una delle parti più complesse 
+dell’epidemiologia sia proprio quella di stabilire le cause di 
+un dato fenomeno e comprendere come un determinato intervento 
+su di esse influenzi quest’ultimo \cite{Galea2009-lj} 
+\cite{Parascandola2001-kw}. 
 
-Successivamente vi sarà un analisi più dettagliata riguardo la pandemia da COVID-19 
-che recentemente ci ha colpito. Infine verranno analizzati alcuni metodi di monitoraggio 
-di queste simulazioni con un focus su alcuni metodi di intervento.
+Questa rapida introduzione all’epidemiologia e alla simulazione 
+di sistemi complessi tramite l’utilizzo in particolare di 
+modelli ad agente sarà l’argomento cardine dell’intero 
+elaborato. Nelle sezioni successive verrà proposta un analisi 
+dello stato dell’arte dell’attuale 
+panorama epidemiologico e simulativo, con alcune rapide 
+digressioni sul problema della discretizzazione, problema 
+assai sentito nell’ambito della simulazione. 
+
+Successivamente verranno portati alla luce alcuni esempi e 
+modelli di sistemi ad agente che si occupano di modellare 
+differenti tipi di epidemie, tutte caratterizzate però dal 
+fatto di essere epidemie infettive a diffusione principalmente 
+aerea, come ad esempio l’ebola, l’aviaria e l’influenza. 
+
+Successivamente vi sarà un analisi più dettagliata riguardo la 
+pandemia da COVID-19 che recentemente ci ha colpito. 
+Infine verranno analizzati alcuni metodi di monitoraggio di 
+queste simulazioni con un focus su alcuni metodi di intervento.
