@@ -2,8 +2,10 @@
 \usepackage{graphicx} % Required for inserting images
 \usepackage{hyperref}
 \usepackage{setspace}
+\usepackage{bookmark}
 \usepackage{geometry}
 \usepackage[T1]{fontenc}
+\usepackage[parfill]{parskip}
 
 % provvisorio
 \title{AGENT-BASED MODELING AND LEARNING FOR EPIDEMIOLOGICAL STUDIES}
@@ -11,7 +13,7 @@
 
 \pagenumbering{roman}
 \begin{document}
-\include{./txt/frontespizio}TITLE
+\include{./txt/frontespizio}
 
 \begin{abstract}
     % inserire abstract della tesi. 
@@ -36,7 +38,6 @@
 \include{txt/introduction/introduzione}
 
 % descrizione dell'attuale stato delle cose
-\include{./txt/state_of_the_art/SOTA}
 % modelli compartimentali: deterministici e stocastici
 \include{./txt/state_of_the_art/compartmental_model/compartmental_model}
 % modelli ad agente: discreti e continui in spazio e tempo
@@ -47,7 +48,6 @@
 \include{./txt/state_of_the_art/julia/julia.tex}
 
 % descrizione dei metodi, strumenti e approcci utilizzati
-\include{./txt/methods/metodi}
 \include{./txt/methods/covid.tex}
 \include{./txt/methods/epidemics.tex}
 \include{./txt/methods/monitoring.tex}
@@ -62,7 +62,8 @@
 \nocite{*}
 
 % \bibliographystyle{IEEEtran}
-\bibliographystyle{alpha}
-\bibliography{references.bib}
+% \bibliographystyle{alpha}
+\bibliographystyle{plain}
+\bibliography{reference.bib}
 
 \end{document}

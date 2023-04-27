@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.4.21)  21 APR 2023 12:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.4.21)  27 APR 2023 10:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -147,14 +147,19 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 \Hy@SectionHShift=\skip49
 ) (/usr/share/texlive/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2011/12/19 v6.7a set line spacing
-) (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/bookmark/bookmark.sty
+Package: bookmark 2020-11-06 v1.29 PDF bookmarks (HO)
+ (/usr/share/texlive/texmf-dist/tex/latex/bookmark/bkm-pdftex.def
+File: bkm-pdftex.def 2020-11-06 v1.29 bookmark driver for pdfTeX (HO)
+\BKM@id=\count269
+)) (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
  (/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
-\Gm@cnth=\count269
-\Gm@cntv=\count270
-\c@Gm@tempcnt=\count271
+\Gm@cnth=\count270
+\Gm@cntv=\count271
+\c@Gm@tempcnt=\count272
 \Gm@bindingoffset=\dimen145
 \Gm@wd@mp=\dimen146
 \Gm@odd@mp=\dimen147
@@ -166,57 +171,56 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 \Gm@dimlist=\toks17
 ) (/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
-) (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+) (/usr/share/texlive/texmf-dist/tex/latex/parskip/parskip.sty
+Package: parskip 2021-03-14 v2.0h non-zero parskip adjustments
+ (/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count273
+)) (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count272
+\l__color_backend_stack_int=\count274
 \l__pdf_internal_box=\box50
-) (./main.aux (./txt/frontespizio.aux) (./txt/dedica.aux) (./txt/introduction/introduzione.aux) (./txt/state_of_the_art/SOTA.aux) (./txt/state_of_the_art/compartmental_model/compartmental_model.aux) (./txt/state_of_the_art/agente_based/agent_based_model.aux) (./txt/state_of_the_art/epidemiology/epidemiology.aux) (./txt/state_of_the_art/julia/julia.aux) (./txt/methods/metodi.aux) (./txt/methods/covid.aux) (./txt/methods/epidemics.aux) (./txt/methods/monitoring.aux) (./txt/results/results.aux) (./txt/conclusions/conclusion.aux))
+) (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
  (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count273
+\scratchcounter=\count275
 \scratchdimen=\dimen153
 \scratchbox=\box51
-\nofMPsegments=\count274
-\nofMParguments=\count275
+\nofMPsegments=\count276
+\nofMParguments=\count277
 \everyMPshowfont=\toks18
-\MPscratchCnt=\count276
+\MPscratchCnt=\count278
 \MPscratchDim=\dimen154
-\MPnumerator=\count277
-\makeMPintoPDFobject=\count278
+\MPnumerator=\count279
+\makeMPintoPDFobject=\count280
 \everyMPtoPDFconversion=\toks19
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
- (/usr/share/texlive/texmf-dist/tex/latex/grfext/grfext.sty
-Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
-)
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
-Package grfext Info: Graphics extension search list:
-(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 504.
  (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring OFF on input line 13.
+Package hyperref Info: Link coloring OFF on input line 15.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
  (/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
@@ -224,15 +228,11 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count279
+\c@section@level=\count281
 )
-LaTeX Info: Redefining \ref on input line 13.
-LaTeX Info: Redefining \pageref on input line 13.
-LaTeX Info: Redefining \nameref on input line 13.
- (./main.out) (./main.out)
-\@outlinefile=\write3
-\openout3 = `main.out'.
-
+LaTeX Info: Redefining \ref on input line 15.
+LaTeX Info: Redefining \pageref on input line 15.
+LaTeX Info: Redefining \nameref on input line 15.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -271,7 +271,7 @@ LaTeX Info: Redefining \nameref on input line 13.
 \openout2 = `./txt/frontespizio.aux'.
 
 (./txt/frontespizio.tex
-<img/logo_unimib.pdf, id=92, 67.8029pt x 66.29492pt>
+<img/logo_unimib.pdf, id=4, 67.8029pt x 66.29492pt>
 File: img/logo_unimib.pdf Graphic file (type pdf)
 <use img/logo_unimib.pdf>
 Package pdftex.def Info: img/logo_unimib.pdf  used on input line 6.
@@ -282,7 +282,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 11--15
  []
 
 
-Overfull \hbox (2.22166pt too wide) in paragraph at lines 4--18
+Overfull \hbox (32.22166pt too wide) in paragraph at lines 4--18
 [] [] 
  []
 
@@ -297,7 +297,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 32--34
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./img/logo_unimib.pdf>])pdfTeX warning (ext4): destination with the same identifier (name{page.i}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.28 \include{./txt/dedica}
+l.30 \include{./txt/dedica}
                             [1
 
 
@@ -305,14 +305,9 @@ l.28 \include{./txt/dedica}
 ]
 \openout2 = `./txt/dedica.aux'.
 
- (./txt/dedica.tex) (./main.toc
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 3.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 3.
-)
-\tf@toc=\write4
-\openout4 = `main.toc'.
+ (./txt/dedica.tex)
+\tf@toc=\write3
+\openout3 = `main.toc'.
 
  [2
 
@@ -322,87 +317,99 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \openout2 = `txt/introduction/introduzione.aux'.
 
  (./txt/introduction/introduzione.tex
-Underfull \hbox (badness 10000) in paragraph at lines 3--7
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 16--21
-
- []
+LaTeX Warning: Citation `wiki:Peste_nera' on page 1 undefined on input line 20.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 22--30
-
- []
+LaTeX Warning: Citation `wiki:Tifo_esantematico' on page 1 undefined on input line 23.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 39--49
-
- []
+LaTeX Warning: Citation `wiki:Influenza_spagnola' on page 1 undefined on input line 27.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 50--55
+LaTeX Warning: Citation `wiki:Pandemia_di_COVID-19' on page 1 undefined on input line 38.
 
- []
+
+LaTeX Warning: Citation `world_health_organization' on page 1 undefined on input line 53.
+
+
+LaTeX Warning: Citation `world_bank_group_2023' on page 1 undefined on input line 58.
+
+
+LaTeX Warning: Citation `wiki:Cycle_of_poverty' on page 1 undefined on input line 62.
+
+
+LaTeX Warning: Citation `wiki:Positive_feedback' on page 1 undefined on input line 68.
+
+
+LaTeX Warning: Citation `https://doi.org/10.1002/epa2.1152' on page 1 undefined on input line 72.
+
+
+LaTeX Warning: Citation `10.1371/journal.pone.0208442' on page 1 undefined on input line 87.
 
 [1
 
 ]
-Overfull \hbox (18.70988pt too wide) in paragraph at lines 67--75
+
+LaTeX Warning: Citation `10.1371/journal.pone.0208442' on page 2 undefined on input line 103.
+
+
+Overfull \hbox (19.3301pt too wide) in paragraph at lines 97--104
+[]\T1/cmr/m/n/10 Con il tempo questa definizione ha subito molti cam-bi-a-menti, derivati an-che e so-prat-tutto dall'espansione
+ []
+
+
+LaTeX Warning: Citation `wiki:Epidemiologia' on page 2 undefined on input line 109.
+
+
+Overfull \hbox (18.70988pt too wide) in paragraph at lines 105--111
 \T1/cmr/m/n/10 tribuzione e la fre-quenza delle malat-tie ed eventi di ril-e-vanza san-i-taria nella popo-lazione. L'epidemiologia
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 67--75
-
- []
+LaTeX Warning: Citation `wiki:Simulation_software' on page 2 undefined on input line 120.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 76--94
-
- []
+LaTeX Warning: Citation `doi:10.4161/viru.24041' on page 2 undefined on input line 122.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 95--102
-
- []
+LaTeX Warning: Citation `Galea2009-lj' on page 2 undefined on input line 125.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 120--127
+LaTeX Warning: Citation `Ladyman2013' on page 2 undefined on input line 125.
 
- []
-
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 128--141
-
- []
-
-) [3]
-\openout2 = `./txt/state_of_the_art/SOTA.aux'.
-
- (./txt/state_of_the_art/SOTA.tex) [4
+./txt/introduction/introduzione.tex:129: Missing \endcsname inserted.
+<to be read again> 
+                   \T1\o 
+l.129 ...ati compartimentali \cite{Bjørnstad2020}
+                                                  
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
 
 
+LaTeX Warning: Citation `Bj\T1\o rnstad2020' on page 2 undefined on input line 129.
 
-]
+
+LaTeX Warning: Citation `Brauer2008' on page 2 undefined on input line 133.
+
+[2]) [3]
 \openout2 = `./txt/state_of_the_art/compartmental_model/compartmental_model.aux'.
 
- (./txt/state_of_the_art/compartmental_model/compartmental_model.tex) [5
+ (./txt/state_of_the_art/compartmental_model/compartmental_model.tex) [4
 
 
 
 ]
 \openout2 = `./txt/state_of_the_art/agente_based/agent_based_model.aux'.
 
- (./txt/state_of_the_art/agente_based/agent_based_model.tex) [6
+ (./txt/state_of_the_art/agente_based/agent_based_model.tex) [5
 
 
 
 ]
 \openout2 = `./txt/state_of_the_art/epidemiology/epidemiology.aux'.
 
- (./txt/state_of_the_art/epidemiology/epidemiology.tex) [7
+ (./txt/state_of_the_art/epidemiology/epidemiology.tex) [6
 
 
 
@@ -424,7 +431,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 39--46
 
  []
 
-[8
+[7
 
 
 
@@ -438,68 +445,61 @@ Underfull \hbox (badness 10000) in paragraph at lines 61--68
 
  []
 
-) [9]
-\openout2 = `./txt/methods/metodi.aux'.
-
- (./txt/methods/metodi.tex) [10
-
-
-
-]
+) [8]
 \openout2 = `./txt/methods/covid.aux'.
 
- (./txt/methods/covid.tex) [11
+ (./txt/methods/covid.tex) [9
 
 
 
 ]
 \openout2 = `./txt/methods/epidemics.aux'.
 
- (./txt/methods/epidemics.tex) [12
+ (./txt/methods/epidemics.tex) [10
 
 
 
 ]
 \openout2 = `./txt/methods/monitoring.aux'.
 
- (./txt/methods/monitoring.tex) [13
+ (./txt/methods/monitoring.tex) [11
 
 
 
 ]
 \openout2 = `./txt/results/results.aux'.
 
- (./txt/results/results.tex) [14
+ (./txt/results/results.tex) [12
 
 
 
 ]
 \openout2 = `./txt/conclusions/conclusion.aux'.
 
- (./txt/conclusions/conclusion.tex) [15
+ (./txt/conclusions/conclusion.tex) [13
 
 
 
-] (./main.bbl [16
+]
+No file main.bbl.
+(./main.aux (./txt/frontespizio.aux) (./txt/dedica.aux) (./txt/introduction/introduzione.aux) (./txt/state_of_the_art/compartmental_model/compartmental_model.aux) (./txt/state_of_the_art/agente_based/agent_based_model.aux) (./txt/state_of_the_art/epidemiology/epidemiology.aux) (./txt/state_of_the_art/julia/julia.aux) (./txt/methods/covid.aux) (./txt/methods/epidemics.aux) (./txt/methods/monitoring.aux) (./txt/results/results.aux) (./txt/conclusions/conclusion.aux))
 
+LaTeX Warning: There were undefined references.
 
-] [17]) [18] (./main.aux (./txt/frontespizio.aux) (./txt/dedica.aux) (./txt/introduction/introduzione.aux) (./txt/state_of_the_art/SOTA.aux) (./txt/state_of_the_art/compartmental_model/compartmental_model.aux) (./txt/state_of_the_art/agente_based/agent_based_model.aux) (./txt/state_of_the_art/epidemiology/epidemiology.aux) (./txt/state_of_the_art/julia/julia.aux) (./txt/methods/metodi.aux) (./txt/methods/covid.aux) (./txt/methods/epidemics.aux) (./txt/methods/monitoring.aux) (./txt/results/results.aux) (./txt/conclusions/conclusion.aux))
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: F25DC0510F84E5AEA63AA55FFFAE0B95;2842.
  ) 
 Here is how much of TeX's memory you used:
- 9459 strings out of 480247
- 160908 string characters out of 5896151
- 438884 words of memory out of 5000000
- 27110 multiletter control sequences out of 15000+600000
- 478661 words of font info for 41 fonts, out of 8000000 for 9000
+ 9853 strings out of 480247
+ 163825 string characters out of 5896151
+ 442548 words of memory out of 5000000
+ 27586 multiletter control sequences out of 15000+600000
+ 477975 words of font info for 40 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 60i,7n,63p,291b,424s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/palindromicsindrome/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1000.600pk> </home/palindromicsindrome/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk> </home/palindromicsindrome/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/palindromicsindrome/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0900.600pk> </home/palindromicsindrome/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx0900.600pk> </home/palindromicsindrome/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/palindromicsindrome/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/palindromicsindrome/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/palindromicsindrome/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1728.600pk> </home/palindromicsindrome/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1000.600pk> </home/palindromicsindrome/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/eccc1000.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb>
-Output written on main.pdf (21 pages, 158166 bytes).
+ 60i,7n,63p,541b,343s stack positions out of 5000i,500n,10000p,200000b,80000s
+ </home/palindromicsindrome/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk> </home/palindromicsindrome/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/palindromicsindrome/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0900.600pk> </home/palindromicsindrome/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx0900.600pk> </home/palindromicsindrome/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/palindromicsindrome/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/palindromicsindrome/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/palindromicsindrome/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1728.600pk> </home/palindromicsindrome/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1000.600pk> </home/palindromicsindrome/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/eccc1000.600pk>
+Output written on main.pdf (16 pages, 114310 bytes).
 PDF statistics:
- 688 PDF objects out of 1000 (max. 8388607)
- 294 compressed objects within 3 object streams
- 85 named destinations out of 1000 (max. 500000)
+ 511 PDF objects out of 1000 (max. 8388607)
+ 202 compressed objects within 3 object streams
+ 42 named destinations out of 1000 (max. 500000)
  182 words of extra memory for PDF output out of 10000 (max. 10000000)
 
