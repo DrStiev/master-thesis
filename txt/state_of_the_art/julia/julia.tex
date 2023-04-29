@@ -1,5 +1,4 @@
 \subsection{Julia}
-
 Julia è un linguaggio di programmazione ad alto livello, 
 multi-paradigma e open-source ideato per compiere analisi 
 numerica ed effettuare operazioni di computer science in 
@@ -13,6 +12,12 @@ di programmazione scritto in C++ e Scheme, ma gran parte della
 sua composizione è scritta in Julia stesso 
 \cite{wiki:Julia_(programming_language)}.
 
+\begin{figure}
+    \includegraphics[width=\linewidth]{img/Julia_Programming_Language_Logo.svg.png}
+    \caption{Logo del linguaggio di programmazione Julia}
+    \label{fig:Julia_logo}
+\end{figure}
+
 le caratteristiche principali di questo linguaggio sono 
 principalmente:
 \begin{itemize}
@@ -21,6 +26,13 @@ principalmente:
     performante con la capacità di poter compilare programmi 
     in codice nativo per molteplici piattaforme grazie 
     all’utilizzo di LLVM
+
+    \begin{figure}
+        \includegraphics[width=\linewidth]{img/julia_llvm.jpg}
+        \caption{Esempio struttura Julia e LLVM}
+        \label{fig:Julia_LLVM}
+    \end{figure}
+
     \item Dinamico: la scelta di rendere Julia un linguaggio 
     dinamicamente tipizzato lo rende di facile utilizzo in 
     quanto rende molto più semplice il suo approccio anche a 
@@ -28,6 +40,13 @@ principalmente:
     ritorna la stessa sensazione di immediatezza di un 
     linguaggio di scripting. Inoltre questo permette un alto 
     supporto per l’uso interattivo
+
+    \begin{figure}
+        \includegraphics[width=\linewidth]{img/typing_example.jpg}
+        \caption{Esempio differenze di typing in alcuni linguaggi di programamzione}
+        \label{fig:Different_typing}
+    \end{figure}
+
     \item Ambiente riproducibile: lo scopo del linguaggio è 
     quello di poter permettere all’utente di ricreare le 
     stesse condizioni ogni volta su ogni macchina su cui un 
@@ -54,7 +73,7 @@ principalmente:
 \subsubsection{Agents.jl}
 Seguendo la filosofia propria del linguaggio di programmazione 
 in cui è sviluppata, la libreria Agents.jl \cite{Agents.jl} 
-è stata sviluppata con l’idea di essere facile da imparare e 
+viene sviluppata con l’obiettivo di essere facile da imparare e 
 usare ed estendibile, con forte attenzione sulla creazione ed 
 evoluzione di modelli veloci e soprattutto scalabili. 
 Molteplici esempi comparativi sono stati effettuati mostrando 
@@ -76,6 +95,12 @@ visto un enorme interesse per l’analisi di dati per lo
 sviluppo di policy di prevenzione e contenimento della 
 pandemia. 
 
+\begin{figure}
+    \includegraphics[width=\linewidth]{img/Agents_5poOwRo.png}
+    \caption{Logo framework Agents.jl}
+    \label{fig:Agents.jl_logo}
+\end{figure}
+
 \subsubsection{SciML.ai}
 SciML è una collezione di librerie dedite al calcolo scientifico 
 e non solo al machine learning. Questo framework permette di 
@@ -86,6 +111,12 @@ semplicemente senza essere banali
 \cite{rackauckas2017differentialequations} 
 \cite{rackauckas2019diffeqflux} 
 \cite{rackauckas2020universal}. 
+
+\begin{figure}
+    \includegraphics[width=\linewidth]{img/SciMLGitHubPreview.png}
+    \caption{Logo SciML.ai}
+    \label{fig:SciML.ai}
+\end{figure}
 
 Durante la pandemia da Covid-19 questo framework è stato 
 utilizzato per sviluppare applicazioni le quali grazie 
@@ -102,7 +133,7 @@ che si sono dimostrate essere efficaci
 \subsubsection{SafeBlues}
 Un esempio di un modello di scientific machine learning può 
 essere il modello denominato SafeBlues 
-\cite{10.1371/journal.pdig.0000142} il quale simulando una 
+\cite{10.1371/journal.pdig.0000142} \cite{DANDEKAR2021100220} il quale simulando una 
 rete bluetooth in cui gli individui potevano venire infettati 
 da un virus e poi infettare a loro volta tutti gli individui 
 nella rete con una certa probabilità, aveva riprodotto 
@@ -111,3 +142,15 @@ In aggiunta questa soluzione, aveva mostrato come
 l’applicazione di policy per il contenimento del virus 
 bluetooth erano perfettamente applicabili anche al caso 
 reale della pandemia. 
+
+\begin{figure}
+    \includegraphics[width=\linewidth]{img/gr2.jpg}
+    \caption{Esempio funzionamento SafeBlues}
+    \label{fig:SafeBlues_1}
+\end{figure}
+
+\begin{figure}
+    \includegraphics[width=\linewidth]{img/gr3.jpg}
+    \caption{Esempio modelli SafeBlues}
+    \label{fig:SafeBlues_models}
+\end{figure}
