@@ -15,7 +15,8 @@ definire dei compartimenti ben separati che possono interagire tra loro, ma
 che rimangono comunque chiaramente distinti l'uni dagli altri.
 
 Il modello che tutt'ora viene usato come riferimento e come base per 
-lo studio e modellazione è il così detto modello SIR: Susceptible, Infectious, Recovered.
+lo studio e modellazione è il così detto modello SIR: 
+Susceptible, Infectious, Recovered.
 
 \begin{figure}[h]
     \includegraphics[width=\linewidth]{img/sir.png}
@@ -55,7 +56,8 @@ Ordinarie Differenziali (ODE) \cite{Brauer2008}. Una volta definiti i parametri 
 utili per la simulazione del decorso di una malattia, è pressocchè immediato trovare
 il risultato al tempo T del sistema. Questo modello può essere calcolato tenendo 
 in considerazione un andamento più caotico del sistema, utilizzando invece che 
-un sistema di ODE, un sistema di SDE \cite{Allen2008} ovvero di Equazioni Differenziali Stocastiche.
+un sistema di ODE, un sistema di SDE \cite{Allen2008} ovvero 
+di Equazioni Differenziali Stocastiche.
 
 % \begin{figure}[h]
 %    \includegraphics[width=\linewidth]{img/ode.png}
@@ -66,7 +68,8 @@ un sistema di ODE, un sistema di SDE \cite{Allen2008} ovvero di Equazioni Differ
 Con il tempo questo sistema è stato espanso per tenere in considerazione comportamenti
 differenti sia della popolazione che delle malattie, andando a definire una moltitudine
 di modelli utili a differenti scopi. In epidemiologia il modello di
-riferimento maggiormente utilizzato è il modello SEIR (Susceptible, Exposed, Infectious, Recovered)
+riferimento maggiormente utilizzato è il modello SEIR 
+(Susceptible, Exposed, Infectious, Recovered)
 con le sue varianti proprie di ogni approccio.
 
 Alcuni modelli definiscono i propri stati in maniera da considerare 
@@ -118,11 +121,6 @@ infettive stagionali come ad esempio la comune influenza o il raffreddore, oppur
 mostrare l'andamento ad ondate di altre malattie che hanno la caratteristica di 
 mutare molto velocemente, come è stato per il COVID-19 e le sue innumerevoli varianti.
 
-Questa variante denominata SEIRS permette invece di osservare, non solo l'andamento e 
-l'efficacia delle contromisure non farmaceutiche, ma anche di quelle
-farmaceutiche, come ad esempio i vaccini; o più in generale l'andamento
-della così detta immunità di gregge \cite{Bjornstad2020}. 
-
 \newpage
 
 \begin{figure}[h]
@@ -130,6 +128,11 @@ della così detta immunità di gregge \cite{Bjornstad2020}.
     \caption{Modello SEIRS preso dall'articolo \cite{Bjornstad2020}}
     \label{fig:SEIRS_model}
 \end{figure}
+
+Questa variante denominata SEIRS permette invece di osservare, non solo l'andamento e 
+l'efficacia delle contromisure non farmaceutiche, ma anche di quelle
+farmaceutiche, come ad esempio i vaccini; o più in generale l'andamento
+della così detta immunità di gregge \cite{Bjornstad2020}. 
 
 Rimanendo sull'idea di voler analizzare l'efficacia di un vaccino, una
 modifica comune al modello SEIR è quella legata all'aggiunta dello stato V,
@@ -156,17 +159,17 @@ oppure ricavabile dalle probabilità di transizione degli altri stati
 solamente in caso in cui si avrebbe una differenza sostanziale tra lo stato
 R e V, ad esempio in termini di protezione dalla malattia, durata immunità etc... .
 
-\begin{figure}[h]
-    \begin{center}
-        \includegraphics[scale=1.2]{img/seirv_explicit.jpg}
-        \caption{Esempio di modello SEIRV con stato esplicito per la condizione V}
-        \label{fig:SEIRV_explicit}
-    \end{center}
-\end{figure}
+% \begin{figure}[h]
+%     \begin{center}
+%         \includegraphics[width=\linewidth]{img/seirv_explicit.jpg}
+%         \caption{Esempio di modello SEIRV con stato esplicito per la condizione V}
+%         \label{fig:SEIRV_explicit}
+%     \end{center}
+% \end{figure}
 
 \begin{figure}[h]
     \begin{center}
-        \includegraphics[scale=1.3]{img/seirv_implicit.jpg}
+        \includegraphics[width=\linewidth]{img/seirv_implicit.jpg}
         \caption{Esempio di modello SEIRV con stato implicito per la condizione V}
         \label{fig:SEIRV_implicito}
     \end{center}
@@ -181,10 +184,63 @@ Come precedentemente introdotto esistono due grandi famiglie di modelli
 per la simulazione, e sono rispettivamente la famiglia di modelli deterministici
 e quella di modelli stocastici.
 
+\newpage
+
 \subsubsection{Modelli Deterministici}
-Descrizione dei modelli di tipo deterministico con l'utilizzo delle ODE
-Pro e Contro utilizzo modelli deterministici
+I modelli deterministici vengono principalmente utilizzati 
+per la loro immediatezza e riproducibilità. Infatti un modello
+deterministico, una volta impostati i parametri necessari
+riprodurrà sempre lo stesso risultato. Questo tipo di approccio, 
+seppur utilizzatto in larga scala come ad esempio da \cite{Bjornstad2020}
+\cite{Mwalili2020}, \cite{Giordano2020} si basa su delle assunzioni molto forti
+che non sempre rispecchiano la realtà. 
+
+Infatti i modelli deterministici hanno il grosso problema di
+essere affidabili solamente nel caso in cui vi siano dati 
+sufficientemente grandi, cosa che non sempre è possibile
+avere \cite{wiki:Compartmental_models_in_epidemiology}.
+Essendo modelli di tipo deterministico, avendo dei parametri 
+di infettività maggiori di zero, con un numero di individui infetti
+anch'esso maggiore di zero, si tenderà ad avere nel lungo
+periodo un andamento di equilibrio endemico derivato 
+dalle equazioni e dal modello utilizzato. Questo comportamento
+però non sempre rispetta la realtà, ma come precedentemente 
+accennato, in casi in cui si hanno grandi quantità di dati 
+legati principalmente alla popolazione, questi modelli si 
+comportano in maniera affidabile.
+
+\begin{figure}[h]
+    \begin{center}
+        \includegraphics[scale=0.7]{img/3-s2.0-B9780128012383988378-f98837-02-9780128012383.jpg}
+        \caption{Esempio equilibrio endemico}
+        \label{fig:Endemic_equilibrium}
+    \end{center}
+\end{figure}
 
 \subsubsection{Modelli Stocastici}
-Descrizione dei modelli di tipo stocastico con l'utilizzo delle SDE
-Pro e Contro utilizzo modelli stocastici
+I modelli stocastici, seppur più complessi e non determinabili 
+a priori, permettono una modellazione più veritiera e 
+simile alla realtà in quanto tengono in considerazione 
+variazioni randomiche che possono capitare durante il 
+decorso di una pandemia. Tuttavia questa loro caoticità 
+richiede che per ottenere risultati robusti debbano essere 
+eseguiti e computati molteplici volte, e la media dei loro 
+risultati è il valore vero da tenere in considerazione. 
+Questi modelli sono stati applicati durante la pandemia da COVID-19 
+come ad esempio da \cite{ijerph17103535}. 
+
+\begin{figure}[h]
+    \begin{center}
+        \includegraphics[width=\linewidth]{img/Gillespie-e1643395123662.png}
+        \caption{Modello SIR stocastico}
+        \label{fig:Endemic_equilibrium_stochastic_sir}
+    \end{center}
+\end{figure}
+
+E' immediato notare come il comportamento delle curve sia 
+imprevedibile se preso singolarmente, e che non sempre 
+esiste uno stato di equilibrio endemico chiaro e definito come
+quello ottenibile da un modello deterministico. Ciò nonostante 
+effettuando molte simulazioni è possibile vedere come il 
+comportamento generale del modello sia comunque simile a 
+quello di un modello deterministico.
