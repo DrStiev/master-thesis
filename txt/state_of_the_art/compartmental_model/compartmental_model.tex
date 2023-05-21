@@ -1,5 +1,3 @@
-\section{Stato dell'Arte}
-
 \subsection{Modelli Compartimentali}
 In epidemiologia i modelli compartimentali sono una tecnica di modellezione 
 generica che si predispone molto bene allo studio complessivo del comportamento
@@ -15,8 +13,8 @@ definire dei compartimenti ben separati che possono interagire tra loro, ma
 che rimangono comunque chiaramente distinti l'uni dagli altri.
 
 Il modello che tutt'ora viene usato come riferimento e come base per 
-lo studio e modellazione è il così detto modello SIR: 
-Susceptible, Infectious, Recovered.
+lo studio e modellazione è il così detto modello 
+Susceptible, Infectious, Recovered (SIR):
 
 \begin{figure}[h]
     \includegraphics[width=\linewidth]{img/sir.png}
@@ -43,7 +41,17 @@ un individuo può essere inserito:
     anche definito come Removed.
 \end{itemize}
 
-\newpage
+Da questa semplice idea poi si è andato a sviluppare un modello
+matematico per descrivere come queste 3 categorie separate ma 
+che si influenzano vicendevolmente, cambiano nel corso del tempo.
+Questo approccio si basa sull'utilizzo di un sistema di Equazioni 
+Ordinarie Differenziali (ODE) \cite{Brauer2008}. Una ODE è
+un equazione differenziale, ovvero un equazione che lega 
+una funzione incognita alle sue derivate, che coinvolge una 
+funzione di una variabile e le sue derivate di ordine qualsiasi.
+Questo oggetto viene utilizzato estensivamente in molti ambiti 
+della scienza e in epidemiologia viene utilizzato per 
+descrivere un sistema dinamico \cite{wiki:Equazione_differenziale_ordinaria}. 
 
 \begin{figure}[h]
     \includegraphics[width=\linewidth]{img/SIR-model.png}
@@ -51,26 +59,54 @@ un individuo può essere inserito:
     \label{fig:SIR_model_graphic}
 \end{figure}
 
-Questo semplice modello funziona grazie all'utilizzo di un sistema di Equazioni
-Ordinarie Differenziali (ODE) \cite{Brauer2008}. Una volta definiti i parametri iniziali 
-utili per la simulazione del decorso di una malattia, è pressocchè immediato trovare
-il risultato al tempo T del sistema. Questo modello può essere calcolato tenendo 
-in considerazione un andamento più caotico del sistema, utilizzando invece che 
-un sistema di ODE, un sistema di SDE \cite{Allen2008} ovvero 
-di Equazioni Differenziali Stocastiche.
+Come succede per la maggior parte di tutte le equazioni 
+differenziali, queste non possono essere solitamente 
+risolte in maniera esatta, e per questo ci si limita a 
+studiarne il comportamento qualitativo della soluzione 
+senza essere capaci di ottenere una'espressione analitica.
 
-% \begin{figure}[h]
-%    \includegraphics[width=\linewidth]{img/ode.png}
-%    \caption{Equazioni Ordinarie Differenziali modello SIR} 
-%    \label{fig:ODE_SIR}
-% \end{figure}
+Nell'ambito epidemiologico tuttavia non sempre l'utilizzo
+di un sistema di ODE è preferito come metodo generale di 
+modellazione di un sistema dinamico, in quanto il più 
+delle volte questo sistema al suo interno utilizza un 
+insieme di variabili rappresentanti processi stocastici, le quali 
+è bene mantenere tali. A questo scopo vengono utilizzati i 
+sistemi di Equazioni Differenziali Stocastiche (SDE) \cite{Allen2008}.
 
-Con il tempo questo sistema è stato espanso per tenere in considerazione comportamenti
-differenti sia della popolazione che delle malattie, andando a definire una moltitudine
-di modelli utili a differenti scopi. In epidemiologia il modello di
+Queste equazioni si basano sulla teoria del moto Browniano 
+il quale descrive il movimento randomico delle particelle 
+sospese all'interno di un medium \cite{wiki:Brownian_motion}. 
+In questo modo è possibile modellare in maniera più granulare
+ad esempio la diffusione di un agente patogeno tramite il 
+medium aereo, come può essere il COVID-19.
+
+\subsubsection{Derivazioni del modello SIR}
+
+Con il tempo questo il modello SIR è stato espanso 
+per tenere in considerazione comportamenti
+differenti sia della popolazione che delle malattie, 
+andando a definire una moltitudine di modelli utili a 
+differenti scopi. In epidemiologia il modello di
 riferimento maggiormente utilizzato è il modello SEIR 
 (Susceptible, Exposed, Infectious, Recovered)
 con le sue varianti proprie di ogni approccio.
+
+Questa tipologia di modello basa il proprio punto di forza
+sull'osservazione che da quando un individuo viene 
+infettato tramite un agente patogeno a quando quest'ultimo 
+diventa infettivo, passa un periodo di latenza in cui 
+l'individuo non può ne infettare ne essere infettato. 
+Questo periodo viene anche conosciuto come periodo di 
+incubazione \cite{wiki:Incubation_period}. Con questa 
+conoscenza pregressa è possibile sviluppare modelli 
+e policy che tenendo conto di questo comportamento lo 
+sfruttino per arginare l'epidemia.
+
+\begin{figure}[h]
+    \includegraphics[width=\linewidth]{img/SEIR-compartmental-model-schematic.png}
+    \caption{Modello schematico SEIR} 
+    \label{fig:SEIR_model}
+\end{figure}
 
 Alcuni modelli definiscono i propri stati in maniera da considerare 
 come stato interno al sistema anche l'agente patogeno, così da 

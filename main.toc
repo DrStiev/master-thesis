@@ -1,24 +1,25 @@
 \contentsline {section}{\numberline {1}Introduzione}{1}{section.1}%
 \contentsline {section}{\numberline {2}Stato dell'Arte}{4}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Modelli Compartimentali}{4}{subsection.2.1}%
-\contentsline {subsubsection}{\numberline {2.1.1}Modelli Deterministici}{10}{subsubsection.2.1.1}%
-\contentsline {subsubsection}{\numberline {2.1.2}Modelli Stocastici}{11}{subsubsection.2.1.2}%
-\contentsline {subsection}{\numberline {2.2}Modelli ad Agente}{12}{subsection.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.1}Discretizzazione}{14}{subsubsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.3}Epidemiologia}{16}{subsection.2.3}%
-\contentsline {subsubsection}{\numberline {2.3.1}Causalità in Epidemiologia}{16}{subsubsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.4}Julia}{18}{subsection.2.4}%
-\contentsline {subsubsection}{\numberline {2.4.1}Agents.jl}{19}{subsubsection.2.4.1}%
-\contentsline {subsubsection}{\numberline {2.4.2}SciML.ai}{20}{subsubsection.2.4.2}%
-\contentsline {subsubsection}{\numberline {2.4.3}SafeBlues}{20}{subsubsection.2.4.3}%
-\contentsline {section}{\numberline {3}Metodi e Modelli}{23}{section.3}%
-\contentsline {subsection}{\numberline {3.1}COVID-19}{23}{subsection.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.1}Modelli SEIR}{23}{subsubsection.3.1.1}%
-\contentsline {subsubsection}{\numberline {3.1.2}Modelli ad Agente}{23}{subsubsection.3.1.2}%
-\contentsline {subsection}{\numberline {3.2}Altre epidemie}{24}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Ebola}{24}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}Aviaria}{24}{subsubsection.3.2.2}%
-\contentsline {subsubsection}{\numberline {3.2.3}Influenza}{24}{subsubsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.3}Monitoraggio e Intervento}{25}{subsection.3.3}%
-\contentsline {section}{\numberline {4}Risultati Ottenuti}{26}{section.4}%
-\contentsline {section}{\numberline {5}Conclusioni}{27}{section.5}%
+\contentsline {subsection}{\numberline {2.1}Epidemiologia}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Causalità}{6}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Modelli Compartimentali}{7}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Derivazioni del modello SIR}{9}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Modelli Deterministici}{14}{subsubsection.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.3}Modelli Stocastici}{15}{subsubsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.4}Modelli ad Agente}{16}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Discretizzazione}{18}{subsubsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.5}Julia}{20}{subsection.2.5}%
+\contentsline {subsubsection}{\numberline {2.5.1}Agents.jl}{21}{subsubsection.2.5.1}%
+\contentsline {subsubsection}{\numberline {2.5.2}SciML.ai}{22}{subsubsection.2.5.2}%
+\contentsline {subsubsection}{\numberline {2.5.3}SafeBlues}{22}{subsubsection.2.5.3}%
+\contentsline {section}{\numberline {3}Metodi e Modelli}{25}{section.3}%
+\contentsline {subsection}{\numberline {3.1}COVID-19}{25}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Modelli SEIR}{25}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Modelli ad Agente}{25}{subsubsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.2}Altre epidemie}{26}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Ebola}{26}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Aviaria}{26}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Influenza}{26}{subsubsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.3}Monitoraggio e Intervento}{27}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Risultati Ottenuti}{28}{section.4}%
+\contentsline {section}{\numberline {5}Conclusioni}{29}{section.5}%
