@@ -14,7 +14,7 @@ che rimangono comunque chiaramente distinti l'uni dagli altri.
 
 Il modello che tutt'ora viene usato come riferimento e come base per 
 lo studio e modellazione è il così detto modello 
-Susceptible, Infectious, Recovered (SIR):
+\textbf{Susceptible, Infectious, Recovered} (SIR):
 
 \begin{figure}[h]
     \includegraphics[width=\linewidth]{img/sir.png}
@@ -55,7 +55,7 @@ descrivere un sistema dinamico \cite{wiki:Equazione_differenziale_ordinaria}.
 
 \begin{figure}[h]
     \includegraphics[width=\linewidth]{img/SIR-model.png}
-    \caption{Visualizzazione grafico modello SIR} 
+    \caption{Visualizzazione grafica di un modello SIR} 
     \label{fig:SIR_model_graphic}
 \end{figure}
 
@@ -96,8 +96,8 @@ sull'osservazione che da quando un individuo viene
 infettato tramite un agente patogeno a quando quest'ultimo 
 diventa infettivo, passa un periodo di latenza in cui 
 l'individuo non può ne infettare ne essere infettato. 
-Questo periodo viene anche conosciuto come periodo di 
-incubazione \cite{wiki:Incubation_period}. Con questa 
+Questo periodo viene anche conosciuto come \emph{periodo di 
+incubazione} \cite{wiki:Incubation_period}. Con questa 
 conoscenza pregressa è possibile sviluppare modelli 
 e policy che tenendo conto di questo comportamento lo 
 sfruttino per arginare l'epidemia.
@@ -117,11 +117,12 @@ il modello viene proposto con l'idea di incorporare le misure di
 distanziamento sociale come variabili per misurare la loro efficacia
 contro la recente pandemia da COVID-19.
 
-\begin{figure}[h]
-    \includegraphics[width=\linewidth]{img/13104_2020_5192_Fig1_HTML.png}
-    \caption{Esempio di modello SEIR preso dall'articolo \cite{Mwalili2020}}
+\begin{minipage}{\linewidth}
+    \centering
+    \includegraphics[width=\textwidth]{img/13104_2020_5192_Fig1_HTML.png}
+    \captionof{figure}{Esempio di modello SEIR preso dall'articolo \cite{Mwalili2020}}
     \label{fig:SEIR_model_social_distancing}
-\end{figure}
+\end{minipage}
 
 Altri modelli, come quello proposto da \cite{ijerph17103535} mantengono 
 la stessa filosofia, ovvero quella di analizzare l'efficacia delle misure 
@@ -132,13 +133,12 @@ risultato. Un'altra differenza tra i due approcci è quella della tipologia
 di equazioni differenziali utilizzate, \cite{Mwalili2020} hanno utilizzato 
 delle ODE mentre \cite{ijerph17103535} delle SDE.
 
-\newpage
-
-\begin{figure}[h]
-    \includegraphics[width=\linewidth]{img/ijerph-17-03535-g001.png}
-    \caption{Esempio di modello SEIR preso dall'articolo \cite{ijerph17103535}}
-    \label{fig:SEIR_model}
-\end{figure}
+\begin{minipage}{\linewidth}
+    \centering
+    \includegraphics[width=\textwidth]{img/ijerph-17-03535-g001.png}
+    \captionof{figure}{Esempio di modello SEIR preso dall'articolo \cite{ijerph17103535}}
+    \label{fig:SEIR_model_article}
+\end{minipage}
 
 Il motivo per cui viene utilizzato il modello SEIR come base è perchè permette di 
 modellare una caratteristica intrinseca di una malattia infettiva, ovvero 
@@ -157,13 +157,12 @@ infettive stagionali come ad esempio la comune influenza o il raffreddore, oppur
 mostrare l'andamento ad ondate di altre malattie che hanno la caratteristica di 
 mutare molto velocemente, come è stato per il COVID-19 e le sue innumerevoli varianti.
 
-\newpage
-
-\begin{figure}[h]
-    \includegraphics[width=\linewidth]{img/41592_2020_856_Fig1_HTML.png}
-    \caption{Modello SEIRS preso dall'articolo \cite{Bjornstad2020}}
+\begin{minipage}{\linewidth}
+    \centering
+    \includegraphics[width=\textwidth]{img/41592_2020_856_Fig1_HTML.png}
+    \captionof{figure}{Modello SEIRS preso dall'articolo \cite{Bjornstad2020}}
     \label{fig:SEIRS_model}
-\end{figure}
+\end{minipage}
 
 Questa variante denominata SEIRS permette invece di osservare, non solo l'andamento e 
 l'efficacia delle contromisure non farmaceutiche, ma anche di quelle
@@ -220,8 +219,6 @@ Come precedentemente introdotto esistono due grandi famiglie di modelli
 per la simulazione, e sono rispettivamente la famiglia di modelli deterministici
 e quella di modelli stocastici.
 
-\newpage
-
 \subsubsection{Modelli Deterministici}
 I modelli deterministici vengono principalmente utilizzati 
 per la loro immediatezza e riproducibilità. Infatti un modello
@@ -245,13 +242,12 @@ accennato, in casi in cui si hanno grandi quantità di dati
 legati principalmente alla popolazione, questi modelli si 
 comportano in maniera affidabile.
 
-\begin{figure}[h]
-    \begin{center}
-        \includegraphics[scale=0.7]{img/3-s2.0-B9780128012383988378-f98837-02-9780128012383.jpg}
-        \caption{Esempio equilibrio endemico}
-        \label{fig:Endemic_equilibrium}
-    \end{center}
-\end{figure}
+\begin{minipage}{\linewidth}
+    \centering
+    \includegraphics[width=\textwidth]{img/3-s2.0-B9780128012383988378-f98837-02-9780128012383.jpg}
+    \captionof{figure}{Esempio equilibrio endemico}
+    \label{fig:Endemic_equilibrium}
+\end{minipage}
 
 \subsubsection{Modelli Stocastici}
 I modelli stocastici, seppur più complessi e non determinabili 
@@ -265,13 +261,12 @@ risultati è il valore vero da tenere in considerazione.
 Questi modelli sono stati applicati durante la pandemia da COVID-19 
 come ad esempio da \cite{ijerph17103535}. 
 
-\begin{figure}[h]
-    \begin{center}
-        \includegraphics[width=\linewidth]{img/Gillespie-e1643395123662.png}
-        \caption{Modello SIR stocastico}
-        \label{fig:Endemic_equilibrium_stochastic_sir}
-    \end{center}
-\end{figure}
+\begin{minipage}{\linewidth}
+    \centering
+    \includegraphics[width=\textwidth]{img/Gillespie-e1643395123662.png}
+    \captionof{figure}{Modello SIR stocastico}
+    \label{fig:Endemic_equilibrium_stochastic_sir}
+\end{minipage}
 
 E' immediato notare come il comportamento delle curve sia 
 imprevedibile se preso singolarmente, e che non sempre 
