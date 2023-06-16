@@ -14,16 +14,16 @@
 \contentsline {subsubsection}{\numberline {2.5.3}SafeBlues}{28}{subsubsection.2.5.3}%
 \contentsline {section}{\numberline {3}Metodi e Modelli}{30}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Modello ad Agente}{30}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Monitoraggio e Intervento}{31}{subsection.3.2}%
-\contentsline {section}{\numberline {4}Risultati Ottenuti}{32}{section.4}%
-\contentsline {section}{\numberline {5}Sviluppi Futuri}{33}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Altre epidemie}{33}{subsection.5.1}%
-\contentsline {subsubsection}{\numberline {5.1.1}Ebola}{33}{subsubsection.5.1.1}%
-\contentsline {subsubsection}{\numberline {5.1.2}Aviaria}{33}{subsubsection.5.1.2}%
-\contentsline {subsubsection}{\numberline {5.1.3}Influenza}{33}{subsubsection.5.1.3}%
-\contentsline {subsection}{\numberline {5.2}Miglioramento integrazione SciML.ai}{33}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Accuratezza nella descrizione del modello}{33}{subsection.5.3}%
-\contentsline {subsubsection}{\numberline {5.3.1}Happiness}{33}{subsubsection.5.3.1}%
-\contentsline {subsubsection}{\numberline {5.3.2}Interventi localizzati}{33}{subsubsection.5.3.2}%
-\contentsline {subsubsection}{\numberline {5.3.3}Migliore flessibilità generale}{33}{subsubsection.5.3.3}%
-\contentsline {section}{\numberline {6}Conclusioni}{34}{section.6}%
+\contentsline {subsection}{\numberline {3.2}Monitoraggio e Intervento}{35}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Risultati Ottenuti}{36}{section.4}%
+\contentsline {section}{\numberline {5}Sviluppi Futuri}{37}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Altre epidemie}{37}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}Ebola}{37}{subsubsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.2}Aviaria}{37}{subsubsection.5.1.2}%
+\contentsline {subsubsection}{\numberline {5.1.3}Influenza}{37}{subsubsection.5.1.3}%
+\contentsline {subsection}{\numberline {5.2}Miglioramento integrazione SciML.ai}{37}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Accuratezza nella descrizione del modello}{37}{subsection.5.3}%
+\contentsline {subsubsection}{\numberline {5.3.1}Happiness}{37}{subsubsection.5.3.1}%
+\contentsline {subsubsection}{\numberline {5.3.2}Interventi localizzati}{37}{subsubsection.5.3.2}%
+\contentsline {subsubsection}{\numberline {5.3.3}Migliore flessibilità generale}{37}{subsubsection.5.3.3}%
+\contentsline {section}{\numberline {6}Conclusioni}{38}{section.6}%
