@@ -5,25 +5,25 @@
 \contentsline {subsection}{\numberline {2.3}Modelli Compartimentali}{7}{subsection.2.3}%
 \contentsline {subsubsection}{\numberline {2.3.1}Derivazioni del modello SIR}{9}{subsubsection.2.3.1}%
 \contentsline {subsubsection}{\numberline {2.3.2}Modelli Deterministici}{13}{subsubsection.2.3.2}%
-\contentsline {subsubsection}{\numberline {2.3.3}Modelli Stocastici}{15}{subsubsection.2.3.3}%
-\contentsline {subsection}{\numberline {2.4}Modelli ad Agente}{16}{subsection.2.4}%
-\contentsline {subsubsection}{\numberline {2.4.1}Discretizzazione}{18}{subsubsection.2.4.1}%
-\contentsline {subsection}{\numberline {2.5}Julia}{20}{subsection.2.5}%
-\contentsline {subsubsection}{\numberline {2.5.1}Agents.jl}{20}{subsubsection.2.5.1}%
-\contentsline {subsubsection}{\numberline {2.5.2}SciML.ai}{24}{subsubsection.2.5.2}%
-\contentsline {subsubsection}{\numberline {2.5.3}SafeBlues}{28}{subsubsection.2.5.3}%
-\contentsline {section}{\numberline {3}Metodi e Modelli}{30}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Modello ad Agente}{30}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Monitoraggio e Intervento}{35}{subsection.3.2}%
-\contentsline {section}{\numberline {4}Risultati Ottenuti}{36}{section.4}%
-\contentsline {section}{\numberline {5}Sviluppi Futuri}{37}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Altre epidemie}{37}{subsection.5.1}%
-\contentsline {subsubsection}{\numberline {5.1.1}Ebola}{37}{subsubsection.5.1.1}%
-\contentsline {subsubsection}{\numberline {5.1.2}Aviaria}{37}{subsubsection.5.1.2}%
-\contentsline {subsubsection}{\numberline {5.1.3}Influenza}{37}{subsubsection.5.1.3}%
-\contentsline {subsection}{\numberline {5.2}Miglioramento integrazione SciML.ai}{37}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Accuratezza nella descrizione del modello}{37}{subsection.5.3}%
-\contentsline {subsubsection}{\numberline {5.3.1}Happiness}{37}{subsubsection.5.3.1}%
-\contentsline {subsubsection}{\numberline {5.3.2}Interventi localizzati}{37}{subsubsection.5.3.2}%
-\contentsline {subsubsection}{\numberline {5.3.3}Migliore flessibilità generale}{37}{subsubsection.5.3.3}%
-\contentsline {section}{\numberline {6}Conclusioni}{38}{section.6}%
+\contentsline {subsubsection}{\numberline {2.3.3}Modelli Stocastici}{16}{subsubsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.4}Modelli ad Agente}{17}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Discretizzazione}{19}{subsubsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.5}Julia}{21}{subsection.2.5}%
+\contentsline {subsubsection}{\numberline {2.5.1}Agents.jl}{21}{subsubsection.2.5.1}%
+\contentsline {subsubsection}{\numberline {2.5.2}SciML.ai}{25}{subsubsection.2.5.2}%
+\contentsline {subsubsection}{\numberline {2.5.3}SafeBlues}{29}{subsubsection.2.5.3}%
+\contentsline {section}{\numberline {3}Metodi e Modelli}{31}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Modello ad Agente}{31}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Monitoraggio e Intervento}{43}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Risultati Ottenuti}{44}{section.4}%
+\contentsline {section}{\numberline {5}Sviluppi Futuri}{45}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Altre epidemie}{45}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}Ebola}{45}{subsubsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.2}Aviaria}{45}{subsubsection.5.1.2}%
+\contentsline {subsubsection}{\numberline {5.1.3}Influenza}{45}{subsubsection.5.1.3}%
+\contentsline {subsection}{\numberline {5.2}Miglioramento integrazione SciML.ai}{45}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Accuratezza nella descrizione del modello}{45}{subsection.5.3}%
+\contentsline {subsubsection}{\numberline {5.3.1}Happiness}{45}{subsubsection.5.3.1}%
+\contentsline {subsubsection}{\numberline {5.3.2}Interventi localizzati}{45}{subsubsection.5.3.2}%
+\contentsline {subsubsection}{\numberline {5.3.3}Migliore flessibilità generale}{45}{subsubsection.5.3.3}%
+\contentsline {section}{\numberline {6}Conclusioni}{46}{section.6}%

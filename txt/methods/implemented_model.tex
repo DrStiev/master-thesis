@@ -60,7 +60,7 @@ I campi principali sono:
 	varianti conosciute copra anche quelle non conosciute.
 \end{itemize}
 
-Utilizzare la macro @agent e' il modo che viene incentivato dal linguaggio, in quanto
+Utilizzare la macro \textbf{@agent} e' il modo che viene incentivato dal linguaggio, in quanto
 permette di creare un agente da un super tipo come AbstractAgent e permette di avere 
 gia' inclusi tutti i campi necessari. Inoltre, utilizzando questa \textbf{macro} e' 
 possibile includere tutti i campi di un altro agente, dovendo solamente specificare quelli 
@@ -87,7 +87,8 @@ e proprieta' della pandemia.
 Le proprieta' dei punti di interesse sono le seguenti:
 \begin{itemize}
 	\item number point of interest: e' di tipo \textbf{Vector} e rappresenta il numero di agenti 
-	che quel determinato nodo puo' contenere.
+	che quel determinato nodo puo' contenere. Gli elementi all'interno di questo vettore vengono 
+	determinati tramite una funzione esponenziale.
 	\item migration rate: e' di tipo \textbf{Matrix} e rappresenta una matrice di transizione tra i 
 	vari nodi del grafo. Questa matrice di transizione codifica la probabilita' di un agente di spostarsi
 	dal suo nodo ad un qualsiasi altro nodo presente. Essendo il grafo di tipo completo, ogni nodo 
@@ -95,12 +96,14 @@ Le proprieta' dei punti di interesse sono le seguenti:
 	La matrice infatti tiene in considerazione la probabilita' di un agente di spostarsi piu' 
 	facilmente verso un nodo popoloso, piuttosto che verso uno che non lo e', questo a mimica degli 
 	spostamenti umani.
+
 	\begin{minipage}{\linewidth}
 		\centering
 		\includegraphics[width=\textwidth]{img/travel_rate.png}
 		\captionof{figure}{Esempio di matrice di transizione}
 		\label{fig:migration_matrix}
 	\end{minipage}
+
 	\item Is: e' di tipo \textbf{Vector} e rappresenta il vettore degli infetti iniziali.
 	Generalmente viene inizializzato randomicamente nella posizione dei nodi, ma fisso nel numero
 	di infetti ovvero con I = 1. 
@@ -141,20 +144,168 @@ Le proprieta' della pandemia sono invece:
 	intorno a 1.0
 \end{itemize}
 
-\subsubsection*{Scelta parametri}
-
 \subsubsection*{Funzione di avanzamento agente}
+Un agente finche' all'interno di un modello segue ciclicamente il comportamento
+riportato in figura \ref{fig:agent_behaviour}
+
+\begin{minipage}{\linewidth}
+	\centering
+	\includegraphics[width=\textwidth]{img/agent_behaviour.png}
+	\captionof{figure}{Comportamento agente}
+	\label{fig:agent_behaviour}
+\end{minipage}
+
+Durante la funzione di avanzamento un agente segue un insieme di regole, che dettano
+un comportamento semplice ma completo. Un agente ha il compito di provare a spostarsi di 
+nodo, passando da quello attuale ad uno dei molteplici collegati; la scelta del nodo e' 
+casuale ma la sua trnasizione dipende dalla matrice di transizione definita precedentemente.
+Successivamente l'agente ha il compito di fare da veicolo per le infezioni \textbf{sse} 
+il suo stato e' infetto, altrimenti non e' necessario che venga effettuato questo punto.
+Infine il compito di un agente e' quello di aggiornare il proprio stato passando potenzialmente
+da quello attuale ad uno nuovo; questo implica che e' possibile che un agente venga rimosso 
+totalmente dal modello se dovesse morire.
+
+La funzione di trasmissione basa il proprio funzionamento sull' \emph{assunzione} che il 
+numero di contatti di un individuo infetto siano distribuiti seguendo
+una \textbf{Poisson} con media il parametro $R_0$. Ogni contatto poi ha la possibilita'
+di essere infettato data unicamente da due fattori:
+\begin{itemize}
+	\item stato dell'agente: solamente un agente con stato S (Suscettibile) puo' essere
+	infettato, oppure un agente con stato R (Recovered) che non ha mai contratto la variante
+	con cui attualmente e' entrato in contatto
+	\item probabilita' di infezione: questo valore e' dato dal rapporto tra le variabili
+	$R_0$ e $\gamma$ e indica la probabilita' di un infezione secondaria dato un contatto 
+	positivo all'essere infetto
+\end{itemize}
+
+\begin{minipage}{\linewidth}
+	\centering
+	\includegraphics[width=\textwidth]{img/transmit_function.png}
+	\captionof{figure}{Funzione di trasmissione}
+	\label{fig:transmit_function}
+\end{minipage}
+
+La funzione di aggiornamento dello stato degli agenti prende spunto dalla 
+funzione di transizione descritta dal modello compartimentale SEIR in figura \ref{fig:SEIRS_model}
+tranne che non viene modellata ne la morte naturale ne tantomeno la nascita di nuovi 
+agenti all'interno del modello. Viene pero' aggiunta la possibilita' di passare
+da uno stato S ad uno R tramite la probabilita' di \textbf{vaccinarsi} definita con il parametro $\xi$.
+% TODO: aggiornare figura 
+
+\begin{minipage}{\linewidth}
+	\centering
+	\includegraphics[width=\textwidth]{img/update_function.png}
+	\captionof{figure}{Funzione di aggiornamento dello stato di un agente}
+	\label{fig:update_agent_function}
+\end{minipage}
+
+Come mostrato nella sezione riguardante le proprieta' del modello in figura \ref{fig:model_code},
+le proprieta' che descrivono le probabilita' di transizione da uno stato all'altro sono prevalentemente
+di tipo \textbf{Int}. Queste pero' vengono poi implicitamente trasformate in tipo \textbf{Float64} 
+quando bisogna calcolare la probabilita' di transizion. La scelta di inizializzarle come 
+tipo Int e' stata fatta solamente per essere piu' \emph{Human Understandable}.
 
 \subsubsection*{Funzione di avanzamento modello}
+Ogni passo di avanzamento del modello segna un passo di avanzamento dell'intero sistema. 
+Questo vuol dire che all'interno di un passo del modello vi e' un passo per ogni agente. Di default
+il framework Agents.jl effettua prima l'avanzamento degli agenti e successivamente quello del modello.
+Questo comportamento puo' essere modificato quando viene chiamata la funzione di \textbf{step!} che 
+si occupa di far girare l'intero sistema.
+
+Il modello si occupa ad ogni passo di effettuare tutte quelle operazioni che non sono legate ad un
+singolo agente ma che sono legate o alla comunita' di agenti oppure al modello in quanto sistema complesso. 
+
+\begin{minipage}{\linewidth}
+	\centering
+	\includegraphics[width=\textwidth]{img/model_step.png}
+	\captionof{figure}{Funzione di avanzamento del modello}
+	\label{fig:model_step}
+\end{minipage}
+
+Come e' possibile osservare dalla figura \ref{fig:model_step}, il sistema si occupa principalmente
+di aggiornare la felicita' generale degli agenti, aggiornare l'indice $R_0$ riducendo il suo valore 
+in caso in cui sono state prese delle contromisure adeguate, controllare se e' disponibile un vaccino,
+generare una nuova \emph{Variant of Concern} (VOC). 
+
+Questa sezione e' quella che piu' presta il fianco ad \emph{assunzioni} riguardo 
+il comportamento generale del sistema. Tutte le funzioni sopra descritte si basano su un insieme
+piu' o meno nutrito di assunzioni per funzionare correttamente. Questo perche' al momento in cui sto 
+redigendo questo documento \today, non sono ancora riuscito ad implementare metodi migliori.
+
+Attualmente la funzione che si occupa di generare la felicita' complessiva di un nodo si basa
+sull'utilizzo di una \emph{tangente iperbolica} (tanh) che prende come parametro il valore attuale
+di happiness del nodo e lo bilancia con il valore delle contromisure $\eta$ associate e attualmente 
+uso. Questo approccio e' sicuramente problematico e fallace per numerosi motivi ma attualmente 
+adempie al suo obiettivo. 
+
+\begin{minipage}{\linewidth}
+	\centering
+	\includegraphics[width=\textwidth]{img/happiness.png}
+	\captionof{figure}{Funzione di stima della felicita generale di un nodo del grafo}
+	\label{fig:happiness}
+\end{minipage}
+
+La funzione di aggiornamento dell'indice $R_0$ in relazione a $\eta$ riduce ad ogni passo 
+del modello il valore di $R_0$ proporzionalmente al valore di $\eta$ e del
+valore di $R_i$, ovvero il valore atteso di $R_0$ che si vuole ottenere. 
+
+\begin{minipage}{\linewidth}
+	\centering
+	\includegraphics[width=\textwidth]{img/r0_reduction.png}
+	\captionof{figure}{Funzione di riduzione $R_0$}
+	\label{fig:r0_reduction}
+\end{minipage}
+
+Come mostrato in figura \ref{fig:r0_reduction} questo metodo si basa su un aspetto macroscopico del
+del sistema, cercando di rimanere quanto piu' fedele possibile all'idea alla base 
+del modello. Tuttavia rimane molto approssimativo come approccio, soprattutto quando la 
+quantificazione delle contromisure o misure di prevenzione ($\eta$) non e' 
+chiara ne facile da stimare.
+
+La funzione che si occupa di creare un vaccino e' la seguente
+
+\begin{minipage}{\linewidth}
+	\centering
+	\includegraphics[width=\textwidth]{img/vaccine.png}
+	\captionof{figure}{Funzione che si occupa di creare un vaccino}
+	\label{fig:vaccine}
+\end{minipage}
+
+Questa si occupa di generare il flusso di vaccinazioni giornaliere date dal
+calcolo di una \emph{immunita' di gregge} ottenibile tramite un 
+percorso vaccinale.\cite{wiki:Immunità_di_gregge}
+L'efficacia del vaccino e' stata assegnata seguendo lo studio di meta-analisi \cite{Wu2023-zd}.
+
+Infine la funzione che si occupa di generare la \emph{variant of concern} (VOC) e' la seguente
+
+\begin{minipage}{\linewidth}
+	\centering
+	\includegraphics[width=\textwidth]{img/voc.png}
+	\captionof{figure}{Funzione che si occupa di generare la VOC}
+	\label{fig:voc}
+\end{minipage}
+
+Si possono notare molte assunzioni:
+\begin{itemize}
+	\item la condizione di attivazione della funzione si basa su un valore
+	che sembra totalmente randomico. Quel valore, ovvero $8 \cdot 10e-4$ deriva dai
+	seguenti articoli \cite{Markov2023} \cite{https://doi.org/10.1002/jmv.27331} \cite{Abavisani2022}
+	i quali descrivono prevalentemente il tasso di mutazione casuale delle basi che compongono
+	il DNA del virus SARS-COV2. Questo pero' non implica che tali mutazioni 
+	creino una VOC. Per semplicita' e' stato scelto di usare l'approccio per cui
+	se una mutazione avviene, questa e' un a VOC. In linea di massima sembra che 
+	questo approccio semplicistico crei un numero di VOC generalmente sensato e 
+	in linea con quanto abbiamo potuto osservare durante la pandemia
+	\item la distribuzione dei parametri associati alla pandemia viene calcolata
+	seguendo una distribuzione \textbf{Normale}, tranne per la distribuzione dell'indice $R_0$
+	il quale segue una distribuzione di tipo \textbf{Uniforme} \cite{wiki:Numero_di_riproduzione_di_base}
+\end{itemize}
 
 \subsubsection*{Grafici}
 
-Descrizione approfondita del modello ad agente usato.
-Spiegazione della tipologia di spazio, del perche' e' usato, e 
-dell'agente. 
-
-Spiegazione dei parametri utilizzati e del perche' sono stati 
-scelti in quel modo. Spiegazione di come vado a ottenere tali parametri 
-e i dati su cui faccio affidamento.
-
-Risultati grafici.
+\begin{minipage}{\linewidth}
+	\centering
+	\includegraphics[width=\textwidth]{img/ABM SEIR NO INTERVENTION_2023-06-17.pdf}
+	\captionof{figure}{Grafico cumulativo del risultato del modello senza intervento del controllore}
+	\label{fig:abm_no_intervent}
+\end{minipage}
