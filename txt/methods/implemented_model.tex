@@ -203,7 +203,7 @@ Come mostrato nella sezione riguardante le proprieta' del modello in figura \ref
 le proprieta' che descrivono le probabilita' di transizione da uno stato all'altro sono prevalentemente
 di tipo \textbf{Int}. Queste pero' vengono poi implicitamente trasformate in tipo \textbf{Float64} 
 quando bisogna calcolare la probabilita' di transizion. La scelta di inizializzarle come 
-tipo Int e' stata fatta solamente per essere piu' \emph{Human Understandable}.
+tipo Int e' stata fatta solamente per essere piu' \textbf{Human Understandable}.
 
 \subsubsection*{Funzione di avanzamento modello}
 Ogni passo di avanzamento del modello segna un passo di avanzamento dell'intero sistema. 
@@ -302,6 +302,8 @@ Si possono notare molte assunzioni:
 \end{itemize}
 
 \subsubsection*{Grafici}
+Il seguente grafico \ref{fig:abm_no_intervent} mostra l'andamento delle curve del modello
+quando questo viene eseguito senza alcuna tipologia di intervento. 
 
 \begin{minipage}{\linewidth}
 	\centering
@@ -309,3 +311,44 @@ Si possono notare molte assunzioni:
 	\captionof{figure}{Grafico cumulativo del risultato del modello senza intervento del controllore}
 	\label{fig:abm_no_intervent}
 \end{minipage}
+
+Come e' possibile notare, il numero di individui suscettibili crolla drasticamente
+per via della diffusione rapida e simil esponenziale che ha il virus. Questa viene emulata
+dall'altrettanto rapida crescita di individui guariti (recovered) che pero', per via
+di come e' stato definita la condizione di guariti, non sono immuni alle varianti del virus. 
+Queste proprieta' contribuiscono ad un andamento ciclico delle curve, in particolar modo 
+di quelle \emph{E, I, R}. La curva associata al compartimento \emph{S} ha un suo andamento
+ciclico seppur molto sottile; questa sottigliezza e' dovuta all'assenza di misure di 
+controllo all'interno del sistema.
+
+Si puo' infine notare come la curva associata all'andamento degli individui
+nella classe \emph{D} abbia una crescita lineare.
+
+A seguire si puo' osservare come la curva associata alla variabile di happiness del modello,
+valore che serve per bilanciare la durezza delle misure di controllo per evitare 
+di cadere in un ciclo funzionale ma insostenibile, mostra un iniziale decrescita molto
+ripida, e una successiva crescita estremamente rapida fino poi a ottenere un \emph{plateau}
+poco sopra il livello 0.0, che rappresenta uno stato di normalita'. 
+
+Successivamente questa curva tende a decrescere lentamente. Questo comportamento e' 
+irrealistico e associato alla definizione che e' stata fatta della funzione \textbf{happiness!}
+\ref{fig:happiness}. Tuttavia anche se il comportamento di questa curva non e' 
+completamente realistico, si puo' comunque utilizzare per mantenere sotto controllo 
+le contromisure $\eta$.
+
+Infine si nota come, seppur la definizione della funzione associata alla creazione di una
+nuova voc \ref{fig:voc} sia semplicistica e irrealistica, il grafico mostra come su un periodo 
+di circa 3 anni, associabile alla durata del periodo covid, le voc sono al piu' 
+una decina (ogni picco o depressione e' una voc). 
+
+\begin{minipage}{\linewidth}
+	\centering
+	\includegraphics[scale=0.15]{img/41579_2023_878_Fig3_HTML.png}
+	\captionof{figure}{Grafico delle mutazioni casuali del virus SARS-COV2 preso dall'articolo \cite{Markov2023}}
+	\label{fig:covid_mutation}
+\end{minipage}
+
+Si nota come le voc scoperte del covid siano una quantita' pressoche' similare
+seppur con una distribuzione all'interno della linea temporale differente.
+Tuttavia il comportamento semplicistico applicato nel modello sembra essere 
+una buona approssimazione.
