@@ -1,154 +1,170 @@
 \section{Metodi e Modelli}
 
 \subsection{Modello ad Agente}
+L'approccio utilizzato e' stato quello di modellare l'intero problema come 
+se fosse una \emph{rete sociale}. L'idea e' nata tramite dopo aver osservato e 
+studiato attentamente il problema proposto. 
 
-Il modello ad agente implementato pone l'accento sull'idea di avere
-un controllo granulare sulla localizzazione dei possibili 
-focolari o punti di interesse durante il ciclo di vita di una pandemia.
-Per modellare uno spazio simile e' stato utilizzato uno \textbf{spazio discreto 
-a grafo}. 
+Il problema si presenta come lo studio della diffusione di una pandemia a trasmissione
+virale in un ambiente reale, il quale e' composto principalmente di cosi' detti 
+\emph{Punti di Interesse} (PdI). Questi punti di interesse successivamente sono 
+collegati tra loro tramite una rete piu' o meno fitta di collegamenti. Questa costruzione
+ricorda in maniera molto stretta una struttura dati largamente utilizzata, ovvero il \textbf{Grafo}.
 
+Con questo approccio la modellazione del problema e soprattutto la dinamica intera del 
+modello verte piu' su un approccio di tipo \emph{mesoscopico} tendente al \emph{macroscopico}.
+Questo poiche' per quanto l'idea di modellare un sistema ad agente estremamente granulare fosse 
+di non poco interesse, al lato pratico ci si sarebbe scontrati con delle difficolta' 
+intrinseche ad una modellazione cosi' specifica, la quale non si adattava all'idea piu' 
+ampia del problema. Difatti non si vuole modellare un sistema a livello microscopico per vedere
+le possibili interazioni tra agenti differenti, bensi' si vuole vedere la risposta collettiva di un
+agente astratto all'utilizzo di interventi mirati e specifici per contrastare l'epidemia in 
+maniera localizzata.
+
+% immagine grafo
 \subsubsection*{Approccio con Rete Sociale}
-Descrizione tipologia di approccio differente e se funziona
-utilizzare quest'ultima come base per la stesura della tesi
+Il modello utilizzato sfrutta una proprieta' del framework \textbf{Agents.jl} e definisce un 
+modello ad agente di tipo \textbf{ABM}. Essendo che in questo caso la struttura spaziale non 
+del modello non e' importante ma le sue connessioni si, vengono definiti gli agenti come nodi
+veri e propri del grafo in cui al loro interno viene simulato il ciclo di vita della pandemia 
+tramite un modello di tipo \textbf{SEIR} deterministico.
 
-\subsubsection*{Continua}
-
-L'idea e' quella di rappresentare differenti punti di interesse astratti dal
-livello di dettaglio che si vuole andare a modellare, andando a generalizzare
-uno scenario tipo nel quale N agenti si muovono all'interno di una rete 
-(in questo caso un grafo) e con questo monitorare diversi tipologie di interventi
-e il loro grado di successo nella lotta contro una possibile pandemia.
-
-La struttura offerta dal framework \textbf{Agents.jl} e' quella di uno 
-spazio \emph{GraphSpace} in coppia con il relativo tipo di agente di default
-\emph{GraphAgent}. Non vi e' alcuna differenza tra la tipologia GraphAgent e 
-ad esempio l'interfaccia AbstractAgent, in quanto il primo deriva dal secondo. 
-Tuttavia GraphAgent ha gia' al suo interno tutti gli attributi utili per 
-gestire un agente all'interno di uno spazio a grafo, lasciando al programmatore una
-preoccupazione in meno. 
-
-\subsubsection*{Agente}
 \begin{minipage}{\linewidth}
     \centering
-    \includegraphics[width=\textwidth]{img/agent_code.png}
+    \includegraphics[width=\textwidth]{img/node_agent.png}
     \captionof{figure}{Codice Agente}
     \label{fig:Agent_code}
 \end{minipage}
 
-Come e' possibile vedere dalla Figura \ref{fig:Agent_code}, il codice che si occupa
-di creare l'agente e' estremamente semplice. Al suo interno troviamo tutto quello che 
-un agente deve sapere per poter agire in maniera corretta all'interno dell'ambiente. 
-Essendo che l'agente \emph{Person} deriva dall'agente GraphAgent, questo eredita 
-automaticamente i campi fondamentali \textbf{pos} e \textbf{id}, i quali serviranno 
-per riconoscere la posizione all'interno del grafo dell'agente e distinguere l'agente 
-dagli altri.
+La struttura dell'agente e' di tipo \textbf{ContinuousAgent} in quanto lo 
+spazio del modello e' di tipo continuo. Questa scelta e' stata fatta in vista di possibili 
+sviluppi futuri dell'applicazione.
 
-I campi principali sono:
-\begin{itemize}
-	\item status: e' un campo di tipo \textbf{Symbol} che rappresenta 
-	lo stato di un determinato agente in un preciso momento del tempo. 
-	Questo stato puo' mutare nel tempo ed e' strettamente correlato a 
-	tutti e soli gli stati che un individuo puo' assumere all'interno di
-	un modello matematico di tipologia \textbf{SEIR}
-	\item variant:  e' un campo di tipo \textbf{UUID} (Universally Unique ID)
-	che rappresenta un identificatore univoco associato ad una delle possibili
-	varianti dell'agente patogeno attualmente in circolazione. Questo attributo 
-	serve principalmente a gestire la possibilita' di non avere una completa
-	immunita' dopo aver contratto e aver debellato il virus dal proprio sistema 
-	immunitario, rendendo gli individui identificati come \textbf{:R} 
-	passibili di reinfezione
-	\item infected by: e' un campo di tipo \textbf{Vector} che rappresenta 
-	quali varianti sono state contratte dall'agente. Un agente non puo' piu'
-	essere infettato da queste varianti. Questo approccio e' stato ideato per 
-	la modellazione di un vaccino, il quale non e' detto che copra tutte le
-	varianti che sono uscite, o comunque non e' detto che, pur coprendo tutte le
-	varianti conosciute copra anche quelle non conosciute.
-\end{itemize}
-
-Utilizzare la macro \textbf{@agent} e' il modo che viene incentivato dal linguaggio, in quanto
-permette di creare un agente da un super tipo come AbstractAgent e permette di avere 
-gia' inclusi tutti i campi necessari. Inoltre, utilizzando questa \textbf{macro} e' 
-possibile includere tutti i campi di un altro agente, dovendo solamente specificare quelli 
-nuovi.
-
-\subsubsection*{Spazio e Modello}
-Lo spazio e' di tipo GraphSpace e viene definito direttamente in 
-fase di creazione del modello. 
+Successivamente si puo' osservare come il modello generato sia molto snello,
+avendo solamente una manciata di parametri sufficienti al corretto funzionamento 
+del modello stesso, senza risultare confusionari. 
 
 \begin{minipage}{\linewidth}
     \centering
-    \includegraphics[width=\textwidth]{img/model_code.png}
+    \includegraphics[width=\textwidth]{img/sngraph_model.png}
     \captionof{figure}{Codice Modello}
-    \label{fig:model_code}
+    \label{fig:Model_code}
 \end{minipage}
 
-In questo caso come si puo' osservare dalla Figura \ref{fig:model_code}, lo spazio 
-e' un \emph{grafo completo} con C nodi. I nodi corrispondono ai punti di interesse del 
-grafo. Per dettagliare maggiormente questo spazio altrimenti scarno, vengono definite delle 
-\emph{proprieta' spaziali} del modello, ovvero proprieta' che ci sono sempre e ovunque. 
-Queste proprieta' possono essere divise in due macro categorie: proprieta' dei punti di interesse
-e proprieta' della pandemia.
+\subsubsection*{Agente}
+Come mostrato in figura \ref{fig:Agent_code} l'agente al suo interno e' molto minimale,
+descrivendo solamente gli attributi necessari e sufficienti per la corretta modellazione
+e interazione con se stesso. L'evoluzione di ogni agente e' completamente indipendente 
+anche se questa puo' essere influenzata da altri agenti della rete, modificando l'altrimenti 
+determinismo del modello SEIR al suo interno. 
 
-Le proprieta' dei punti di interesse sono le seguenti:
+I campi principali dell'agente sono i seguenti:
 \begin{itemize}
-	\item number point of interest: e' di tipo \textbf{Vector} e rappresenta il numero di agenti 
-	che quel determinato nodo puo' contenere. Gli elementi all'interno di questo vettore vengono 
-	determinati tramite una funzione esponenziale.
-	\item migration rate: e' di tipo \textbf{Matrix} e rappresenta una matrice di transizione tra i 
-	vari nodi del grafo. Questa matrice di transizione codifica la probabilita' di un agente di spostarsi
-	dal suo nodo ad un qualsiasi altro nodo presente. Essendo il grafo di tipo completo, ogni nodo 
-	e' collegato a tutti gli altri, tuttavia non tutti i collegamenti sono equamente probabili.
-	La matrice infatti tiene in considerazione la probabilita' di un agente di spostarsi piu' 
-	facilmente verso un nodo popoloso, piuttosto che verso uno che non lo e', questo a mimica degli 
-	spostamenti umani.
+	\item \textbf{population}: questo campo descrive tramite un valore di tipo \textbf{Int}
+	il numero totale di individui che ad ogni step del modello si trovano all'interno di uno 
+	specifico nodo. 
+	\item \textbf{status}: questo campo descrive tramite un vettore di tipo \textbf{Flaot64}
+	lo stato della popolazione all'interno del nodo. Questo stato viene descritto come 
+	percentuale di individui, per cui i valori all'interno del vettore saranno tutti compresi 
+	tra 0 e 1. La scelta di utilizzare questo approccio e' nata principalmente per motivi di 
+	\emph{type stability} in quanto le operazioni di risoluzione del sistema di ODE altrimenti 
+	potrebbero risentirne. Tuttavia e' stato fatto anche per un fattore di \emph{facilita' di comprensione}.
+	\item \textbf{param}: questo campo descrive tramite un vettore di tipo \textbf{Float64}
+	il parametro del modello SEIR specifici del nodo in questione. Questi parametri sono comprensivi 
+	non solo dei valori relativi all'epidemia, ma anche dei valori relativi alle contromisure, 
+	in particolare le contromisure \textbf{non farmaceutiche} e quelle \textbf{farmaceutiche}.
+	\item \textbf{happiness}: questo campo e' utilizzato come campo di appoggio per il bilanciamento
+	delle contromisure applicate dal controllore. Non esprime effettivamente la misura della felicita'
+	che la popolazione di un nodo ha complessivamente, ma e' comunque uno stimatore similare.
+\end{itemize}
 
-	\begin{minipage}{\linewidth}
+\subsubsection*{Spazio e Modello}
+Come accennato precedentemente e mostrato in figura \ref{fig:Model_code}, lo spazio del modello 
+e' di tipo \textbf{ContinuousSpace} seppure non venga effettivamente sfruttato a dovere. 
+Tuttavia l'interesse del modello e' il fatto che utilizzi una struttura come un grafo in maniera
+astratta per modellare le interazioni tra i suoi nodi, ovvero gli agenti, in maniera rapida e efficente.
+
+Per prima cosa viene creato il modello tramite la creazione di un grafo \emph{connesso}, il cui 
+numero di archi dipende da quanto l'utente vuole che siano connessi i nodi. Piu' alto e' il 
+desiderio di copertura piu' archi verranno creati. Tuttavia ci sono dei limiti superiori e inferiori 
+sul numero di nodi creabili.
+
+Il grafo che si va a creare e' \emph{non orientato}, per cui il numero minimo di archi necessari 
+per costruire un grafo connesso, ovvero un grafo in cui da ogni nodo e' sempre possibile raggiungere
+tutti gli altri nodi tramite un percorso che li collega, diventa il segunte, $numEdges = numNodes-1$
+e questo pone il limite inferiore. Quello superiore e' dato dalla costruzione di un grafo completo, 
+un grafo per cui ogni nodo e' collegato con tutti gli altri nodi appartenenti al grafo. In questo 
+caso il numero di archi necessari e': $numEdges = \frac{numNodes*(numNodes-1)}{2}$.
+
+All'interno di questi due limiti, viene creato il grafo secondo le esigenze dell'utente.
+
+\begin{figure}[!hb]
+	\centering
+	\begin{subfigure}[b]{0.45\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{img/travel_rate.png}
-		\captionof{figure}{Esempio di matrice di transizione}
-		\label{fig:migration_matrix}
-	\end{minipage}
+		\includegraphics[width=\textwidth]{img/CPT-Graphs-undirected-unweighted-ex1.svg.png}
+		\caption{Esempio di grafo connesso}
+		\label{fig:connected_graph_example}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/4-simplex_graph.svg.png}
+		\caption{Esempio di grafo completo}
+		\label{fig:complete_graph_example}
+	\end{subfigure}
+\end{figure}
 
-	\item Is: e' di tipo \textbf{Vector} e rappresenta il vettore degli infetti iniziali.
-	Generalmente viene inizializzato randomicamente nella posizione dei nodi, ma fisso nel numero
-	di infetti ovvero con I = 1. 
-	\item $\eta$: e' di tipo \textbf{Vector} e rappresenta il vettore delle contromisure implementate.
-	L'esperienza della pandemia ci ha insegnato che non sempre una contromisura generalizzata e' qualcosa
-	che funziona, alle volte e' giusto trattare in maniera locale il problema, applicando contromisure mirate
-	alla tipologia di esigenza locale. Questo vettore raccoglie quindi le contromisure associate ad ogni 
-	nodo del grafo. Una contromisura e' un valore $\in [0,1]$ che identifica l'efficacia della contromisure applicate.
-	La sfida e' comprendere in che modo una contromisura impatti sulla diffusione della pandemia.
-	\item happiness: e' di tipo \textbf{Vector} e rappresenta il vettore della felicita' della popolazione 
-	di un determinato nodo. Questo vettore contiene valori $\in [-1,1]$. Questo parametro e' stato inserito 
-	per evitare una caduta in una strategia funzionale ma insostenibile. Se l'obiettivo di un controllore 
-	e' quello di minimizzare il numero di infetti (e morti), la scelta piu' ragionevole (non dovendo tenere 
-	in conto di null'altro), e' quella di applicare un lockdown generalizzato a tutta la popolazione. 
-	Terminato il periodo di vita del virus si e' risolta la crisi pandemica. Questa soluzione e' pero'
-	\textbf{umanamente insostenibile}. Da qui un termine aggiuntivo che il controllore deve bilanciare, 
-	ovvero la felicita' della popolazione. Infatti questo termine deve essere massimizzato, e dipende 
-	principalmente dal termine $\eta$.
-\end{itemize}
+Successivamente viene creata una matrice di flusso, denominata come \textbf{migrationMatrix}
+che rappresenta la percentuale di individui che dal nodo di interesse si spostano verso 
+un nodo di destinazione. Questa matrice e' salvata come \textbf{matrice sparsa} per risparmiare
+spazio dove le connessione non sono presenti tra i nodi. 
 
-Le proprieta' della pandemia sono invece:
-\begin{itemize}
-	\item $R_0$: e' di tipo \textbf{Float64} e rappresenta l'indice di infettivita' di un virus
-	\item $\gamma$: e' di tipo \textbf{Int} e rappresenta il numero di giorni dopo di cui un paziente
-	che ha contratto il virus puo' considerarsi guarito
-	\item $\sigma$: e' di tipo \textbf{Int} e rappresenta il numero di giorni per cui un agente dopo essere
-	stato infettato viene considerato \emph{esposto}, per cui non ancora in grado di infettare, ma che una 
-	volta terminato questo periodo diventera' infettivo
-	\item $\omega$: e' di tipo \textbf{Int} e rappresenta il numero di giorni per cui un agente e' considerato
-	immune alla malattia dopo essere guarito da essa
-	\item $\delta$: e' di tipo \textbf{Float64} e rappresenta la probabilita' di un agente infetto di morire al 
-	termine del proprio periodo di infettivita' ($\gamma$).
-	\item $\xi$: e' di tipo \textbf{Float64} $\in [0,1]$ e rappresenta, una volta che e' stato introdotto un vaccino come metodo 
-	di prevenzione controil virus, il rateo di individui S che che possono essere vaccinati, e quindi diventare R,
-	al giorno.
-	\item $R_i$: e' di tipo \textbf{Float64} e rappresenta l'indice di infettivita' desiderato, che si vuole
-	raggiungere per arginare la malattia e fermarne l'avanzata. Generalmente questo valore si attesta al piu' 
-	intorno a 1.0
-\end{itemize}
+\begin{minipage}{\linewidth}
+	\centering
+	\includegraphics[width=\textwidth]{img/migrationMatrix.png}
+	\captionof{figure}{Matrice di migrazione}
+	\label{fig:migration matrix}
+\end{minipage}
+
+Questa matrice viene esplicitamente creata in base alla topologia del grafo che viene 
+inizializzato in precedenza e si occupa di pesare gli archi di quest'ultimo seguendo la 
+filosofia per cui si ha un flusso maggiore verso i nodi piu' popolosi, e minore verso i 
+nodi meno popolosi. Questo flusso ha poi un limite massimo che puo' essere scelto e 
+modificato dall'utente. 
+
+Se questa matrice fosse una matrice non sparsa, e percio' completa, si potrebbe osservare
+come la diagonale di questa matrice ha valori molto vicini ad 1, in relazione con il limite
+massimo di individui che possono migrare da ogni nodo, definito come \emph{migration rate}.
+
+Successivamente, dopo avere popolato ogni agente (o nodo) del modello con i corretti valori,
+dato che la struttura interna su cui viene effettuata la computazione del modello e' basata su 
+un sistema di ODE, viene istanziato un array di \textbf{ODEProblem}. L'idea di spezzettare
+un sistema di ODE in piu' sottosistemi di ODE collegate tra loro tramite uno scambio continuo 
+di informazioni (in questo caso individui), e' stata pubblicata nel seguente articolo \cite{Ding2021}
+in cui si modella l'outbreak da COVID-19 tenendo in considerazione il flusso migratorio 
+dei voli aerei. 
+
+Applicando tale filosofia, e' possibile creare un array di \textbf{ODEProblem}, oggetti che descrivono
+un sistema di equazioni differenziali ordinarie, ai quali viene messo a corredo un \textbf{integratore}. 
+Quest'ultimo fa le veci della classica funzione \textbf{solve} che si occupa di risolvere l'intero sistema.
+
+\begin{minipage}{\linewidth}
+	\centering
+	\includegraphics[width=\textwidth]{img/model_ode.png}
+	\captionof{figure}{Definizione dei sistemi di ODE associati ad ogni agente}
+	\label{fig:model_ode}
+\end{minipage}
+
+L'approccio scelto, ovvero di usare un integratore, puo' essere sostituito tramite
+l'uso di funzioni di \textbf{callback} le quali permettono quando vengono soddisfatte delle
+condizioni di attivazione specifiche, di andare a modificare i parametri del sistema che
+si sta risolvendo. Queste modifiche tuttavia, possono portare delle discontinuita' nella 
+risoluzione, ma queste vengono esplicitamente gestite se viene specificata una funzione 
+di callback all'interno della funzione di solve. 
+
+I due approcci sono completamente equivalenti e la scelta di uno piuttosto che dell'altro
+ricade solamente su un fattore di comodita' d'uso.
 
 \subsubsection*{Funzione di avanzamento agente}
 Un agente finche' all'interno di un modello segue ciclicamente il comportamento
@@ -161,55 +177,30 @@ riportato in figura \ref{fig:agent_behaviour}
 	\label{fig:agent_behaviour}
 \end{minipage}
 
-Durante la funzione di avanzamento un agente segue un insieme di regole, che dettano
-un comportamento semplice ma completo. Un agente ha il compito di provare a spostarsi di 
-nodo, passando da quello attuale ad uno dei molteplici collegati; la scelta del nodo e' 
-casuale ma la sua trnasizione dipende dalla matrice di transizione definita precedentemente.
-Successivamente l'agente ha il compito di fare da veicolo per le infezioni \textbf{sse} 
-il suo stato e' infetto, altrimenti non e' necessario che venga effettuato questo punto.
-Infine il compito di un agente e' quello di aggiornare il proprio stato passando potenzialmente
-da quello attuale ad uno nuovo; questo implica che e' possibile che un agente venga rimosso 
-totalmente dal modello se dovesse morire.
+Ad ogni passo del modello, vengono attivati tutti gli agenti presenti al suo interno e 
+fatti aggiornare seguendo le regole di scheduling preposte. 
 
-La funzione di trasmissione basa il proprio funzionamento sull' \emph{assunzione} che il 
-numero di contatti di un individuo infetto siano distribuiti seguendo
-una \textbf{Poisson} con media il parametro $R_0$. Ogni contatto poi ha la possibilita'
-di essere infettato data unicamente da due fattori:
+Ad ogni passo, un agente e' chiamato ad eseguire tre fondamentali compiti:
 \begin{itemize}
-	\item stato dell'agente: solamente un agente con stato S (Suscettibile) puo' essere
-	infettato, oppure un agente con stato R (Recovered) che non ha mai contratto la variante
-	con cui attualmente e' entrato in contatto
-	\item probabilita' di infezione: questo valore e' dato dal rapporto tra le variabili
-	$R_0$ e $\gamma$ e indica la probabilita' di un infezione secondaria dato un contatto 
-	positivo all'essere infetto
+	\item \textbf{Muoversi}: un agente come entita' essendo un nodo di un grafo non puo'
+	muoversi nel modo piu' letterale del termine, ma tramite la sua matrice di migrazione 
+	e' possibile calcolare quanti individui si spostano da il nodo sorgente, fino ad un nodo
+	destinazione. Questo spostamento fa si che il nodo venga aggiornato con le relative percentuali
+	di status e il totale di popolazione rimanente
+	\item \textbf{Aggiornarsi}: ogni passo dell'agente corrisponde anche un aggiornamento dell'
+	indice $R_0$ associato all'agente. Questo valore viene bilanciato in base al valore delle 
+	contromisure che sono applicate all'interno del nodo in questione. Contromisure piu' stringenti
+	andranno a far diminuire questo valore piu' rapidamente, mentre misure piu' blande, impiegheranno 
+	maggior tempo. Lo scopo e' quello di far arrivare il valore di $R_0$ sotto \textbf{1.0}, 
+	cosi' da avere una naturale estinzione sul lungo periodo \cite{wiki:Numero_di_riproduzione_di_base}
+	\item \textbf{Calcolare la felicita'}: come detto in apertura della sezione, il valroe di \textbf{happiness}
+	e' un valore fantoccio che serve prevalentemente per bilanciare le contromisure del controllore.
+	Questo valore tuttavia viene influenzato anche dalla situazione pandemica. Attualmente la funzione che si occupa di generare la felicita' complessiva di un nodo si basa
+	sull'utilizzo di una \emph{tangente iperbolica} (tanh) che prende come parametro il valore attuale
+	di happiness del nodo e lo bilancia con il valore delle contromisure $\eta$ associate e attualmente 
+	uso. Questo approccio e' sicuramente problematico e fallace per numerosi motivi ma attualmente 
+	adempie al suo obiettivo.
 \end{itemize}
-
-\begin{minipage}{\linewidth}
-	\centering
-	\includegraphics[width=\textwidth]{img/transmit_function.png}
-	\captionof{figure}{Funzione di trasmissione}
-	\label{fig:transmit_function}
-\end{minipage}
-
-La funzione di aggiornamento dello stato degli agenti prende spunto dalla 
-funzione di transizione descritta dal modello compartimentale SEIR in figura \ref{fig:SEIRS_model}
-tranne che non viene modellata ne la morte naturale ne tantomeno la nascita di nuovi 
-agenti all'interno del modello. Viene pero' aggiunta la possibilita' di passare
-da uno stato S ad uno R tramite la probabilita' di \textbf{vaccinarsi} definita con il parametro $\xi$.
-% TODO: aggiornare figura 
-
-\begin{minipage}{\linewidth}
-	\centering
-	\includegraphics[width=\textwidth]{img/update_function.png}
-	\captionof{figure}{Funzione di aggiornamento dello stato di un agente}
-	\label{fig:update_agent_function}
-\end{minipage}
-
-Come mostrato nella sezione riguardante le proprieta' del modello in figura \ref{fig:model_code},
-le proprieta' che descrivono le probabilita' di transizione da uno stato all'altro sono prevalentemente
-di tipo \textbf{Int}. Queste pero' vengono poi implicitamente trasformate in tipo \textbf{Float64} 
-quando bisogna calcolare la probabilita' di transizion. La scelta di inizializzarle come 
-tipo Int e' stata fatta solamente per essere piu' \textbf{Human Understandable}.
 
 \subsubsection*{Funzione di avanzamento modello}
 Ogni passo di avanzamento del modello segna un passo di avanzamento dell'intero sistema. 
@@ -229,60 +220,18 @@ singolo agente ma che sono legate o alla comunita' di agenti oppure al modello i
 \end{minipage}
 
 Come e' possibile osservare dalla figura \ref{fig:model_step}, il sistema si occupa principalmente
-di aggiornare la felicita' generale degli agenti, aggiornare l'indice $R_0$ riducendo il suo valore 
-in caso in cui sono state prese delle contromisure adeguate, controllare se e' disponibile un vaccino,
-generare una nuova \emph{Variant of Concern} (VOC). 
+di aggiornare notificare l'integratore di ogni agente e aggiornarlo indicandogli che le condizioni
+precedenti possono essere state alterate, e successivamente effettuare un passo del sistema di 
+integrazione. Successivamente il modello si preoccupa di generare una nuova \emph{Variant of Concern} (VOC)
+e infine di chiamare la funzione \textbf{controller!} la quale e' responsabile dell'applicazione delle 
+contromisure all'interno del sistema. 
 
 Questa sezione e' quella che piu' presta il fianco ad \emph{assunzioni} riguardo 
 il comportamento generale del sistema. Tutte le funzioni sopra descritte si basano su un insieme
 piu' o meno nutrito di assunzioni per funzionare correttamente. Questo perche' al momento in cui sto 
-redigendo questo documento \today, non sono ancora riuscito ad implementare metodi migliori.
+redigendo questo documento \today, non sono ancora riuscito ad implementare metodi migliori. 
 
-Attualmente la funzione che si occupa di generare la felicita' complessiva di un nodo si basa
-sull'utilizzo di una \emph{tangente iperbolica} (tanh) che prende come parametro il valore attuale
-di happiness del nodo e lo bilancia con il valore delle contromisure $\eta$ associate e attualmente 
-uso. Questo approccio e' sicuramente problematico e fallace per numerosi motivi ma attualmente 
-adempie al suo obiettivo. 
-
-\begin{minipage}{\linewidth}
-	\centering
-	\includegraphics[width=\textwidth]{img/happiness.png}
-	\captionof{figure}{Funzione di stima della felicita generale di un nodo del grafo}
-	\label{fig:happiness}
-\end{minipage}
-
-La funzione di aggiornamento dell'indice $R_0$ in relazione a $\eta$ riduce ad ogni passo 
-del modello il valore di $R_0$ proporzionalmente al valore di $\eta$ e del
-valore di $R_i$, ovvero il valore atteso di $R_0$ che si vuole ottenere. 
-
-\begin{minipage}{\linewidth}
-	\centering
-	\includegraphics[width=\textwidth]{img/r0_reduction.png}
-	\captionof{figure}{Funzione di riduzione $R_0$}
-	\label{fig:r0_reduction}
-\end{minipage}
-
-Come mostrato in figura \ref{fig:r0_reduction} questo metodo si basa su un aspetto macroscopico del
-del sistema, cercando di rimanere quanto piu' fedele possibile all'idea alla base 
-del modello. Tuttavia rimane molto approssimativo come approccio, soprattutto quando la 
-quantificazione delle contromisure o misure di prevenzione ($\eta$) non e' 
-chiara ne facile da stimare.
-
-La funzione che si occupa di creare un vaccino e' la seguente
-
-\begin{minipage}{\linewidth}
-	\centering
-	\includegraphics[width=\textwidth]{img/vaccine.png}
-	\captionof{figure}{Funzione che si occupa di creare un vaccino}
-	\label{fig:vaccine}
-\end{minipage}
-
-Questa si occupa di generare il flusso di vaccinazioni giornaliere date dal
-calcolo di una \emph{immunita' di gregge} ottenibile tramite un 
-percorso vaccinale.\cite{wiki:Immunità_di_gregge}
-L'efficacia del vaccino e' stata assegnata seguendo lo studio di meta-analisi \cite{Wu2023-zd}.
-
-Infine la funzione che si occupa di generare la \emph{variant of concern} (VOC) e' la seguente
+La funzione che si occupa di generare la \emph{variant of concern} (VOC) e' la seguente
 
 \begin{minipage}{\linewidth}
 	\centering
@@ -307,16 +256,23 @@ Si possono notare molte assunzioni:
 	il quale segue una distribuzione di tipo \textbf{Uniforme} \cite{wiki:Numero_di_riproduzione_di_base}
 \end{itemize}
 
-\subsubsection*{Grafici}
+\subsubsection*{Grafico senza intervento}
 Il seguente grafico \ref{fig:abm_no_intervent} mostra l'andamento delle curve del modello
-quando questo viene eseguito senza alcuna tipologia di intervento. 
+quando questo viene eseguito senza alcuna tipologia di intervento. Questo andamento tuttavia e' mostrato 
+in maniera cumulativa rispetto all'andamento dei singoli agenti, il quale puo' avere comportamentei 
+differenti in base a se appare o meno una variante, come specificato in figura \ref{fig:voc}, oppure 
+dipendentemente dal tipo di contromisure applicate. 
 
 \begin{minipage}{\linewidth}
 	\centering
-	\includegraphics[width=\textwidth]{img/ABM SEIR NO INTERVENTION_2023-06-17.pdf}
+	\includegraphics[width=\textwidth]{img/SocialNetworkABM2023-07-13.pdf}
 	\captionof{figure}{Grafico cumulativo del risultato del modello senza intervento del controllore}
 	\label{fig:abm_no_intervent}
 \end{minipage}
+
+Complessivamente pero' l'andamento e' ovviamente similare ad un andamento standard di un modello 
+SEIR, con qualche variazione dipendente dai fattori di stocasticita' del modello che pero'
+in questo caso non risultano troppo presenti.
 
 Come e' possibile notare, il numero di individui suscettibili crolla drasticamente
 per via della diffusione rapida e simil esponenziale che ha il virus. Questa viene emulata
@@ -337,8 +293,7 @@ ripida, e una successiva crescita estremamente rapida fino poi a ottenere un \em
 poco sopra il livello 0.0, che rappresenta uno stato di normalita'. 
 
 Successivamente questa curva tende a decrescere lentamente. Questo comportamento e' 
-irrealistico e associato alla definizione che e' stata fatta della funzione \textbf{happiness!}
-\ref{fig:happiness}. Tuttavia anche se il comportamento di questa curva non e' 
+irrealistico e associato alla definizione che e' stata fatta della funzione \textbf{happiness!}. Tuttavia anche se il comportamento di questa curva non e' 
 completamente realistico, si puo' comunque utilizzare per mantenere sotto controllo 
 le contromisure $\eta$.
 
@@ -358,3 +313,5 @@ Si nota come le voc scoperte del covid siano una quantita' pressoche' similare
 seppur con una distribuzione all'interno della linea temporale differente.
 Tuttavia il comportamento semplicistico applicato nel modello sembra essere 
 una buona approssimazione.
+
+\subsubsection*{Grafico con intervento}
