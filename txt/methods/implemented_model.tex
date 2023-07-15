@@ -187,12 +187,6 @@ Ad ogni passo, un agente e' chiamato ad eseguire tre fondamentali compiti:
 	e' possibile calcolare quanti individui si spostano da il nodo sorgente, fino ad un nodo
 	destinazione. Questo spostamento fa si che il nodo venga aggiornato con le relative percentuali
 	di status e il totale di popolazione rimanente
-	\item \textbf{Aggiornarsi}: ogni passo dell'agente corrisponde anche un aggiornamento dell'
-	indice $R_0$ associato all'agente. Questo valore viene bilanciato in base al valore delle 
-	contromisure che sono applicate all'interno del nodo in questione. Contromisure piu' stringenti
-	andranno a far diminuire questo valore piu' rapidamente, mentre misure piu' blande, impiegheranno 
-	maggior tempo. Lo scopo e' quello di far arrivare il valore di $R_0$ sotto \textbf{1.0}, 
-	cosi' da avere una naturale estinzione sul lungo periodo \cite{wiki:Numero_di_riproduzione_di_base}
 	\item \textbf{Calcolare la felicita'}: come detto in apertura della sezione, il valroe di \textbf{happiness}
 	e' un valore fantoccio che serve prevalentemente per bilanciare le contromisure del controllore.
 	Questo valore tuttavia viene influenzato anche dalla situazione pandemica. Attualmente la funzione che si occupa di generare la felicita' complessiva di un nodo si basa
@@ -200,6 +194,11 @@ Ad ogni passo, un agente e' chiamato ad eseguire tre fondamentali compiti:
 	di happiness del nodo e lo bilancia con il valore delle contromisure $\eta$ associate e attualmente 
 	uso. Questo approccio e' sicuramente problematico e fallace per numerosi motivi ma attualmente 
 	adempie al suo obiettivo.
+	\item \textbf{Chiamare un controllore}: se la proprieta' \emph{control} del modello e' impostata su
+	\emph{true}, viene chiamato il controllore che si occupa di stimare, data la situazione attuale del nodo
+	quanto stringenti devono essere le policy da applicare al nodo in questione, andando ad utilizzare
+	un insieme di tecniche di ottimizzazione non lineare ottenuta dalla suite \textbf{Ipopt} per 
+	stimare quale dovrebbe essere la policy migliore da applicare dato un valore massimo di costo.
 \end{itemize}
 
 \subsubsection*{Funzione di avanzamento modello}
@@ -223,8 +222,8 @@ Come e' possibile osservare dalla figura \ref{fig:model_step}, il sistema si occ
 di aggiornare notificare l'integratore di ogni agente e aggiornarlo indicandogli che le condizioni
 precedenti possono essere state alterate, e successivamente effettuare un passo del sistema di 
 integrazione. Successivamente il modello si preoccupa di generare una nuova \emph{Variant of Concern} (VOC)
-e infine di chiamare la funzione \textbf{controller!} la quale e' responsabile dell'applicazione delle 
-contromisure all'interno del sistema. 
+e infine di chiamare la funzione \textbf{vaccine!} la quale e' responsabile del calcolo e dell'applicazione 
+delle misure di contromisure farmaceutiche all'interno della popolazione. 
 
 Questa sezione e' quella che piu' presta il fianco ad \emph{assunzioni} riguardo 
 il comportamento generale del sistema. Tutte le funzioni sopra descritte si basano su un insieme
@@ -256,6 +255,35 @@ Si possono notare molte assunzioni:
 	il quale segue una distribuzione di tipo \textbf{Uniforme} \cite{wiki:Numero_di_riproduzione_di_base}
 \end{itemize}
 
+La funzione che si occupa di stimare l'applicazione delle contromisure farmaceutiche, ovvero l'applicazione del vaccino,
+e' la seguente, e anch'essa presta il fianco a numerevoli assunzioni, le quali pero' empiricamente parlando
+effettuano una buona stima di come sono evolute le cose nel mondo reale.
+
+\begin{minipage}{\linewidth}
+	\centering
+	\includegraphics[width=\textwidth]{img/vaccine.png}
+	\captionof{figure}{Funzione che si occupa di simulare la ricerca di un vaccino e la sua successiva applicazoine}
+	\label{fig:vaccine}
+\end{minipage}
+
+Si nota come in generale la funzione si basa sul generare un valore fissato, generalmente $\in [0,1]$, che 
+rappresenta la percentuale di popolazione che puo' essere vaccinata ad ogni passo del modello.
+Questo approccio tende a simulare l'idea piu' o meno realistica di avere una quantita' fissata di 
+dosi vaccinali ogni giorno che possono essere erogate alla popolazione. 
+
+Questo calcolo viene effettuato tenendo in considerazione l'approccio dell' \emph{immunita' vaccinale di gregge} che puo'
+essere ottenuta seguendo la formula 
+
+$$V_c = \frac{1-\frac{1}{R_0}}{VaccineEfficiency}$$
+
+Successivamente calcolo questo valore come un obiettivo da raggiungere entro un tempo $\omega$ che equivale al 
+periodo di immunita' che un individuo ha dopo aver contratto la malattia (o aver effettuato il vaccino). 
+Questa idea viene utilizzata per modellare le curve del modello in quanto un individuo vaccinato e' considerato 
+come un individuo nello stato \emph{Recovered} e segue le stesse regole di chiunque altro, indipendentemente
+dal modo in cui si e' entrati in questo stato. 
+
+Questa visione semplicistica comunque e' efficace nel modellare il decorso di una malatti, con e senza interventi.
+
 \subsubsection*{Grafico senza intervento}
 Il seguente grafico \ref{fig:abm_no_intervent} mostra l'andamento delle curve del modello
 quando questo viene eseguito senza alcuna tipologia di intervento. Questo andamento tuttavia e' mostrato 
@@ -265,14 +293,15 @@ dipendentemente dal tipo di contromisure applicate.
 
 \begin{minipage}{\linewidth}
 	\centering
-	\includegraphics[width=\textwidth]{img/SocialNetworkABM2023-07-13.pdf}
+	\includegraphics[width=\textwidth]{img/SocialNetworkABM_NO_CONTROL_2023-07-15.pdf}
 	\captionof{figure}{Grafico cumulativo del risultato del modello senza intervento del controllore}
 	\label{fig:abm_no_intervent}
 \end{minipage}
 
 Complessivamente pero' l'andamento e' ovviamente similare ad un andamento standard di un modello 
 SEIR, con qualche variazione dipendente dai fattori di stocasticita' del modello che pero'
-in questo caso non risultano troppo presenti.
+in questo caso non risultano troppo presenti, che vengono messi in evidenza con le curve del modello 
+meno marcate, che rappresentano i percorsi "meno battuti" della simulazione.
 
 Come e' possibile notare, il numero di individui suscettibili crolla drasticamente
 per via della diffusione rapida e simil esponenziale che ha il virus. Questa viene emulata
@@ -284,23 +313,25 @@ ciclico seppur molto sottile; questa sottigliezza e' dovuta all'assenza di misur
 controllo all'interno del sistema.
 
 Si puo' infine notare come la curva associata all'andamento degli individui
-nella classe \emph{D} abbia una crescita lineare.
+nella classe \emph{D} abbia una crescita lineare, seppur non troppo evidente.
 
 A seguire si puo' osservare come la curva associata alla variabile di happiness del modello,
 valore che serve per bilanciare la durezza delle misure di controllo per evitare 
-di cadere in un ciclo funzionale ma insostenibile, mostra un iniziale decrescita molto
-ripida, e una successiva crescita estremamente rapida fino poi a ottenere un \emph{plateau}
-poco sopra il livello 0.0, che rappresenta uno stato di normalita'. 
+di cadere in un ciclo funzionale ma insostenibile, mostra un comportamento alquanto bizzarro.
+Questo e' dovuto principalmente a come viene definita la funzione di controllo della felicita' 
+la quale essendo dominata principalmente da due fattori, $\eta$ ovvero le contromisure applicate
+da un controllore e dalla proporzione tra il numero di individui nelle categorie \textbf{S, R} e 
+gli individui nelle categorie \textbf{I, D} si arriva velocemente a comprenderne il funzionamento.
+Si osserva inoltre che la curva tende ad un \emph{plateau} passato il periodo della "prima ondata". 
 
-Successivamente questa curva tende a decrescere lentamente. Questo comportamento e' 
-irrealistico e associato alla definizione che e' stata fatta della funzione \textbf{happiness!}. Tuttavia anche se il comportamento di questa curva non e' 
-completamente realistico, si puo' comunque utilizzare per mantenere sotto controllo 
-le contromisure $\eta$.
+Questo comportamento e' irrealistico e associato alla definizione che e' stata fatta della 
+funzione \textbf{happiness!}. Tuttavia anche se il comportamento di questa curva non e' 
+completamente realistico, si puo' comunque utilizzare per mantenere sotto controllo le contromisure $\eta$.
 
 Infine si nota come, seppur la definizione della funzione associata alla creazione di una
-nuova voc \ref{fig:voc} sia semplicistica e irrealistica, il grafico mostra come su un periodo 
-di circa 3 anni, associabile alla durata del periodo covid, le voc sono al piu' 
-una decina (ogni picco o depressione e' una voc). 
+nuova \emph{Variant of Concern (VOC)} \ref{fig:voc} sia semplicistica e irrealistica, 
+il grafico mostra come su un periodo di circa 3 anni, associabile alla durata del periodo covid, 
+le voc sono al piu' una decina (ogni picco o depressione e' una voc). 
 
 \begin{minipage}{\linewidth}
 	\centering
@@ -309,9 +340,38 @@ una decina (ogni picco o depressione e' una voc).
 	\label{fig:covid_mutation}
 \end{minipage}
 
-Si nota come le voc scoperte del covid siano una quantita' pressoche' similare
-seppur con una distribuzione all'interno della linea temporale differente.
-Tuttavia il comportamento semplicistico applicato nel modello sembra essere 
-una buona approssimazione.
+Si nota come le voc scoperte del covid siano una quantita' pressoche' similare seppur con una 
+distribuzione all'interno della linea temporale differente. Tuttavia il comportamento semplicistico 
+applicato nel modello sembra essere una buona approssimazione del comportamento reale del virus.
 
 \subsubsection*{Grafico con intervento}
+
+Il seguente grafico \ref{fig:abm_intervent} mostra l'andamento delle curve del modello
+quando questo viene eseguito tramite l'applicazione di una qualche tipologia di intervento. 
+Questo andamento tuttavia e' mostrato in maniera cumulativa rispetto all'andamento dei singoli agenti, il quale puo' avere comportamentei 
+differenti in base a se appare o meno una variante, come specificato in figura \ref{fig:voc}, oppure 
+dipendentemente dal tipo di contromisure applicate. 
+
+\begin{minipage}{\linewidth}
+	\centering
+	\includegraphics[width=\textwidth]{img/SocialNetworkABM_CONTROL_2023-07-15.pdf}
+	\captionof{figure}{Grafico cumulativo del risultato del modello con intervento del controllore}
+	\label{fig:abm_intervent}
+\end{minipage}
+
+Si puo' notare come le varie curve rappresentate siano molto piu' accentuate mostrando percorsi differenti 
+ma comunque simili nell'andamento generale. La curva associata alla felicita' e' altalenante e segue generalmente
+l'andamento delle contromisure applicate dal controllore alla popolazione. In questo caso vi sono curve
+molto differenti che mostrano comportamenti altrettanto differenti, ma in generale il comportamento e' 
+relativamente contenuto e non eccessivo. 
+
+Altro dato interessante e' il numero di VOC che pare essere diminuito rispetto al modello senza intervento.
+Questo dipende generalmente dal comportamento delle contromisure. Infatti queste quando vengono applicate, 
+oltre a influenzare il parametro \textbf{happiness}, vanno ad influenzare anche la matrice di flusso \ref{fig:migration matrix}
+andando a ridurne i valori presenti. Questo fa si che oltre a dilazionare la diffusione della pandemia, andando 
+ad applicare involontariamente delle contromisure simil lockdown e smart working (per prevenire il forte afflusso di individui),
+va anche a dilazionare il comportamento della funzione che si occupa di generare una VOC \ref{fig:voc}. 
+
+Questa infatti puo' attivarse sse nel nodo sono presenti individui infetti, in quanto non e' stata modellata la 
+possibilita' che spontaneamente una nuova variante arrivi in un nuovo nodo senza un veicolo umano. Percio' 
+applicare delle contromisure permette anche a contenere la diffusione di VOC nella popolazione osservata.

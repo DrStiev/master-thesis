@@ -342,13 +342,36 @@ l’applicazione di policy per il contenimento del virus
 bluetooth erano perfettamente applicabili anche al caso 
 reale della pandemia.
 
-\begin{figure}[h]
-    \includegraphics[width=\linewidth]{img/gr2.jpg}
-    \caption{Esempio funzionamento SafeBlues}
+\begin{minipage}{\linewidth}
+    \centering
+    \includegraphics[width=\textwidth]{img/gr2.jpg}
+    \captionof{figure}{Esempio funzionamento SafeBlues}
     \label{fig:SafeBlues_1}
-\end{figure}
+\end{minipage}
 
 Questa applicazione e' stata sviluppata e rilasciata per dispositivi
 mobili con lo scopo di sperimentare se il sistema svilupatto (\emph{Safe Blues System})
 potesse aiutare e migliorare i tradizionali metodi di previsione 
 del decorso di una pandemia.
+
+\subsubsection{Ipopt}
+Ipopt (Interior Point OPTimizer) \cite{Wächter2006} e' un pacchetto software per 
+l'ottimizzazione non lineare su larga scala. Questo pacchetto software e' realizzato 
+per trovare delle soluzioni (locali) a problemi di ottimizzazione matematica nella forma:
+$\min_{x \in R^n} f(x)$ tale che $g_L \leq g(x) \leq g_U$ e $x_L \leq x \leq x_U$, dove 
+$f(x): R^n \rightarrow R$ e' la funzione obiettivo e $g(x): R^n \rightarrow R^m$ 
+sono le funzioni di vincolo.
+
+I vettori $g_L$ e $g_U$ denotano i limiti inferiore e superiore sui vincoli e i vettori
+$x_L$ e $x_U$ sono i limiti delle variabili $x$. Le funzioni $f(x)$ e $g(x)$ possono essere 
+sia non lineari che non convesse, ma la loro derivata seconda deve esistere e deve essere 
+continua.
+
+\begin{minipage}{\linewidth}
+    \centering
+    \includegraphics[width=\textwidth]{img/Comparison-of-Ipopt-performance-over-various-linear-solvers-using-the-two-dimensional.png}
+    \captionof{figure}{Comparison of Ipopt performance over various linear solvers using the two-dimensional partial differential equation test problem set. \cite{unknown}}
+    \label{fig:Ipopt_solver}
+\end{minipage}
+
+Ipopt e' scritto in \textbf{C++} ed e' stato rilasciato come software open source sotto la licenza \textbf{Eclipse Public License (EPL)}.
