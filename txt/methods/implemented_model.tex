@@ -1,6 +1,4 @@
 \section{Metodi e Modelli}
-
-\subsection{Modello ad Agente}
 L'approccio utilizzato e' stato quello di modellare l'intero problema come 
 se fosse una \emph{rete sociale}. L'idea e' nata tramite dopo aver osservato e 
 studiato attentamente il problema proposto. 
@@ -10,6 +8,31 @@ virale in un ambiente reale, il quale e' composto principalmente di cosi' detti
 \emph{Punti di Interesse} (PdI). Questi punti di interesse successivamente sono 
 collegati tra loro tramite una rete piu' o meno fitta di collegamenti. Questa costruzione
 ricorda in maniera molto stretta una struttura dati largamente utilizzata, ovvero il \textbf{Grafo}.
+
+% inserire immagini modello grafico con edgesCoverage [:low, :medium, :high]
+\begin{figure}[!hb]
+	\centering
+	\begin{subfigure}[b]{0.3\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/CPT-Graphs-undirected-unweighted-ex1.svg.png}
+		\caption{Esempio di grafo connesso con copertura bassa}
+		\label{fig:connected_graph_example_low}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.3\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/4-simplex_graph.svg.png}
+		\caption{Esempio di grafo connesso con copertura media}
+		\label{fig:connected_graph_example_medium}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.3\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/4-simplex_graph.svg.png}
+		\caption{Esempio di grafo connesso con copertura alta}
+		\label{fig:connected_graph_example_high}
+	\end{subfigure}
+\end{figure}
 
 Con questo approccio la modellazione del problema e soprattutto la dinamica intera del 
 modello verte piu' su un approccio di tipo \emph{mesoscopico} tendente al \emph{macroscopico}.
@@ -22,12 +45,37 @@ agente astratto all'utilizzo di interventi mirati e specifici per contrastare l'
 maniera localizzata.
 
 % immagine grafo
-\subsubsection*{Approccio con Rete Sociale}
+\subsection{Approccio con Rete Sociale}
 Il modello utilizzato sfrutta una proprieta' del framework \textbf{Agents.jl} e definisce un 
-modello ad agente di tipo \textbf{ABM}. Essendo che in questo caso la struttura spaziale non 
+modello ad agente di tipo \textbf{ABM}. Essendo che in questo caso la struttura spaziale 
 del modello non e' importante ma le sue connessioni si, vengono definiti gli agenti come nodi
 veri e propri del grafo in cui al loro interno viene simulato il ciclo di vita della pandemia 
 tramite un modello di tipo \textbf{SEIR} deterministico.
+
+Un grafo sociale e' un particolare tipo di grafo che rappresenta le relazioni sociali tra entita'.
+Questo approccio viene largamente utilizzato per la rappresentazione delle reti sociali dove la 
+parola grafo viene presa dalla teoria dei grafi. Generalmente un grafo sociale viene riferito come un
+grafo che mappa gli individui come nodi e le loro relazioni come archi. \cite{wiki:Social_graph}
+
+\begin{minipage}{\linewidth}
+    \centering
+    \includegraphics[width=\textwidth]{img/Moreno_Sociogram_3rd_Grade.png}
+    \captionof{figure}{Esempio di grafo sociale}
+    \label{fig:social_graph}
+\end{minipage}
+
+Il concetto e' stato originariamente coniato dalla struttura dati \textbf{sociogram} \cite{wiki:Sociogram}, 
+una struttura a grafo che rappresenta i collegamenti sociali che hanno le persone. Questa 
+struttura dati si occupa di stutturare le relazioni interpersonali che si formano all'interno di un 
+gruppo di individui. 
+
+La struttura dell'agente e' di tipo \textbf{ContinuousAgent} in quanto lo 
+spazio del modello e' di tipo continuo. Questa scelta e' stata fatta in vista di possibili 
+sviluppi futuri dell'applicazione. Successivamente si puo' osservare come il modello generato 
+in figura \ref{fig:Model_code} sia molto snello, avendo solamente una manciata di parametri 
+sufficienti al corretto funzionamento del modello stesso. 
+
+\subsubsection{Agente}
 
 \begin{minipage}{\linewidth}
     \centering
@@ -36,22 +84,6 @@ tramite un modello di tipo \textbf{SEIR} deterministico.
     \label{fig:Agent_code}
 \end{minipage}
 
-La struttura dell'agente e' di tipo \textbf{ContinuousAgent} in quanto lo 
-spazio del modello e' di tipo continuo. Questa scelta e' stata fatta in vista di possibili 
-sviluppi futuri dell'applicazione.
-
-Successivamente si puo' osservare come il modello generato sia molto snello,
-avendo solamente una manciata di parametri sufficienti al corretto funzionamento 
-del modello stesso, senza risultare confusionari. 
-
-\begin{minipage}{\linewidth}
-    \centering
-    \includegraphics[width=\textwidth]{img/sngraph_model.png}
-    \captionof{figure}{Codice Modello}
-    \label{fig:Model_code}
-\end{minipage}
-
-\subsubsection*{Agente}
 Come mostrato in figura \ref{fig:Agent_code} l'agente al suo interno e' molto minimale,
 descrivendo solamente gli attributi necessari e sufficienti per la corretta modellazione
 e interazione con se stesso. L'evoluzione di ogni agente e' completamente indipendente 
@@ -72,17 +104,26 @@ I campi principali dell'agente sono i seguenti:
 	\item \textbf{param}: questo campo descrive tramite un vettore di tipo \textbf{Float64}
 	il parametro del modello SEIR specifici del nodo in questione. Questi parametri sono comprensivi 
 	non solo dei valori relativi all'epidemia, ma anche dei valori relativi alle contromisure, 
-	in particolare le contromisure \textbf{non farmaceutiche} e quelle \textbf{farmaceutiche}.
+	in particolare le contromisure \textbf{non farmaceutiche} rappresentate dal valore $\eta$
+	e quelle \textbf{farmaceutiche} rappresentate dal valore $\xi$.
 	\item \textbf{happiness}: questo campo e' utilizzato come campo di appoggio per il bilanciamento
 	delle contromisure applicate dal controllore. Non esprime effettivamente la misura della felicita'
 	che la popolazione di un nodo ha complessivamente, ma e' comunque uno stimatore similare.
 \end{itemize}
 
-\subsubsection*{Spazio e Modello}
+\subsubsection{Spazio e Modello}
+
+\begin{minipage}{\linewidth}
+    \centering
+    \includegraphics[width=\textwidth]{img/sngraph_model.png}
+    \captionof{figure}{Codice Modello}
+    \label{fig:Model_code}
+\end{minipage}
+
 Come accennato precedentemente e mostrato in figura \ref{fig:Model_code}, lo spazio del modello 
 e' di tipo \textbf{ContinuousSpace} seppure non venga effettivamente sfruttato a dovere. 
 Tuttavia l'interesse del modello e' il fatto che utilizzi una struttura come un grafo in maniera
-astratta per modellare le interazioni tra i suoi nodi, ovvero gli agenti, in maniera rapida e efficente.
+astratta per modellare le interazioni tra i suoi nodi, ovvero gli agenti, in maniera rapida ed efficente.
 
 Per prima cosa viene creato il modello tramite la creazione di un grafo \emph{connesso}, il cui 
 numero di archi dipende da quanto l'utente vuole che siano connessi i nodi. Piu' alto e' il 
@@ -91,12 +132,10 @@ sul numero di nodi creabili.
 
 Il grafo che si va a creare e' \emph{non orientato}, per cui il numero minimo di archi necessari 
 per costruire un grafo connesso, ovvero un grafo in cui da ogni nodo e' sempre possibile raggiungere
-tutti gli altri nodi tramite un percorso che li collega, diventa il segunte, $numEdges = numNodes-1$
+tutti gli altri nodi tramite un percorso che li collega, diventa il segunte: $numEdges = numNodes-1$
 e questo pone il limite inferiore. Quello superiore e' dato dalla costruzione di un grafo completo, 
 un grafo per cui ogni nodo e' collegato con tutti gli altri nodi appartenenti al grafo. In questo 
 caso il numero di archi necessari e': $numEdges = \frac{numNodes*(numNodes-1)}{2}$.
-
-All'interno di questi due limiti, viene creato il grafo secondo le esigenze dell'utente.
 
 \begin{figure}[!hb]
 	\centering
@@ -115,6 +154,7 @@ All'interno di questi due limiti, viene creato il grafo secondo le esigenze dell
 	\end{subfigure}
 \end{figure}
 
+All'interno di questi due limiti, viene creato il grafo secondo le esigenze dell'utente.
 Successivamente viene creata una matrice di flusso, denominata come \textbf{migrationMatrix}
 che rappresenta la percentuale di individui che dal nodo di interesse si spostano verso 
 un nodo di destinazione. Questa matrice e' salvata come \textbf{matrice sparsa} per risparmiare
@@ -166,7 +206,7 @@ di callback all'interno della funzione di solve.
 I due approcci sono completamente equivalenti e la scelta di uno piuttosto che dell'altro
 ricade solamente su un fattore di comodita' d'uso.
 
-\subsubsection*{Funzione di avanzamento agente}
+\subsubsection{Funzione di avanzamento agente}
 Un agente finche' all'interno di un modello segue ciclicamente il comportamento
 riportato in figura \ref{fig:agent_behaviour}
 
@@ -194,14 +234,14 @@ Ad ogni passo, un agente e' chiamato ad eseguire tre fondamentali compiti:
 	di happiness del nodo e lo bilancia con il valore delle contromisure $\eta$ associate e attualmente 
 	uso. Questo approccio e' sicuramente problematico e fallace per numerosi motivi ma attualmente 
 	adempie al suo obiettivo.
-	\item \textbf{Chiamare un controllore}: se la proprieta' \emph{control} del modello e' impostata su
+	\item \textbf{Chiamare il controllore}: se la proprieta' \emph{control} del modello e' impostata su
 	\emph{true}, viene chiamato il controllore che si occupa di stimare, data la situazione attuale del nodo
 	quanto stringenti devono essere le policy da applicare al nodo in questione, andando ad utilizzare
 	un insieme di tecniche di ottimizzazione non lineare ottenuta dalla suite \textbf{Ipopt} per 
 	stimare quale dovrebbe essere la policy migliore da applicare dato un valore massimo di costo.
 \end{itemize}
 
-\subsubsection*{Funzione di avanzamento modello}
+\subsubsection{Funzione di avanzamento modello}
 Ogni passo di avanzamento del modello segna un passo di avanzamento dell'intero sistema. 
 Questo vuol dire che all'interno di un passo del modello vi e' un passo per ogni agente. Di default
 il framework Agents.jl effettua prima l'avanzamento degli agenti e successivamente quello del modello.
@@ -284,6 +324,8 @@ dal modo in cui si e' entrati in questo stato.
 
 Questa visione semplicistica comunque e' efficace nel modellare il decorso di una malatti, con e senza interventi.
 
+\subsubsection{Grafici}
+
 \subsubsection*{Grafico senza intervento}
 Il seguente grafico \ref{fig:abm_no_intervent} mostra l'andamento delle curve del modello
 quando questo viene eseguito senza alcuna tipologia di intervento. Questo andamento tuttavia e' mostrato 
@@ -335,7 +377,7 @@ le voc sono al piu' una decina (ogni picco o depressione e' una voc).
 
 \begin{minipage}{\linewidth}
 	\centering
-	\includegraphics[scale=0.15]{img/41579_2023_878_Fig3_HTML.png}
+	\includegraphics[width=\textwidth]{img/41579_2023_878_Fig3_HTML.png}
 	\captionof{figure}{Grafico delle mutazioni casuali del virus SARS-COV2 preso dall'articolo \cite{Markov2023}}
 	\label{fig:covid_mutation}
 \end{minipage}

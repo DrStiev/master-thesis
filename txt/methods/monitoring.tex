@@ -59,15 +59,76 @@ alla flessibilita' delle reti neurali ha permesso di sviluppare approcci \emph{d
 che permettono di ottenere risultati affidabili pur avendo una base di dati scarsa.
 
 \subsubsection*{Addestramento}
+Viene definito il sistema di ODE che fara' da base per l'addestramento della \textbf{Neural ODE} \cite{chen2019neural}
+e successivamente viene definita la rete neurale tramite la suite \textbf{Lux.jl} \cite{pal2023lux}.
+Questo permette di definire facilmente e velocemente una rete neurale che verra' usata 
+in coppia con il sistema di ODE per ottenere il meglio da entrambi, andando a definire 
+quello che viene chiamato \textbf{Scientific Machine Learning}.
+
+\begin{figure}[!hb]
+	\centering
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/seir_function.png}
+		\caption{Definizione del sistema di ODE per l'addestramento della rete neurale}
+		\label{fig:seir_function}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/neural_ode.png}
+		\caption{Definizione della rete neurale}
+		\label{fig:neural_ode}
+	\end{subfigure}
+\end{figure}
+
+Dopo aver definito queste due funzioni, vengono definite le regole di predizione
+per l'addestramento e le regole della funzione di loss. La funzione di loss viene definita 
+come la loss L2 ovvero un \textbf{Mean Squared Error (MSE)} o \textbf{Errore Quadratico Medio}.
+
+\begin{minipage}{\linewidth}
+	\centering
+	\includegraphics[width=\textwidth]{img/loss.png}
+	\captionof{figure}{Definizione della funzione di Loss}
+	\label{fig:loss_function}
+\end{minipage}
+
+Utilizzando poi le regole di ottimizzazione offerte dal framework \textbf{Optimization.jl} \cite{vaibhav_kumar_dixit_2023_7738525}
+e' possibile definire una struttura di controllo tramite la creazione di un 
+\textbf{OptimizationProblem} e una \textbf{OptimizationFunction} e la scelta di un 
+algoritmo di ottimizzazione, generalmente lasciato automatico, e' possibile addestrare
+la propria \emph{Neural ODE}.
+
+\begin{minipage}{\linewidth}
+	\centering
+	\includegraphics[width=\textwidth]{img/optimization_functions.png}
+	\captionof{figure}{Definizione delle funzioni di ottimizzazione}
+	\label{fig:optimization_function}
+\end{minipage}
+
+Per ottenere il massimo dall'addestramento vengono effettuati due cicli di addestramento, 
+uno usando un determinato ottimizzatore, \textbf{ADAM} e successivamente utilizzando quel 
+risultato, fare un altro ciclo di addestramento con un ottimizzatore differente, in questo 
+caso \textbf{BFGS} \cite{10.1093/imamat/6.1.76} \cite{10.1093/comjnl/13.3.317} 
+\cite{35d0019d-775a-3628-b0b4-67be112e346b} \cite{e3177091-3094-3792-9d61-0ab445735ddb}.
+
+Questo procedimento viene effettuato principalmente perche' si cerca di sfruttare al meglio le
+proprieta' dei vari ottimizzatori. In primo luogo si utilizza ADAM per la maggior parte delle 
+iterazioni, andando a sfruttare e massimizzare la sua capacita' di trovare una buona area 
+generale dello spazio dei parametri. Successivamente per una manciata di iterazioni viene utilizzato 
+BFGS che velocemente riesce a cadere in un buon minimo locale. 
+
+Se si utilizzasse solamente ADAM si andrebbe probabilmente incontro ad una richiesta in 
+termini di iterazioni molto alta, rispetto al risultato complessivo, e viceversa
+se si utilizzasse solo BFGS si andrebbe incontro ad un brutto minimo locale.
+
+\begin{minipage}{\linewidth}
+	\centering
+	\includegraphics[width=\textwidth]{img/training.png}
+	\captionof{figure}{Definizione delle funzioni di addestramento tramite due differenti ottimizzatori}
+	\label{fig:trining_function}
+\end{minipage}
 
 \subsubsection*{Predizione}
-
-\subsubsection*{UDE e Neural Network}
-
-\subsubsection*{Raffinamento con SINDy}
-
-\subsubsection*{Utilizzo GPU}
-
-\subsubsection{Applicabilità al mondo reale}
 
 \subsubsection{Grafici}

@@ -1,0 +1,45 @@
+\contentsline {figure}{\numberline {1}{\ignorespaces Esempio di correlazione spuria da \url {https://www.tylervigen.com/spurious-correlations}\relax }}{4}{figure.caption.4}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Un altro esempio di correlazione spuria da \url {https://www.tylervigen.com/spurious-correlations}\relax }}{5}{figure.caption.5}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Risultati medicina\relax }}{6}{figure.caption.6}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Struttura modello SIR\relax }}{7}{figure.caption.7}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Visualizzazione grafica di un modello SIR\relax }}{8}{figure.caption.8}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Modello schematico SEIR\relax }}{9}{figure.caption.9}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Esempio di modello SEIR preso dall'articolo \cite {Mwalili2020}\relax }}{10}{figure.7}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Esempio di modello SEIR preso dall'articolo \cite {ijerph17103535}\relax }}{11}{figure.8}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Modello SEIRS preso dall'articolo \cite {Bjornstad2020}\relax }}{12}{figure.9}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Esempio di ondate di infettività. Dati del Dipartimento di Protezione Civile Italiana\relax }}{12}{figure.caption.10}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Grafico cumulativo dei dati della pandemia da COVID-19 in Italia. Dati ottenuti da Our World in Data\relax }}{13}{figure.11}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Esempio di modello SEIRV con stato implicito per la condizione V\relax }}{14}{figure.caption.11}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Esempio equilibrio endemico\relax }}{15}{figure.13}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Modello SIR stocastico\relax }}{16}{figure.14}%
+\contentsline {figure}{\numberline {15}{\ignorespaces Schelling's model of segregation simulato tramite ABM\relax }}{17}{figure.15}%
+\contentsline {figure}{\numberline {16}{\ignorespaces Rappresentazione schematica di un modello ad agente\relax }}{18}{figure.16}%
+\contentsline {figure}{\numberline {17}{\ignorespaces Esempio di discretizzazione dei dati\relax }}{19}{figure.17}%
+\contentsline {figure}{\numberline {18}{\ignorespaces Plancia di gioco di Risiko\relax }}{20}{figure.18}%
+\contentsline {figure}{\numberline {19}{\ignorespaces Tabella comparativa\relax }}{22}{figure.19}%
+\contentsline {figure}{\numberline {20}{\ignorespaces Rappresentazione di uno spazio a grafo\relax }}{23}{figure.20}%
+\contentsline {figure}{\numberline {21}{\ignorespaces Metriche di distanza di una griglia\relax }}{24}{figure.21}%
+\contentsline {figure}{\numberline {22}{\ignorespaces Logo SciML.ai\relax }}{25}{figure.22}%
+\contentsline {figure}{\numberline {23}{\ignorespaces Esempio di Scientific Machine Learning\relax }}{26}{figure.23}%
+\contentsline {figure}{\numberline {24}{\ignorespaces Comportamento UDE nell'approssimazione di fenomeni non lineari\relax }}{27}{figure.24}%
+\contentsline {figure}{\numberline {25}{\ignorespaces Esempio di Equazioni Differenziali Neurali\relax }}{29}{figure.25}%
+\contentsline {figure}{\numberline {26}{\ignorespaces Esempio funzionamento SafeBlues\relax }}{30}{figure.26}%
+\contentsline {figure}{\numberline {27}{\ignorespaces Comparison of Ipopt performance over various linear solvers using the two-dimensional partial differential equation test problem set. \cite {unknown}\relax }}{31}{figure.27}%
+\contentsline {figure}{\numberline {29}{\ignorespaces Esempio di grafo sociale\relax }}{33}{figure.29}%
+\contentsline {figure}{\numberline {30}{\ignorespaces Codice Agente\relax }}{34}{figure.30}%
+\contentsline {figure}{\numberline {31}{\ignorespaces Codice Modello\relax }}{35}{figure.31}%
+\contentsline {figure}{\numberline {33}{\ignorespaces Matrice di migrazione\relax }}{36}{figure.33}%
+\contentsline {figure}{\numberline {34}{\ignorespaces Definizione dei sistemi di ODE associati ad ogni agente\relax }}{37}{figure.34}%
+\contentsline {figure}{\numberline {35}{\ignorespaces Comportamento agente\relax }}{37}{figure.35}%
+\contentsline {figure}{\numberline {36}{\ignorespaces Funzione di avanzamento del modello\relax }}{39}{figure.36}%
+\contentsline {figure}{\numberline {37}{\ignorespaces Funzione che si occupa di generare la VOC\relax }}{40}{figure.37}%
+\contentsline {figure}{\numberline {38}{\ignorespaces Funzione che si occupa di simulare la ricerca di un vaccino e la sua successiva applicazoine\relax }}{41}{figure.38}%
+\contentsline {figure}{\numberline {39}{\ignorespaces Grafico cumulativo del risultato del modello senza intervento del controllore\relax }}{42}{figure.39}%
+\contentsline {figure}{\numberline {40}{\ignorespaces Grafico delle mutazioni casuali del virus SARS-COV2 preso dall'articolo \cite {Markov2023}\relax }}{44}{figure.40}%
+\contentsline {figure}{\numberline {41}{\ignorespaces Grafico cumulativo del risultato del modello con intervento del controllore\relax }}{45}{figure.41}%
+\contentsline {figure}{\numberline {42}{\ignorespaces Definizione del controllore tramite Ipopt\relax }}{47}{figure.42}%
+\contentsline {figure}{\numberline {43}{\ignorespaces Definizione regole del modello del controller\relax }}{48}{figure.43}%
+\contentsline {figure}{\numberline {44}{\ignorespaces Definizione regole del modello del controller per le contromisure\relax }}{48}{figure.44}%
+\contentsline {figure}{\numberline {46}{\ignorespaces Definizione della funzione di Loss\relax }}{50}{figure.46}%
+\contentsline {figure}{\numberline {47}{\ignorespaces Definizione delle funzioni di ottimizzazione\relax }}{50}{figure.47}%
+\contentsline {figure}{\numberline {48}{\ignorespaces Definizione delle funzioni di addestramento tramite due differenti ottimizzatori\relax }}{51}{figure.48}%

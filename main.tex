@@ -1,5 +1,7 @@
 \documentclass{article}
 \usepackage{graphicx} % Required for inserting images
+\graphicspath{{figures/}}
+\usepackage{array}
 \usepackage{caption}
 \usepackage{hyperref}
 \usepackage{setspace}
@@ -21,12 +23,12 @@
 \begin{abstract}
     % inserire abstract della tesi. 
     % forse deve essere sia in eng che ita
-    L'abstract, che probabilmente dovrà essere presentato in doppia lingua (ITA, ENG)
-    rappresenta un breve sunto di tutto l'elaborato di cui fa da cappello. 
-    Ovviamente non dovrà entrare nel dettaglio, e anzi dovrà essere scorrevole e 
-    chiaro, senza soffermarsi troppo su alcun dettaglio, in quanto ci saranno 
-    le sezioni successive per espandere tali conoscenze. Ad occhio e croce potrebbe
-    prendere al massimo mezza pagina (così che se necessario ci stiano le due versioni su una pagina).
+    Lo scopo di questa tesi e' quello di studiare il comportamento di modelli di simulazione
+    e di intervento utilizzando il linguaggio di programmazione Julia, e i suoi framework
+    Agents.jl, SciML.ai e Ipopt.jl. Lo scopo principale e' quello di affiancare a metodi di 
+    simulazione tramite sistemi ad agente metodi di calcolo e analisi numerica propri di modelli 
+    matematici, per ottenere il massimo da entrambi i mondi. Il problema analizzato e' quello della
+    pandemia da COVID-19.
 \end{abstract}
 
 % se mai volessi scrivere una piccola dedica
@@ -34,6 +36,10 @@
 
 % indice dei contenuti
 \tableofcontents
+\newpage
+\listoffigures
+\newpage
+\listoftables
 \newpage
 
 \pagenumbering{arabic}
