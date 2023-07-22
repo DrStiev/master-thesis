@@ -84,14 +84,25 @@ quello che viene chiamato \textbf{Scientific Machine Learning}.
 
 Dopo aver definito queste due funzioni, vengono definite le regole di predizione
 per l'addestramento e le regole della funzione di loss. La funzione di loss viene definita 
-come la loss L2 ovvero un \textbf{Mean Squared Error (MSE)} o \textbf{Errore Quadratico Medio}.
+come la loss L2 ovvero un \textbf{Mean Squared Error (MSE)} o \textbf{Errore Quadratico Medio}
+\cite{wiki:Mean_squared_error}.
 
-\begin{minipage}{\linewidth}
+\begin{figure}[!hb]
 	\centering
-	\includegraphics[width=\textwidth]{img/loss.png}
-	\captionof{figure}{Definizione della funzione di Loss}
-	\label{fig:loss_function}
-\end{minipage}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/loss.png}
+		\caption{figure}{Definizione della funzione di Loss}
+		\label{fig:loss_function}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/predict_function.png}
+		\caption{Definizione del loop di addestramento}
+		\label{fig:predict_function}
+	\end{subfigure}
+\end{figure}
 
 Utilizzando poi le regole di ottimizzazione offerte dal framework \textbf{Optimization.jl} \cite{vaibhav_kumar_dixit_2023_7738525}
 e' possibile definire una struttura di controllo tramite la creazione di un 
@@ -126,9 +137,14 @@ se si utilizzasse solo BFGS si andrebbe incontro ad un brutto minimo locale.
 	\centering
 	\includegraphics[width=\textwidth]{img/training.png}
 	\captionof{figure}{Definizione delle funzioni di addestramento tramite due differenti ottimizzatori}
-	\label{fig:trining_function}
+	\label{fig:training_function}
 \end{minipage}
 
 \subsubsection*{Predizione}
+Viene utilizzato un approccio simile a quello denominato SINDy \cite{wiki:Sparse_identification_of_non-linear_dynamics}
+per effettuare predizioni sul lungo termine fondendo un approccio \textbf{DataDriven} ad uno
+\textbf{Domain Specific}.  
+
+DESCRIZIONE DI COS'E' SINDy E IMMAGINI VARIE
 
 \subsubsection{Grafici}

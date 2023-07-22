@@ -1,6 +1,6 @@
 \contentsline {figure}{\numberline {1}{\ignorespaces Esempio di correlazione spuria da \url {https://www.tylervigen.com/spurious-correlations}\relax }}{4}{figure.caption.4}%
 \contentsline {figure}{\numberline {2}{\ignorespaces Un altro esempio di correlazione spuria da \url {https://www.tylervigen.com/spurious-correlations}\relax }}{5}{figure.caption.5}%
-\contentsline {figure}{\numberline {3}{\ignorespaces Risultati medicina\relax }}{6}{figure.caption.6}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Esempio di paradosso di Simpson\relax }}{6}{figure.caption.6}%
 \contentsline {figure}{\numberline {4}{\ignorespaces Struttura modello SIR\relax }}{7}{figure.caption.7}%
 \contentsline {figure}{\numberline {5}{\ignorespaces Visualizzazione grafica di un modello SIR\relax }}{8}{figure.caption.8}%
 \contentsline {figure}{\numberline {6}{\ignorespaces Modello schematico SEIR\relax }}{9}{figure.caption.9}%
@@ -40,6 +40,7 @@
 \contentsline {figure}{\numberline {42}{\ignorespaces Definizione del controllore tramite Ipopt\relax }}{47}{figure.42}%
 \contentsline {figure}{\numberline {43}{\ignorespaces Definizione regole del modello del controller\relax }}{48}{figure.43}%
 \contentsline {figure}{\numberline {44}{\ignorespaces Definizione regole del modello del controller per le contromisure\relax }}{48}{figure.44}%
-\contentsline {figure}{\numberline {46}{\ignorespaces Definizione della funzione di Loss\relax }}{50}{figure.46}%
 \contentsline {figure}{\numberline {47}{\ignorespaces Definizione delle funzioni di ottimizzazione\relax }}{50}{figure.47}%
 \contentsline {figure}{\numberline {48}{\ignorespaces Definizione delle funzioni di addestramento tramite due differenti ottimizzatori\relax }}{51}{figure.48}%
+\contentsline {figure}{\numberline {49}{\ignorespaces Esempio del modello modellato su spazio continuo\relax }}{63}{figure.49}%
+\contentsline {figure}{\numberline {50}{\ignorespaces Formula che si occupa di descrivere il rapporto tra il comportamento del modello scartato e del modello SEIR. In particolare questa formula descrive il rapporto tra gli $R_0$\relax }}{64}{figure.50}%
