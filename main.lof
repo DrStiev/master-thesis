@@ -37,10 +37,16 @@
 \contentsline {figure}{\numberline {39}{\ignorespaces Grafico cumulativo del risultato del modello senza intervento del controllore\relax }}{42}{figure.39}%
 \contentsline {figure}{\numberline {40}{\ignorespaces Grafico delle mutazioni casuali del virus SARS-COV2 preso dall'articolo \cite {Markov2023}\relax }}{44}{figure.40}%
 \contentsline {figure}{\numberline {41}{\ignorespaces Grafico cumulativo del risultato del modello con intervento del controllore\relax }}{45}{figure.41}%
-\contentsline {figure}{\numberline {42}{\ignorespaces Definizione del controllore tramite Ipopt\relax }}{47}{figure.42}%
-\contentsline {figure}{\numberline {43}{\ignorespaces Definizione regole del modello del controller\relax }}{48}{figure.43}%
-\contentsline {figure}{\numberline {44}{\ignorespaces Definizione regole del modello del controller per le contromisure\relax }}{48}{figure.44}%
-\contentsline {figure}{\numberline {47}{\ignorespaces Definizione delle funzioni di ottimizzazione\relax }}{50}{figure.47}%
-\contentsline {figure}{\numberline {48}{\ignorespaces Definizione delle funzioni di addestramento tramite due differenti ottimizzatori\relax }}{51}{figure.48}%
-\contentsline {figure}{\numberline {49}{\ignorespaces Esempio del modello modellato su spazio continuo\relax }}{63}{figure.49}%
-\contentsline {figure}{\numberline {50}{\ignorespaces Formula che si occupa di descrivere il rapporto tra il comportamento del modello scartato e del modello SEIR. In particolare questa formula descrive il rapporto tra gli $R_0$\relax }}{64}{figure.50}%
+\contentsline {figure}{\numberline {42}{\ignorespaces Grafico cumulativo del risultato del modello con intervento del controllore tramite vaccino\relax }}{46}{figure.42}%
+\contentsline {figure}{\numberline {43}{\ignorespaces Grafico cumulativo del risultato del modello con intervento del controllore tramite vaccino e metodi di prevenzione non farmaceutici\relax }}{47}{figure.43}%
+\contentsline {figure}{\numberline {44}{\ignorespaces Definizione del controllore tramite Ipopt\relax }}{49}{figure.44}%
+\contentsline {figure}{\numberline {45}{\ignorespaces Definizione regole del modello del controller\relax }}{50}{figure.45}%
+\contentsline {figure}{\numberline {46}{\ignorespaces Definizione regole del modello del controller per le contromisure\relax }}{50}{figure.46}%
+\contentsline {figure}{\numberline {49}{\ignorespaces Definizione delle funzioni di ottimizzazione\relax }}{52}{figure.49}%
+\contentsline {figure}{\numberline {50}{\ignorespaces Definizione delle funzioni di addestramento tramite due differenti ottimizzatori\relax }}{53}{figure.50}%
+\contentsline {figure}{\numberline {51}{\ignorespaces Esempio schematic del funzionamento di SINDy \cite {BruntonKutz+2021+307+344}\relax }}{53}{figure.51}%
+\contentsline {figure}{\numberline {53}{\ignorespaces Esempio del modello modellato su spazio continuo\relax }}{65}{figure.53}%
+\contentsline {figure}{\numberline {54}{\ignorespaces Esempio del comportamento delle curve nel modello continuo\relax }}{66}{figure.54}%
+\contentsline {figure}{\numberline {55}{\ignorespaces Comportamento modello ABM su spazio a grafo al variare del parametro $R_0$\relax }}{67}{figure.55}%
+\contentsline {figure}{\numberline {56}{\ignorespaces Comportamento modello SEIR al variare del parametro $R_0$\relax }}{68}{figure.56}%
+\contentsline {figure}{\numberline {57}{\ignorespaces Formula che si occupa di descrivere il rapporto tra il comportamento del modello scartato e del modello SEIR. In particolare questa formula descrive il rapporto tra gli $R_0$\relax }}{68}{figure.57}%

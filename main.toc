@@ -20,22 +20,21 @@
 \contentsline {subsubsection}{\numberline {3.1.3}Funzione di avanzamento agente}{37}{subsubsection.3.1.3}%
 \contentsline {subsubsection}{\numberline {3.1.4}Funzione di avanzamento modello}{38}{subsubsection.3.1.4}%
 \contentsline {subsubsection}{\numberline {3.1.5}Grafici}{42}{subsubsection.3.1.5}%
-\contentsline {subsection}{\numberline {3.2}Monitoraggio e Intervento}{47}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Controllore con Ipopt}{47}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}SciML.ai}{49}{subsubsection.3.2.2}%
-\contentsline {subsubsection}{\numberline {3.2.3}Grafici}{51}{subsubsection.3.2.3}%
-\contentsline {section}{\numberline {4}Risultati Ottenuti}{52}{section.4}%
-\contentsline {section}{\numberline {5}Sviluppi Futuri}{53}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Altre epidemie}{53}{subsection.5.1}%
-\contentsline {subsubsection}{\numberline {5.1.1}Ebola}{53}{subsubsection.5.1.1}%
-\contentsline {subsubsection}{\numberline {5.1.2}Aviaria}{53}{subsubsection.5.1.2}%
-\contentsline {subsubsection}{\numberline {5.1.3}Influenza}{53}{subsubsection.5.1.3}%
-\contentsline {subsection}{\numberline {5.2}Miglioramento integrazione SciML.ai}{53}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Accuratezza nella descrizione del modello}{53}{subsection.5.3}%
-\contentsline {subsubsection}{\numberline {5.3.1}Happiness}{53}{subsubsection.5.3.1}%
-\contentsline {subsubsection}{\numberline {5.3.2}Interventi localizzati}{53}{subsubsection.5.3.2}%
-\contentsline {subsubsection}{\numberline {5.3.3}Migliore flessibilità generale}{53}{subsubsection.5.3.3}%
-\contentsline {section}{\numberline {6}Conclusioni}{54}{section.6}%
-\contentsline {section}{\numberline {A}Approcci scartati}{63}{appendix.A}%
-\contentsline {subsection}{\numberline {A.1}Modello ad Agente su spazio continuo}{63}{subsection.A.1}%
-\contentsline {subsection}{\numberline {A.2}Modello ad Agente con spazio a grafo e modellazione singolo agente}{64}{subsection.A.2}%
+\contentsline {subsection}{\numberline {3.2}Monitoraggio e Intervento}{49}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Controllore con Ipopt}{49}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}SciML.ai}{51}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Grafici}{54}{subsubsection.3.2.3}%
+\contentsline {section}{\numberline {4}Risultati Ottenuti}{55}{section.4}%
+\contentsline {section}{\numberline {5}Sviluppi Futuri}{56}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Altre epidemie}{56}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}Ebola}{56}{subsubsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.2}Aviaria}{56}{subsubsection.5.1.2}%
+\contentsline {subsubsection}{\numberline {5.1.3}Influenza}{56}{subsubsection.5.1.3}%
+\contentsline {subsection}{\numberline {5.2}Miglioramento integrazione SciML.ai}{56}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Accuratezza nella descrizione del modello}{56}{subsection.5.3}%
+\contentsline {subsubsection}{\numberline {5.3.1}Happiness}{56}{subsubsection.5.3.1}%
+\contentsline {subsubsection}{\numberline {5.3.2}Interventi localizzati}{56}{subsubsection.5.3.2}%
+\contentsline {subsubsection}{\numberline {5.3.3}Migliore flessibilità generale}{56}{subsubsection.5.3.3}%
+\contentsline {section}{\numberline {A}Approcci scartati}{65}{appendix.A}%
+\contentsline {subsection}{\numberline {A.1}Modello ad Agente su spazio continuo}{65}{subsection.A.1}%
+\contentsline {subsection}{\numberline {A.2}Modello ad Agente con spazio a grafo e modellazione singolo agente}{66}{subsection.A.2}%

@@ -92,7 +92,7 @@ come la loss L2 ovvero un \textbf{Mean Squared Error (MSE)} o \textbf{Errore Qua
 	\begin{subfigure}[b]{0.45\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{img/loss.png}
-		\caption{figure}{Definizione della funzione di Loss}
+		\caption{Definizione della funzione di Loss}
 		\label{fig:loss_function}
 	\end{subfigure}
 	\hfill
@@ -145,6 +145,57 @@ Viene utilizzato un approccio simile a quello denominato SINDy \cite{wiki:Sparse
 per effettuare predizioni sul lungo termine fondendo un approccio \textbf{DataDriven} ad uno
 \textbf{Domain Specific}.  
 
-DESCRIZIONE DI COS'E' SINDy E IMMAGINI VARIE
+L'approccio \textbf{SINDy} ovvero Sparse Identification of Nonlinear Dynamics, e' un approccio algoritmico 
+di tipo data-driven per ottenere sistemi dinamici partendo da un insieme di dati. In generale l'approccio e' 
+quello di avere una serie di \emph{istantanee (snapshot)} del sistema e le loro corrispondenti derivate. A questo 
+punto e' possibile effettuare un insieme di approcci di regressione come ad esempio \textbf{LASSO} \cite{wiki:Lasso_(statistics)}
+per confrontare una molteplicita' di equazioni non lineari candidate con le derivate del sistema
+per cercare di trovare le equazioni che governano l'intero sistema.
+
+\begin{minipage}{\linewidth}
+	\centering
+	\includegraphics[width=\textwidth]{img/Schematic-of-the-sparse-identification-of-nonlinear-dynamics-SINDy-algorithm-25-as.png}
+	\captionof{figure}{Esempio schematic del funzionamento di SINDy \cite{BruntonKutz+2021+307+344}}
+	\label{fig:sindy}
+\end{minipage}
+
+Questa procedura si basa sull'assunzione che la maggior parte di sistemi fisici hanno una manciata
+di equazioni dominanti che dettano l'evoluzione del sistema.
+
+Seguendo quanto appena descritto, l'approccio si basa principalmente sull'utilizzo del modello 
+appena creato e addestrato di Neural ODE, utilizzando due parti fondamentali di quest'ultimo
+
+\begin{itemize}
+	\item \textbf{$X$} che rappresenta il predittore del sistema.
+	\item \textbf{$Y$} che rappresenta la derivate del sistema, o la predizione stessa.
+\end{itemize}
+
+Questi due elementi vengono successivamente inseriti all'interno di un algoritmo data-driven
+per estrapolare le equazioni che governano il sistema, e successivamente vengono utilizzate 
+queste equazioni in coppia con il vero sistema, da cui sono state ricavati i valori, 
+che in questo caso e' conosciuto in quanto si sa che i valori sono generati da un sistema di tipo 
+SEIR, per vedere se il sistema riesce a modellare i dati che non conosce, generealmente 
+associati alla \textbf{FOI} o Force of Infection.
+
+\begin{figure}[!hb]
+	\centering
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/sindy_part_1.png}
+		\caption{Codice relativo alla definizione del problema di tipo data-driven per SINDy}
+		\label{fig:sindy_part_1}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/sindy_part_2.png}
+		\caption{Codice relativo alla definizione del problema di tipo data-driven per SINDy}
+		\label{fig:sindy_part_2}
+	\end{subfigure}
+\end{figure}
+
+L'approccio e' simile a quello utilizzato per la Neural ODE precedentemente, ovvero si 
+utilizza la liberia \textbf{Optim.jl} \cite{vaibhav_kumar_dixit_2023_7738525} per 
+ottenere il risultato finale che si andra' ad utilizzare.
 
 \subsubsection{Grafici}

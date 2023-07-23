@@ -4,14 +4,10 @@
 L'idea alla base era qualla di modellare una popolazione tramite l'utilizzo di 
 uno spazio del modello di tipo continuo. Gli agenti sarebbero poi stati modellati come 
 individui singoli e reali, in quanto entita' effettivamente attive all'interno 
-dello spazio.
-
-Questo approccio utilizzava una metodologia similare a quella delle palline da biliardo 
-per modellare l'interazio tra agenti all'interno dello spazio del modello. Ogni agente poteva
-infettare in maniera casuale un suo vicino sse i due avevano un interazione. Ogni interazione
-era modellata similmente ad un urto elastico \cite{wiki:Urto_elastico} tra corpi. 
-Questo non era tuttavia un simulatore di urti elastici affidabili, bensi' un approccio che prendeva
-spunto da esso, in particolare dal gioco del biliardo. 
+dello spazio. Ci si puo' immaginare lo spazio del modello come una grande griglia 
+definita da coordinate \emph{continue} di una certa dimensione \emph{$N \times M$}. All'interno 
+di questa griglia vengono posizionati randomicamente gli agenti, i quali vengono 
+rappresentati graficamente come dei punti di differenti colori.
 
 \begin{minipage}{\linewidth}
     \centering
@@ -20,25 +16,62 @@ spunto da esso, in particolare dal gioco del biliardo.
     \label{fig:ball_covid}
 \end{minipage}
 
+Questo approccio utilizzava una metodologia similare a quella delle palline da biliardo 
+per modellare l'interazio tra agenti all'interno dello spazio del modello. Ogni agente poteva
+infettare in maniera casuale un suo vicino sse i due avevano un interazione. Ogni interazione
+era modellata similmente ad un urto elastico \cite{wiki:Urto_elastico} tra corpi. 
+Questo non era tuttavia un simulatore di urti elastici affidabili, bensi' un approccio che prendeva
+spunto da esso, in particolare dal gioco del biliardo. 
+
+In questo modo il comportamento complessivo del modello poteva permettere l'osservarsi 
+di un andamento simile a quanto ci si aspetterebbe da un sistema simile.
+
+\begin{minipage}{\linewidth}
+    \centering
+    \includegraphics[width=\textwidth]{img/plot_abm_continuousspace.pdf}
+    \captionof{figure}{Esempio del comportamento delle curve nel modello continuo}
+    \label{fig:seir_curve_continuous}
+\end{minipage}
+
 Sono state poi implementate svariate proprieta' come la proprieta' di essere individuati 
 dopo un periodo di latenza come individui infetti e quindi essere confinati in quarantena, 
 la quale era definita come una diminuzione nella probabilita' di infettare ed essere infettati 
 perdendo la capacita' di muoversi.
 
-Sono state implementate molti altri particolari approcci, la maggior parte Agent oriented.
-Tuttavia questa tipologia di approccio richiedeva una quantita' di risorse computazionali 
+Questa tipologia di approccio, quella Agent oriented, richiedeva una quantita' di risorse computazionali 
 e di tempo estremamente elevato in relazione al numero di agenti presenti nel modello. Questo approccio 
 inoltre e' stato valutato come troppo granulare e inadatto allo scopo del progetto. 
 Si e' deciso quindi di adottare un approccio meno granulare e piu' flessibile 
 andando ad un livello di astrazione piu' alto.
 
 \subsection{Modello ad Agente con spazio a grafo e modellazione singolo agente}
-L'idea e' nata per cercare di avere un controllo piu' granulare sul modello e sulla sua 
+L'idea e' nata per cercare di avere un controllo piu' granulare sullo spazio del modello e sulla sua 
 evoluzione locale, non tanto degli agenti. Sono nati molteplici problemi, primo tra tutti quello del tempo impiegato
 e successivamente quello del comportamento delle curve epidemiologiche che non rispettavano 
 assolutamente il comportamento descritto dal modello deterministico SEIR, ma non in un modo 
-ragionevole, bensi' in un modo completamente alieno e descritto brutalmente dalla
-seguente formula 
+ragionevole, bensi' in un modo completamente alieno. 
+
+\begin{minipage}{\linewidth}
+    \centering
+    \includegraphics[width=\textwidth]{img/COMPARISON DIFFERENT R₀ VALUE_2023-06-29.pdf}
+    \captionof{figure}{Comportamento modello ABM su spazio a grafo al variare del parametro $R_0$}
+    \label{fig:strange_behaviour_R0_abm}
+\end{minipage}
+
+\begin{minipage}{\linewidth}
+    \centering
+    \includegraphics[width=\textwidth]{img/COMPARISON DIFFERENT R₀ VALUE_2023-06-29 (1).pdf}
+    \captionof{figure}{Comportamento modello SEIR al variare del parametro $R_0$}
+    \label{fig:strange_behaviour_R0_ode}
+\end{minipage}
+
+Si puo' facilmente osservare come il comportamento delle curve prenda un comportamento 
+anomalo fin dalle prime variazioni del parametro $R_0$ per culminare con risultati 
+completamente alieni. Il motivo alla base rimane tutt'ora ignoto e sconosciuto, tuttavia
+esecuzioni differenti hanno mostrato dei comportamenti differenti, seppur altrettanto 
+alieni. 
+
+Questo comportamento pero' puo' essere descritto a grandi linee dalla seguente formula
 
 \begin{minipage}{\linewidth}
     \centering
@@ -47,16 +80,21 @@ seguente formula
     \label{fig:strange_behaviour_R0}
 \end{minipage}
 
+Bisogna tuttavia precisare come run successive abbiano portato a risultati differenti dei plot 
+relativi al comportamento del modello ad agente. Il motivo rimane tutt'ora ignoto ma e' possibile
+che uno degli attori in gioco possa essere la funzione \textbf{random} associata al campionamento 
+degli individui che va a fare da mimica per il numero di contatti che avvengono ad ogni passo 
+per ogni individuo infetto. Questo campionamento si basa principalmente sul calcolo di una 
+distribuzione di \textbf{Poisson} \cite{wiki:Distribuzione_di_Poisson} con parametro $\lambda = R_0$.
+
 In particolare la formula e' stata ricavata dopo aver fatto un confronto tra molteplici 
 valori di $R_0$ e i risultati ottenuti sia dal modello SEIR che dal modello ABM. 
 Successivamente e' stato calcolato \textbf{MSE} (Medium Square Error) per ogni coppia possibile
 di risultati per cercare quelli tra loro piu' simili, andando ad ottenere quindi un insieme
-di coppie. Queste poi sono state inserite in un metodo che calcolava una \textbf{polynomial fit}
+di coppie. Queste poi sono state inserite in un metodo che calcolava una \textbf{polynomial fit} \cite{wiki:Polynomial_regression}
 tra tutte le coppie di valori per vedere quale poteva essere la formula che governava la differenza 
-di risultati. Da tenere a mente che in un caso normale questa differenza non dovrebbe esiste, 
+di risultati. Da tenere a mente che in un caso normale questa differenza non dovrebbe esistere, 
 o quanto meno se esiste dovrebbe essere trascurabile.
-
-Da qui si ottiene la formula in figura \ref{fig:strange_behaviour_R0}
 
 \begin{figure}[!hb]
 	\centering
@@ -75,8 +113,13 @@ Da qui si ottiene la formula in figura \ref{fig:strange_behaviour_R0}
 	\end{subfigure}
 \end{figure}
 
+Da qui si ottiene la formula in figura \ref{fig:strange_behaviour_R0} la quale descrive approssimativamente, 
+in base al grado del polinomio che si vuole andare a creare, la relazione che esiste tra le coppie 
+di valori analizzate.
+
 La motivazione per cui il modello ad agente si comporta in maniera cosi' inaspettata
-rispetto a come dovrebbe non e' stato chiaro, e per questo ho deciso di abbandonare l'approccio.
+rispetto a come dovrebbe non e' stato chiaro, e in letteratura non sembra esserci alcun 
+articolo che ne parli in maniera approfondita, e per questo ho deciso di abbandonare l'approccio.
 Punto a favore e' stato anche il fatto che l'approccio con ABM era estremaente esoso in termini 
 di risorse computazionali e tempistiche. Questo problema e' insito in ogni tipo di simulazione, 
 tuttavia affiancato allo stravagante problema comparso e descritto sopra, e' stato 
