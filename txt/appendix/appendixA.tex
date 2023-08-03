@@ -124,3 +124,71 @@ Punto a favore e' stato anche il fatto che l'approccio con ABM era estremaente e
 di risorse computazionali e tempistiche. Questo problema e' insito in ogni tipo di simulazione, 
 tuttavia affiancato allo stravagante problema comparso e descritto sopra, e' stato 
 decisivo per il cambio drastico di approccio. 
+
+\subsection{Controllore Ipopt}
+Ipopt (Interior Point OPTimizer) \cite{Wächter2006} e' un pacchetto software per 
+l'ottimizzazione non lineare su larga scala. Questo pacchetto software e' realizzato 
+per trovare delle soluzioni (locali) a problemi di ottimizzazione matematica nella forma:
+$\min_{x \in R^n} f(x)$ tale che $g_L \leq g(x) \leq g_U$ e $x_L \leq x \leq x_U$, dove 
+$f(x): R^n \rightarrow R$ e' la funzione obiettivo e $g(x): R^n \rightarrow R^m$ 
+sono le funzioni di vincolo.
+
+I vettori $g_L$ e $g_U$ denotano i limiti inferiore e superiore sui vincoli e i vettori
+$x_L$ e $x_U$ sono i limiti delle variabili $x$. Le funzioni $f(x)$ e $g(x)$ possono essere 
+sia non lineari che non convesse, ma la loro derivata seconda deve esistere e deve essere 
+continua.
+
+\begin{minipage}{\linewidth}
+    \centering
+    \includegraphics[width=\textwidth]{img/Comparison-of-Ipopt-performance-over-various-linear-solvers-using-the-two-dimensional.png}
+    \captionof{figure}{Comparison of Ipopt performance over various linear solvers using the two-dimensional partial differential equation test problem set. \cite{unknown}}
+    \label{fig:Ipopt_solver}
+\end{minipage}
+
+Ipopt e' scritto in \textbf{C++} ed e' stato rilasciato come software open source sotto la licenza \textbf{Eclipse Public License (EPL)}.
+
+L'utilizzo della suite \textbf{Ipopt} e' stato fatto per l'applicazione di un sistema
+di monitoraggio e intervento all'interno del modello di simulazione. Successivamente l'idea
+di utilizzare un integrazione con la suite \textbf{SciML.ai} verra' sfruttata per 
+aggiungere algoritmi di Machine Learning per rendere piu' realistico e consistente il modello 
+nelle sue predizioni e scelte.
+
+\begin{minipage}{\linewidth}
+	\centering
+	\includegraphics[width=\textwidth]{img/controller_ipopt.png}
+	\captionof{figure}{Definizione del controllore tramite Ipopt}
+	\label{fig:controller_ipopt}
+\end{minipage}
+
+L'approccio generale e' stato semplice ma efficace, in quanto viene definito un modello 
+per raccogliere tutte le informazioni relative e necessarie per l'algoritmo di ottimizzazione
+e successivamente vengono definite le regole che governano il comportamento del modello. 
+
+Le regole in questione sono principalmente le stesse che sono usate per descrivere il modello SEIR
+che viene utilizzato all'interno del modello ad agente.
+
+\begin{minipage}{\linewidth}
+	\centering
+	\includegraphics[width=\textwidth]{img/controller_rules.png}
+	\captionof{figure}{Definizione regole del modello del controller}
+	\label{fig:controller_rules}
+\end{minipage}
+
+Essendo che le regole mostrate in figura \ref{fig:controller_rules} sono relative agli stati 
+SEIR e l'idea alla base del controllore e' quella di ridurre quanto piu' possibile il numero di
+infetti cumulati che ci sono all'interno del sistema, e' stato aggiunto uno stato che descrive
+appunto questo stato aggiuntivo.
+
+Successivamente vi sono delle regole su quanto il modello puo' impiegare in termini di risorse, 
+le quali sono le nostre contromisure con relativo costo, dato dall'integrale del valore della nostra
+contromisura applicata nel tempo.
+
+\begin{minipage}{\linewidth}
+	\centering
+	\includegraphics[width=\textwidth]{img/controller_rules_1.png}
+	\captionof{figure}{Definizione regole del modello del controller per le contromisure}
+	\label{fig:controller_rules_1}
+\end{minipage}
+
+Infine viene ottimizzato il modello e ritornato il valore medio delle contromisure applicate
+quando applicate.

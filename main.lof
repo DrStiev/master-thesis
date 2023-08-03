@@ -19,34 +19,41 @@
 \contentsline {figure}{\numberline {19}{\ignorespaces Tabella comparativa\relax }}{22}{figure.19}%
 \contentsline {figure}{\numberline {20}{\ignorespaces Rappresentazione di uno spazio a grafo\relax }}{23}{figure.20}%
 \contentsline {figure}{\numberline {21}{\ignorespaces Metriche di distanza di una griglia\relax }}{24}{figure.21}%
-\contentsline {figure}{\numberline {22}{\ignorespaces Logo SciML.ai\relax }}{25}{figure.22}%
-\contentsline {figure}{\numberline {23}{\ignorespaces Esempio di Scientific Machine Learning\relax }}{26}{figure.23}%
-\contentsline {figure}{\numberline {24}{\ignorespaces Comportamento UDE nell'approssimazione di fenomeni non lineari\relax }}{27}{figure.24}%
-\contentsline {figure}{\numberline {25}{\ignorespaces Esempio di Equazioni Differenziali Neurali\relax }}{29}{figure.25}%
-\contentsline {figure}{\numberline {26}{\ignorespaces Esempio funzionamento SafeBlues\relax }}{30}{figure.26}%
-\contentsline {figure}{\numberline {27}{\ignorespaces Comparison of Ipopt performance over various linear solvers using the two-dimensional partial differential equation test problem set. \cite {unknown}\relax }}{31}{figure.27}%
-\contentsline {figure}{\numberline {29}{\ignorespaces Esempio di grafo sociale\relax }}{33}{figure.29}%
-\contentsline {figure}{\numberline {30}{\ignorespaces Codice Agente\relax }}{34}{figure.30}%
-\contentsline {figure}{\numberline {31}{\ignorespaces Codice Modello\relax }}{35}{figure.31}%
-\contentsline {figure}{\numberline {33}{\ignorespaces Matrice di migrazione\relax }}{36}{figure.33}%
-\contentsline {figure}{\numberline {34}{\ignorespaces Definizione dei sistemi di ODE associati ad ogni agente\relax }}{37}{figure.34}%
-\contentsline {figure}{\numberline {35}{\ignorespaces Comportamento agente\relax }}{37}{figure.35}%
-\contentsline {figure}{\numberline {36}{\ignorespaces Funzione di avanzamento del modello\relax }}{39}{figure.36}%
-\contentsline {figure}{\numberline {37}{\ignorespaces Funzione che si occupa di generare la VOC\relax }}{40}{figure.37}%
-\contentsline {figure}{\numberline {38}{\ignorespaces Funzione che si occupa di simulare la ricerca di un vaccino e la sua successiva applicazoine\relax }}{41}{figure.38}%
-\contentsline {figure}{\numberline {39}{\ignorespaces Grafico cumulativo del risultato del modello senza intervento del controllore\relax }}{42}{figure.39}%
-\contentsline {figure}{\numberline {40}{\ignorespaces Grafico delle mutazioni casuali del virus SARS-COV2 preso dall'articolo \cite {Markov2023}\relax }}{44}{figure.40}%
-\contentsline {figure}{\numberline {41}{\ignorespaces Grafico cumulativo del risultato del modello con intervento del controllore\relax }}{45}{figure.41}%
-\contentsline {figure}{\numberline {42}{\ignorespaces Grafico cumulativo del risultato del modello con intervento del controllore tramite vaccino\relax }}{46}{figure.42}%
-\contentsline {figure}{\numberline {43}{\ignorespaces Grafico cumulativo del risultato del modello con intervento del controllore tramite vaccino e metodi di prevenzione non farmaceutici\relax }}{47}{figure.43}%
-\contentsline {figure}{\numberline {44}{\ignorespaces Definizione del controllore tramite Ipopt\relax }}{49}{figure.44}%
-\contentsline {figure}{\numberline {45}{\ignorespaces Definizione regole del modello del controller\relax }}{50}{figure.45}%
-\contentsline {figure}{\numberline {46}{\ignorespaces Definizione regole del modello del controller per le contromisure\relax }}{50}{figure.46}%
-\contentsline {figure}{\numberline {49}{\ignorespaces Definizione delle funzioni di ottimizzazione\relax }}{52}{figure.49}%
-\contentsline {figure}{\numberline {50}{\ignorespaces Definizione delle funzioni di addestramento tramite due differenti ottimizzatori\relax }}{53}{figure.50}%
-\contentsline {figure}{\numberline {51}{\ignorespaces Esempio schematic del funzionamento di SINDy \cite {BruntonKutz+2021+307+344}\relax }}{53}{figure.51}%
-\contentsline {figure}{\numberline {53}{\ignorespaces Esempio del modello modellato su spazio continuo\relax }}{65}{figure.53}%
-\contentsline {figure}{\numberline {54}{\ignorespaces Esempio del comportamento delle curve nel modello continuo\relax }}{66}{figure.54}%
-\contentsline {figure}{\numberline {55}{\ignorespaces Comportamento modello ABM su spazio a grafo al variare del parametro $R_0$\relax }}{67}{figure.55}%
-\contentsline {figure}{\numberline {56}{\ignorespaces Comportamento modello SEIR al variare del parametro $R_0$\relax }}{68}{figure.56}%
-\contentsline {figure}{\numberline {57}{\ignorespaces Formula che si occupa di descrivere il rapporto tra il comportamento del modello scartato e del modello SEIR. In particolare questa formula descrive il rapporto tra gli $R_0$\relax }}{68}{figure.57}%
+\contentsline {figure}{\numberline {22}{\ignorespaces Esempio di Scientific Machine Learning\relax }}{25}{figure.22}%
+\contentsline {figure}{\numberline {23}{\ignorespaces Esempio di funzionamento algoritmo di machine learning\relax }}{26}{figure.23}%
+\contentsline {figure}{\numberline {24}{\ignorespaces Esempio di funzionamento di una rete neurale\relax }}{27}{figure.24}%
+\contentsline {figure}{\numberline {25}{\ignorespaces Esempio grafico ODE\relax }}{28}{figure.25}%
+\contentsline {figure}{\numberline {26}{\ignorespaces Esempio definizione ODE in Julia\relax }}{29}{figure.26}%
+\contentsline {figure}{\numberline {27}{\ignorespaces Esempio risoluzione ODE in Julia\relax }}{30}{figure.27}%
+\contentsline {figure}{\numberline {28}{\ignorespaces Esempio implementazione NN in Julia\relax }}{31}{figure.28}%
+\contentsline {figure}{\numberline {29}{\ignorespaces Esempio implementazione ciclo di addestramento NN in Julia\relax }}{31}{figure.29}%
+\contentsline {figure}{\numberline {30}{\ignorespaces Esempio implementazione NeuralODE tramite DiffEqFlux.jl\relax }}{32}{figure.30}%
+\contentsline {figure}{\numberline {31}{\ignorespaces Tabella comparativa tra le varie implementazioni dei vari risolutori\relax }}{33}{figure.31}%
+\contentsline {figure}{\numberline {32}{\ignorespaces Comportamento UDE nell'approssimazione di fenomeni non lineari\relax }}{34}{figure.32}%
+\contentsline {figure}{\numberline {33}{\ignorespaces Esempio funzionamento SafeBlues\relax }}{35}{figure.33}%
+\contentsline {figure}{\numberline {35}{\ignorespaces Esempio di grafo sociale\relax }}{37}{figure.35}%
+\contentsline {figure}{\numberline {36}{\ignorespaces Codice Agente\relax }}{38}{figure.36}%
+\contentsline {figure}{\numberline {37}{\ignorespaces Codice Modello\relax }}{39}{figure.37}%
+\contentsline {figure}{\numberline {39}{\ignorespaces Matrice di migrazione\relax }}{40}{figure.39}%
+\contentsline {figure}{\numberline {40}{\ignorespaces Definizione dei sistemi di ODE associati ad ogni agente\relax }}{41}{figure.40}%
+\contentsline {figure}{\numberline {41}{\ignorespaces Comportamento agente\relax }}{41}{figure.41}%
+\contentsline {figure}{\numberline {42}{\ignorespaces Funzione di avanzamento del modello\relax }}{43}{figure.42}%
+\contentsline {figure}{\numberline {43}{\ignorespaces Funzione che si occupa di generare la VOC\relax }}{44}{figure.43}%
+\contentsline {figure}{\numberline {44}{\ignorespaces Funzione che si occupa di simulare la ricerca di un vaccino e la sua successiva applicazoine\relax }}{45}{figure.44}%
+\contentsline {figure}{\numberline {45}{\ignorespaces Grafico cumulativo del risultato del modello senza intervento del controllore\relax }}{46}{figure.45}%
+\contentsline {figure}{\numberline {46}{\ignorespaces Grafico delle mutazioni casuali del virus SARS-COV2 preso dall'articolo \cite {Markov2023}\relax }}{48}{figure.46}%
+\contentsline {figure}{\numberline {47}{\ignorespaces Grafico cumulativo del risultato del modello con intervento del controllore\relax }}{49}{figure.47}%
+\contentsline {figure}{\numberline {48}{\ignorespaces Grafico cumulativo del risultato del modello con intervento del controllore tramite vaccino\relax }}{50}{figure.48}%
+\contentsline {figure}{\numberline {49}{\ignorespaces Grafico cumulativo del risultato del modello con intervento del controllore tramite vaccino e metodi di prevenzione non farmaceutici\relax }}{51}{figure.49}%
+\contentsline {figure}{\numberline {52}{\ignorespaces Definizione delle funzioni di ottimizzazione\relax }}{54}{figure.52}%
+\contentsline {figure}{\numberline {53}{\ignorespaces Definizione delle funzioni di addestramento tramite due differenti ottimizzatori\relax }}{55}{figure.53}%
+\contentsline {figure}{\numberline {54}{\ignorespaces Esempio schematic del funzionamento di SINDy \cite {BruntonKutz+2021+307+344}\relax }}{55}{figure.54}%
+\contentsline {figure}{\numberline {56}{\ignorespaces Esempio del modello modellato su spazio continuo\relax }}{68}{figure.56}%
+\contentsline {figure}{\numberline {57}{\ignorespaces Esempio del comportamento delle curve nel modello continuo\relax }}{69}{figure.57}%
+\contentsline {figure}{\numberline {58}{\ignorespaces Comportamento modello ABM su spazio a grafo al variare del parametro $R_0$\relax }}{70}{figure.58}%
+\contentsline {figure}{\numberline {59}{\ignorespaces Comportamento modello SEIR al variare del parametro $R_0$\relax }}{71}{figure.59}%
+\contentsline {figure}{\numberline {60}{\ignorespaces Formula che si occupa di descrivere il rapporto tra il comportamento del modello scartato e del modello SEIR. In particolare questa formula descrive il rapporto tra gli $R_0$\relax }}{71}{figure.60}%
+\contentsline {figure}{\numberline {62}{\ignorespaces Comparison of Ipopt performance over various linear solvers using the two-dimensional partial differential equation test problem set. \cite {unknown}\relax }}{73}{figure.62}%
+\contentsline {figure}{\numberline {63}{\ignorespaces Definizione del controllore tramite Ipopt\relax }}{74}{figure.63}%
+\contentsline {figure}{\numberline {64}{\ignorespaces Definizione regole del modello del controller\relax }}{75}{figure.64}%
+\contentsline {figure}{\numberline {65}{\ignorespaces Definizione regole del modello del controller per le contromisure\relax }}{75}{figure.65}%
