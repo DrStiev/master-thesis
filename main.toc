@@ -11,29 +11,25 @@
 \contentsline {subsection}{\numberline {2.5}Julia}{21}{subsection.2.5}%
 \contentsline {subsubsection}{\numberline {2.5.1}Agents.jl}{21}{subsubsection.2.5.1}%
 \contentsline {subsubsection}{\numberline {2.5.2}SciML.ai}{24}{subsubsection.2.5.2}%
-\contentsline {subsubsection}{\numberline {2.5.3}SafeBlues}{35}{subsubsection.2.5.3}%
-\contentsline {section}{\numberline {3}Metodi e Modelli}{36}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Approccio con Rete Sociale}{36}{subsection.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.1}Agente}{38}{subsubsection.3.1.1}%
-\contentsline {subsubsection}{\numberline {3.1.2}Spazio e Modello}{39}{subsubsection.3.1.2}%
-\contentsline {subsubsection}{\numberline {3.1.3}Funzione di avanzamento agente}{41}{subsubsection.3.1.3}%
-\contentsline {subsubsection}{\numberline {3.1.4}Funzione di avanzamento modello}{42}{subsubsection.3.1.4}%
-\contentsline {subsubsection}{\numberline {3.1.5}Grafici}{46}{subsubsection.3.1.5}%
-\contentsline {subsection}{\numberline {3.2}Monitoraggio e Intervento}{53}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}SciML.ai}{53}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}Grafici}{56}{subsubsection.3.2.2}%
-\contentsline {section}{\numberline {4}Risultati Ottenuti}{57}{section.4}%
-\contentsline {section}{\numberline {5}Sviluppi Futuri}{58}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Altre epidemie}{58}{subsection.5.1}%
-\contentsline {subsubsection}{\numberline {5.1.1}Ebola}{58}{subsubsection.5.1.1}%
-\contentsline {subsubsection}{\numberline {5.1.2}Aviaria}{58}{subsubsection.5.1.2}%
-\contentsline {subsubsection}{\numberline {5.1.3}Influenza}{58}{subsubsection.5.1.3}%
-\contentsline {subsection}{\numberline {5.2}Miglioramento integrazione SciML.ai}{58}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Accuratezza nella descrizione del modello}{58}{subsection.5.3}%
-\contentsline {subsubsection}{\numberline {5.3.1}Happiness}{58}{subsubsection.5.3.1}%
-\contentsline {subsubsection}{\numberline {5.3.2}Interventi localizzati}{58}{subsubsection.5.3.2}%
-\contentsline {subsubsection}{\numberline {5.3.3}Migliore flessibilità generale}{58}{subsubsection.5.3.3}%
-\contentsline {section}{\numberline {A}Approcci scartati}{68}{appendix.A}%
-\contentsline {subsection}{\numberline {A.1}Modello ad Agente su spazio continuo}{68}{subsection.A.1}%
-\contentsline {subsection}{\numberline {A.2}Modello ad Agente con spazio a grafo e modellazione singolo agente}{69}{subsection.A.2}%
-\contentsline {subsection}{\numberline {A.3}Controllore Ipopt}{72}{subsection.A.3}%
+\contentsline {section}{\numberline {3}Metodi e Modelli}{35}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Approccio con Rete Sociale}{35}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Agente}{37}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Spazio e Modello}{38}{subsubsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.3}Funzione di avanzamento agente}{40}{subsubsection.3.1.3}%
+\contentsline {subsubsection}{\numberline {3.1.4}Funzione di avanzamento modello}{41}{subsubsection.3.1.4}%
+\contentsline {subsection}{\numberline {3.2}Monitoraggio e Intervento}{45}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Risultati Ottenuti}{52}{section.4}%
+\contentsline {section}{\numberline {5}Sviluppi Futuri}{59}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Altre epidemie}{59}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}Ebola}{59}{subsubsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.2}Aviaria}{59}{subsubsection.5.1.2}%
+\contentsline {subsubsection}{\numberline {5.1.3}Influenza}{59}{subsubsection.5.1.3}%
+\contentsline {subsection}{\numberline {5.2}Miglioramento integrazione SciML.ai}{59}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Accuratezza nella descrizione del modello}{59}{subsection.5.3}%
+\contentsline {subsubsection}{\numberline {5.3.1}Happiness}{59}{subsubsection.5.3.1}%
+\contentsline {subsubsection}{\numberline {5.3.2}Interventi localizzati}{59}{subsubsection.5.3.2}%
+\contentsline {subsubsection}{\numberline {5.3.3}Migliore flessibilità generale}{59}{subsubsection.5.3.3}%
+\contentsline {section}{\numberline {A}Approcci scartati}{69}{appendix.A}%
+\contentsline {subsection}{\numberline {A.1}Modello ad Agente su spazio continuo}{69}{subsection.A.1}%
+\contentsline {subsection}{\numberline {A.2}Modello ad Agente con spazio a grafo e modellazione singolo agente}{70}{subsection.A.2}%
+\contentsline {subsection}{\numberline {A.3}Controllore Ipopt}{73}{subsection.A.3}%

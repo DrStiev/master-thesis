@@ -1,158 +1,130 @@
 \subsection{Monitoraggio e Intervento}
-% descrizione implementazione Neural ODE per controller automatico
-% descrizione funzione di controllo e implementazione con modello
-% descrizione funzione di controllo del controllo 
-% varie assunzioni 
+Il sistema di controllo e intervento scelto segue l'idea del controllo autonomo tramite l'utilizzo di 
+una Neural ODE. Questo approccio permette di specificare un sistema di ODE che descrive il sistema reale 
+con le sue relazioni e inserire chirurgicamente una rete neurale al suo interno che controlli il 
+dosaggio delle contromisure. \cite{B_ttcher_2022} \cite{innes2019differentiable} \cite{sandoval2022neural}
 
-\subsubsection{SciML.ai}
+Questa tecnica permette di ottenere ottimi risultati, i quali tuttavia dipendono fortemente dalla 
+tipologia di modellazione del sistema scelto e dalla tipologia di funzione di costo o di controllo 
+applicata per addestrare il modello. La sfida in questo caso ricade sull'attenta modellazione del 
+sistema di partenza e sulla comprensione dei risultati offerti dal controllore. Questo controllore 
+difatti ritorna dei valori nell'ambito $\in[0, 1]$, i quali possono essere difficilmente interpretabili.
+Percio' e' necessario a priori avere ben chiaro cosa significhi il range di valori che puo' ritornare
+il controllore, e capire a cosa e' associato nel mondo reale. 
 
-L'utilizzo della suite \textbf{SciML.ai} e' stato fatto per l'integrazione
-di un modello di Machine Learning in un sistema di monitoraggio e possibilmente di 
-intervento. Applicare un algoritmo di ML per predire l'andamento di un sistema non lineare dinamico 
-senza avere una grande base di dati puo' risultare problematico e i risultati possono risultare 
-poco affidabili. Lo sviluppo di tecniche che congiungono la modellazione puramente matematica
-alla flessibilita' delle reti neurali ha permesso di sviluppare approcci \emph{data-driven domain-specific} 
-\cite{rackauckas2020universal} \cite{Kim_2021} \cite{dandekar2022bayesian} \cite{chen2019neural}
-che permettono di ottenere risultati affidabili pur avendo una base di dati scarsa.
-
-\subsubsection*{Addestramento}
-Viene definito il sistema di ODE che fara' da base per l'addestramento della \textbf{Neural ODE} \cite{chen2019neural}
-e successivamente viene definita la rete neurale tramite la suite \textbf{Lux.jl} \cite{pal2023lux}.
-Questo permette di definire facilmente e velocemente una rete neurale che verra' usata 
-in coppia con il sistema di ODE per ottenere il meglio da entrambi, andando a definire 
-quello che viene chiamato \textbf{Scientific Machine Learning}.
-
-\begin{figure}[!hb]
-	\centering
-	\begin{subfigure}[b]{0.45\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{img/seir_function.png}
-		\caption{Definizione del sistema di ODE per l'addestramento della rete neurale}
-		\label{fig:seir_function}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[b]{0.45\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{img/neural_ode.png}
-		\caption{Definizione della rete neurale}
-		\label{fig:neural_ode}
-	\end{subfigure}
-\end{figure}
-
-Dopo aver definito queste due funzioni, vengono definite le regole di predizione
-per l'addestramento e le regole della funzione di loss. La funzione di loss viene definita 
-come la loss L2 ovvero un \textbf{Mean Squared Error (MSE)} o \textbf{Errore Quadratico Medio}
-\cite{wiki:Mean_squared_error}.
-
-\begin{figure}[!hb]
-	\centering
-	\begin{subfigure}[b]{0.45\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{img/loss.png}
-		\caption{Definizione della funzione di Loss}
-		\label{fig:loss_function}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[b]{0.45\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{img/predict_function.png}
-		\caption{Definizione del loop di addestramento}
-		\label{fig:predict_function}
-	\end{subfigure}
-\end{figure}
-
-Utilizzando poi le regole di ottimizzazione offerte dal framework \textbf{Optimization.jl} \cite{vaibhav_kumar_dixit_2023_7738525}
-e' possibile definire una struttura di controllo tramite la creazione di un 
-\textbf{OptimizationProblem} e una \textbf{OptimizationFunction} e la scelta di un 
-algoritmo di ottimizzazione, generalmente lasciato automatico, e' possibile addestrare
-la propria \emph{Neural ODE}.
+Inizialmente la funzione di controllo inserita all'interno del modello ad agente e' definita 
+come riportato in figura \ref{fig:controller_abm}. E' possibile osservare come vengano inseriti dei valori di 
+controllo per gestire la chiamata al controllore vero e proprio.
 
 \begin{minipage}{\linewidth}
 	\centering
-	\includegraphics[width=\textwidth]{img/optimization_functions.png}
-	\captionof{figure}{Definizione delle funzioni di ottimizzazione}
-	\label{fig:optimization_function}
+	\includegraphics[width=\textwidth]{img/controller_neuralode.png}
+	\captionof{figure}{Definizione controller all'interno del modello ad agente}
+	\label{fig:controller_abm}
 \end{minipage}
 
-Per ottenere il massimo dall'addestramento vengono effettuati due cicli di addestramento, 
-uno usando un determinato ottimizzatore, \textbf{ADAM} e successivamente utilizzando quel 
-risultato, fare un altro ciclo di addestramento con un ottimizzatore differente, in questo 
-caso \textbf{BFGS} \cite{10.1093/imamat/6.1.76} \cite{10.1093/comjnl/13.3.317} 
-\cite{35d0019d-775a-3628-b0b4-67be112e346b} \cite{e3177091-3094-3792-9d61-0ab445735ddb}.
+I valori di controllo sono generalmente associati a quado bisogna realisticamente parlando, chiamare la 
+funzione di controllo. Da un lato servono sia a ridurre il numero di chiamate, e quindi ridurre l'impatto 
+prestazionale sia a rendere piu' realistica l'idea di avere accesso ad un sistema di controllo solamente 
+in determinati punti del tempo e non sempre. Questo va ad imitare anche il ritardo tra la raccolta dati, 
+la formulazione di una contromisura adeguata e l'applicazione della stessa.
 
-Questo procedimento viene effettuato principalmente perche' si cerca di sfruttare al meglio le
-proprieta' dei vari ottimizzatori. In primo luogo si utilizza ADAM per la maggior parte delle 
-iterazioni, andando a sfruttare e massimizzare la sua capacita' di trovare una buona area 
-generale dello spazio dei parametri. Successivamente per una manciata di iterazioni viene utilizzato 
-BFGS che velocemente riesce a cadere in un buon minimo locale. 
+Successivamente vengono definite ulteriori regole di attivazione, questa volta legate alla prima attivazione
+del controllore. A posteriori e' chiaro come avere delle regole di prevenzione gia' in atto possa essere di 
+enorme aiuto nel combattimento contro il dilagare di un epidemia, ma alle volte vi e' un ritardo nel riconoscere
+il pericolo, e questo e' dato dal valore di \emph{tolerance} il quale non attiva il controllore fintanto che 
+la situazione sembra rimanere sotto i minimi di soglia. 
 
-Se si utilizzasse solamente ADAM si andrebbe probabilmente incontro ad una richiesta in 
-termini di iterazioni molto alta, rispetto al risultato complessivo, e viceversa
-se si utilizzasse solo BFGS si andrebbe incontro ad un brutto minimo locale.
+Altri valori definiscono principalmente i parametri che servono alla funzione di controllo per operare correttamente.
+Tra questi vi e' un parametro opzionale $\upsilon$ il quale descrive quanto potra' essere il valore massimo delle 
+contromisure applicabili in relazione a quanti infetti sono presenti all'interno di un dato nodo. Questo valore viene 
+calcolato come un esponenziale nel numero degli infetti. Questa assunzione e' utile come valore di appoggio ulteriore 
+per il controllore nel caso in cui dovesse ritornare un valore troppo alto rispetto a quello che di buon senso sarebbe 
+adatto. 
 
 \begin{minipage}{\linewidth}
 	\centering
-	\includegraphics[width=\textwidth]{img/training.png}
-	\captionof{figure}{Definizione delle funzioni di addestramento tramite due differenti ottimizzatori}
-	\label{fig:training_function}
+	\includegraphics[width=\textwidth]{img/activationfunction_controller.png}
+	\captionof{figure}{Funzione per il calcolo del limite superiore per le contromisure}
+	\label{fig:max_countermeasures_function_abm}
 \end{minipage}
 
-\subsubsection*{Predizione}
-Viene utilizzato un approccio simile a quello denominato SINDy \cite{wiki:Sparse_identification_of_non-linear_dynamics}
-per effettuare predizioni sul lungo termine fondendo un approccio \textbf{DataDriven} ad uno
-\textbf{Domain Specific}.  
+Come si puo' osservare, la funzione descritta in figura \ref{fig:max_countermeasures_function_abm} 
+e' ottenibile dalla seguente formula: $\frac{e^{k \cdot x}-1}{e^{k}-1}$, in particolare la funzione sopra 
+presentata e' ottenuta dal valore $k = -4.5$. Questo tipo di funzione e' stata scelta in quanto descrive abbastanza 
+bene il valore di pericolo che, soprattutto durante i primi mesi di pandemia, e' stato attribuito al numero di infetti che 
+si riscontravano. Questo valore cresce rapidamente e poi tende a rallentare abbastanza bruscamente una volta superata la 
+soglia del cinquanta percento di infetti. 
 
-L'approccio \textbf{SINDy} ovvero Sparse Identification of Nonlinear Dynamics, e' un approccio algoritmico 
-di tipo data-driven per ottenere sistemi dinamici partendo da un insieme di dati. In generale l'approccio e' 
-quello di avere una serie di \emph{istantanee (snapshot)} del sistema e le loro corrispondenti derivate. A questo 
-punto e' possibile effettuare un insieme di approcci di regressione come ad esempio \textbf{LASSO} \cite{wiki:Lasso_(statistics)}
-per confrontare una molteplicita' di equazioni non lineari candidate con le derivate del sistema
-per cercare di trovare le equazioni che governano l'intero sistema.
+Questo puo' essere anche relazionato all'idea che una pandemia abbia un punto critico dopo il quale le speranze decadono. Questo 
+ovviamente in relazione alla pandemia stessa. Questa funzione potrebbe anche alterarsi nel corso del tempo, modellando percio' 
+una sorta di abitudine alla pandemia. 
+
+Il controllore vero e proprio si articola principalmente come gia' accennatto nella sezione relativa alle Neural ODE. 
 
 \begin{minipage}{\linewidth}
 	\centering
-	\includegraphics[width=\textwidth]{img/Schematic-of-the-sparse-identification-of-nonlinear-dynamics-SINDy-algorithm-25-as.png}
-	\captionof{figure}{Esempio schematic del funzionamento di SINDy \cite{BruntonKutz+2021+307+344}}
-	\label{fig:sindy}
+	\includegraphics[width=\textwidth]{img/controller1.png}
+	\captionof{figure}{Definizione controllore tramite Neural ODE}
+	\label{fig:controller1}
 \end{minipage}
 
-Questa procedura si basa sull'assunzione che la maggior parte di sistemi fisici hanno una manciata
-di equazioni dominanti che dettano l'evoluzione del sistema.
+Viene definita una rete neurale tramite l'ausilio del framework \textbf{Lux.jl} \cite{pal2023lux}, e questa viene utilizzata
+esclusivamente per il guess del valore di controllo $\eta$ durante la fase di addestramento, il quale verra' 
+alla fine utilizzato come valore di controllo per il modello. Successivamente viene definito il sistema di ODE che governa il fenomeno che vogliamo analizzare, nello specifico il sistema in 
+questione e' un sistema \textbf{SEIR} che modella la perdita di immunita' con il tempo. 
 
-Seguendo quanto appena descritto, l'approccio si basa principalmente sull'utilizzo del modello 
-appena creato e addestrato di Neural ODE, utilizzando due parti fondamentali di quest'ultimo
+Successivamente viene istanziato il problema con l'ausilio dell'interfaccia \textbf{ODEProblem} e da qui in avanti il modello potra' iniziare a 
+essere allenato. Innanzitutto vengono definite delle funzioni per la predizione e il calcolo della loss del modello, 
+e infine anche una funzione ausiliaria di callback utile per osservare l'andamento dell'apprendimento del modello.
 
-\begin{itemize}
-	\item \textbf{$X$} che rappresenta il predittore del sistema.
-	\item \textbf{$Y$} che rappresenta la derivate del sistema, o la predizione stessa.
-\end{itemize}
-
-Questi due elementi vengono successivamente inseriti all'interno di un algoritmo data-driven
-per estrapolare le equazioni che governano il sistema, e successivamente vengono utilizzate 
-queste equazioni in coppia con il vero sistema, da cui sono state ricavati i valori, 
-che in questo caso e' conosciuto in quanto si sa che i valori sono generati da un sistema di tipo 
-SEIR, per vedere se il sistema riesce a modellare i dati che non conosce, generealmente 
-associati alla \textbf{FOI} o Force of Infection.
-
-\begin{figure}[!hb]
+\begin{minipage}{\linewidth}
 	\centering
-	\begin{subfigure}[b]{0.45\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{img/sindy_part_1.png}
-		\caption{Codice relativo alla definizione del problema di tipo data-driven per SINDy}
-		\label{fig:sindy_part_1}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[b]{0.45\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{img/sindy_part_2.png}
-		\caption{Codice relativo alla definizione del problema di tipo data-driven per SINDy}
-		\label{fig:sindy_part_2}
-	\end{subfigure}
-\end{figure}
+	\includegraphics[width=\textwidth]{img/controller2.png}
+	\captionof{figure}{Definizione funzioni di appoggio del controllore}
+	\label{fig:controller2}
+\end{minipage}
 
-L'approccio e' simile a quello utilizzato per la Neural ODE precedentemente, ovvero si 
-utilizza la liberia \textbf{Optim.jl} \cite{vaibhav_kumar_dixit_2023_7738525} per 
-ottenere il risultato finale che si andra' ad utilizzare.
+Come si puo' osservare in figura \ref{fig:controller2} la funzione di \emph{callback} oltre ad essere una funzione di 
+appoggio nella stampa dei dati relativi all'addestramento, e' anche una utile funzione per implementare un controllo sulla tipologia 
+di apprendimento del modello. Infatti per ridurre ancora di piu' il numero di iterazioni necessarie per avere dei buoni risultati 
+e' stato scelto di inserire un controllo simile al metodo di \textbf{early stopping} \cite{wiki:Early_stopping} per prevenire 
+l'addestramento eccessivo quando si trova un valore di ottimo. Questo approccio e' puramente \emph{empirico} in quanto 
+e' stato riscontrato come il valore di loss generale del sistema tende a decrescere o crescere stabilmente e una volta trovato il 
+valore ottimale, se rimangono delle iterazioni da fare, questo non migliora per cui una volta che i valori rimangono identici 
+e' un buon azzardo terminare il periodo di addestramento del modello.
 
-\subsubsection{Grafici}
+La parte di addestramento vero e proprio del modello avviene con le seguenti funzioni
+
+\begin{minipage}{\linewidth}
+	\centering
+	\includegraphics[width=\textwidth]{img/controller3.png}
+	\captionof{figure}{Definizione funzioni di addestramento del controllore}
+	\label{fig:controller3}
+\end{minipage}
+
+Il ciclo di addestramento puo' essere scomposto idealmente in due parti, ma per quanto osservato, non sono 
+entrambe necessarie. La prima parte, riportata in figura \ref{fig:controller3} si propone di utilizzare un ciclo di addestramento 
+con l'utilizzo dell'ottimizzatore \textbf{ADAM}. Se i risultati dovessero esser soddisfacenti, allora e' possibile terminare. 
+Tuttavia in questi casi, e' buona pratica utilizzare due differenti cicli di addestramento per migliorare i risultati. 
+
+Piu' nello specifico vengono associati due differenti cicli di addestramento con due differenti ottimizzatori per ottenere il massimo 
+da entrambi. Questo approccio serve per massimizzare le peculiarita' di ognuno degli ottimizzatori. E' pratica comune utilizzare per la 
+buona parte dell'addestramento un ottimizzatore in grado di trovare un buono spazio degli iperparametri e successivamente utilizzare 
+un ottimizzatore come ad esempio \textbf{BFGS} \cite{10.1093/imamat/6.1.76} \cite{35d0019d-775a-3628-b0b4-67be112e346b} \cite{10.1093/comjnl/13.3.317} \cite{e3177091-3094-3792-9d61-0ab445735ddb}
+il quale e' estremamente utile nel trovare rapidamente un minimo locale all'interno dello spazio dei parametri.
+
+L'utilizzo di questi due ottimizzatori in successione e' utile in quanto utilizzando solamente \textbf{ADAM} si potrebbe 
+incorrere nell'avere un numero di iterazioni troppo elevate per raggiungere lo stesso risultato, mentre utilizzando solamente \textbf{BFGS} si 
+potrebbe incorrere in un brutto minimo locale.
+
+\begin{minipage}{\linewidth}
+	\centering
+	\includegraphics[width=\textwidth]{img/optimizers_example.png}
+	\captionof{figure}{Esempio di utilizzo congiunto di due ottimizzatori differenti in uno stesso ciclo di addestramento}
+	\label{fig:two_otpimizers}
+\end{minipage}
+
+\subsubsection*{Funzione di attivazione rete neurale}
+% inserisci qualcosa in piu'
+La funzione di attivazione della rete neurale e' una funzione denominata \textbf{swish} \cite{ramachandran2017searching}
