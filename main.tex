@@ -25,10 +25,19 @@
     % forse deve essere sia in eng che ita
     Lo scopo di questa tesi e' quello di studiare il comportamento di modelli di simulazione
     e di intervento utilizzando il linguaggio di programmazione Julia, e i suoi framework
-    Agents.jl, SciML.ai e Ipopt.jl. Lo scopo principale e' quello di affiancare a metodi di 
-    simulazione tramite sistemi ad agente metodi di calcolo e analisi numerica propri di modelli 
-    matematici, per ottenere il massimo da entrambi i mondi. Il problema analizzato e' quello della
-    pandemia da COVID-19.
+    Agents.jl, SciML.ai. In particolare viene proposto l'utilizzo del framework Agents.jl come 
+    metodo per la simulazione di sistemi complessi e il framework SciML.ai come base per 
+    lo sviluppo di un controllore tramite tecniche ibride di machine learning, come ad esempio 
+    l'utilizzo delle Neural ODE. Lo scopo principale e' quello di avere un approccio ibrido e dinamico 
+    ai due mondi, dai quali e' possibile trarre il massimo vantaggio. L'approccio generale 
+    e' stato modellato come un problema complesso che lavora con una struttura dati a grafo, simulando
+    una rete sociale, in cui i nodi del grafo caratterizzano gli agenti del modello. Per ottenere un 
+    miglioramento delle prestazioni e dell'affidabilita', il modello e' stato ibridato con 
+    un sistema di ODE. Il controllore si basa sull'idea di una Neural ODE che controlla 
+    in maniera autonoma e automatica il livello di contromisure applicate. Queste vengono 
+    identificate come una riduzione dell'indice di infettivita' $R_0$; per evitare di applicare 
+    livelli di contromisure al lato pratico insostenibili, e' stato inserito un valore di contenimento 
+    chiamato \emph{happiness}, il quale agisce come una funzione di costo e controllo delle contomisure stesse.
 \end{abstract}
 
 % se mai volessi scrivere una piccola dedica
