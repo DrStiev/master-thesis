@@ -1,11 +1,4 @@
 \subsection{Julia}
-
-%\begin{figure}[h]
-%    \includegraphics[width=\linewidth]{img/Julia_Programming_Language_Logo.svg.png}
-%    \caption{Logo del linguaggio di programmazione Julia}
-%    \label{fig:Julia_logo}
-%\end{figure}
-
 Julia è un linguaggio di programmazione ad alto livello, 
 multi-paradigma e open-source ideato per compiere analisi 
 numerica ed effettuare operazioni di computer science in 
@@ -28,14 +21,6 @@ principalmente:
     in codice nativo per molteplici piattaforme grazie 
     all’utilizzo di LLVM
 
-    % \begin{figure}[h]
-    %     \begin{center}
-    %         \includegraphics[width=\linewidth]{img/julia_llvm.jpg}
-    %         \caption{Esempio struttura Julia e LLVM}
-    %         \label{fig:Julia_LLVM}
-    %     \end{center}
-    % \end{figure}
-
     \item Dinamico: la scelta di rendere Julia un linguaggio 
     dinamicamente tipizzato lo rende di facile utilizzo in 
     quanto rende molto più semplice il suo approccio anche a 
@@ -43,12 +28,6 @@ principalmente:
     ritorna la stessa sensazione di immediatezza di un 
     linguaggio di scripting. Inoltre questo permette un alto 
     supporto per l’uso interattivo
-
-    % \begin{figure}[h]
-    %     \includegraphics[width=\linewidth]{img/typing_example.jpg}
-    %     \caption{Esempio differenze di typing in alcuni linguaggi di programamzione}
-    %     \label{fig:Different_typing}
-    % \end{figure}
 
     \item Ambiente riproducibile: lo scopo del linguaggio è 
     quello di poter permettere all’utente di ricreare le 
@@ -74,14 +53,6 @@ principalmente:
 \end{itemize}
 
 \subsubsection{Agents.jl}
-
-%\begin{minipage}{\linewidth}
-%    \centering
-%    \includegraphics[width=\textwidth]{img/Agents_5poOwRo.png}
-%    \captionof{figure}{Logo framework Agents.jl}
-%    \label{fig:Agents.jl_logo}
-%\end{minipage}
-
 Seguendo la filosofia propria del linguaggio di programmazione 
 in cui è sviluppata, la libreria Agents.jl \cite{Agents.jl} 
 viene sviluppata con l’obiettivo di essere facile da imparare e 
@@ -96,7 +67,7 @@ attualmente presenti sul mercato (Mesa, Netlogo, MASON)
 \begin{minipage}{\linewidth}
     \centering
     \includegraphics[width=\textwidth]{img/1-s2.0-S1574013716301198-gr1_lrg.jpg}
-    \captionof{figure}{Tabella comparativa}
+    \captionof{figure}{Tabella comparativa \cite{ABAR201713}}
     \label{fig:Comparative_table}
 \end{minipage}
 
@@ -169,14 +140,6 @@ principalmente quello su cui si basa sono i seguenti principi:
 
 
 \subsubsection{SciML.ai}
-
-%\begin{minipage}{\linewidth}
-%    \centering
-%    \includegraphics[width=\textwidth]{img/SciMLGitHubPreview.png}
-%    \captionof{figure}{Logo SciML.ai}
-%    \label{fig:SciML.ai}
-%\end{minipage}
-
 SciML.ai è una collezione di librerie dedite all'analisi numerica e 
 al calcolo scentifico. Questo framework permette di 
 avere tutti gli strumenti per poter utilizzare facilmente, 
@@ -449,12 +412,42 @@ parte dei linguaggi di programmazione focalizzati sull'analisi numerica e scient
 \begin{minipage}{\linewidth}
     \centering
     \includegraphics[width=\textwidth]{img/de_solver_software_comparsion.pdf}
-    \captionof{figure}{Tabella comparativa tra le varie implementazioni dei vari risolutori}
+    \captionof{figure}{Tabella comparativa tra le varie implementazioni dei vari risolutori \cite{10.15200/winn.153459.98975}}
     \label{fig:de_comparison_table}
 \end{minipage}
 
 \subsubsection*{Equazioni Differenziali Universali}
-% sistemare sezione come articolo rackauckas (download)
+Recentemente gli avanzamenti nel mondo del machine learning sono stati dominati dalle tecniche 
+di deep learning le quali necessitano di una quantita' di dati enormi, generalmente chiamati \emph{big data}, 
+per risolvere problemi definiti precedentemente come difficili e complessi, come ad esempio problemi di 
+\emph{image recognition} o \emph{natural language processing}. 
+
+\begin{minipage}{\linewidth}
+    \centering
+    \includegraphics[width=\textwidth]{img/Caratteristiche-e-funzionamento-del-Deep-Learning-in-informatica.png}
+    \captionof{figure}{Caratteristiche e funzionamento del Deep Learning in informatica}
+    \label{fig:ml_dl_example}
+\end{minipage}
+
+Tuttavia se molteplici ambiti della scienza sono riusciti a generare una mole di dati sufficiente per l'utilizzo di 
+queste tecniche, alcuni ambiti specialmente legati alla medicina e a tutto cio' che ne concerne, faticano enormemente
+ad avere un insieme di dati sufficientemente grande e variegato per applicare le tecniche sopra introdotte. In questo 
+ambito i modelli meccanicistici rimangono quelli piu' utilizzati. L'utilizzo di questi modelli tuttavia impone dei limiti 
+quali l'essere modelli predittivi che dipendono fortemente dalle conoscenze pregresse del modello, andando a creare quello 
+che puo' essere assimilabile ad una specie di bias induttivo, mentre l'approccio data-driven dei modelli di machine learning 
+puo' consentire di essere molto piu' flessibile permettendo di abbandonare le ipotesi semplificative 
+necessarie per derivare i modelli teorici. 
+
+Un \emph{equazione differenziale universale} (UDE) e' un insieme di equazioni differenziali definiti pienamente,
+o in parte, da un \emph{approssimatore universale}. Un approssimatore universale e' un oggetto parametrico 
+capace di rappresentare qualsiasi funzione dato una determinata dimensione dei parametri. Degli approssimatori 
+universali, in uno spazio a basse dimensioni includono la serie di Fourier o di Chebyshev, mentre un 
+approssimatore universale in uno spazio ad alte dimensioni includono le reti neurali e altri modelli utilizzati 
+all'interno del machine learning. Matematicamente parlando pero', nella sua forma piu' generale, una UDE e' 
+una equazione differenziale parziale (PDE) a ritardo stocastico forzato definita con approssimatori universali incorporati:
+$$\mathcal{N}[u(t), u(\alpha(t)), W(t), U_\theta(u, \beta(t))] = 0$$
+dove $\alpha(t)$ e' una funzione a ritardo e $W(t)$ e' un processo Wiener \cite{wiki:Processo_di_Wiener}.
+
 Un \emph{equazione differenziale universale} (UDE) e' una \emph{equazione algebrica
 differenziale}\cite{wiki:Differential-algebraic_system_of_equations} 
 non triviale, ovvero un sistema di equazioni che contiene delle equazioni differenziali

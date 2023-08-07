@@ -6,16 +6,28 @@ o gruppi di individui, con l'obiettivo di comprendere il comportamento
 del sistema e la relazione che vige con i suoi risultati \cite{wiki:Agent-based_model}
 \cite{7822080}.
 
-\begin{minipage}{\linewidth}
-    \centering
-    \includegraphics[scale=0.5]{img/201381146479794-2013-09HayesF1png.png}
-    \captionof{figure}{Schelling's model of segregation simulato tramite ABM}
-    \label{fig:schelling_segregation_abm}
-\end{minipage}
+Nella modellazione basata su agenti, un sistema viene modellato come un insieme 
+di entita' decisionali autonome chiamate \emph{agenti}. Ogni agente valuta 
+individualmente la propria situazione e prende decisioni sulla base di un insieme di 
+regole ben precise. Gli agenti possono eseguire diversi comportamenti appropriati
+al sistema che rappresentano. Interazioni competitive e ripetute tra agenti sono 
+peculiarita' di un modello ad agente che si basa sulla potenza computazionale di un 
+computer per esplorare dinamiche che altrimenti non sarebbero esplorabili tramite la 
+classica modellazione matematica. Nella sua rappresentazione piu' semplice, un modello 
+ad agente consiste in un sistema di agenti e relazioni tra loro, e questo permette 
+perfino a un modello estremamente semplice di mostrare comportamenti complessi e 
+permette di ottenere informazioni preziose riguardo le dinamiche del mondo reale che
+modellano. 
 
-L'utilizzo di modelli ad agente in epidemiologi e' una tecnica nota che 
-da piu' di un decennio viene impiegata per simulare e comprendere le 
-situazioni e i problemi piu' disparati, tutti pero' generalmente accomunati
+Generalmente un agente puo' essere capace di \emph{evolvere} nel tempo, permettendo 
+di osservare comportamenti precedentemente inaccessibili, denominati \textbf{comportamenti emergenti}.
+I modelli piu' sofisticati incorporano generalmente reti neurali, algoritmi evolutivi o 
+altre tecniche di apprendimento per premettere alla simulazione di essere quanto piu' 
+realistica possibile.
+
+L'utilizzo di modelli ad agente in epidemiologia e' una tecnica nota che 
+da piu' di un decennio viene impiegata per simulare e comprendere 
+i problemi piu' disparati, tutti pero' generalmente accomunati
 dal fatto che come parametro portante vi sia il comportamento umano \cite{Groff2019}
 \cite{El-Sayed2012-ac} \cite{Tracy2018-lc} \cite{Bissett2021}. 
 Uno dei parametri piu' caratterizzanti che da sempre sono stati tenuti 
@@ -24,6 +36,13 @@ le interazioni sociali tra individui. Questo sovrainsieme di parametri
 racchiude molteplici sottoinsiemi di parametri che descrivono delle 
 interazioni piu' specifiche ma che possono essere raggruppate come macro 
 categoria se si scende a compromessi. 
+
+\begin{minipage}{\linewidth}
+    \centering
+    \includegraphics{img/1-s2.0-S0010482522001883-ga1.jpg}
+    \captionof{figure}{Agent-Based Epidemiological Modeling of COVID-19 in Localized Environment \cite{CIUNKIEWICZ2022105396}}
+    \label{fig:abm_covid}
+\end{minipage}
 
 Questa specifica e' importante in quanto uno delle sfide piu' grandi che 
 il mondo della simulazione, e quindi quello epidemiologico devono affrontare
@@ -36,6 +55,17 @@ simulazione. In base al tipo di discretizzazione effettuata una simulazione
 potrebbe essere utile in un campo ma totalmente inutile in un altro 
 \cite{KONSTANTINOUDIS2020100319}.
 
+I vantaggi di utilizzare una tecnica di simulazione tramite modello ad agente
+sono principalmente i seguenti:
+\begin{itemize}
+    \item I modelli ad agente riescono a catturare molto bene i comportamenti emergenti
+    \item I modelli ad agente forniscono una descrizione naturale del sistema che rappresentano 
+    \item i modelli ad agente sono \emph{flessibili}
+\end{itemize}
+E' chiaro come principalmente la scelta dell'utilizzo di un modello di simulazione viene preferito 
+sopra le altre tecniche di simulazione e' proprio per via della possibilita' di catturare i 
+comportamenti emergenti del sistema.
+
 \begin{minipage}{\linewidth}
     \centering
     \includegraphics[scale=0.5]{img/Schematic-representation-of-an-agent-based-model-ABM.png}
@@ -45,20 +75,33 @@ potrebbe essere utile in un campo ma totalmente inutile in un altro
 
 Con l'arrivo della pandemia da COVID-19 molti ricercatori hanno 
 focalizzato la propria attenzione sull'idea di sviluppare un modello 
-ad agente puro oppure ibrido \cite{Marzban2021-pd}
-(ibridato con delle ODE oppure delle Partial DE), con l'obiettivo di 
+ad agente puro oppure ibridato \cite{Marzban2021-pd} con delle equazioni
+differenziali, con l'obiettivo di 
 trovare un modello di simulazione in grado di simulare in maniera 
 affidabile il decorso di una pandemia tenendo in considerazione le 
-variabili piu' stocastiche e imprevedibili come il comportamento umano.
-L'ambiente di lavoro simulato era generalmente un ambiente controllato
-che poteva essere una citta' come in \cite{PRAJAPATI20232299}, 
+variabili piu' stocastiche e imprevedibili come il comportamento umano, e 
+magari ottenere un intuizione riguardo il comportamento emergente del sistema.
 
-Un'altro obiettivo e' quello di osservare l'impatto degli interventi non 
-farmaceutici sulla popolazione come riporta \cite{NOVAKOVIC2022108790}
-\cite{10.1371/journal.pcbi.1009149}.
-Altri ancora invece utilizzano l'approccio simulativo tramite modelli ad 
-agente per estrapolare delle ODE tramite l'analisi del modello, come
-riportato da \cite{Nardini2021-pu}. 
+\subsubsection*{Comportamento emergente}
+I fenomeni emergenti sono il risultato dell'interazione di entita' individuali. 
+Per definizione non possono essere ridotte ad una parte del sistema in quanto 
+l'insieme del sistema e' maggiore della somma delle sue singole parti, questo poiche' 
+si deve tenere in considerazione le interazioni tra le parti. Un comportamento emergente 
+puo' avere proprieta' che sono separate dalle proprieta' intrinseche delle parti.
+Per questo motivo i comportamenti emergenti rendono complesso lo studio e l'analisi del
+sistema, in particolare rendono difficile predirne il comportamento, in quanto questi comportamenti 
+possono essere controintuitivi. 
+
+\begin{minipage}{\linewidth}
+    \centering
+    \includegraphics{img/Figure6b.jpg}
+    \captionof{figure}{Esempio di comportamento emergente nella simulazione degli stormi di uccelli}
+    \label{fig:flock_emergent_behaviour}
+\end{minipage}
+
+E' interessante notare come un modello ad agente generi un comportamento emergente dal basso 
+verso l'alto ovvero dai singoli agenti fino all'intero gruppo, e questo alza un interrogativo 
+su cosa possa costituire un comportamento emergente. 
 
 \subsubsection{Discretizzazione}
 La tematica della discretizzazione e' una delle proprieta' fondamentali
@@ -72,7 +115,7 @@ inequivocabilmente a perdere informazioni nel processo
 
 \begin{minipage}{\linewidth}
     \centering
-    \includegraphics[scale=0.5]{img/figura-1-analogico-e-digitale-7ae2c4b25c8751e9a3771f91f1e65bb1f.jpg}
+    \includegraphics[scale=0.5]{img/main-qimg-100fc99cfe855462247225a07e1dfb7e-pjlq.jpg}
     \captionof{figure}{Esempio di discretizzazione dei dati}
     \label{fig:discretization}
 \end{minipage}
@@ -82,31 +125,13 @@ principalmente due macro aree che sono: lo spazio e il tempo.
 Molti framework di simulazione implementano al loro interno 
 diversi trucchetti per simulare in maniera quanto piu' accurata
 un insieme di dati continuo, permettendo all'utente di utilizzare
-parole chiave come ad esempio ContinuousSpace. Quello che praticamente
+parole chiave come ad esempio \textbf{ContinuousSpace}. Quello che praticamente
 viene fatto e' creare un ambiente per il modello che e' il piu'
-preciso e granulare possibile, per cui servono allo scopo fintanto
-che quest'ultimo non richiede una maggiore precisione. 
+preciso e granulare possibile in maniera tale da avere una descrizione
+quanto piu' accurata (anche se imprecisa) del mondo. 
 
 Il processo di discretizzazione comunque non e' sempre negativo, 
 in quanto alcuni problemi possono essere simulati in maniera 
 estremamente fedele anche effettuando questi accorgimenti, e anzi
 alle volte non e' perfino necessario avere una precisione troppo 
 alta per la simulazione di determinati eventi.
-
-Se ad esempio si volesse simulare tramite un agente una partita 
-a Risiko, non e' necessario richiedere uno spazio e un tempo continuo
-della simulazione, in quanto questi possono essere rimpiazzati 
-dalla loro controparte discreta che sono caselle e turni. 
-
-\begin{minipage}{\linewidth}
-    \centering
-    \includegraphics[scale=0.5]{img/s-l500.jpg}
-    \captionof{figure}{Plancia di gioco di Risiko}
-    \label{fig:risiko}
-\end{minipage}
-
-Se si volesse simulare il traffico aereo si potrebbe utilizzare
-uno spazio a grafo dove ogni nodo rappresenta un aeroporto e 
-gli archi rappresentano la tratta in partenza o in arrivo. Anche in 
-questo caso l'applicazione della discretizzazione non sarebbe 
-qualcosa di problematico.

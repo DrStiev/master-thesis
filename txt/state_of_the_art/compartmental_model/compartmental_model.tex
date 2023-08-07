@@ -4,18 +4,44 @@ In epidemiologia i modelli compartimentali sono una tecnica di modellezione
 generica che si predispone molto bene allo studio complessivo del comportamento
 di una malattia infettiva \cite{wiki:Compartmental_models_in_epidemiology}. 
 Questa tecnica di modellazione si applica anche ad altre branche della 
-scienza, come ad esempio la finanza.
+scienza, una tra tutte la finanza.
 
 Questa tecnica di modellazione matematica basa il proprio funzionamento 
 sull'assunzione che, data una popolazione di individui, questi vengano 
 etichettati in maniera differente, in base allo stato di progressione 
 della malattia che hanno, o non hanno, contratto. Così facendo si vanno a 
 definire dei compartimenti ben separati che possono interagire tra loro, ma 
-che rimangono comunque chiaramente distinti l'uni dagli altri.
+che rimangono chiaramente distinti l'uni dagli altri.
+
+\subsubsection*{Equazioni Ordinarie Differenziali}
+Un equazione ordinaria differenziale (ODE) e' un equazione che coinvolge alcune derivate
+ordinarie di una funzione. \cite{wiki:Equazione_differenziale_ordinaria} Generalmente data una 
+derivata di una funzione si vuole studiare la funzione di partenza e per fare questo bisogna trovare 
+l'antiderivata (o integrale) della funzione in esame. 
+
+$$\frac{dx}{dt}(t) = cos(t) \rightarrow x(t) = sin(t) + C$$
+
+Generalmente pero' risolvere una ODE e' piu' complicato di risolvere un semplice integrale, e pur sapendo 
+che il principio alla base rimane la risoluzione di un integrale, la parte difficile e' quella di determinare
+quale tipo di integrazione abbiamo bisogno per ricavare la nostra soluzione.
+
+Fintanto che le equazioni associate a $\frac{dx}{dt}$ dipendono esclusivamente dalla variabile $t$ e non 
+dalla funzione $x(t)$ allora la loro risoluzione risulta molto piu' facile di quanto non sembri. Tuttavia 
+nel caso in cui si avesse una funzione che dipende da $x(t)$ questo ragionamento si fa piu' complicato.
+Nel caso in cui $\frac{dx}{dt}$ dipende da $x(t)$ non e' possibile applicare una semplice integrazione e 
+successivamente il teorema fondamenteale del calcolo \cite{wiki:Fundamental_theorem_of_calculus}, ma anzi 
+necessitiamo di effettuare alcune manipolazioni, in particolare quelle che prendono il nome di \emph{chain rules}
+o \emph{u-substitution}.
+
+\subsubsection{Il modello Kermack-McKendrick}
+Secondo la definizione precedente possiamo separare la popolazione soggetta di studio 
+in categorie, o compartimenti, e assumere una relazione temporale che descriva il passaggio 
+di individui da un compartimento all'altro. Malattie che garantiscono un immunita' avranno 
+una struttura compartimentale differenti da malattie che non la garantiscono.
 
 Il modello che tutt'ora viene usato come riferimento e come base per 
 lo studio e modellazione è il così detto modello 
-\textbf{Susceptible, Infectious, Recovered} (SIR):
+\textbf{Susceptible, Infectious, Recovered} (SIR)
 
 \begin{figure}[h]
     \includegraphics[width=\linewidth]{img/sir.png}
@@ -24,7 +50,7 @@ lo studio e modellazione è il così detto modello
 \end{figure}
 
 Questo modello è stato ideato all'inizio del 20esimo secolo, 
-più precisamente nel 1917, da Kermack e McKendrick. Come introdotto questo modello
+più precisamente nel 1927, da Kermack e McKendrick. Come introdotto questo modello
 si basa sull'assunzione che all'interno di una popolazione durante 
 il decorso di una malattia vi possano esistere solamente tre stadi in cui 
 un individuo può essere inserito: 
@@ -45,118 +71,89 @@ un individuo può essere inserito:
 Da questa semplice idea poi si è andato a sviluppare un modello
 matematico per descrivere come queste 3 categorie separate ma 
 che si influenzano vicendevolmente, cambiano nel corso del tempo.
-Questo approccio si basa sull'utilizzo di un sistema di Equazioni 
-Ordinarie Differenziali (ODE) \cite{Brauer2008}. Una ODE è
-un equazione differenziale, ovvero un equazione che lega 
-una funzione incognita alle sue derivate, che coinvolge una 
-funzione di una variabile e le sue derivate di ordine qualsiasi.
-Questo oggetto viene utilizzato estensivamente in molti ambiti 
-della scienza e in epidemiologia viene utilizzato per 
-descrivere un sistema dinamico \cite{wiki:Equazione_differenziale_ordinaria}. 
+La variabile indipendente del modello e' il tempo, indicato come $t$ e il 
+tasso di trasferimento tra compartimenti, il quale e' espresso matematicamente come 
+derivate rispetto al tempo e alla dimensione del compartimento, e come risultato questo 
+modello e' stato inizialmente formulato tramite l'utilizzo delle equazioni differenziali
+\cite{Brauer2008}. 
 
-\begin{figure}[h]
-    \includegraphics[width=\linewidth]{img/SIR-model.png}
-    \caption{Visualizzazione grafica di un modello SIR} 
-    \label{fig:SIR_model_graphic}
-\end{figure}
+Durante la formulazione del modello in termini di derivate della dimensione di ogni compartimento
+si assume che il numero di individui di ogni compartimento sia rappresentabile come una funzione 
+differenziabile nel tempo. Questa assunzione puo' essere una ragionevole approssimazione nel caso 
+in cui vi siano molti individui per compartimento, altrimenti potrebbe risentire di essere sospetta
+in caso contrario. Nel caso in cui si utilizzino le equazioni ordinarie differenziali come modello 
+si assume che il comportamento della popolazione sia determinato completamente da una relazione deterministica. 
+Questa assunzione puo' essere una ragionevole approssimazione, tuttavia esistono approcci di tipo 
+\emph{stocastico} che aggirano questo tipo di assunzione introducendo concetti probabilistici per
+la modellazione del modello.
 
-Come succede per la maggior parte di tutte le equazioni 
-differenziali, queste non possono essere solitamente 
-risolte in maniera esatta, e per questo ci si limita a 
-studiarne il comportamento qualitativo della soluzione 
-senza essere capaci di ottenere una'espressione analitica.
+Il modello in figura \ref{fig:SIR_Structure} e' un caso speciale del modello proposto da Kermack e McKendrick 
+nel loro articolo del 1927, ma e' divenuto il modello base per la strutturazione di questo tipo di modelli.
+Questa tipologia di modello descrive il seguente sistema di equazioni ordinarie differenziali:
+$$\frac{dS}{dt} = -\beta \cdot S \cdot I$$
+$$\frac{dI}{dt} = \beta \cdot S \cdot I - \gamma \cdot I$$
+$$\frac{dR}{dt} = \gamma \cdot I$$
 
-Nell'ambito epidemiologico tuttavia non sempre l'utilizzo
-di un sistema di ODE è preferito come metodo generale di 
-modellazione di un sistema dinamico, in quanto il più 
-delle volte questo sistema al suo interno utilizza un 
-insieme di variabili rappresentanti processi stocastici, le quali 
-è bene mantenere tali. A questo scopo vengono utilizzati i 
-sistemi di Equazioni Differenziali Stocastiche (SDE) \cite{Allen2008}.
+Questo sistema modella le seguenti assunzioni: 
+\begin{itemize}
+    \item In media un individuo della popolazione effettua sufficienti contatti con altri individui tale per cui 
+    e' possibile far evolvere l'infezione con la seguente relazione $\beta \cdot N$ con $N$ numero di individui totali. 
+    \item Gli infetti abbandonano il compartimento che determina gli infetti con un tasso pari a $\gamma \cdot I$.
+    \item Non esistono entrate o uscite di individui dalla popolazione totale eccezione fatta per possibili uscite tramite morte
+    data dalla malattia stessa.
+\end{itemize}
 
-Queste equazioni si basano sulla teoria del moto Browniano 
-il quale descrive il movimento randomico delle particelle 
-sospese all'interno di un medium \cite{wiki:Brownian_motion}. 
-In questo modo è possibile modellare in maniera più granulare
-ad esempio la diffusione di un agente patogeno tramite il 
-medium aereo, come può essere il COVID-19.
+Data la descrizione sopra fatta, in accordo con il primo punto, la probabilita' di un contatto casuale da un individuo 
+infetto con un individuo suscettibile, a cui e' possibile trasmettere l'infezione, e' di $\frac{S}{N}$, sove il numero di nuovi 
+infetti e' dato da $(\beta \cdot N) \cdot (\frac{S}{N}) \cdot I = \beta \cdot S \cdot I$. Questo approccio e' criticabile in quanto 
+si puo' argomentare come il tasso di contatti dovrebbe essere governato dal numero di infetti e non dei suscettibili, andando 
+cosi' a descrivere la seguente formula $(\beta \cdot N) \cdot (\frac{I}{N}) \cdot S = \beta \cdot S \cdot I$. In entrambi i casi 
+si ottiene lo stesso tasso di infezione; tuttavia possono esistere approcci dove una scelta sia piu' adatta dell'altra.
 
-\subsubsection{Derivazioni del modello SIR}
+La seconda assunzione non ha una chiara controparte con il mondo epidemiologico. Consideriamo l'insieme dei membri che sono stati infettati 
+in un dato periodo di tempo e consideriamo $u(s)$ come il numero di questi che sono ancora infettivi dopo $s$ unita' di tempo. Se definiamo 
+$\alpha$ come la frazione di infetti che abbandona la classe di appartenenza in un determinato periodo di tempo, otteniamo la seguente formula
+$u' = - \alpha u$, la cui soluzione e' $u(s) = u(0) e^{-\alpha s}$. Con questo la frazione di infetti che rimangono infettivi dopo un periodo 
+$s$ e' $e^{-\alpha s}$, per cui il periodo di infettivita' viene approssimato come una \emph{distribuzione esponenziale} con media 
+$\int_{0}^{\infty} e^{-\alpha s} \,ds = \frac{1}{\alpha}$.
 
-Con il tempo questo il modello SIR è stato espanso 
-per tenere in considerazione comportamenti
-differenti sia della popolazione che delle malattie, 
-andando a definire una moltitudine di modelli utili a 
-differenti scopi. In epidemiologia il modello di
-riferimento maggiormente utilizzato è il modello SEIR 
-(Susceptible, Exposed, Infectious, Recovered)
-con le sue varianti proprie di ogni approccio.
+Questa assunzione, per cui il tasso di contatto e' proporzionale alla dimensione della popolazione $N$ con una costante di 
+proporzionalita' $\beta$  e una distribuzione esponenziale del tasso di ripresa, e' generalmente troppo semplicistica. Tuttavia pur essendo 
+un modello che descrive un andamento estremamente semplicistico e irrealistico, e' stato osservato come modelli molto piu' complessi e realistici 
+hanno dimostrato comportamenti estremamente simili a questo, facendo si che questo modello, seppur semplice, sia un buon modello che approssima bene 
+la realta'.
 
-Questa tipologia di modello basa il proprio punto di forza
-sull'osservazione che da quando un individuo viene 
-infettato tramite un agente patogeno a quando quest'ultimo 
-diventa infettivo, passa un periodo di latenza in cui 
-l'individuo non può ne infettare ne essere infettato. 
-Questo periodo viene anche conosciuto come \emph{periodo di 
-incubazione} \cite{wiki:Incubation_period}. Con questa 
-conoscenza pregressa è possibile sviluppare modelli 
-e policy che tenendo conto di questo comportamento lo 
-sfruttino per arginare l'epidemia.
+Il problema definito precedentemente non e' possibile da risolvere analiticamente, pero' da cio' e' possibile imparare il comportamento generale del sistema.
+Questo approccio permette di inserire un numero variabile di infetti all'interno di una popolazione per studiare se e come 
+un'epidemia si propaghi. La quantita' $\beta \cdot \frac{S(0)}{\alpha}$ e' indicata come una soglia generalmente conosciuta 
+come \emph{basic reproduction number} e viene indicato come $R_0$, il quale determina se puo' o meno avvenire un'epidemia. 
+Se $R_0 < 1$ allora l'infezione andra' a morire prima di diventare una epidemia, mentre se fosse $R_0 > 1$ vi sara' 
+un outbreak epidemico.
 
-\begin{figure}[h]
-    \includegraphics[width=\linewidth]{img/SEIR-compartmental-model-schematic.png}
-    \caption{Modello schematico SEIR} 
-    \label{fig:SEIR_model}
-\end{figure}
+L'indice $R_0$ definisce il numero di infezioni secondarie causate da un singolo individuo durante il proprio periodo infettivo 
+all'interno di una popolazione pienamente suscettibile di dimensione $K \approx S(0)$ durante l'intero decorso dell'infezione. In 
+questa situazioneun individuo infetto effettua $\beta \cdot K$ contatti per unita' di tempo, ognuno di essi con un individuo suscettibile 
+che produce nuove infezioni durante un periodo medio infettivo di $\frac{1}{\alpha}$; con questo si puo' ottenere che il valore di $R_0$ e' 
+$\beta \cdot \frac{K}{\alpha}$. Generalmente e' difficile stimare il rateo di contatto $\beta$ in una popolazione in quanto questo dipende fortemente 
+dalla tipologia di malattia studiata ma anche dal comportamento sociale degli individui. Tuttavia esistono molteplici approssimazioni 
+che permettono di modellare l'andamento di una malattia infettiva in presenza di pochi dati. 
 
-Alcuni modelli definiscono i propri stati in maniera da considerare 
-come stato interno al sistema anche l'agente patogeno, così da 
-poter modellare e simulare l'andamento dell'infettività della pandemia 
-in relazione alle contromisure prese, siano esse farmaceutiche o non.
-Ne è un esempio il modello proposto da \cite{Mwalili2020} nel quale 
-il modello viene proposto con l'idea di incorporare le misure di 
-distanziamento sociale come variabili per misurare la loro efficacia
-contro la recente pandemia da COVID-19.
+Il numero di infetti e' stato osservato crescere esponenzialmente e questo puo' essere approssimato dalla seguente formula $I' = (\beta \cdot K - \alpha) \cdot I$
+e l'iniziale crescita e' definibile come $r = \beta \cdot K - \alpha = \alpha \cdot (R_0 - 1)$. Il valore di $r$ puo' essere stimato sperimentalmente 
+all'inizio di una pandemia. Successivamente, data la possibilita' di misurare sia $K$ che $\alpha$, $\beta$ puo' essere calcolato come 
+$\beta = \frac{r + \alpha}{K}$, tuttavia questo approccio e' sensibile alla presenza di incompletezza dei dati e alla segnalazione parziale dei casi effettivi, andando 
+ad avere una rappresentazione non accurata. Questa sensibilita' nell'accuratezza e' ulteriormente accentuata quando si studia l'outbreak di una malattia 
+precedentemente sconosciuta o in cui i primi casi sono facilmente proni a diagnosi errate.   
 
-\begin{minipage}{\linewidth}
-    \centering
-    \includegraphics[width=\textwidth]{img/13104_2020_5192_Fig1_HTML.png}
-    \captionof{figure}{Esempio di modello SEIR preso dall'articolo \cite{Mwalili2020}}
-    \label{fig:SEIR_model_social_distancing}
-\end{minipage}
-
-Altri modelli, come quello proposto da \cite{ijerph17103535} mantengono 
-la stessa filosofia, ovvero quella di analizzare l'efficacia delle misure 
-di prevenzione non farmaceutiche sull'andamento di un epidemia, ma non
-modellano esplicitamente l'agente patogeno come stato del modello, bensì
-variando i paramentri di infettività e contagio, arrivano allo stesso 
-risultato. Un'altra differenza tra i due approcci è quella della tipologia
-di equazioni differenziali utilizzate, \cite{Mwalili2020} hanno utilizzato 
-delle ODE mentre \cite{ijerph17103535} delle SDE.
-
-\begin{minipage}{\linewidth}
-    \centering
-    \includegraphics[width=\textwidth]{img/ijerph-17-03535-g001.png}
-    \captionof{figure}{Esempio di modello SEIR preso dall'articolo \cite{ijerph17103535}}
-    \label{fig:SEIR_model_article}
-\end{minipage}
-
-Il motivo per cui viene utilizzato il modello SEIR come base è perchè permette di 
-modellare una caratteristica intrinseca di una malattia infettiva, ovvero 
-il periodo di latenza che un individuo appena infettato ha prima di diventare 
-infettivo a sua volta e mostrare i sintomi di infezione. Questo permette 
-di osservare quanto le misure di sicurezza e prevenzione non farmaceutiche 
-sono efficaci sulla popolazione tenendo in considerazione 
-un tempo di ritardo intrinseco nel feedback tra l'attuamento delle 
-misure di prevensione e i risultati positivi di queste ultime.
-
-Una delle modifiche più utilizzate a questo modello è quella di avere un sistema 
-ciclico, ovvero in cui gli individui che entrano nello stato R non diventano immuni 
-alla malattia a tempo indefinito, ma perdono questa loro caratteristica di immunità
-dopo un dato periodo di tempo. Questo permette di modellare con più accuratezza le malattie
-infettive stagionali come ad esempio la comune influenza o il raffreddore, oppure 
-mostrare l'andamento ad ondate di altre malattie che hanno la caratteristica di 
-mutare molto velocemente, come è stato per il COVID-19 e le sue innumerevoli varianti.
+\subsubsection{Derivazione modello SIR: modello SEIR}
+In molteplici malattie infettive esiste un periodo definito di \emph{esposizione} \cite{wiki:Incubation_period} in cui un individuo una volta infetto non 
+e' immediatamente infettivo per cui vi e' un ritardo nella trasmissione effettiva della malattia. Questo periodo e' irrilevante quando e' estremamente breve. 
+Tuttavia un periodo di esposizione lungo puo' portare a differenze significative nel modello. Generalmenmte per modellare questa variante e' sufficiente 
+inserire un nuovo compartimento \textbf{E} il quale va a modificare il sistema di equazioni differenziali nel seguente modo
+$$\frac{dS}{dt} = - \beta \cdot (N) \cdot S \cdot I$$
+$$\frac{dE}{dt} = \beta \cdot (N) \cdot S \cdot I - \kappa \cdot E$$
+$$\frac{dI}{dt} = \kappa \cdot E - \gamma \cdot I$$
+$$\frac{dR}{dt} = \gamma \cdot I$$
 
 \begin{minipage}{\linewidth}
     \centering
@@ -165,121 +162,21 @@ mutare molto velocemente, come è stato per il COVID-19 e le sue innumerevoli va
     \label{fig:SEIRS_model}
 \end{minipage}
 
-Questa variante denominata SEIRS permette invece di osservare, non solo l'andamento e 
-l'efficacia delle contromisure non farmaceutiche, ma anche di quelle
-farmaceutiche, come ad esempio i vaccini; o più in generale l'andamento
-della così detta immunità di gregge \cite{Bjornstad2020}. 
+Questo modello permette di integrare l'evenienza di casi \emph{asintomatici} i quali sono infettivi e non totalmente 
+associabili al compartimento \textbf{E}.
 
-Rimanendo sull'idea di voler analizzare l'efficacia di un vaccino, una
-modifica comune al modello SEIR è quella legata all'aggiunta dello stato V,
-Vaccinated, come stato esplicito oppure oppure implicito al modello. Questa 
-variazione permette di modellallare con più attenzione l'efficacia di un 
-vaccino una volta introdotto all'interno della popolazione, 
-ma più in generale permette di osservare l'efficacia di una politica di vaccinazione 
-in relazione al numero di vaccinazioni effettuate in un determinato periodo di tempo.
-Questo viene solitamente affiancato con un modello ciclico, così da poter
-osservare come bisogna modificare le proprie politiche vaccinali in vista
-di ondate cicliche più o meno intense di infezioni.
-
-\begin{figure}[h]
-    \begin{center}
-        \includegraphics[scale=0.6]{img/nuovi_positivi_2023-04-21.pdf}
-        \caption{Esempio di ondate di infettività. Dati del Dipartimento di Protezione Civile Italiana}
-        \label{fig:DPC_new_positive}
-    \end{center}
-\end{figure}
-
-\begin{minipage}{\linewidth}
-	\centering
-	\includegraphics[width=\textwidth]{img/cumulative_plot_2023-06-11.pdf}
-	\captionof{figure}{Grafico cumulativo dei dati della pandemia da COVID-19 in Italia. Dati ottenuti da Our World in Data}
-	\label{fig:voc}
-\end{minipage}
-
-Ai fini pratici di una simulazione avere uno stato esplicitamente definito
-oppure ricavabile dalle probabilità di transizione degli altri stati 
-è pressocchè indifferente, e potrebbe essere richiesta una diferenziazione
-solamente in caso in cui si avrebbe una differenza sostanziale tra lo stato
-R e V, ad esempio in termini di protezione dalla malattia, durata immunità etc... .
-
-% \begin{figure}[h]
-%     \begin{center}
-%         \includegraphics[width=\linewidth]{img/seirv_explicit.jpg}
-%         \caption{Esempio di modello SEIRV con stato esplicito per la condizione V}
-%         \label{fig:SEIRV_explicit}
-%     \end{center}
-% \end{figure}
-
-\begin{figure}[h]
-    \begin{center}
-        \includegraphics[width=\linewidth]{img/seirv_implicit.jpg}
-        \caption{Esempio di modello SEIRV con stato implicito per la condizione V}
-        \label{fig:SEIRV_implicito}
-    \end{center}
-\end{figure}
-
-Non essendoci un numero massimo di stati, e quindi di equazioni, utilizzabili
-all'interno del modello, ogni individuo è libero di definire un numero
-di equazioni arbitrario che rispecchia la sua idea di modellazione del 
-sistema. Ne è un esempio il modello riportato in \cite{Giordano2020}.
-
-Come precedentemente introdotto esistono due grandi famiglie di modelli
-per la simulazione, e sono rispettivamente la famiglia di modelli deterministici
-e quella di modelli stocastici.
-
-\subsubsection{Modelli Deterministici}
-I modelli deterministici vengono principalmente utilizzati 
-per la loro immediatezza e riproducibilità. Infatti un modello
-deterministico, una volta impostati i parametri necessari
-riprodurrà sempre lo stesso risultato. Questo tipo di approccio, 
-seppur utilizzatto in larga scala come ad esempio da \cite{Bjornstad2020}
-\cite{Mwalili2020}, \cite{Giordano2020} si basa su delle assunzioni molto forti
-che non sempre rispecchiano la realtà. 
-
-Infatti i modelli deterministici hanno il grosso problema di
-essere affidabili solamente nel caso in cui vi siano dati 
-sufficientemente grandi, cosa che non sempre è possibile
-avere \cite{wiki:Compartmental_models_in_epidemiology}.
-Essendo modelli di tipo deterministico, avendo dei parametri 
-di infettività maggiori di zero, con un numero di individui infetti
-anch'esso maggiore di zero, si tenderà ad avere nel lungo
-periodo un andamento di equilibrio endemico derivato 
-dalle equazioni e dal modello utilizzato. Questo comportamento
-però non sempre rispetta la realtà, ma come precedentemente 
-accennato, in casi in cui si hanno grandi quantità di dati 
-legati principalmente alla popolazione, questi modelli si 
-comportano in maniera affidabile.
+\subsubsection{Modello SIR stocastico}
+Una delle assunzioni del modello presentato precedentemente, ovvero della tipologia \textbf{deterministica} e' quella per cui la dimensione 
+dei compartimenti e' abbastanza grande da permettere di avere un mix omogeneo di membri al suo interno. Fintanto che questa assunzione e' sufficientemente
+ragionevole quando un'epidemia e' gia' avviata, all'inizio la situazione puo' riszultare estremamente differente. Fintanto che all'inizio di una 
+epidemia la maggior parte della popolazione ricade all'interno della categoria suscettibile, ovvero che non e' stata (ancora) infettata, e il numero associato 
+agli individui infetti e' relativamente piccolo. Il rateo di trasmissione della malattia dipende fortemente dal pattern dei contatti tra individui e servirebbe utilizzare 
+una descrizione di questo pattern. Poiche' il numero di infetti e' piccolo una descrizione del modello che utilizza una assunzione di \emph{mass action} dovrebbe essere 
+sostituito da un modello che incorpora degli effetti stocastici.
 
 \begin{minipage}{\linewidth}
     \centering
-    \includegraphics[width=\textwidth]{img/3-s2.0-B9780128012383988378-f98837-02-9780128012383.jpg}
-    \captionof{figure}{Esempio equilibrio endemico}
-    \label{fig:Endemic_equilibrium}
+    \includegraphics[width=\textwidth]{img/stochastic_SEIR.png}
+    \captionof{figure}{Modello SEIRS stocastico}
+    \label{fig:stochastic_SEIR_model}
 \end{minipage}
-
-\subsubsection{Modelli Stocastici}
-I modelli stocastici, seppur più complessi e non determinabili 
-a priori, permettono una modellazione più veritiera e 
-simile alla realtà in quanto tengono in considerazione 
-variazioni randomiche che possono capitare durante il 
-decorso di una pandemia. Tuttavia questa loro caoticità 
-richiede che per ottenere risultati robusti debbano essere 
-eseguiti e computati molteplici volte, e la media dei loro 
-risultati è il valore vero da tenere in considerazione. 
-Questi modelli sono stati applicati durante la pandemia da COVID-19 
-come ad esempio da \cite{ijerph17103535}. 
-
-\begin{minipage}{\linewidth}
-    \centering
-    \includegraphics[width=\textwidth]{img/Gillespie-e1643395123662.png}
-    \captionof{figure}{Modello SIR stocastico}
-    \label{fig:Endemic_equilibrium_stochastic_sir}
-\end{minipage}
-
-E' immediato notare come il comportamento delle curve sia 
-imprevedibile se preso singolarmente, e che non sempre 
-esiste uno stato di equilibrio endemico chiaro e definito come
-quello ottenibile da un modello deterministico. Ciò nonostante 
-effettuando molte simulazioni è possibile vedere come il 
-comportamento generale del modello sia comunque simile a 
-quello di un modello deterministico.
