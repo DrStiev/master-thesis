@@ -19,16 +19,12 @@
 \contentsline {subsubsection}{\numberline {3.1.4}Funzione di avanzamento modello}{37}{subsubsection.3.1.4}%
 \contentsline {subsection}{\numberline {3.2}Monitoraggio e Intervento}{41}{subsection.3.2}%
 \contentsline {section}{\numberline {4}Risultati Ottenuti}{48}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Nessun intervento}{48}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Intervento non farmaceutico}{51}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Intervento farmaceutico}{52}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Intervento farmaceutico e non farmaceutico}{53}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Analisi di sensitività}{54}{subsection.4.5}%
 \contentsline {section}{\numberline {5}Sviluppi Futuri}{55}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Altre epidemie}{55}{subsection.5.1}%
-\contentsline {subsubsection}{\numberline {5.1.1}Ebola}{55}{subsubsection.5.1.1}%
-\contentsline {subsubsection}{\numberline {5.1.2}Aviaria}{55}{subsubsection.5.1.2}%
-\contentsline {subsubsection}{\numberline {5.1.3}Influenza}{55}{subsubsection.5.1.3}%
-\contentsline {subsection}{\numberline {5.2}Miglioramento integrazione SciML.ai}{55}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Accuratezza nella descrizione del modello}{55}{subsection.5.3}%
-\contentsline {subsubsection}{\numberline {5.3.1}Happiness}{55}{subsubsection.5.3.1}%
-\contentsline {subsubsection}{\numberline {5.3.2}Interventi localizzati}{55}{subsubsection.5.3.2}%
-\contentsline {subsubsection}{\numberline {5.3.3}Migliore flessibilità generale}{55}{subsubsection.5.3.3}%
 \contentsline {section}{\numberline {A}Approcci scartati}{65}{appendix.A}%
 \contentsline {subsection}{\numberline {A.1}Modello ad Agente su spazio continuo}{65}{subsection.A.1}%
 \contentsline {subsection}{\numberline {A.2}Modello ad Agente con spazio a grafo e modellazione singolo agente}{66}{subsection.A.2}%
