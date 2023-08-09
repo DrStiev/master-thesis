@@ -1,7 +1,7 @@
-\contentsline {figure}{\numberline {1}{\ignorespaces Esempio di correlazione spuria da \url {https://www.tylervigen.com/spurious-correlations}\relax }}{4}{figure.caption.4}%
-\contentsline {figure}{\numberline {2}{\ignorespaces Un altro esempio di correlazione spuria da \url {https://www.tylervigen.com/spurious-correlations}\relax }}{5}{figure.caption.5}%
-\contentsline {figure}{\numberline {3}{\ignorespaces Esempio di paradosso di Simpson\relax }}{6}{figure.caption.6}%
-\contentsline {figure}{\numberline {4}{\ignorespaces Struttura modello SIR\relax }}{8}{figure.caption.8}%
+\contentsline {figure}{\numberline {1}{\ignorespaces Esempio di correlazione spuria da \url {https://www.tylervigen.com/spurious-correlations}\relax }}{4}{figure.caption.3}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Un altro esempio di correlazione spuria da \url {https://www.tylervigen.com/spurious-correlations}\relax }}{5}{figure.caption.4}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Esempio di paradosso di Simpson\relax }}{6}{figure.caption.5}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Struttura modello SIR\relax }}{8}{figure.caption.7}%
 \contentsline {figure}{\numberline {5}{\ignorespaces Modello SEIRS preso dall'articolo \cite {Bjornstad2020}\relax }}{10}{figure.5}%
 \contentsline {figure}{\numberline {6}{\ignorespaces Modello SEIRS stocastico\relax }}{11}{figure.6}%
 \contentsline {figure}{\numberline {7}{\ignorespaces Agent-Based Epidemiological Modeling of COVID-19 in Localized Environment \cite {CIUNKIEWICZ2022105396}\relax }}{12}{figure.7}%
@@ -38,17 +38,19 @@
 \contentsline {figure}{\numberline {40}{\ignorespaces Definizione funzioni di appoggio del controllore\relax }}{45}{figure.40}%
 \contentsline {figure}{\numberline {41}{\ignorespaces Definizione funzioni di addestramento del controllore\relax }}{46}{figure.41}%
 \contentsline {figure}{\numberline {42}{\ignorespaces Esempio di utilizzo congiunto di due ottimizzatori differenti in uno stesso ciclo di addestramento\relax }}{47}{figure.42}%
-\contentsline {figure}{\numberline {43}{\ignorespaces Grafico cumulativo del risultato del modello senza intervento del controllore\relax }}{48}{figure.43}%
-\contentsline {figure}{\numberline {44}{\ignorespaces Grafico delle mutazioni casuali del virus SARS-COV2 preso dall'articolo \cite {Markov2023}\relax }}{50}{figure.44}%
-\contentsline {figure}{\numberline {45}{\ignorespaces Grafico cumulativo del risultato del modello con intervento del controllore\relax }}{51}{figure.45}%
-\contentsline {figure}{\numberline {46}{\ignorespaces Grafico cumulativo del risultato del modello con intervento del controllore tramite vaccino\relax }}{52}{figure.46}%
-\contentsline {figure}{\numberline {47}{\ignorespaces Grafico cumulativo del risultato del modello con intervento del controllore tramite vaccino e metodi di prevenzione non farmaceutici\relax }}{53}{figure.47}%
-\contentsline {figure}{\numberline {48}{\ignorespaces Esempio del modello modellato su spazio continuo\relax }}{65}{figure.48}%
-\contentsline {figure}{\numberline {49}{\ignorespaces Esempio del comportamento delle curve nel modello continuo\relax }}{66}{figure.49}%
-\contentsline {figure}{\numberline {50}{\ignorespaces Comportamento modello ABM su spazio a grafo al variare del parametro $R_0$\relax }}{67}{figure.50}%
-\contentsline {figure}{\numberline {51}{\ignorespaces Comportamento modello SEIR al variare del parametro $R_0$\relax }}{68}{figure.51}%
-\contentsline {figure}{\numberline {52}{\ignorespaces Formula che si occupa di descrivere il rapporto tra il comportamento del modello scartato e del modello SEIR. In particolare questa formula descrive il rapporto tra gli $R_0$\relax }}{68}{figure.52}%
-\contentsline {figure}{\numberline {54}{\ignorespaces Comparison of Ipopt performance over various linear solvers using the two-dimensional partial differential equation test problem set. \cite {unknown}\relax }}{70}{figure.54}%
-\contentsline {figure}{\numberline {55}{\ignorespaces Definizione del controllore tramite Ipopt\relax }}{71}{figure.55}%
-\contentsline {figure}{\numberline {56}{\ignorespaces Definizione regole del modello del controller\relax }}{72}{figure.56}%
-\contentsline {figure}{\numberline {57}{\ignorespaces Definizione regole del modello del controller per le contromisure\relax }}{72}{figure.57}%
+\contentsline {figure}{\numberline {43}{\ignorespaces Grafico cumulativo del modello senza senza alcun tipo di intervento\relax }}{48}{figure.43}%
+\contentsline {figure}{\numberline {44}{\ignorespaces Definizione funzione di happiness\relax }}{49}{figure.44}%
+\contentsline {figure}{\numberline {45}{\ignorespaces Grafico delle mutazioni del virus SARS-COV2 preso da Our World in Data\relax }}{49}{figure.45}%
+\contentsline {figure}{\numberline {46}{\ignorespaces Grafico cumulativo del modello con intervento non farmaceutico del controllore\relax }}{50}{figure.46}%
+\contentsline {figure}{\numberline {47}{\ignorespaces Grafico cumulativo del modello con intervento del controllore tramite interventi farmaceutici come ad esempio un vaccino\relax }}{52}{figure.47}%
+\contentsline {figure}{\numberline {48}{\ignorespaces Grafico cumulativo del modello con intervento del controllore tramite vaccino e metodi di prevenzione non farmaceutici\relax }}{53}{figure.48}%
+\contentsline {figure}{\numberline {49}{\ignorespaces Grafico rappresentante l'analisi di sensitivita' del modello\relax }}{54}{figure.49}%
+\contentsline {figure}{\numberline {50}{\ignorespaces Esempio del modello modellato su spazio continuo\relax }}{65}{figure.50}%
+\contentsline {figure}{\numberline {51}{\ignorespaces Esempio del comportamento delle curve nel modello continuo\relax }}{66}{figure.51}%
+\contentsline {figure}{\numberline {52}{\ignorespaces Comportamento modello ABM su spazio a grafo al variare del parametro $R_0$\relax }}{67}{figure.52}%
+\contentsline {figure}{\numberline {53}{\ignorespaces Comportamento modello SEIR al variare del parametro $R_0$\relax }}{68}{figure.53}%
+\contentsline {figure}{\numberline {54}{\ignorespaces Formula che si occupa di descrivere il rapporto tra il comportamento del modello scartato e del modello SEIR. In particolare questa formula descrive il rapporto tra gli $R_0$\relax }}{68}{figure.54}%
+\contentsline {figure}{\numberline {56}{\ignorespaces Comparison of Ipopt performance over various linear solvers using the two-dimensional partial differential equation test problem set. \cite {unknown}\relax }}{70}{figure.56}%
+\contentsline {figure}{\numberline {57}{\ignorespaces Definizione del controllore tramite Ipopt\relax }}{71}{figure.57}%
+\contentsline {figure}{\numberline {58}{\ignorespaces Definizione regole del modello del controller\relax }}{72}{figure.58}%
+\contentsline {figure}{\numberline {59}{\ignorespaces Definizione regole del modello del controller per le contromisure\relax }}{72}{figure.59}%

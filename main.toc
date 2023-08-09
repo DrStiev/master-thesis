@@ -20,9 +20,9 @@
 \contentsline {subsection}{\numberline {3.2}Monitoraggio e Intervento}{41}{subsection.3.2}%
 \contentsline {section}{\numberline {4}Risultati Ottenuti}{48}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Nessun intervento}{48}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Intervento non farmaceutico}{51}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Intervento farmaceutico}{52}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Intervento farmaceutico e non farmaceutico}{53}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.2}Intervento non farmaceutico}{50}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Intervento farmaceutico}{51}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Intervento farmaceutico e non farmaceutico}{52}{subsection.4.4}%
 \contentsline {subsection}{\numberline {4.5}Analisi di sensitività}{54}{subsection.4.5}%
 \contentsline {section}{\numberline {5}Sviluppi Futuri}{55}{section.5}%
 \contentsline {section}{\numberline {A}Approcci scartati}{65}{appendix.A}%
