@@ -150,9 +150,204 @@ in termini sia di generale qualita' della vita, che anche economico, non indiffe
 precedenti e dall'esperienza diretta che si e' avuto con la pandemia da COVID-19. 
 
 \subsection{Analisi di sensitività}
+Osservando il modello SEIR definito come segue \ref{fig:seir_ode}
+
+\begin{minipage}{\linewidth}
+	\centering
+	\includegraphics[width=\textwidth]{img/seir_ode.png}
+	\captionof{figure}{Definizione del modello SEIR utilizzata all'interno del modello ad agente}
+	\label{fig:seir_ode}
+\end{minipage}
+
+si puo' osservare come quest'ultimo potrebbe essere sensibile al mutamento di specifici 
+parametri al suo interno, i quali potrebbero portare il modello ad avere comportamenti 
+peculiari e soprattutto imprevisti o inattesi.
+
+Percio' e' stato deciso di effettuare un analisi di sensitivita' del sistema tramite l'utilizzo 
+di metodi di libreria offerti dalla suite \emph{SciML.ai}. In questo modo e' stato possibile 
+osservare a quali parametri il modello fosse piu' sensibile. 
+
 \begin{minipage}{\linewidth}
 	\centering
 	\includegraphics[width=\textwidth]{img/sa.pdf}
 	\captionof{figure}{Grafico rappresentante l'analisi di sensitivita' del modello}
 	\label{fig:sens_anal}
+\end{minipage}
+
+Come osservato in figura \ref{fig:sens_anal}, il modello ha una sensitivita' abbastanza 
+uniforme per i parametri $R_0, \gamma$ e $\sigma$, il che era atteso in quanto sono tutti 
+responsabili dell'avanzamento del contagio. La sensitivita' ai parametri $\omega$ e $\delta$ 
+era comunque attesa, anche se non cosi' accentuata come mostrata in figura. Infine la sensitivita' 
+relativa al parametro $\eta$ responsabile delle contromisure e' pressocche' inversa a quella del 
+parametro $R_0$ il che e' relativamente atteso in quanto e' un parametro direttamente collegato 
+alle contromisure per la diffusione del contagio. La sensitivita' al parametro $\xi$ invece ha 
+andamento singolare e pare essere legato alla sensitivita' del parametro $\omega$ seppur in 
+modo specchiato. Questo probabilmente perche' essendo i parametri $\omega$ e $\xi$ legati al 
+compartimento \textbf{R} del modello, che gestisce gli individui sia guariti che vaccinati, 
+il loro comportamento e' sensato che sia collegabile.
+
+Successivamente e' stata applicato un controllo di sensitivita' riguardo i parametri 
+relativi al modello ad agente in se, tramite l'utilizzo della funzione \textbf{paramscan} offerta
+dalla libreria \textbf{Agents.jl}.
+
+E' stato scelto un insieme di parametri del modello che vengono modificati all'interno di un range 
+definito e in base alle varie configurazioni ottenute si va ad osservare come il comportamento del modello 
+puo' o meno cambiare. I valori che sono stati scelti in quanto idealmente responsabili di un comportamento 
+differente se modificati sono i seguenti: 
+
+\begin{minipage}{\linewidth}
+	\centering
+	\includegraphics[width=\textwidth]{img/paramscan.png}
+	\captionof{figure}{Parametri usati per l'analisi di sensitivita' del modello ad agente}
+	\label{fig:paramscan}
+\end{minipage}
+
+Questi parametri sono stati scelti in come possibili parametri con un comportamento latente. I parametri 
+relativi al controllore e al vaccino non sono stati inclusi per ovvi motivi, in quanto e' stato gia' dimostrato 
+come il loro variare puo' portare a cambiamenti significativi all'interno della simulazione del modello \ref{fig:abm_no_intervent}
+\ref{fig:abm_vaccine} \ref{fig:abm_all} \ref{fig:abm_intervent}.
+
+\newpage
+
+In questo confronto si nota come il numero di nodi infetti iniziali influenzi principalmente la velocita' con cui 
+il picco di infetti arriva a compimento. Si nota come nel caso in cui si inizi con un numero di nodi infetti maggiore, 
+la curva degli infetti tendera' a essere prona verso l'inizio della linea temporale piuttosto che la fine, arrivando 
+al proprio picco prima. Oltre a questo tuttavia non vi sono altri comportamenti degni di nota. Nel complesso e' un
+comportamento atteso.
+
+\begin{figure}[!hb]
+	\centering
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/SocialNetworkABM_1.pdf}
+		\caption{Grafico per la comparazione sul numero di nodi infetti di partenza. Numero nodi infetti iniziali 1}
+		\label{fig:comparison_init_node_inf_1}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/SocialNetworkABM_13.pdf}
+		\caption{Grafico per la comparazione sul numero di nodi infetti di partenza. Numero nodi infetti iniziali 4}
+		\label{fig:comparison_init_node_inf_4}
+	\end{subfigure}
+\end{figure}
+
+Anche in questo caso si puo' osservare come la curva epidemiologica tenda a raggiungere un valore 
+di picco piu' alto in un periodo di tempo minore nel caso in cui si ha un rateo di migrazione piu' alto. 
+Anche questo comportamento era atteso e non sorprende.
+
+\begin{figure}[!hb]
+	\centering
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/SocialNetworkABM_1.pdf}
+		\caption{Grafico per la comparazione sul valore di migrazione. Valore di 0.001}
+		\label{fig:comparison_maxTravelingRate_low}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/SocialNetworkABM_4.pdf}
+		\caption{Grafico per la comparazione sul valore di migrazione. Valore di 0.01}
+		\label{fig:comparison_maxTravelingRate_high}
+	\end{subfigure}
+\end{figure}
+
+\newpage
+
+In questo confronto e' lapalissiano come il numero di nodi della rete influenzi l'andamento delle curve epidemiologiche. 
+I grafici mostrano come in genere un numero di nodi maggiore comporta ad una diffusione piu' lenta e con picchi meno ripidi
+seppur piu' prolungati nel tempo. Ovviamente questo dipende da molteplici fattori, primo tra tutti la topologia delle connessioni 
+del grafo e in secondo luogo dove il primo focolare ha inizio. 
+
+\begin{figure}[!hb]
+	\centering
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/SocialNetworkABM_1.pdf}
+		\caption{Grafico per la comparazione sul numero di nodi della rete. Numero nodi 4}
+		\label{fig:comparison_numberOfNodes_4}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/SocialNetworkABM_17.pdf}
+		\caption{Grafico per la comparazione sul numero di nodi della rete. Numero nodi 12}
+		\label{fig:comparison_numberOfNodes_12}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/SocialNetworkABM_33.pdf}
+		\caption{Grafico per la comparazione sul numero di nodi della rete. Numero nodi 20}
+		\label{fig:comparison_numberOfNodes_20}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/SocialNetworkABM_49.pdf}
+		\caption{Grafico per la comparazione sul numero di nodi della rete. Numero nodi 28}
+		\label{fig:comparison_numberOfNodes_28}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/SocialNetworkABM_65.pdf}
+		\caption{Grafico per la comparazione sul numero di nodi della rete. Numero nodi 36}
+		\label{fig:comparison_numberOfNodes_36}
+	\end{subfigure}
+\end{figure}
+
+\newpage
+
+In questa figura e' osservabile come la copertura della rete, data dal numero di archi che la compongono,
+va ad influenzare in maniera sensibile l'andamento della pandemia, soprattutto nel caso in cui la copertura e' 
+bassa \ref{fig:comparison_lowCoverage}. Tendenzialmente e' ipotizzabile che con una bassa copertura, quindi 
+con una possibilita' piu' limitata di spostarsi da un nodo all'altro, la diffusione del virus subisce un arresto, 
+e questo e' osservabile con i dati ottenuti durante la pandemia COVID-19 dove una della prime contromisure applicate 
+e' stata quella del \textbf{lockdown generalizzato} in cui la capacita' di spostamento degli individui 
+e' calata drasticamente.
+
+\begin{figure}[!hb]
+	\centering
+	\begin{subfigure}[b]{0.3\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/SocialNetworkABM_65.pdf}
+		\caption{Grafico per la comparazione sulla copertura della rete. Copertura bassa}
+		\label{fig:comparison_highCoverage}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.3\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/SocialNetworkABM_145.pdf}
+		\caption{Grafico per la comparazione sulla copertura della rete. Copertura media}
+		\label{fig:comparison_mediumCoverage}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.3\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/SocialNetworkABM_225.pdf}
+		\caption{Grafico per la comparazione sulla copertura della rete. Copertura alta}
+		\label{fig:comparison_lowCoverage}
+	\end{subfigure}
+\end{figure}
+
+E' accurato assumere come, dato il modo con cui viene creata la copertura degli archi, questa 
+possa influenzare la diffusione del virus. In particolar modo la diffusione nel caso di alta e media copertura 
+e' molto simile. Questo e' dovuto con molta probabilita' al modo in cui viene creata la copertura; modo che 
+puo' essere osservato in figura \ref{fig:graph_coverage}
+
+Cio' nonostante, quello che puo' essere ulteriormente osservato e' il comportamento sempre piu' "incerto" delle curve 
+epidemiologiche al diminuire della copertura del grafo. Discorso similare si puo' osservare nella comparazione sul numero 
+di nodi della rete, in cui le curve epidemiologiche tendono ad assumere un comportamento sempre piu' incerto all'aumentare dei 
+nodi presenti in rete. Anche il numero di \textbf{VOC} pare aumentare con il numero di nodi, questo suggerisce che essendoci 
+piu' individui la possibilita' di mutazioni aumenta, cosi' come diminuisce con il diminuire della copertura, stando ad indicare 
+come seppur il numero di nodi possa essere elevato, ma se non vi e' una possibilita' o veicolo di infezione, le mutazioni difficilmente
+possono accadere; diminuendo la pericolosita' dell'agente patogeno.
+
+\begin{minipage}{\linewidth}
+	\centering
+	\includegraphics[width=\textwidth]{img/grpah_creation.png}
+	\captionof{figure}{Esempio della funzione atta alla creazione di un grafo dato un determinato livello di copertura}
+	\label{fig:graph_coverage}
 \end{minipage}

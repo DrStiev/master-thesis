@@ -29,28 +29,33 @@
 \contentsline {figure}{\numberline {31}{\ignorespaces Matrice di migrazione\relax }}{35}{figure.31}%
 \contentsline {figure}{\numberline {32}{\ignorespaces Definizione dei sistemi di ODE associati ad ogni agente\relax }}{36}{figure.32}%
 \contentsline {figure}{\numberline {33}{\ignorespaces Comportamento agente\relax }}{36}{figure.33}%
-\contentsline {figure}{\numberline {34}{\ignorespaces Funzione di avanzamento del modello\relax }}{38}{figure.34}%
-\contentsline {figure}{\numberline {35}{\ignorespaces Funzione che si occupa di generare la VOC\relax }}{39}{figure.35}%
-\contentsline {figure}{\numberline {36}{\ignorespaces Funzione che si occupa di simulare la ricerca di un vaccino e la sua successiva applicazoine\relax }}{40}{figure.36}%
-\contentsline {figure}{\numberline {37}{\ignorespaces Definizione controller all'interno del modello ad agente\relax }}{42}{figure.37}%
-\contentsline {figure}{\numberline {38}{\ignorespaces Funzione per il calcolo del limite superiore per le contromisure\relax }}{43}{figure.38}%
-\contentsline {figure}{\numberline {39}{\ignorespaces Definizione controllore tramite Neural ODE\relax }}{44}{figure.39}%
-\contentsline {figure}{\numberline {40}{\ignorespaces Definizione funzioni di appoggio del controllore\relax }}{45}{figure.40}%
-\contentsline {figure}{\numberline {41}{\ignorespaces Definizione funzioni di addestramento del controllore\relax }}{46}{figure.41}%
-\contentsline {figure}{\numberline {42}{\ignorespaces Esempio di utilizzo congiunto di due ottimizzatori differenti in uno stesso ciclo di addestramento\relax }}{47}{figure.42}%
-\contentsline {figure}{\numberline {43}{\ignorespaces Grafico cumulativo del modello senza senza alcun tipo di intervento\relax }}{48}{figure.43}%
-\contentsline {figure}{\numberline {44}{\ignorespaces Definizione funzione di happiness\relax }}{49}{figure.44}%
-\contentsline {figure}{\numberline {45}{\ignorespaces Grafico delle mutazioni del virus SARS-COV2 preso da Our World in Data\relax }}{49}{figure.45}%
-\contentsline {figure}{\numberline {46}{\ignorespaces Grafico cumulativo del modello con intervento non farmaceutico del controllore\relax }}{50}{figure.46}%
-\contentsline {figure}{\numberline {47}{\ignorespaces Grafico cumulativo del modello con intervento del controllore tramite interventi farmaceutici come ad esempio un vaccino\relax }}{52}{figure.47}%
-\contentsline {figure}{\numberline {48}{\ignorespaces Grafico cumulativo del modello con intervento del controllore tramite vaccino e metodi di prevenzione non farmaceutici\relax }}{53}{figure.48}%
-\contentsline {figure}{\numberline {49}{\ignorespaces Grafico rappresentante l'analisi di sensitivita' del modello\relax }}{54}{figure.49}%
-\contentsline {figure}{\numberline {50}{\ignorespaces Esempio del modello modellato su spazio continuo\relax }}{65}{figure.50}%
-\contentsline {figure}{\numberline {51}{\ignorespaces Esempio del comportamento delle curve nel modello continuo\relax }}{66}{figure.51}%
-\contentsline {figure}{\numberline {52}{\ignorespaces Comportamento modello ABM su spazio a grafo al variare del parametro $R_0$\relax }}{67}{figure.52}%
-\contentsline {figure}{\numberline {53}{\ignorespaces Comportamento modello SEIR al variare del parametro $R_0$\relax }}{68}{figure.53}%
-\contentsline {figure}{\numberline {54}{\ignorespaces Formula che si occupa di descrivere il rapporto tra il comportamento del modello scartato e del modello SEIR. In particolare questa formula descrive il rapporto tra gli $R_0$\relax }}{68}{figure.54}%
-\contentsline {figure}{\numberline {56}{\ignorespaces Comparison of Ipopt performance over various linear solvers using the two-dimensional partial differential equation test problem set. \cite {unknown}\relax }}{70}{figure.56}%
-\contentsline {figure}{\numberline {57}{\ignorespaces Definizione del controllore tramite Ipopt\relax }}{71}{figure.57}%
-\contentsline {figure}{\numberline {58}{\ignorespaces Definizione regole del modello del controller\relax }}{72}{figure.58}%
-\contentsline {figure}{\numberline {59}{\ignorespaces Definizione regole del modello del controller per le contromisure\relax }}{72}{figure.59}%
+\contentsline {figure}{\numberline {34}{\ignorespaces Funzione atta a calcolare lo spostamento di agenti da un nodo all'altro del grafo\relax }}{37}{figure.34}%
+\contentsline {figure}{\numberline {35}{\ignorespaces Funzione atta a calcolare la felicita' degli agenti\relax }}{38}{figure.35}%
+\contentsline {figure}{\numberline {36}{\ignorespaces Funzione di avanzamento del modello\relax }}{39}{figure.36}%
+\contentsline {figure}{\numberline {37}{\ignorespaces Funzione che si occupa di generare la VOC\relax }}{40}{figure.37}%
+\contentsline {figure}{\numberline {38}{\ignorespaces Funzione che si occupa di simulare la ricerca di un vaccino e la sua successiva applicazoine\relax }}{41}{figure.38}%
+\contentsline {figure}{\numberline {39}{\ignorespaces Definizione controller all'interno del modello ad agente\relax }}{43}{figure.39}%
+\contentsline {figure}{\numberline {40}{\ignorespaces Funzione per il calcolo del limite superiore per le contromisure\relax }}{44}{figure.40}%
+\contentsline {figure}{\numberline {41}{\ignorespaces Definizione controllore tramite Neural ODE\relax }}{45}{figure.41}%
+\contentsline {figure}{\numberline {42}{\ignorespaces Definizione funzioni di appoggio del controllore\relax }}{46}{figure.42}%
+\contentsline {figure}{\numberline {43}{\ignorespaces Definizione funzioni di addestramento del controllore\relax }}{47}{figure.43}%
+\contentsline {figure}{\numberline {44}{\ignorespaces Esempio di utilizzo congiunto di due ottimizzatori differenti in uno stesso ciclo di addestramento\relax }}{48}{figure.44}%
+\contentsline {figure}{\numberline {45}{\ignorespaces Grafico cumulativo del modello senza senza alcun tipo di intervento\relax }}{49}{figure.45}%
+\contentsline {figure}{\numberline {46}{\ignorespaces Definizione funzione di happiness\relax }}{50}{figure.46}%
+\contentsline {figure}{\numberline {47}{\ignorespaces Grafico delle mutazioni del virus SARS-COV2 preso da Our World in Data\relax }}{50}{figure.47}%
+\contentsline {figure}{\numberline {48}{\ignorespaces Grafico cumulativo del modello con intervento non farmaceutico del controllore\relax }}{51}{figure.48}%
+\contentsline {figure}{\numberline {49}{\ignorespaces Grafico cumulativo del modello con intervento del controllore tramite interventi farmaceutici come ad esempio un vaccino\relax }}{53}{figure.49}%
+\contentsline {figure}{\numberline {50}{\ignorespaces Grafico cumulativo del modello con intervento del controllore tramite vaccino e metodi di prevenzione non farmaceutici\relax }}{54}{figure.50}%
+\contentsline {figure}{\numberline {51}{\ignorespaces Definizione del modello SEIR utilizzata all'interno del modello ad agente\relax }}{55}{figure.51}%
+\contentsline {figure}{\numberline {52}{\ignorespaces Grafico rappresentante l'analisi di sensitivita' del modello\relax }}{56}{figure.52}%
+\contentsline {figure}{\numberline {53}{\ignorespaces Parametri usati per l'analisi di sensitivita' del modello ad agente\relax }}{57}{figure.53}%
+\contentsline {figure}{\numberline {58}{\ignorespaces Esempio della funzione atta alla creazione di un grafo dato un determinato livello di copertura\relax }}{61}{figure.58}%
+\contentsline {figure}{\numberline {59}{\ignorespaces Esempio del modello modellato su spazio continuo\relax }}{72}{figure.59}%
+\contentsline {figure}{\numberline {60}{\ignorespaces Esempio del comportamento delle curve nel modello continuo\relax }}{73}{figure.60}%
+\contentsline {figure}{\numberline {61}{\ignorespaces Comportamento modello ABM su spazio a grafo al variare del parametro $R_0$\relax }}{74}{figure.61}%
+\contentsline {figure}{\numberline {62}{\ignorespaces Comportamento modello SEIR al variare del parametro $R_0$\relax }}{75}{figure.62}%
+\contentsline {figure}{\numberline {63}{\ignorespaces Formula che si occupa di descrivere il rapporto tra il comportamento del modello scartato e del modello SEIR. In particolare questa formula descrive il rapporto tra gli $R_0$\relax }}{75}{figure.63}%
+\contentsline {figure}{\numberline {65}{\ignorespaces Comparison of Ipopt performance over various linear solvers using the two-dimensional partial differential equation test problem set. \cite {unknown}\relax }}{77}{figure.65}%
+\contentsline {figure}{\numberline {66}{\ignorespaces Definizione del controllore tramite Ipopt\relax }}{78}{figure.66}%
+\contentsline {figure}{\numberline {67}{\ignorespaces Definizione regole del modello del controller\relax }}{79}{figure.67}%
+\contentsline {figure}{\numberline {68}{\ignorespaces Definizione regole del modello del controller per le contromisure\relax }}{79}{figure.68}%

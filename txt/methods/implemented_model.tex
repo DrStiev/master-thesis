@@ -9,7 +9,6 @@ virale in un ambiente reale, il quale e' composto principalmente di cosi' detti
 collegati tra loro tramite una rete piu' o meno fitta di collegamenti. Questa costruzione
 ricorda in maniera molto stretta una struttura dati largamente utilizzata, ovvero il \textbf{Grafo}.
 
-% inserire immagini modello grafico con edgesCoverage [:low, :medium, :high]
 \begin{figure}[!hb]
 	\centering
 	\begin{subfigure}[b]{0.3\textwidth}
@@ -226,13 +225,29 @@ Ad ogni passo, un agente e' chiamato ad eseguire tre fondamentali compiti:
 	e' possibile calcolare quanti individui si spostano da il nodo sorgente, fino ad un nodo
 	destinazione. Questo spostamento fa si che il nodo venga aggiornato con le relative percentuali
 	di status e il totale di popolazione rimanente
+
+	\begin{minipage}{\linewidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/migratef.png}
+		\captionof{figure}{Funzione atta a calcolare lo spostamento di agenti da un nodo all'altro del grafo}
+		\label{fig:migrationf}
+	\end{minipage}
+
 	\item \textbf{Calcolare la felicita'}: come detto in apertura della sezione, il valroe di \textbf{happiness}
 	e' un valore fantoccio che serve prevalentemente per bilanciare le contromisure del controllore.
-	Questo valore tuttavia viene influenzato anche dalla situazione pandemica. Attualmente la funzione che si occupa di generare la felicita' complessiva di un nodo si basa
-	sull'utilizzo di una \emph{tangente iperbolica} (tanh) che prende come parametro il valore attuale
-	di happiness del nodo e lo bilancia con il valore delle contromisure $\eta$ associate e attualmente 
-	uso. Questo approccio e' sicuramente problematico e fallace per numerosi motivi ma attualmente 
-	adempie al suo obiettivo.
+	Questo valore tuttavia viene influenzato anche dalla situazione pandemica. 
+	
+	\begin{minipage}{\linewidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/happiness.png}
+		\captionof{figure}{Funzione atta a calcolare la felicita' degli agenti}
+		\label{fig:happinessf}
+	\end{minipage}
+
+	Questo approccio e' sicuramente problematico e fallace per numerosi motivi ma attualmente 
+	adempie al suo obiettivo di gestore del controllore, in quanto non e' mai stato inteso di 
+	realizzare uno stimatore affidabile per l'umore generele di una popolazione durante una situazione
+	estrema come puo' essere una pandemia.
 	\item \textbf{Chiamare il controllore}: se la proprieta' \emph{control} del modello e' impostata su
 	\emph{true}, viene chiamato il controllore che si occupa di stimare, data la situazione attuale del nodo
 	quanto stringenti devono essere le policy da applicare al nodo in questione per cercare di minimizzare il 
@@ -280,7 +295,7 @@ La funzione che si occupa di generare la \emph{variant of concern} (VOC) e' la s
 Si possono notare molte assunzioni:
 \begin{itemize}
 	\item la condizione di attivazione della funzione si basa su un valore
-	che sembra totalmente randomico. Quel valore, ovvero $8 \cdot 10e-4$ deriva dai
+	che sembra totalmente randomico. Quel valore, ovvero $8e-3$ deriva dai
 	seguenti articoli \cite{Markov2023} \cite{https://doi.org/10.1002/jmv.27331} \cite{Abavisani2022}
 	i quali descrivono prevalentemente il tasso di mutazione casuale delle basi che compongono
 	il DNA del virus SARS-COV2. Questo pero' non implica che tali mutazioni 
