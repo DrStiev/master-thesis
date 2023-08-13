@@ -1,7 +1,6 @@
 \section{Metodi e Modelli}
 L'approccio utilizzato e' stato quello di modellare l'intero problema come 
-se fosse una \emph{rete sociale}. L'idea e' nata tramite dopo aver osservato e 
-studiato attentamente il problema proposto. 
+se fosse una \emph{rete sociale}. 
 
 Il problema si presenta come lo studio della diffusione di una pandemia a trasmissione
 virale in un ambiente reale, il quale e' composto principalmente di cosi' detti 
@@ -43,14 +42,20 @@ le possibili interazioni tra agenti differenti, bensi' si vuole vedere la rispos
 agente astratto all'utilizzo di interventi mirati e specifici per contrastare l'epidemia in 
 maniera localizzata.
 
-% immagine grafo
 \subsection{Approccio con Rete Sociale}
-Il modello utilizzato sfrutta una proprieta' del framework \textbf{Agents.jl} e definisce un 
+Il modello utilizzato sfrutta le proprieta' del framework \textbf{Agents.jl} e definisce un 
 modello ad agente di tipo \textbf{ABM}. Essendo che in questo caso la struttura spaziale 
 del modello non e' importante ma le sue connessioni si, vengono definiti gli agenti come nodi
 veri e propri del grafo in cui al loro interno viene simulato il ciclo di vita della pandemia 
 tramite un modello di tipo \textbf{SEIR} deterministico.
 
+La struttura dell'agente e' di tipo \textbf{ContinuousAgent} in quanto lo 
+spazio del modello e' di tipo continuo. Questa scelta e' stata fatta in vista di possibili 
+sviluppi futuri dell'applicazione. Successivamente si puo' osservare come il modello generato 
+in figura \ref{fig:Model_code} sia molto snello, avendo solamente una manciata di parametri 
+sufficienti al corretto funzionamento del modello stesso. 
+
+\subsubsection*{Grafo sociale}
 Un grafo sociale e' un particolare tipo di grafo che rappresenta le relazioni sociali tra entita'.
 Questo approccio viene largamente utilizzato per la rappresentazione delle reti sociali dove la 
 parola grafo viene presa dalla teoria dei grafi. Generalmente un grafo sociale viene riferito come un
@@ -67,12 +72,6 @@ Il concetto e' stato originariamente coniato dalla struttura dati \textbf{sociog
 una struttura a grafo che rappresenta i collegamenti sociali che hanno gli individui da esso modellato, ovvero le persone. 
 Questa struttura dati si occupa di stutturare le relazioni interpersonali che si formano all'interno di un 
 gruppo di individui. 
-
-La struttura dell'agente e' di tipo \textbf{ContinuousAgent} in quanto lo 
-spazio del modello e' di tipo continuo. Questa scelta e' stata fatta in vista di possibili 
-sviluppi futuri dell'applicazione. Successivamente si puo' osservare come il modello generato 
-in figura \ref{fig:Model_code} sia molto snello, avendo solamente una manciata di parametri 
-sufficienti al corretto funzionamento del modello stesso. 
 
 \subsubsection{Agente}
 
@@ -101,7 +100,7 @@ I campi principali dell'agente sono i seguenti:
 	\emph{type stability} in quanto le operazioni di risoluzione del sistema di ODE altrimenti 
 	potrebbero risentirne. Tuttavia e' stato fatto anche per un fattore di \emph{facilita' di comprensione}.
 	\item \textbf{param}: questo campo descrive tramite un vettore di tipo \textbf{Float64}
-	il parametro del modello SEIR specifici del nodo in questione. Questi parametri sono comprensivi 
+	i parametri del modello SEIR specifici del nodo in questione. Questi parametri sono comprensivi 
 	non solo dei valori relativi all'epidemia, ma anche dei valori relativi alle contromisure, 
 	in particolare le contromisure \textbf{non farmaceutiche} rappresentate dal valore \textbf{$\eta$}
 	e quelle \textbf{farmaceutiche} rappresentate dal valore \textbf{$\xi$}.
@@ -152,10 +151,11 @@ caso il numero di archi necessari e': $numEdges = \frac{numNodes*(numNodes-1)}{2
 	\end{subfigure}
 \end{figure}
 
-All'interno di questi due limiti, viene creato il grafo secondo le esigenze dell'utente.
-Successivamente viene creata una matrice di flusso, denominata come \textbf{migrationMatrix}
+All'interno di questi due limiti, viene creato il grafo secondo le esigenze dell'utente come mostrato 
+in figura \ref{fig:graph_coverage}.
+Successivamente viene creata una matrice di flusso, denominata \textbf{migrationMatrix}
 che rappresenta la percentuale di individui che dal nodo di interesse si spostano verso 
-un nodo di destinazione. Questa matrice e' salvata come \textbf{matrice sparsa} per risparmiare
+un nodo obiettivo. Questa matrice e' salvata come \textbf{matrice sparsa} per risparmiare
 spazio dove le connessione non sono presenti tra i nodi. 
 
 \begin{minipage}{\linewidth}
@@ -168,12 +168,15 @@ spazio dove le connessione non sono presenti tra i nodi.
 Questa matrice viene esplicitamente creata in base alla topologia del grafo che viene 
 inizializzato in precedenza e si occupa di pesare gli archi di quest'ultimo seguendo la 
 filosofia per cui si ha un flusso maggiore verso i nodi piu' popolosi, e minore verso i 
-nodi meno popolosi. Questo flusso ha poi un limite massimo che puo' essere scelto e 
-modificato dall'utente. 
+nodi meno popolosi. 
 
 Se questa matrice fosse una matrice non sparsa, e percio' completa, si potrebbe osservare
 come la diagonale di questa matrice ha valori molto vicini ad 1, in relazione con il limite
-massimo di individui che possono migrare da ogni nodo, definito come \emph{migration rate}.
+massimo di individui che possono migrare da ogni nodo, definito come \emph{migration rate}; 
+andando a delineare come la maggior parte della popolazione non effettui in genere spostamenti 
+tra nodi ma che sia piu' probabile che rimanga nel suo nodo di origine. Questa assunzione puo' 
+variare nel tempo ad esempio nei periodi di alto flusso migratorio come ad esempio i periodi 
+estivi o piu' in generale i periodi strettamente collegati alle vacanze.
 
 Successivamente, dopo avere popolato ogni agente (o nodo) del modello con i corretti valori,
 dato che la struttura interna su cui viene effettuata la computazione del modello e' basata su 
@@ -199,7 +202,8 @@ l'uso di funzioni di \textbf{callback} le quali permettono quando vengono soddis
 condizioni di attivazione specifiche, di andare a modificare i parametri del sistema che
 si sta risolvendo. Queste modifiche tuttavia, possono portare delle discontinuita' nella 
 risoluzione, ma queste vengono esplicitamente gestite se viene specificata una funzione 
-di callback all'interno della funzione di solve. 
+di callback all'interno della funzione di solve, altrimenti l'integratore deve essere notificato che 
+i parametri e i valori al suo interno possono essere stati modificati. 
 
 I due approcci sono completamente equivalenti e la scelta di uno piuttosto che dell'altro
 ricade solamente su un fattore di comodita' d'uso.
@@ -233,7 +237,7 @@ Ad ogni passo, un agente e' chiamato ad eseguire tre fondamentali compiti:
 		\label{fig:migrationf}
 	\end{minipage}
 
-	\item \textbf{Calcolare la felicita'}: come detto in apertura della sezione, il valroe di \textbf{happiness}
+	\item \textbf{Calcolare la felicita'}: come detto in apertura della sezione, il valore di \textbf{happiness}
 	e' un valore fantoccio che serve prevalentemente per bilanciare le contromisure del controllore.
 	Questo valore tuttavia viene influenzato anche dalla situazione pandemica. 
 	

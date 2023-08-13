@@ -30,19 +30,12 @@ seppur non troppo evidente.
 A seguire si puo' osservare come la curva associata alla variabile di happiness del modello,
 valore che serve per bilanciare la durezza delle misure di controllo per evitare 
 di cadere in un ciclo funzionale ma insostenibile, mostra un comportamento alquanto bizzarro.
-Questo e' dovuto principalmente a come viene definita la funzione di controllo della felicita' \ref{fig:happiness}.
+Questo e' dovuto principalmente a come viene definita la funzione di controllo della felicita' \ref{fig:happinessf}.
 Si osserva inoltre che la curva tende ad un \emph{plateau} passato il periodo della "prima ondata".
 
-\begin{minipage}{\linewidth}
-	\centering
-	\includegraphics[width=\textwidth]{img/happiness.png}
-	\captionof{figure}{Definizione funzione di happiness}
-	\label{fig:happiness}
-\end{minipage}
-
 Questo comportamento principalmente irrealistico e associato alla definizione che e' stato fatto della 
-funzione \textbf{happiness} \ref{fig:happiness}. Il comportamento di questa curva non e' completamente 
-realistico, e' comunque utilizzabile per lo scopo di mantenere sotto controllo le contromisure $\eta$.
+funzione \textbf{happiness} \ref{fig:happinessf}. Il comportamento di questa curva non e' completamente 
+realistico, ma e' comunque utilizzabile per lo scopo di mantenere sotto controllo le contromisure $\eta$.
 
 \begin{minipage}{\linewidth}
 	\centering
@@ -150,22 +143,14 @@ in termini sia di generale qualita' della vita, che anche economico, non indiffe
 precedenti e dall'esperienza diretta che si e' avuto con la pandemia da COVID-19. 
 
 \subsection{Analisi di sensitività}
-Osservando il modello SEIR definito come segue \ref{fig:seir_ode}
-
-\begin{minipage}{\linewidth}
-	\centering
-	\includegraphics[width=\textwidth]{img/seir_ode.png}
-	\captionof{figure}{Definizione del modello SEIR utilizzata all'interno del modello ad agente}
-	\label{fig:seir_ode}
-\end{minipage}
-
+Osservando il modello SEIR definito come segue \ref{fig:ODE_Julia_example} 
 si puo' osservare come quest'ultimo potrebbe essere sensibile al mutamento di specifici 
 parametri al suo interno, i quali potrebbero portare il modello ad avere comportamenti 
 peculiari e soprattutto imprevisti o inattesi.
 
 Percio' e' stato deciso di effettuare un analisi di sensitivita' del sistema tramite l'utilizzo 
 di metodi di libreria offerti dalla suite \emph{SciML.ai}. In questo modo e' stato possibile 
-osservare a quali parametri il modello fosse piu' sensibile. 
+osservare a quali parametri il modello fosse piu' sensibile.
 
 \begin{minipage}{\linewidth}
 	\centering
@@ -204,8 +189,8 @@ differente se modificati sono i seguenti:
 
 Questi parametri sono stati scelti in come possibili parametri con un comportamento latente. I parametri 
 relativi al controllore e al vaccino non sono stati inclusi per ovvi motivi, in quanto e' stato gia' dimostrato 
-come il loro variare puo' portare a cambiamenti significativi all'interno della simulazione del modello \ref{fig:abm_no_intervent}
-\ref{fig:abm_vaccine} \ref{fig:abm_all} \ref{fig:abm_intervent}.
+come il loro variare puo' portare a cambiamenti significativi all'interno della simulazione del modello 
+\ref{fig:abm_no_intervent} \ref{fig:abm_intervent} \ref{fig:abm_vaccine} \ref{fig:abm_all}.
 
 \newpage
 

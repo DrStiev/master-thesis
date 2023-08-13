@@ -16,13 +16,6 @@ Inizialmente la funzione di controllo inserita all'interno del modello ad agente
 come riportato in figura \ref{fig:controller_abm}. E' possibile osservare come vengano inseriti dei valori di 
 controllo per gestire la chiamata al controllore vero e proprio.
 
-\begin{minipage}{\linewidth}
-	\centering
-	\includegraphics[width=\textwidth]{img/controller_neuralode.png}
-	\captionof{figure}{Definizione controller all'interno del modello ad agente}
-	\label{fig:controller_abm}
-\end{minipage}
-
 I valori di controllo sono generalmente associati a quado bisogna realisticamente parlando, chiamare la 
 funzione di controllo. Da un lato servono sia a ridurre il numero di chiamate, e quindi ridurre l'impatto 
 prestazionale sia a rendere piu' realistica l'idea di avere accesso ad un sistema di controllo solamente 
@@ -34,6 +27,13 @@ del controllore. A posteriori e' chiaro come avere delle regole di prevenzione g
 enorme aiuto nel combattimento contro il dilagare di un epidemia, ma alle volte vi e' un ritardo nel riconoscere
 il pericolo, e questo e' dato dal valore di \emph{tolerance} il quale non attiva il controllore fintanto che 
 la situazione sembra rimanere sotto i minimi di soglia. 
+
+\begin{minipage}{\linewidth}
+	\centering
+	\includegraphics[width=\textwidth]{img/controller_neuralode.png}
+	\captionof{figure}{Definizione controller all'interno del modello ad agente}
+	\label{fig:controller_abm}
+\end{minipage}
 
 Altri valori definiscono principalmente i parametri che servono alla funzione di controllo per operare correttamente.
 Tra questi vi e' un parametro opzionale $\upsilon$ il quale descrive quanto potra' essere il valore massimo delle 
@@ -127,4 +127,36 @@ potrebbe incorrere in un brutto minimo locale.
 
 \subsubsection*{Funzione di attivazione rete neurale}
 % inserisci qualcosa in piu'
-La funzione di attivazione della rete neurale e' una funzione denominata \textbf{swish} \cite{ramachandran2017searching}
+La scelta della funzione di attivazione all'interno delle reti neurali pone un grande impatto sulle 
+dinamiche di apprendimento. Attualmente la piu' utilizzata e di grande successo e' la \textbf{ReLU}
+(\textbf{Re}ctified \textbf{L}inera \textbf{U}nit) la quale e' della forma $f(x) = max(0,x)$. Tuttavia svariate 
+alternative sono state proposte, ma nessuna di queste e' riuscita a spodestare il primato della ReLu, principalmente 
+a causa di guadagni prestazionali inconsistenti. 
+
+La funzione di attivazione che ho deciso di utilizzare si chiama \textbf{Swish} ed e' stat proposta dal 
+\emph{Google Brain Team} \cite{ramachandran2017searching}, la quale e' la seguente funzione $f(x) = x \cdot sigmoid(x)$. 
+Nei loro esperimenti e' stato osservato come sostituire la funzione di attivazione ReLU con Swish permetteva 
+di avere un aumento prestazionale sui task di \emph{top-1 classification} sul dataset \textbf{ImageNet} del $0.9\%$ utilizzando
+\textbf{NASNetA} e dello $0.6\%$ utilizzado \textbf{Inception-ResNet-v2}. 
+
+\begin{minipage}{\linewidth}
+	\centering
+	\includegraphics[width=\textwidth]{img/Screen-Shot-2017-10-18-at-2.39.55-PM.png}
+	\captionof{figure}{Funzione di attivazione Swish}
+	\label{fig:swish}
+\end{minipage}
+
+Il punto forte di Swish e' la sua semplicita' e forte somiglianza con ReLU, la quale la rende estremamente facile da implementare
+al suo posto. La principale problematica con l'utilizzo di ReLU e' il fatto che il valore della derivata e' 0 per meta' 
+dei valori in input $x$. 
+
+E' stato dimostrato come, utilizzando il dataset \textbf{MNIST}, le prestazioni di Swish e ReLU siano 
+equiparabili nei fintanto che le reti avevano un numero di layer all'incirca fino a 40. Successivamente Swish riusciva ad ottenere 
+prestazioni migliori di ReLU in maniera considerevole, soprattutto quando il numero di layer si attestava tra i 40 e i 50, casi 
+in cui l'ottimizzazione tendenzialmente diventa piu' complessa. Questo suggeri, e venne poi osservato, come 
+in reti molto profonde, Swish tendeva ad avere prestazioni migliori nei test di accuracy rispetto alla controparte presa in esame. 
+Entrambe comunque hanno esperienziato un calo delle prestazioni all'aumentare della dimensioni dei batch; in ogni caso comunque Swish otteneva 
+dei risultati migliori. 
+
+Alla luce di questi dati ho deciso di utilizzare questa funzione come funzione di attivazione all'interno della rete neurale, 
+anche se tendenzialmente essendo essa poco profonda, i risultati e soprattutto il guadagno di accuratezza non dovrebbe essere troppo sensibile \ref{fig:controller1}.

@@ -45,7 +45,7 @@ lo studio e modellazione è il così detto modello
 
 \begin{figure}[h]
     \includegraphics[width=\linewidth]{img/sir.png}
-    \caption{Struttura modello SIR} 
+    \caption{Esempio della struttura del modello SIR} 
     \label{fig:SIR_Structure}
 \end{figure}
 
@@ -90,9 +90,16 @@ la modellazione del modello.
 Il modello in figura \ref{fig:SIR_Structure} e' un caso speciale del modello proposto da Kermack e McKendrick 
 nel loro articolo del 1927, ma e' divenuto il modello base per la strutturazione di questo tipo di modelli.
 Questa tipologia di modello descrive il seguente sistema di equazioni ordinarie differenziali:
-$$\frac{dS}{dt} = -\beta \cdot S \cdot I$$
-$$\frac{dI}{dt} = \beta \cdot S \cdot I - \gamma \cdot I$$
-$$\frac{dR}{dt} = \gamma \cdot I$$
+
+\[
+    \left\{
+    \begin{array}{ll}
+        \frac{dS}{dt} = -\beta \cdot S \cdot I\\
+        \frac{dI}{dt} = \beta \cdot S \cdot I - \gamma \cdot I\\
+        \frac{dR}{dt} = \gamma \cdot I\\
+    \end{array}
+    \right.
+\]
 
 Questo sistema modella le seguenti assunzioni: 
 \begin{itemize}
@@ -149,26 +156,33 @@ precedentemente sconosciuta o in cui i primi casi sono facilmente proni a diagno
 In molteplici malattie infettive esiste un periodo definito di \emph{esposizione} \cite{wiki:Incubation_period} in cui un individuo una volta infetto non 
 e' immediatamente infettivo per cui vi e' un ritardo nella trasmissione effettiva della malattia. Questo periodo e' irrilevante quando e' estremamente breve. 
 Tuttavia un periodo di esposizione lungo puo' portare a differenze significative nel modello. Generalmenmte per modellare questa variante e' sufficiente 
-inserire un nuovo compartimento \textbf{E} il quale va a modificare il sistema di equazioni differenziali nel seguente modo
-$$\frac{dS}{dt} = - \beta(N) \cdot S \cdot I$$
-$$\frac{dE}{dt} = \beta(N) \cdot S \cdot I - \kappa \cdot E$$
-$$\frac{dI}{dt} = \kappa \cdot E - \gamma \cdot I$$
-$$\frac{dR}{dt} = \gamma \cdot I$$
+inserire un nuovo compartimento \textbf{E} il quale va a modificare il sistema di equazioni differenziali nel seguente modo:
 
-\begin{minipage}{\linewidth}
-    \centering
-    \includegraphics[width=\textwidth]{img/41592_2020_856_Fig1_HTML.png}
-    \captionof{figure}{Modello SEIRS preso dall'articolo \cite{Bjornstad2020}}
-    \label{fig:SEIRS_model}
-\end{minipage}
+\[
+    \left\{
+    \begin{array}{ll}
+        \frac{dS}{dt} = - \beta(N) \cdot S \cdot I\\
+        \frac{dE}{dt} = \beta(N) \cdot S \cdot I - \kappa \cdot E\\
+        \frac{dI}{dt} = \kappa \cdot E - \gamma \cdot I\\
+        \frac{dR}{dt} = \gamma \cdot I\\
+    \end{array}
+    \right.
+\]
 
 Questo modello permette di integrare l'evenienza di casi \emph{asintomatici} i quali sono infettivi e non totalmente 
 associabili al compartimento \textbf{E}.
 
+\begin{minipage}{\linewidth}
+    \centering
+    \includegraphics[width=\textwidth]{img/41592_2020_856_Fig1_HTML.png}
+    \captionof{figure}{Esempio di modello SEIRS \cite{Bjornstad2020}}
+    \label{fig:SEIRS_model}
+\end{minipage}
+
 \subsubsection{Modello SIR stocastico}
 Una delle assunzioni del modello presentato precedentemente, ovvero della tipologia \textbf{deterministica} e' quella per cui la dimensione 
-dei compartimenti e' abbastanza grande da permettere di avere un mix omogeneo di membri al suo interno. Fintanto che questa assunzione e' sufficientemente
-ragionevole quando un'epidemia e' gia' avviata, all'inizio la situazione puo' riszultare estremamente differente. Fintanto che all'inizio di una 
+dei compartimenti e' abbastanza grande da permettere di avere un mix omogeneo di membri al suo interno. Questa assunzione e' sufficientemente
+ragionevole quando un'epidemia e' gia' avviata, ma all'inizio la situazione puo' risultare estremamente differente. All'inizio di una 
 epidemia la maggior parte della popolazione ricade all'interno della categoria suscettibile, ovvero che non e' stata (ancora) infettata, e il numero associato 
 agli individui infetti e' relativamente piccolo. Il rateo di trasmissione della malattia dipende fortemente dal pattern dei contatti tra individui e servirebbe utilizzare 
 una descrizione di questo pattern. Poiche' il numero di infetti e' piccolo una descrizione del modello che utilizza una assunzione di \emph{mass action} dovrebbe essere 
@@ -177,6 +191,16 @@ sostituito da un modello che incorpora degli effetti stocastici.
 \begin{minipage}{\linewidth}
     \centering
     \includegraphics[width=\textwidth]{img/stochastic_SEIR.png}
-    \captionof{figure}{Modello SEIRS stocastico}
+    \captionof{figure}{Esempio di modello SEIR stocastico}
     \label{fig:stochastic_SEIR_model}
 \end{minipage}
+
+Esistono differenti approcci che permettono di descrivere questo comportamento stocastico, il primo e 
+sicuramente piu' intuitivo e' quello di descrivere un modello stocastico dell'epidemia. Altrimenti e' possibile 
+utilizzare un modello stocastico della pandemia per una malattia che puo' essere comunicata da applicare 
+fintanto che il numero di infetti rimane relativamente piccolo, andando a distinguere due differenti categorie:
+un \emph{minor disease outbreak} confinato negli stadi iniziali della pandemia e un 
+\emph{major disease outbreak} che occorre nel caso in cui il numero di infetti inizia a crescere esponenzialmente.
+
+Una volta che la pandemia e' iniziata, e' possibile passare ad un modello di tipo deterministico, in questo caso si 
+parla di \textbf{network models}.
