@@ -181,7 +181,8 @@ appunto questo stato aggiuntivo.
 
 Successivamente vi sono delle regole su quanto il modello puo' impiegare in termini di risorse, 
 le quali sono le nostre contromisure con relativo costo, dato dall'integrale del valore della nostra
-contromisura applicata nel tempo.
+contromisura applicata nel tempo. Infine viene ottimizzato il modello e ritornato il valore medio delle contromisure applicate
+quando applicate. 
 
 \begin{minipage}{\linewidth}
 	\centering
@@ -190,5 +191,36 @@ contromisura applicata nel tempo.
 	\label{fig:controller_rules_1}
 \end{minipage}
 
-Infine viene ottimizzato il modello e ritornato il valore medio delle contromisure applicate
-quando applicate.
+I risultati ottenuti \ref{fig:ipopt_res1} \ref{fig:ipopt_res2} non si discostano troppo da quelli ottenuti tramite l'utilizzo del controllore con 
+NeuralODE \ref{fig:controller1} implementato come mostra la figura \ref{fig:abm_intervent} \ref{fig:abm_all}. Si puo' notare
+come i risultati siano molto simili, e per questo e' stato deciso di mantenere l'utilizzo dell'implementazione 
+custom su quella della librearia Ipopt, in quanto questa scelta sembrava portare un aumento prestazionale non 
+troppo significativo, ma sicuramente incoraggiante.
+
+\begin{figure}[!hb]
+	\centering
+	\begin{subfigure}[b]{\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/SocialNetworkABM_IPOPT_CONTROL.pdf}
+		\caption{Risultato applicazione controllore tramite la suite Ipopt}
+		\label{fig:ipopt_res1}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/SocialNetworkABM_IPOPT_ALL.pdf}
+		\caption{Risultato applicazione controllore tramite la suite Ipopt}
+		\label{fig:ipopt_res2}
+	\end{subfigure}
+\end{figure}
+
+Da notare come la possibilita' di convertire il codice da \textbf{CPU based} a \textbf{GPU based} tramite
+l'ausilio di poche semplici istruzioni, sia qualcosa che e' stato preponderante nella scelta di non 
+utilizzare la libreria esterna Ipopt, soprattutto in vista di possibili sviluppi futuri legati al miglioramento 
+delle performance del codice in termini di risorse computazionali e soprattutto temporali.
+
+La scelta di utilizzare un approccio ibrido come controllore piuttosto che un approccio definito tramite una suite
+di ottimizzazione non lineare, e' stato optato anche in vista del fatto che la definizione del controllore diveniva 
+piu' semplice rispetto alla controparte Ipopt. Questa semplicita' tuttavia e' data dal fatto che non si ha diretto 
+controllo sulla funzione da ottimizzare in quanto e' mascherata da una rete neurale, cosa che con il controllore 
+esplicito di Ipopt era possibile fare definendo vari vincoli sul sistema in questione.

@@ -191,9 +191,9 @@ Questi parametri sono stati scelti in come possibili parametri con un comportame
 relativi al controllore e al vaccino non sono stati inclusi per ovvi motivi, in quanto e' stato gia' dimostrato 
 come il loro variare puo' portare a cambiamenti significativi all'interno della simulazione del modello 
 \ref{fig:abm_no_intervent} \ref{fig:abm_intervent} \ref{fig:abm_vaccine} \ref{fig:abm_all}.
-
 \newpage
 
+\subsubsection{Analisi comportamento dato un numero di nodi infetti iniziali variabile}
 In questo confronto si nota come il numero di nodi infetti iniziali influenzi principalmente la velocita' con cui 
 il picco di infetti arriva a compimento. Si nota come nel caso in cui si inizi con un numero di nodi infetti maggiore, 
 la curva degli infetti tendera' a essere prona verso l'inizio della linea temporale piuttosto che la fine, arrivando 
@@ -230,7 +230,9 @@ comportamento atteso.
 		\label{fig:comparison_init_node_inf_10}
 	\end{subfigure}
 \end{figure}
+\newpage
 
+\subsubsection{Analisi comportamento dato il valore di migrazione variabile}
 Anche in questo caso si puo' osservare come la curva epidemiologica tenda a raggiungere un valore 
 di picco piu' alto in un periodo di tempo minore nel caso in cui si ha un rateo di migrazione piu' alto. 
 Anche questo comportamento era atteso e non sorprende.
@@ -266,8 +268,12 @@ Anche questo comportamento era atteso e non sorprende.
 	\end{subfigure}
 \end{figure}
 
+Questo comportamento dipende anche da cosa il parametro \textbf{migrationRate} sta ad indicare. Questo parametro indica il massimo numero 
+di individui che possono spostarsi da un nodo di partenza verso un nodo di destinazione. Questo valore viene calcolato quando viene 
+creata la matrice di migrazione \ref{fig:migration matrix} e generalmente e' un valore \emph{sempre minore} di quello specificato come migrationRate.
 \newpage
 
+\subsubsection{Analisi comportamento dato il numero di nodi della rete variabile}
 In questo confronto e' lapalissiano come il numero di nodi della rete influenzi l'andamento delle curve epidemiologiche. 
 I grafici mostrano come in genere un numero di nodi maggiore comporta ad una diffusione piu' lenta e con picchi meno ripidi
 seppur piu' prolungati nel tempo. Ovviamente questo dipende da molteplici fattori, primo tra tutti la topologia delle connessioni 
@@ -303,9 +309,9 @@ del grafo e in secondo luogo dove il primo focolare ha inizio.
 		\label{fig:comparison_numberOfNodes_80}
 	\end{subfigure}
 \end{figure}
-
 \newpage
 
+\subsubsection{Analisi comportamento data la copertura dei nodi variabile}
 In questa figura e' osservabile come la copertura della rete, data dal numero di archi che la compongono,
 va ad influenzare in maniera sensibile l'andamento della pandemia, soprattutto nel caso in cui la copertura e' 
 bassa \ref{fig:comparison_lowCoverage}. Tendenzialmente e' ipotizzabile che con una bassa copertura, quindi 
@@ -319,7 +325,7 @@ e' calata drasticamente.
 	\begin{subfigure}[b]{0.3\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{img/SocialNetworkABM_1_EC.pdf}
-		\caption{Grafico per la comparazione sulla copertura della rete. Copertura bassa}
+		\caption{Grafico per la comparazione sulla copertura della rete. Copertura alta}
 		\label{fig:comparison_highCoverage}
 	\end{subfigure}
 	\hfill
@@ -333,7 +339,7 @@ e' calata drasticamente.
 	\begin{subfigure}[b]{0.3\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{img/SocialNetworkABM_3_EC.pdf}
-		\caption{Grafico per la comparazione sulla copertura della rete. Copertura alta}
+		\caption{Grafico per la comparazione sulla copertura della rete. Copertura bassa}
 		\label{fig:comparison_lowCoverage}
 	\end{subfigure}
 \end{figure}
