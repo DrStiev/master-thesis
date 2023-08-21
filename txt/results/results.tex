@@ -2,7 +2,7 @@
 
 \subsection{Nessun intervento}
 Il seguente grafico \ref{fig:abm_no_intervent} mostra l'andamento delle curve del modello
-quando questo viene eseguito senza alcuna tipologia di intervento. Questo andamento e' mostrato 
+quando questo viene eseguito senza alcuna tipologia di intervento. Questo andamento è mostrato 
 in maniera cumulativa rispetto all'andamento dei singoli agenti, i quali possono mostrare comportamenti 
 differenti tra loro.
 
@@ -13,29 +13,29 @@ differenti tra loro.
 	\label{fig:abm_no_intervent}
 \end{minipage}
 
-Complessivamente l'andamento del modello e' similare all'andamento standard di un modello di tipo  
-SEIR, con qualche variazione dipendente dai fattori di stocasticita' intrisechi del modello; che in questo
-caso non sono troppo presenti. Il grafico mostra le traiettorie piu' comuni delle curve cumulate del modello, 
-dove vengono messe in evidenza i percorsi piu' utilizzati. 
+Complessivamente l'andamento del modello è similare all'andamento standard di un modello di tipo  
+SEIR, con qualche variazione dipendente dai fattori di stocasticità intrisechi del modello; che in questo
+caso non sono troppo presenti. Il grafico mostra le traiettorie più comuni delle curve cumulate del modello, 
+dove vengono messe in evidenza i percorsi più utilizzati. 
 
-Come e' possibile notare, il numero di individui suscettibili crolla drasticamente
+Come è possibile notare, il numero di individui suscettibili crolla drasticamente
 per via della diffusione rapida e simil esponenziale che ha il virus. Questa viene emulata
-dall'altrettanto rapida crescita di individui guariti (recovered) che pero', per via
-di come e' stato definita la condizione di guariti, non sono immuni alle varianti del virus, permettendo 
-di modellare una possibile ciclicita' dell'epidemia data dalla perdita di immunita' della popolazione. 
-Queste proprieta' contribuiscono ad un andamento ciclico delle curve. Si puo' notare come 
+dall'altrettanto rapida crescita di individui guariti (recovered) che però, per via
+di come è stato definita la condizione di guariti, non sono immuni alle varianti del virus, permettendo 
+di modellare una possibile ciclicità dell'epidemia data dalla perdita di immunità della popolazione. 
+Queste proprietà contribuiscono ad un andamento ciclico delle curve. Si può notare come 
 la curva associata all'andamento degli individui nella classe \emph{D} abbia una crescita lineare, 
 seppur non troppo evidente.
 
-A seguire si puo' osservare come la curva associata alla variabile di happiness del modello,
+A seguire si può osservare come la curva associata alla variabile di happiness del modello,
 valore che serve per bilanciare la durezza delle misure di controllo per evitare 
 di cadere in un ciclo funzionale ma insostenibile, mostra un comportamento alquanto bizzarro.
-Questo e' dovuto principalmente a come viene definita la funzione di controllo della felicita' \ref{fig:happinessf}.
+Questo è dovuto principalmente a come viene definita la funzione di controllo della felicità \ref{fig:happinessf}.
 Si osserva inoltre che la curva tende ad un \emph{plateau} passato il periodo della "prima ondata".
 
-Questo comportamento principalmente irrealistico e associato alla definizione che e' stato fatto della 
-funzione \textbf{happiness} \ref{fig:happinessf}. Il comportamento di questa curva non e' completamente 
-realistico, ma e' comunque utilizzabile per lo scopo di mantenere sotto controllo le contromisure $\eta$.
+Questo comportamento principalmente irrealistico e associato alla definizione che è stato fatto della 
+funzione \textbf{happiness} \ref{fig:happinessf}. Il comportamento di questa curva non è completamente 
+realistico, ma è comunque utilizzabile per lo scopo di mantenere sotto controllo le contromisure $\eta$.
 
 \begin{minipage}{\linewidth}
 	\centering
@@ -45,9 +45,11 @@ realistico, ma e' comunque utilizzabile per lo scopo di mantenere sotto controll
 \end{minipage}
 
 Infine si nota come, seppur la definizione della funzione associata alla creazione di una
-nuova \emph{Variant of Concern (VOC)} \ref{fig:voc} sia semplicistica e irrealistica, 
-il grafico mostra come su un periodo di circa 3 anni, associabile alla durata del periodo covid, 
-il numero di VOC sia pressoche' sovrapponibile con quanto osservato dai dati raccolti durante la pandemia \ref{fig:covid_mutation}. 
+nuova \emph{VOC} \ref{fig:voc} sia semplicistica e irrealistica, il grafico mostra come 
+su un periodo di circa 3 anni, associabile alla durata del periodo covid, 
+il numero di VOC sia pressochè sovrapponibile con quanto osservato dai dati 
+raccolti durante la pandemia \ref{fig:covid_mutation}. 
+\newpage
 
 \subsection{Intervento non farmaceutico}
 Il seguente grafico \ref{fig:abm_intervent} mostra l'andamento delle curve del modello
@@ -56,7 +58,7 @@ Le contromisure sono rappresentate come un insieme di valori appartenenti all'in
 le quali rappresentano cumulativamente un insieme di metriche differenti non esplicite che vanno a definire 
 un insieme di misure di controllo. Le misure di controllo cercano di mimicare quelle associate al progetto 
 \textbf{OxCGRT} il quale ha lo scopo di misurare la durezza delle contomisure applicate in un determinato paese; 
-questo valore e' composito di 9 metriche: chiusura delle scuole; chiusura dei luoghi di lavoro; 
+questo valore è composito di 9 metriche: chiusura delle scuole; chiusura dei luoghi di lavoro; 
 cancellazione di eventi pubblici; restrizioni agli assembramenti pubblici; 
 chiusura dei trasporti pubblici; obbligo di rimanere a casa; campagne di informazione pubblica; 
 restrizioni agli spostamenti interni e controlli sui viaggi internazionali.
@@ -72,33 +74,34 @@ Queste metriche sono metriche reali ma che nel modello vengono viste come un ins
 ad una somma di medie dei valori di ogni metrica. Questa scelta porta a non avere un indice molto chiaro
 ma permette comunque di avere un idea generale estremamente immediata dell'effetto che queste hanno sul modello.
 
-Si nota come con l'applicazione di un insieme di contromisure, piu' o meno stringenti a seconda del periodo osservato, 
+Si nota come con l'applicazione di un insieme di contromisure, più o meno stringenti a seconda del periodo osservato, 
 possiamo osservare come le curve epidemiologiche tendono ad appiattirsi, soprattutto quelle associate ai compartimenti 
-\textbf{E, I}, le quali influenzano le curve \textbf{S, R}. In questo caso la ciclicita' del modello viene meno. 
+\textbf{E, I}, le quali influenzano le curve \textbf{S, R}. In questo caso la ciclicità del modello viene meno. 
 
-Altro dato interessante e' il numero di VOC che e' diminuito rispetto al modello senza intervento.
+Altro dato interessante è il numero di VOC che è diminuito rispetto al modello senza intervento.
 Questo dipende generalmente dal comportamento delle contromisure. Infatti queste quando vengono applicate, 
 oltre a influenzare il parametro \textbf{happiness}, vanno ad influenzare anche la matrice di flusso \ref{fig:migration matrix}
 andando a ridurne i valori presenti. Questo fa si che oltre a dilazionare la diffusione della pandemia, 
 va a dilazionare il comportamento della funzione che si occupa di generare una VOC \ref{fig:voc}. 
 
-Questa infatti puo' attivarse sse nel nodo sono presenti individui infetti, in quanto non e' stata modellata la 
-possibilita' che spontaneamente una nuova variante arrivi in un nuovo nodo senza un veicolo umano. Percio' 
+Questa infatti può attivarse sse nel nodo sono presenti individui infetti, in quanto non è stata modellata la 
+possibilità che spontaneamente una nuova variante arrivi in un nuovo nodo senza un veicolo umano. Perciò 
 applicare delle contromisure permette anche a contenere la diffusione di VOC nella popolazione osservata.
 
-Si puo' osservare come la variabile di controllo \textbf{happiness} segua molto attentamente l'andamento sia delle 
-contromisure che della pandemia, arrivando all'inizio della pandemia quando le contromisure sono piu' stringenti 
+Si può osservare come la variabile di controllo \textbf{happiness} segua molto attentamente l'andamento sia delle 
+contromisure che della pandemia, arrivando all'inizio della pandemia quando le contromisure sono più stringenti 
 a diventare pressoche nulla. Successivamente, pur mantenendo un livello di contromisure sostenuto, la media
 del valore di controllo tende ad alzarsi, seguendo il valore del compartimento \textbf{R}. Questo approccio sembra 
 imitare il generale andamento della risposta che la popolazione italiana ha avuto alle prime misure di contenimento 
 applicate realmente durante la pandemia da COVID-19.
+\newpage
 
 \subsection{Intervento farmaceutico}
 Il seguente grafico \ref{fig:abm_vaccine} mostra l'andamento delle curve del modello
 quando questo viene eseguito tramite l'applicazione di una qualche tipologia di intervento farmaceutico.
 Questo grafico dipende enormemente da quando viene trovato e successivamente applicato un intervento 
-farmaceutico alla popolazione. Prima viene applicato un intervento farmaceutico piu' le curve si modificano 
-e sono differenti dalll'andamento senza intervento \ref{fig:abm_no_intervent}, mentre piu' tempo passa piu'
+farmaceutico alla popolazione. Prima viene applicato un intervento farmaceutico più le curve si modificano 
+e sono differenti dalll'andamento senza intervento \ref{fig:abm_no_intervent}, mentre più tempo passa più
 il comportamento tende ad assomigliarsi.
 
 \begin{minipage}{\linewidth}
@@ -110,6 +113,7 @@ il comportamento tende ad assomigliarsi.
 
 Il grafico mostra come se disponibili e applicate repentinamente, l'utilizzo di contromisure farmaceutiche permette 
 permette di ridurre repentinamente le curve senza andare ad intaccare la curva di happiness in maniera troppo sensibile.
+\newpage
 
 \subsection{Intervento farmaceutico e non farmaceutico}
 Il seguente grafico \ref{fig:abm_all} mostra l'andamento delle curve del modello
@@ -125,10 +129,10 @@ come ad esempio l'utillizo di un vaccino, che di contromisure non farmaceutiche.
 
 In questo caso viene mostrato l'andamento delle curve tenendo in considerazione l'utilizzo di ogni mezzo
 per prevenire e contrastare l'epidemia. L'uitilizzo combinato di mezzi farmaceutici e non permettono 
-si appiattire notevolmente la curva di infetti andando a creare velocemente un immunita' di gruppo 
+si appiattire notevolmente la curva di infetti andando a creare velocemente un immunità di gruppo 
 che rende la popolazione meno suscettibile alle varianti. Questo inoltre fa si che la \emph{happiness} media
-del modello sia generalmente piu' alta anche quando vengono applicate delle contromisure che vanno ad 
-intaccare la felicita' della popolazione (ad esempio un lockdown). 
+del modello sia generalmente più alta anche quando vengono applicate delle contromisure che vanno ad 
+intaccare la felicità della popolazione (ad esempio un lockdown). 
 
 Queste contromisure non farmaceutiche sono in genere meno stringenti e meno prolungate, permettendo quindi
 alla popolazione di non avere un calo drastico della happiness generale come in figura \ref{fig:abm_intervent}.
@@ -137,67 +141,67 @@ e con che efficacia questo riesce ad entrare in circolazione.
 
 Tuttavia questo dimostra come l'utilizzo di un vaccino a priori sia un metodo molto efficace per contrastare
 una epidemia, e che ovviamente l'efficacia di questo dipenda molto e soprattutto da quando viene applicato 
-alla popolazione. Successivamente si puo' notare come le misure non farmaceutiche di prevenzione e contrasto
+alla popolazione. Successivamente si può notare come le misure non farmaceutiche di prevenzione e contrasto
 dell'epidemia sono un mezzo efficace per controllare la diffusione dell'infezione, ma queste hanno un costo 
-in termini sia di generale qualita' della vita, che anche economico, non indifferente come mostrato dai grafici 
-precedenti e dall'esperienza diretta che si e' avuto con la pandemia da COVID-19. 
+in termini sia di generale qualità della vita, che anche economico, non indifferente come mostrato dai grafici 
+precedenti e dall'esperienza diretta che si è avuto con la pandemia da COVID-19. 
 
 \subsection{Analisi di sensitività}
 Osservando il modello SEIR definito come segue \ref{fig:ODE_Julia_example} 
-si puo' osservare come quest'ultimo potrebbe essere sensibile al mutamento di specifici 
+si può osservare come quest'ultimo potrebbe essere sensibile al mutamento di specifici 
 parametri al suo interno, i quali potrebbero portare il modello ad avere comportamenti 
 peculiari e soprattutto imprevisti o inattesi.
 
-Percio' e' stato deciso di effettuare un analisi di sensitivita' del sistema tramite l'utilizzo 
-di metodi di libreria offerti dalla suite \emph{SciML.ai}. In questo modo e' stato possibile 
-osservare a quali parametri il modello fosse piu' sensibile.
+Perciò è stato deciso di effettuare un analisi di sensitività del sistema tramite l'utilizzo 
+di metodi di libreria offerti dalla suite \emph{SciML.ai}. In questo modo è stato possibile 
+osservare a quali parametri il modello fosse più sensibile.
 
 \begin{minipage}{\linewidth}
 	\centering
 	\includegraphics[width=\textwidth]{img/sa.pdf}
-	\captionof{figure}{Grafico rappresentante l'analisi di sensitivita' del modello}
+	\captionof{figure}{Grafico rappresentante l'analisi di sensitività del modello}
 	\label{fig:sens_anal}
 \end{minipage}
 
-Come osservato in figura \ref{fig:sens_anal}, il modello ha una sensitivita' abbastanza 
+Come osservato in figura \ref{fig:sens_anal}, il modello ha una sensitività abbastanza 
 uniforme per i parametri $R_0, \gamma$ e $\sigma$, il che era atteso in quanto sono tutti 
-responsabili dell'avanzamento del contagio. La sensitivita' ai parametri $\omega$ e $\delta$ 
-era comunque attesa, anche se non cosi' accentuata come mostrata in figura. Infine la sensitivita' 
-relativa al parametro $\eta$ responsabile delle contromisure e' pressocche' inversa a quella del 
-parametro $R_0$ il che e' relativamente atteso in quanto e' un parametro direttamente collegato 
-alle contromisure per la diffusione del contagio. La sensitivita' al parametro $\xi$ invece ha 
-andamento singolare e pare essere legato alla sensitivita' del parametro $\omega$ seppur in 
-modo specchiato. Questo probabilmente perche' essendo i parametri $\omega$ e $\xi$ legati al 
+responsabili dell'avanzamento del contagio. La sensitività ai parametri $\omega$ e $\delta$ 
+era comunque attesa, anche se non così accentuata come mostrata in figura. Infine la sensitività 
+relativa al parametro $\eta$ responsabile delle contromisure è pressocchè inversa a quella del 
+parametro $R_0$ il che è relativamente atteso in quanto è un parametro direttamente collegato 
+alle contromisure per la diffusione del contagio. La sensitività al parametro $\xi$ invece ha 
+andamento singolare e pare essere legato alla sensitività del parametro $\omega$ seppur in 
+modo specchiato. Questo probabilmente perchè essendo i parametri $\omega$ e $\xi$ legati al 
 compartimento \textbf{R} del modello, che gestisce gli individui sia guariti che vaccinati, 
-il loro comportamento e' sensato che sia collegabile.
+il loro comportamento è sensato che sia collegabile.
 
-Successivamente e' stata applicato un controllo di sensitivita' riguardo i parametri 
+Successivamente è stata applicato un controllo di sensitività riguardo i parametri 
 relativi al modello ad agente in se, tramite l'utilizzo della funzione \textbf{paramscan} offerta
 dalla libreria \textbf{Agents.jl}.
 
-E' stato scelto un insieme di parametri del modello che vengono modificati all'interno di un range 
+è stato scelto un insieme di parametri del modello che vengono modificati all'interno di un range 
 definito e in base alle varie configurazioni ottenute si va ad osservare come il comportamento del modello 
-puo' o meno cambiare. I valori che sono stati scelti in quanto idealmente responsabili di un comportamento 
+può o meno cambiare. I valori che sono stati scelti in quanto idealmente responsabili di un comportamento 
 differente se modificati sono i seguenti: 
 
 \begin{minipage}{\linewidth}
 	\centering
 	\includegraphics[width=\textwidth]{img/paramscan.png}
-	\captionof{figure}{Parametri usati per l'analisi di sensitivita' del modello ad agente}
+	\captionof{figure}{Parametri usati per l'analisi di sensitività del modello ad agente}
 	\label{fig:paramscan}
 \end{minipage}
 
 Questi parametri sono stati scelti in come possibili parametri con un comportamento latente. I parametri 
-relativi al controllore e al vaccino non sono stati inclusi per ovvi motivi, in quanto e' stato gia' dimostrato 
-come il loro variare puo' portare a cambiamenti significativi all'interno della simulazione del modello 
+relativi al controllore e al vaccino non sono stati inclusi per ovvi motivi, in quanto è stato già dimostrato 
+come il loro variare può portare a cambiamenti significativi all'interno della simulazione del modello 
 \ref{fig:abm_no_intervent} \ref{fig:abm_intervent} \ref{fig:abm_vaccine} \ref{fig:abm_all}.
 \newpage
 
 \subsubsection{Analisi comportamento dato un numero di nodi infetti iniziali variabile}
-In questo confronto si nota come il numero di nodi infetti iniziali influenzi principalmente la velocita' con cui 
+In questo confronto si nota come il numero di nodi infetti iniziali influenzi principalmente la velocità con cui 
 il picco di infetti arriva a compimento. Si nota come nel caso in cui si inizi con un numero di nodi infetti maggiore, 
-la curva degli infetti tendera' a essere prona verso l'inizio della linea temporale piuttosto che la fine, arrivando 
-al proprio picco prima. Oltre a questo tuttavia non vi sono altri comportamenti degni di nota. Nel complesso e' un
+la curva degli infetti tenderà a essere prona verso l'inizio della linea temporale piuttosto che la fine, arrivando 
+al proprio picco prima. Oltre a questo tuttavia non vi sono altri comportamenti degni di nota. Nel complesso è un
 comportamento atteso.
 
 \begin{figure}[!hb]
@@ -233,8 +237,8 @@ comportamento atteso.
 \newpage
 
 \subsubsection{Analisi comportamento dato il valore di migrazione variabile}
-Anche in questo caso si puo' osservare come la curva epidemiologica tenda a raggiungere un valore 
-di picco piu' alto in un periodo di tempo minore nel caso in cui si ha un rateo di migrazione piu' alto. 
+Anche in questo caso si può osservare come la curva epidemiologica tenda a raggiungere un valore 
+di picco più alto in un periodo di tempo minore nel caso in cui si ha un rateo di migrazione più alto. 
 Anche questo comportamento era atteso e non sorprende.
 
 \begin{figure}[!hb]
@@ -270,13 +274,13 @@ Anche questo comportamento era atteso e non sorprende.
 
 Questo comportamento dipende anche da cosa il parametro \textbf{migrationRate} sta ad indicare. Questo parametro indica il massimo numero 
 di individui che possono spostarsi da un nodo di partenza verso un nodo di destinazione. Questo valore viene calcolato quando viene 
-creata la matrice di migrazione \ref{fig:migration matrix} e generalmente e' un valore \emph{sempre minore} di quello specificato come migrationRate.
+creata la matrice di migrazione \ref{fig:migration matrix} e generalmente è un valore \emph{sempre minore} di quello specificato come migrationRate.
 \newpage
 
 \subsubsection{Analisi comportamento dato il numero di nodi della rete variabile}
-In questo confronto e' lapalissiano come il numero di nodi della rete influenzi l'andamento delle curve epidemiologiche. 
-I grafici mostrano come in genere un numero di nodi maggiore comporta ad una diffusione piu' lenta e con picchi meno ripidi
-seppur piu' prolungati nel tempo. Ovviamente questo dipende da molteplici fattori, primo tra tutti la topologia delle connessioni 
+In questo confronto è lapalissiano come il numero di nodi della rete influenzi l'andamento delle curve epidemiologiche. 
+I grafici mostrano come in genere un numero di nodi maggiore comporta ad una diffusione più lenta e con picchi meno ripidi
+seppur più prolungati nel tempo. Ovviamente questo dipende da molteplici fattori, primo tra tutti la topologia delle connessioni 
 del grafo e in secondo luogo dove il primo focolare ha inizio. 
 
 \begin{figure}[!hb]
@@ -312,13 +316,13 @@ del grafo e in secondo luogo dove il primo focolare ha inizio.
 \newpage
 
 \subsubsection{Analisi comportamento data la copertura dei nodi variabile}
-In questa figura e' osservabile come la copertura della rete, data dal numero di archi che la compongono,
-va ad influenzare in maniera sensibile l'andamento della pandemia, soprattutto nel caso in cui la copertura e' 
-bassa \ref{fig:comparison_lowCoverage}. Tendenzialmente e' ipotizzabile che con una bassa copertura, quindi 
-con una possibilita' piu' limitata di spostarsi da un nodo all'altro, la diffusione del virus subisce un arresto, 
-e questo e' osservabile con i dati ottenuti durante la pandemia COVID-19 dove una della prime contromisure applicate 
-e' stata quella del \textbf{lockdown generalizzato} in cui la capacita' di spostamento degli individui 
-e' calata drasticamente.
+In questa figura è osservabile come la copertura della rete, data dal numero di archi che la compongono,
+va ad influenzare in maniera sensibile l'andamento della pandemia, soprattutto nel caso in cui la copertura è 
+bassa \ref{fig:comparison_lowCoverage}. Tendenzialmente è ipotizzabile che con una bassa copertura, quindi 
+con una possibilità più limitata di spostarsi da un nodo all'altro, la diffusione del virus subisce un arresto, 
+e questo è osservabile con i dati ottenuti durante la pandemia COVID-19 dove una della prime contromisure applicate 
+è stata quella del \textbf{lockdown generalizzato} in cui la capacità di spostamento degli individui 
+è calata drasticamente.
 
 \begin{figure}[!hb]
 	\centering
@@ -344,18 +348,18 @@ e' calata drasticamente.
 	\end{subfigure}
 \end{figure}
 
-E' accurato assumere come, dato il modo con cui viene creata la copertura degli archi, questa 
+è accurato assumere come, dato il modo con cui viene creata la copertura degli archi, questa 
 possa influenzare la diffusione del virus. In particolar modo la diffusione nel caso di alta e media copertura 
-e' molto simile. Questo e' dovuto con molta probabilita' al modo in cui viene creata la copertura; modo che 
-puo' essere osservato in figura \ref{fig:graph_coverage}
+è molto simile. Questo è dovuto con molta probabilità al modo in cui viene creata la copertura; modo che 
+può essere osservato in figura \ref{fig:graph_coverage}
 
-Cio' nonostante, quello che puo' essere ulteriormente osservato e' il comportamento sempre piu' "incerto" delle curve 
-epidemiologiche al diminuire della copertura del grafo. Discorso similare si puo' osservare nella comparazione sul numero 
-di nodi della rete, in cui le curve epidemiologiche tendono ad assumere un comportamento sempre piu' incerto all'aumentare dei 
+Ciò nonostante, quello che può essere ulteriormente osservato è il comportamento sempre più "incerto" delle curve 
+epidemiologiche al diminuire della copertura del grafo. Discorso similare si può osservare nella comparazione sul numero 
+di nodi della rete, in cui le curve epidemiologiche tendono ad assumere un comportamento sempre più incerto all'aumentare dei 
 nodi presenti in rete. Anche il numero di \textbf{VOC} pare aumentare con il numero di nodi, questo suggerisce che essendoci 
-piu' individui la possibilita' di mutazioni aumenta, cosi' come diminuisce con il diminuire della copertura, stando ad indicare 
-come seppur il numero di nodi possa essere elevato, ma se non vi e' una possibilita' o veicolo di infezione, le mutazioni difficilmente
-possono accadere; diminuendo la pericolosita' dell'agente patogeno.
+più individui la possibilità di mutazioni aumenta, così come diminuisce con il diminuire della copertura, stando ad indicare 
+come seppur il numero di nodi possa essere elevato, ma se non vi è una possibilità o veicolo di infezione, le mutazioni difficilmente
+possono accadere; diminuendo la pericolosità dell'agente patogeno.
 
 \begin{minipage}{\linewidth}
 	\centering
