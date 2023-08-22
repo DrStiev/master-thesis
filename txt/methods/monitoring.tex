@@ -44,14 +44,14 @@ adatto.
 
 \begin{minipage}{\linewidth}
 	\centering
-	\includegraphics[width=\textwidth]{img/activationfunction_controller.png}
-	\captionof{figure}{Funzione per il calcolo del limite superiore per le contromisure}
+	\includegraphics[width=\textwidth]{img/beta_cdf.pdf}
+	\captionof{figure}{Funzione per il calcolo del limite superiore per le contromisure non farmaceutiche}
 	\label{fig:max_countermeasures_function_abm}
 \end{minipage}
 
 Come si può osservare, la funzione descritta in figura \ref{fig:max_countermeasures_function_abm} 
-è ottenibile dalla seguente formula: $\frac{e^{k \cdot x}-1}{e^{k}-1}$, in particolare la funzione sopra 
-presentata è ottenuta dal valore $k = -4.5$. Questo tipo di funzione è stata scelta in quanto descrive abbastanza 
+descrive la \emph{funzione di distribuzione cumulativa} per la distribuzione \emph{beta} \cite{wiki:Beta_distribution} 
+con parametri $\alpha = 2$ e $\beta = 5$. Questo tipo di funzione è stata scelta in quanto descrive abbastanza 
 bene il valore di pericolo che, soprattutto durante i primi mesi di pandemia, è stato attribuito al numero di infetti che 
 si riscontravano. Questo valore cresce rapidamente e poi tende a rallentare abbastanza bruscamente una volta superata la 
 soglia del cinquanta percento di infetti. 

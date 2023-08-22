@@ -1,4 +1,35 @@
 \section{Risultati Ottenuti}
+I risultati, che verranno dettagliatamente mostrati nelle sezioni successive, possono essere riassunti generalmente
+come dei risultati positivi, sia in fatto di performance che di policy applicate. Specificatamente 
+al tempo e' possibile mostrare come il tempo generale della simulazione dipenda principalmente dall'applicazione
+del controllore e quindi dal calcolo della Neural ODE e tutte le operazioni che ne conseguono. 
+
+\begin{minipage}{\linewidth}
+	\centering
+	\includegraphics[width=\textwidth]{img/tt_singlerun.png}
+	\captionof{figure}{Tempi prestazionali totali di una singola run per la simulazione di tutti e 4 gli scenari: nessun controllo, controllo non farmaceutico, controllo farmaceutico, controllo farmaceutico e non}
+	\label{fig:tt_singlerun}
+\end{minipage}
+
+\begin{minipage}{\linewidth}
+	\centering
+	\includegraphics[width=\textwidth]{img/tt_singlerun_control.png}
+	\captionof{figure}{Tempi prestazionali relativi alla simulazione con solamente contromisure non farmaceutiche}
+	\label{fig:tt_singlerun_control}
+\end{minipage}
+
+\begin{minipage}{\linewidth}
+	\centering
+	\includegraphics[width=\textwidth]{img/tt_singlerun_all.png}
+	\captionof{figure}{Tempi prestazionali relativi alla simulazione con tutte le possibili contromisure, farmaceutiche e non}
+	\label{fig:tt_singlerun_all}
+\end{minipage}
+
+Queste lunghe tempistiche derivano dal calcolo delle contromisure non farmaceutiche applicabili alla popolazione, 
+e per questo, le contromisure farmaceutiche, se applicate con il giusto tempismo, oltre a dare un notevole 
+apporto alla riduzione della diffusione della pandemia \ref{fig:comparison_vax_1} \ref{fig:comparison_vax_2}
+\ref{fig:comparison_vax_3} \ref{fig:comparison_vax_4}, permettono una notevole riduzione dei tempi computazionali.
+\newpage
 
 \subsection{Nessun intervento}
 Il seguente grafico \ref{fig:abm_no_intervent} mostra l'andamento delle curve del modello
@@ -58,10 +89,10 @@ Le contromisure sono rappresentate come un insieme di valori appartenenti all'in
 le quali rappresentano cumulativamente un insieme di metriche differenti non esplicite che vanno a definire 
 un insieme di misure di controllo. Le misure di controllo cercano di mimicare quelle associate al progetto 
 \textbf{OxCGRT} il quale ha lo scopo di misurare la durezza delle contomisure applicate in un determinato paese; 
-questo valore è composito di 9 metriche: chiusura delle scuole; chiusura dei luoghi di lavoro; 
+questo valore è composito di 9 metriche: \emph{chiusura delle scuole; chiusura dei luoghi di lavoro; 
 cancellazione di eventi pubblici; restrizioni agli assembramenti pubblici; 
 chiusura dei trasporti pubblici; obbligo di rimanere a casa; campagne di informazione pubblica; 
-restrizioni agli spostamenti interni e controlli sui viaggi internazionali.
+restrizioni agli spostamenti interni e controlli sui viaggi internazionali}.
 
 \begin{minipage}{\linewidth}
 	\centering
