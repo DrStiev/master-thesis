@@ -4,26 +4,26 @@ come dei risultati positivi, sia in fatto di performance che di policy applicate
 al tempo e' possibile mostrare come il tempo generale della simulazione dipenda principalmente dall'applicazione
 del controllore e quindi dal calcolo della Neural ODE e tutte le operazioni che ne conseguono. 
 
-\begin{minipage}{\linewidth}
-	\centering
-	\includegraphics[width=\textwidth]{img/tt_singlerun.png}
-	\captionof{figure}{Tempi prestazionali totali di una singola run per la simulazione di tutti e 4 gli scenari: nessun controllo, controllo non farmaceutico, controllo farmaceutico, controllo farmaceutico e non}
-	\label{fig:tt_singlerun}
-\end{minipage}
+\begin{tabular}{ |p{2,57cm}||p{2,57cm}|p{2,57cm}|p{2,57cm}|p{2,57cm}|  }
+	\hline
+	\multicolumn{5}{|c|}{Tempo Impiegato} \\
+	\hline
+	Tipologia di Test & Nessun Intervento & Intervento Non Farmaceutico & Intervento Farmaceutico & Intervento Farmaceutico e Non\\
+	\hline
+	Singlerun (50 PdI) & bla & bla & bla & bla\\
+	Ensemblerun (5 ripetizioni, 50 PdI) & bla & bla & bla & bla\\
+	\hline
+\end{tabular}
 
-\begin{minipage}{\linewidth}
-	\centering
-	\includegraphics[width=\textwidth]{img/tt_singlerun_control.png}
-	\captionof{figure}{Tempi prestazionali relativi alla simulazione con solamente contromisure non farmaceutiche}
-	\label{fig:tt_singlerun_control}
-\end{minipage}
-
-\begin{minipage}{\linewidth}
-	\centering
-	\includegraphics[width=\textwidth]{img/tt_singlerun_all.png}
-	\captionof{figure}{Tempi prestazionali relativi alla simulazione con tutte le possibili contromisure, farmaceutiche e non}
-	\label{fig:tt_singlerun_all}
-\end{minipage}
+\begin{tabular}{ |p{2,57cm}||p{2,57cm}|p{2,57cm}|p{2,57cm}|p{2,57cm}|  }
+	\hline
+	\multicolumn{5}{|c|}{Tempo Impiegato} \\
+	\hline
+	Tipologia di Test & Nodi Infetti Variabili & Valore di Migrazione Variabile & Nodi della Rete Variabile & Copertura dei Nodi Variabile\\
+	\hline
+	Paramscan & bla & bla & bla & bla\\
+	\hline
+\end{tabular}
 
 Queste lunghe tempistiche derivano dal calcolo delle contromisure non farmaceutiche applicabili alla popolazione, 
 e per questo, le contromisure farmaceutiche, se applicate con il giusto tempismo, oltre a dare un notevole 
