@@ -50,7 +50,7 @@ adatto.
 \end{minipage}
 
 Come si può osservare, la funzione descritta in figura \ref{fig:max_countermeasures_function_abm} 
-descrive la \emph{funzione di distribuzione cumulativa} per la distribuzione \emph{beta} \cite{wiki:Beta_distribution} 
+descrive la \emph{funzione di distribuzione cumulativa} per la distribuzione \emph{beta}  
 con parametri $\alpha = 2$ e $\beta = 5$. Questo tipo di funzione è stata scelta in quanto descrive abbastanza 
 bene il valore di pericolo che, soprattutto durante i primi mesi di pandemia, è stato attribuito al numero di infetti che 
 si riscontravano. Questo valore cresce rapidamente e poi tende a rallentare abbastanza bruscamente una volta superata la 
@@ -88,7 +88,7 @@ e infine anche una funzione ausiliaria di callback utile per osservare l'andamen
 Come si può osservare in figura \ref{fig:controller2} la funzione di \emph{callback} oltre ad essere una funzione di 
 appoggio nella stampa dei dati relativi all'addestramento, è anche una utile funzione per implementare un controllo sulla tipologia 
 di apprendimento del modello. Infatti per ridurre ancora di più il numero di iterazioni necessarie per avere dei buoni risultati 
-è stato scelto di inserire un controllo simile al metodo di \textbf{early stopping} \cite{wiki:Early_stopping} per prevenire 
+è stato scelto di inserire un controllo simile al metodo di \textbf{early stopping} per prevenire 
 l'addestramento eccessivo quando si trova un valore di ottimo. Questo approccio è puramente \emph{empirico} in quanto 
 è stato riscontrato come il valore di loss generale del sistema tende a decrescere o crescere stabilmente e una volta trovato il 
 valore ottimale, se rimangono delle iterazioni da fare, questo non migliora per cui una volta che i valori rimangono identici 

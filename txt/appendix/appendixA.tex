@@ -19,7 +19,7 @@ rappresentati graficamente come dei punti di differenti colori.
 Questo approccio utilizzava una metodologia similare a quella delle palline da biliardo 
 per modellare l'interazio tra agenti all'interno dello spazio del modello. Ogni agente poteva
 infettare in maniera casuale un suo vicino sse i due avevano un interazione. Ogni interazione
-era modellata similmente ad un urto elastico \cite{wiki:Urto_elastico} tra corpi. 
+era modellata similmente ad un urto elastico tra corpi. 
 Questo non era tuttavia un simulatore di urti elastici affidabili, bensì un approccio che prendeva
 spunto da esso, in particolare dal gioco del biliardo. 
 
@@ -86,13 +86,13 @@ relativi al comportamento del modello ad agente. Il motivo rimane tutt'ora ignot
 che uno degli attori in gioco possa essere la funzione \textbf{random} associata al campionamento 
 degli individui che va a fare da mimica per il numero di contatti che avvengono ad ogni passo 
 per ogni individuo infetto. Questo campionamento si basa principalmente sul calcolo di una 
-distribuzione di \textbf{Poisson} \cite{wiki:Distribuzione_di_Poisson} con parametro $\lambda = R_0$.
+distribuzione di \textbf{Poisson} con parametro $\lambda = R_0$.
 
 In particolare la formula è stata ricavata dopo aver fatto un confronto tra molteplici 
 valori di $R_0$ e i risultati ottenuti sia dal modello SEIR che dal modello ABM. 
 Successivamente è stato calcolato \textbf{MSE} (Medium Square Error) per ogni coppia possibile
 di risultati per cercare quelli tra loro più simili, andando ad ottenere quindi un insieme
-di coppie. Queste poi sono state inserite in un metodo che calcolava una \textbf{polynomial fit} \cite{wiki:Polynomial_regression}
+di coppie. Queste poi sono state inserite in un metodo che calcolava una \textbf{polynomial fit} 
 tra tutte le coppie di valori per vedere quale poteva essere la formula che governava la differenza 
 di risultati. Da tenere a mente che in un caso normale questa differenza non dovrebbe esistere, 
 o quanto meno se esiste dovrebbe essere trascurabile.

@@ -51,12 +51,12 @@
 \contentsline {figure}{\numberline {54}{\ignorespaces Grafico rappresentante l'analisi di sensitività del modello\relax }}{58}{figure.54}%
 \contentsline {figure}{\numberline {55}{\ignorespaces Parametri usati per l'analisi di sensitività del modello ad agente\relax }}{59}{figure.55}%
 \contentsline {figure}{\numberline {60}{\ignorespaces Esempio della funzione atta alla creazione di un grafo dato un determinato livello di copertura\relax }}{64}{figure.60}%
-\contentsline {figure}{\numberline {61}{\ignorespaces Esempio del modello modellato su spazio continuo\relax }}{76}{figure.61}%
-\contentsline {figure}{\numberline {62}{\ignorespaces Esempio del comportamento delle curve nel modello continuo\relax }}{77}{figure.62}%
-\contentsline {figure}{\numberline {63}{\ignorespaces Comportamento modello ABM su spazio a grafo al variare del parametro $R_0$\relax }}{78}{figure.63}%
-\contentsline {figure}{\numberline {64}{\ignorespaces Comportamento modello SEIR al variare del parametro $R_0$\relax }}{79}{figure.64}%
-\contentsline {figure}{\numberline {65}{\ignorespaces Formula che si occupa di descrivere il rapporto tra il comportamento del modello scartato e del modello SEIR. In particolare questa formula descrive il rapporto tra gli $R_0$\relax }}{79}{figure.65}%
-\contentsline {figure}{\numberline {67}{\ignorespaces Comparison of Ipopt performance over various linear solvers using the two-dimensional partial differential equation test problem set. \cite {unknown}\relax }}{81}{figure.67}%
-\contentsline {figure}{\numberline {68}{\ignorespaces Definizione del controllore tramite Ipopt\relax }}{82}{figure.68}%
-\contentsline {figure}{\numberline {69}{\ignorespaces Definizione regole del modello del controller\relax }}{83}{figure.69}%
-\contentsline {figure}{\numberline {70}{\ignorespaces Definizione regole del modello del controller per le contromisure\relax }}{83}{figure.70}%
+\contentsline {figure}{\numberline {61}{\ignorespaces Esempio del modello modellato su spazio continuo\relax }}{72}{figure.61}%
+\contentsline {figure}{\numberline {62}{\ignorespaces Esempio del comportamento delle curve nel modello continuo\relax }}{73}{figure.62}%
+\contentsline {figure}{\numberline {63}{\ignorespaces Comportamento modello ABM su spazio a grafo al variare del parametro $R_0$\relax }}{74}{figure.63}%
+\contentsline {figure}{\numberline {64}{\ignorespaces Comportamento modello SEIR al variare del parametro $R_0$\relax }}{75}{figure.64}%
+\contentsline {figure}{\numberline {65}{\ignorespaces Formula che si occupa di descrivere il rapporto tra il comportamento del modello scartato e del modello SEIR. In particolare questa formula descrive il rapporto tra gli $R_0$\relax }}{75}{figure.65}%
+\contentsline {figure}{\numberline {67}{\ignorespaces Comparison of Ipopt performance over various linear solvers using the two-dimensional partial differential equation test problem set. \cite {unknown}\relax }}{77}{figure.67}%
+\contentsline {figure}{\numberline {68}{\ignorespaces Definizione del controllore tramite Ipopt\relax }}{78}{figure.68}%
+\contentsline {figure}{\numberline {69}{\ignorespaces Definizione regole del modello del controller\relax }}{79}{figure.69}%
+\contentsline {figure}{\numberline {70}{\ignorespaces Definizione regole del modello del controller per le contromisure\relax }}{79}{figure.70}%

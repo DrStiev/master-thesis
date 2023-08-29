@@ -9,8 +9,7 @@ più dei linguaggi considerati in questo ambito lo stato
 dell’arte, ovvero C e Fortran;  ma anche facile da approcciare, 
 al contrario dei linguaggi sopra citati. Julia è un linguaggio 
 di programmazione scritto in C++ e Scheme, ma gran parte della 
-sua composizione è scritta in Julia stesso 
-\cite{wiki:Julia_(programming_language)}.
+sua composizione è scritta in Julia stesso.
 
 le caratteristiche principali di questo linguaggio sono 
 principalmente:
@@ -220,7 +219,7 @@ $$ML(x) = \sigma(W_3 \cdot \sigma(W_2 \cdot \sigma(W_1 \cdot x)))$$
 dove $W_1$, $W_2$ e $W_3$ sono dei parametri apprendibili. Successivamente 
 lo scopo è quello di scegliere $W$ tale che $ML(x) = y$ si comporti in maniera
 ragionevole simile alla funzione incognita che vogliamo adattare. Grazie all'
-applicazione del teorema di approssimazione universale \cite{wiki:Universal_approximation_theorem}
+applicazione del teorema di approssimazione universale 
 afferma che per un numero sufficientemente grande di parametri o di strati 
 è possibile approssimare qualsiasi funzione non lineare in maniera 
 sufficientemente precisa. 
@@ -282,7 +281,7 @@ associata.
 
 Principalmente il motivo per cui si vuole utilizzare questa tipologia di approccio 
 è quella per cui, definendo un modello in questo modo e utilizzando un risolutore
-estremamente semplice e prono ad errori come il metodo di Eulero \cite{wiki:Euler_method}
+estremamente semplice e prono ad errori come il metodo di Eulero 
 si ottengono risultati equivalenti ad una ResNet \cite{he2015deep}. L'idea alla base
 è quella che invece di modellare una rete neurale con sempre più strati, e quindi 
 sempre più profonda, è sufficiente modellare il sistema di equazioni differenziali
@@ -350,8 +349,8 @@ per definire una \textbf{NeuralODE}.
 \end{minipage}
 
 \subsubsection*{Backpropagation tramite ODE solver}
-Il cuore di ogni rete neurale è l'abilità di propagare all'indietro \cite{wiki:Backpropagation} lungo tutta la 
-rete le derivate, con lo scopo di calcolare il gradiente \cite{wiki:Gradiente_(funzione)} della funzione di perdita
+Il cuore di ogni rete neurale è l'abilità di propagare all'indietro lungo tutta la 
+rete le derivate, con lo scopo di calcolare il gradiente della funzione di perdita
 rispetto ai parametri della rete. Perciò la sfida diventa trovare un metodo per
 applicare lo stesso comportamento anche quando si utilizzano dei risolutori ODE 
 all'interno della rete neurale.
@@ -431,25 +430,25 @@ approssimatore universale in uno spazio ad alte dimensioni includono le reti neu
 all'interno del machine learning. Matematicamente parlando però, nella sua forma più generale, una UDE è 
 una equazione differenziale parziale (PDE) a ritardo stocastico forzato definita con approssimatori universali incorporati:
 $$\mathcal{N}[u(t), u(\alpha(t)), W(t), U_\theta(u, \beta(t))] = 0$$
-dove $\alpha(t)$ è una funzione a ritardo e $W(t)$ è un processo Wiener \cite{wiki:Processo_di_Wiener}.
+dove $\alpha(t)$ è una funzione a ritardo e $W(t)$ è un processo Wiener.
 
 Un \emph{equazione differenziale universale} (UDE) è una \emph{equazione algebrica
-differenziale}\cite{wiki:Differential-algebraic_system_of_equations} 
+differenziale} 
 non triviale, ovvero un sistema di equazioni che contiene delle equazioni differenziali
 ed equazioni algebriche oppure è un sistema equivalente,
 con la proprietà che la sua soluzione può approssimare
 \emph{qualsiasi} funzione continua su un qualunque intervallo $\in R$ a 
-qualsiasi livello di precisione desiderata. \cite{wiki:Universal_differential_equation}
+qualsiasi livello di precisione desiderata. 
 
 Per essere precisi, una equazione differenziale (possibilmente in forma implicita)
 $P( y', y'', y''', ..., y^{(n)})=0$ è una UDE se, per ogni funzione a valori relative
 continua $f$ e per ogni funzione continua positiva $\epsilon$ esiste una 
-soluzione liscia\cite{wiki:Smoothness} (una funzione è considerabile liscia se è 
+soluzione liscia (una funzione è considerabile liscia se è 
 differenziabile in ogni suo punto, perciò continua) $y$ di $P( y', y'', y''', ..., y^{(n)})=0$
 con $|y(x) - f(x)| < \epsilon(x) \forall x \in R$.
 
 Il concetto di UDE può essere analogo all'idea di una \emph{Macchina di Turing Universale}
-\cite{wiki:Universal_Turing_machine} con la differenza che le UDE non dettano 
+con la differenza che le UDE non dettano 
 l'evoluzione di un sistema, ma si limitano a imporre determinate regole che 
 ogni sistema che si evolve deve sodddisfare. Questo permette di avere un modello robusto 
 per l'analisi di dati e la predizione dell'interazione che hanno vari fenomeni tra loro.
@@ -463,8 +462,7 @@ per l'analisi di dati e la predizione dell'interazione che hanno vari fenomeni t
 
 Questo approccio viene spesso unito a tecniche \emph{Data-Driven} \cite{datadrivendiffeq} per l'identificazione
 sparsa di dinamiche non lineari. In particolare uno degli approcci utilizzati 
-è quello tramite l'algoritmo \emph{SINDy (\textbf{S}parse \textbf{I}dentification of \textbf{N}on-linear \textbf{Dy}namics)} 
-\cite{wiki:Sparse_identification_of_non-linear_dynamics}. 
+è quello tramite l'algoritmo \emph{SINDy (\textbf{S}parse \textbf{I}dentification of \textbf{N}on-linear \textbf{Dy}namics)}. 
 Questo algoritmo performa una serie di operazioni di regressione come 
 ad esempio \textbf{LASSO} su una libreria di funzioni candidate non lineari ottenute
 da uno snapshot del sistema dinamico che si sta analizzando e delle sue derivate, 
