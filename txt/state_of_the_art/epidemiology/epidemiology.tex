@@ -43,8 +43,8 @@ direttamente collegata al numero di suicidi per strangolamento.
 \begin{figure}[h]
     \begin{center}
         \includegraphics[width=\linewidth]{img/chart.png}
-        \caption{Esempio di correlazione spuria 
-        \url{https://www.tylervigen.com/spurious-correlations}}
+        \caption{Esempio di correlazione spuria}
+        \url{https://www.tylervigen.com/spurious-correlations}
         \label{fig:spurious_relations}
     \end{center}
 \end{figure}
@@ -84,8 +84,8 @@ così come differenti addendi possono portare lo stesso risultato;
 \begin{figure}[h]
     \begin{center}
         \includegraphics[width=\linewidth]{img/chart1.png}
-        \caption{Un altro esempio di correlazione spuria
-        \url{https://www.tylervigen.com/spurious-correlations}}
+        \caption{Un altro esempio di correlazione spuria}
+        \url{https://www.tylervigen.com/spurious-correlations}
         \label{fig:another_spurious_relations}
     \end{center}
 \end{figure}
@@ -116,13 +116,17 @@ settecento persone divise in due pari sottogruppi in cui
 la medicina e 350 decidevano autonomamente il contrario.
 I risultati sono i seguenti:
 
-\begin{figure}[h]
-    \begin{center}
-        \includegraphics[width=\linewidth]{img/simpson.png}
-        \caption{Esempio riguardante il famoso Simpson's paradox}
-        \label{fig:simpson_paradox}
-    \end{center}
-\end{figure}
+\begin{tabular}{ |p{2,2cm}||p{1,6cm}|p{1,6cm}|p{1,6cm}||p{1,6cm}|p{1,6cm}|p{1,6cm}|  }
+	\hline
+	\multicolumn{7}{|c|}{Simpson's paradox} \\
+	\hline
+	Category & Patients & Recovered & \% Recovered & Patients & Recovered & \% Recovered\\
+	\hline
+	Men & 87 & 81 & 93\% & 270 & 234 & 87\% \\
+	Women & 263 & 192 & 73\% & 80 & 55 & 69\% \\
+    Combined data & 350 & 273 & 78\% & 350 & 289 & 83\% \\
+	\hline
+\end{tabular}
 
 Questi risultati sembrano suggerire come la prescrizione 
 di questa nuova medicina non aiuti i pazienti a stare meglio.
