@@ -8,8 +8,8 @@
 \contentsline {figure}{\numberline {8}{\ignorespaces Esempio di comportamento emergente nella simulazione degli stormi di uccelli\relax }}{14}{figure.8}%
 \contentsline {figure}{\numberline {9}{\ignorespaces Esempio di differenti tipologie di discretizzazione, siano esse nel tempo o nei valori\relax }}{15}{figure.9}%
 \contentsline {figure}{\numberline {10}{\ignorespaces Tabella comparativa \cite {ABAR201713}\relax }}{17}{figure.10}%
-\contentsline {figure}{\numberline {11}{\ignorespaces Esempio di rappresentazione di uno spazio a grafo con archi pesati\relax }}{18}{figure.11}%
-\contentsline {figure}{\numberline {12}{\ignorespaces Esempio di metriche per il calcolo della distanza su uno spazio a griglia\relax }}{19}{figure.12}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Esempio di rappresentazione di uno spazio a grafo con archi pesati \cite {Agents.jl}\relax }}{18}{figure.11}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Esempio di metriche per il calcolo della distanza su uno spazio a griglia \cite {Agents.jl}\relax }}{19}{figure.12}%
 \contentsline {figure}{\numberline {13}{\ignorespaces Esempio applicazione UODE e Neural ODE \cite {rackauckas2019diffeqfluxjl} \cite {rackauckas2020universal}\relax }}{20}{figure.13}%
 \contentsline {figure}{\numberline {14}{\ignorespaces Differenti approcci di apprendimento di machine learning\relax }}{21}{figure.14}%
 \contentsline {figure}{\numberline {15}{\ignorespaces Esempio di funzionamento di una rete neurale\relax }}{22}{figure.15}%
