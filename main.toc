@@ -30,7 +30,7 @@
 \contentsline {subsection}{\numberline {5.2}Miglioramento funzione happiness}{65}{subsection.5.2}%
 \contentsline {subsection}{\numberline {5.3}Perfezionamento generale modello}{65}{subsection.5.3}%
 \contentsline {subsection}{\numberline {5.4}Ottimizzazione generale}{65}{subsection.5.4}%
-\contentsline {section}{\numberline {A}Approcci scartati}{72}{appendix.A}%
+\contentsline {section}{\numberline {A}Altri Approcci}{72}{appendix.A}%
 \contentsline {subsection}{\numberline {A.1}Modello ad Agente su spazio continuo}{72}{subsection.A.1}%
 \contentsline {subsection}{\numberline {A.2}Modello ad Agente con spazio a grafo e modellazione singolo agente}{74}{subsection.A.2}%
 \contentsline {subsection}{\numberline {A.3}Controllore Ipopt}{77}{subsection.A.3}%

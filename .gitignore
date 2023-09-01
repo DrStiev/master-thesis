@@ -11,3 +11,6 @@ main.log
 main.synctex.gz
 main.bbl
 main.blg
+main.toc
+main.lof
+main.fdb_latexmk
