@@ -1,13 +1,14 @@
 \section{Altri Approcci}
 
-\subsection{Modello ad Agente su spazio continuo}
-L'idea alla base era qualla di modellare una popolazione tramite l'utilizzo di 
-uno spazio del modello di tipo continuo. Gli agenti sarebbero poi stati modellati come 
-individui singoli e reali, in quanto entità effettivamente attive all'interno 
-dello spazio. Ci si può immaginare lo spazio del modello come una grande griglia 
-definita da coordinate \emph{continue} di una certa dimensione \emph{$N \times M$}. All'interno 
-di questa griglia vengono posizionati randomicamente gli agenti, i quali vengono 
-rappresentati graficamente come dei punti di differenti colori.
+\subsection{Modello ad Agente su Spazio Continuo}
+
+L'approccio iniziale prevedeva la modellazione di una popolazione 
+attraverso l'utilizzo di uno spazio di modello continuo. 
+Gli agenti sarebbero stati rappresentati come individui reali, 
+con un'effettiva presenza all'interno dello spazio. Questo spazio 
+di modello continuo poteva essere visualizzato come una griglia di 
+dimensioni $N \times M$ in cui gli agenti venivano posizionati in 
+modo casuale e rappresentati come punti colorati.
 
 \begin{minipage}{\linewidth}
     \centering
@@ -16,16 +17,6 @@ rappresentati graficamente come dei punti di differenti colori.
     \label{fig:ball_covid}
 \end{minipage}
 
-Questo approccio utilizzava una metodologia similare a quella delle palline da biliardo 
-per modellare l'interazio tra agenti all'interno dello spazio del modello. Ogni agente poteva
-infettare in maniera casuale un suo vicino sse i due avevano un interazione. Ogni interazione
-era modellata similmente ad un urto elastico tra corpi. 
-Questo non era tuttavia un simulatore di urti elastici affidabili, bensì un approccio che prendeva
-spunto da esso, in particolare dal gioco del biliardo. 
-
-In questo modo il comportamento complessivo del modello poteva permettere l'osservarsi 
-di un andamento simile a quanto ci si aspetterebbe da un sistema simile.
-
 \begin{minipage}{\linewidth}
     \centering
     \includegraphics[width=\textwidth]{img/plot_abm_continuousspace.pdf}
@@ -33,24 +24,29 @@ di un andamento simile a quanto ci si aspetterebbe da un sistema simile.
     \label{fig:seir_curve_continuous}
 \end{minipage}
 
-Sono state poi implementate svariate proprietà come la proprietà di essere individuati 
-dopo un periodo di latenza come individui infetti e quindi essere confinati in quarantena, 
-la quale era definita come una diminuzione nella probabilità di infettare ed essere infettati 
-perdendo la capacità di muoversi.
+Questo approccio prendeva spunto dalla fisica delle palline da 
+biliardo per modellare le interazioni tra gli agenti all'interno 
+dello spazio del modello. Ogni agente poteva casualmente infettare 
+un vicino solo se interagivano, e questa interazione veniva modellata 
+come un urto elastico tra corpi, anche se non rappresentava un vero 
+simulatore di urti elastici, bensì ne prendeva spunto.
 
-La tipologia di approccio del tipo Agent-oriented richiede una quantità di risorse computazionali 
-e di tempo estremamente elevato in relazione al numero di agenti presenti nel modello. Questo approccio 
-inoltre è stato valutato come troppo granulare e inadatto allo scopo del progetto. 
-Si è deciso quindi di adottare un approccio meno granulare e più flessibile 
-andando ad un livello di astrazione più alto.
+Tuttavia, questo approccio è risultato eccessivamente granulare e 
+poco adatto agli obiettivi del progetto. Inoltre, richiedeva una 
+quantità considerevole di risorse computazionali e tempo, il che 
+ha portato alla sua sostituzione con un approccio più astratto e flessibile.
 \newpage
 
-\subsection{Modello ad Agente con spazio a grafo e modellazione singolo agente}
-L'idea è nata per cercare di avere un controllo più granulare sullo spazio del modello e sulla sua 
-evoluzione locale, non tanto degli agenti. Sono nati molteplici problemi, primo tra tutti quello del tempo impiegato
-e successivamente quello del comportamento delle curve epidemiologiche che non rispettavano 
-assolutamente il comportamento descritto dal modello deterministico SEIR, ma non in un modo 
-ragionevole, bensì in un modo completamente alieno. 
+\subsection{Modello ad Agente con Spazio a Grafo e Modellazione Singolo Agente}
+
+Un secondo approccio è stato progettato per consentire un maggiore 
+controllo sullo spazio di modello e la sua evoluzione locale, 
+piuttosto che sugli agenti individuali. Tuttavia, questo approccio 
+ha incontrato problemi significativi, tra cui tempi di esecuzione 
+estremamente lunghi e un comportamento delle curve epidemiologiche 
+completamente divergente rispetto al modello SEIR deterministico. 
+Questo comportamento anomalo è stato osservato in presenza di variazioni 
+nel parametro $R_0$, e la causa rimane sconosciuta.
 
 \begin{minipage}{\linewidth}
     \centering
@@ -66,13 +62,9 @@ ragionevole, bensì in un modo completamente alieno.
     \label{fig:strange_behaviour_R0_ode}
 \end{minipage}
 
-Si può facilmente osservare come il comportamento delle curve prenda un comportamento 
-anomalo fin dalle prime variazioni del parametro $R_0$ per culminare con risultati 
-completamente alieni. Il motivo alla base rimane tutt'ora ignoto e sconosciuto, tuttavia
-esecuzioni differenti hanno mostrato dei comportamenti differenti, seppur altrettanto 
-alieni. 
-
-Questo comportamento però può essere descritto a grandi linee dalla seguente formula
+Anche se è stata formulata una formula approssimativa per 
+descrivere la relazione tra i risultati del modello ABM e SEIR, 
+questo comportamento rimane inspiegabile. 
 
 \begin{minipage}{\linewidth}
     \centering
@@ -81,64 +73,18 @@ Questo comportamento però può essere descritto a grandi linee dalla seguente f
     \label{fig:strange_behaviour_R0}
 \end{minipage}
 
-Bisogna tuttavia precisare come run successive abbiano portato a risultati differenti dei plot 
-relativi al comportamento del modello ad agente. Il motivo rimane tutt'ora ignoto ma è possibile
-che uno degli attori in gioco possa essere la funzione \textbf{random} associata al campionamento 
-degli individui che va a fare da mimica per il numero di contatti che avvengono ad ogni passo 
-per ogni individuo infetto. Questo campionamento si basa principalmente sul calcolo di una 
-distribuzione di \textbf{Poisson} con parametro $\lambda = R_0$.
-
-In particolare la formula è stata ricavata dopo aver fatto un confronto tra molteplici 
-valori di $R_0$ e i risultati ottenuti sia dal modello SEIR che dal modello ABM. 
-Successivamente è stato calcolato \textbf{MSE} (Medium Square Error) per ogni coppia possibile
-di risultati per cercare quelli tra loro più simili, andando ad ottenere quindi un insieme
-di coppie. Queste poi sono state inserite in un metodo che calcolava una \textbf{polynomial fit} 
-tra tutte le coppie di valori per vedere quale poteva essere la formula che governava la differenza 
-di risultati. Da tenere a mente che in un caso normale questa differenza non dovrebbe esistere, 
-o quanto meno se esiste dovrebbe essere trascurabile.
-
-\begin{figure}[!hb]
-	\centering
-	\begin{subfigure}[b]{0.45\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{img/r0_range_test.png}
-    	\caption{figure}{Range di valori di $R_0$ testati}
-    	\label{fig:r0_range_test}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[b]{0.45\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{img/mse_r0.png}
-		\caption{Calcolo MSE risultati SEIR - ABM}
-		\label{fig:mse_r0}
-	\end{subfigure}
-\end{figure}
-
-Da qui si ottiene la formula in figura \ref{fig:strange_behaviour_R0} la quale descrive approssimativamente, 
-in base al grado del polinomio che si vuole andare a creare, la relazione che esiste tra le coppie 
-di valori analizzate.
-
-La motivazione per cui il modello ad agente si comporta in maniera così inaspettata
-rispetto a come dovrebbe non è stato chiaro, e in letteratura non sembra esserci alcun 
-articolo che ne parli in maniera approfondita, e per questo ho deciso di abbandonare l'approccio.
-Punto a favore è stato anche il fatto che l'approccio con ABM era estremaente esoso in termini 
-di risorse computazionali e tempistiche. Questo problema è insito in ogni tipo di simulazione, 
-tuttavia affiancato allo stravagante problema comparso e descritto sopra, è stato 
-decisivo per il cambio drastico di approccio. 
+L'uso di un approccio basato su un grafo e la modellazione del 
+singolo agente ha portato a risultati incoerenti e ha reso necessario 
+abbandonare questa metodologia a favore di alternative più promettenti.
 \newpage
 
 \subsection{Controllore Ipopt}
-Ipopt (Interior Point OPTimizer) \cite{Wächter2006} è un pacchetto software per 
-l'ottimizzazione non lineare su larga scala. Questo pacchetto software è realizzato 
-per trovare delle soluzioni (locali) a problemi di ottimizzazione matematica nella forma:
-$\min_{x \in R^n} f(x)$ tale che $g_L \leq g(x) \leq g_U$ e $x_L \leq x \leq x_U$, dove 
-$f(x): R^n \rightarrow R$ è la funzione obiettivo e $g(x): R^n \rightarrow R^m$ 
-sono le funzioni di vincolo.
 
-I vettori $g_L$ e $g_U$ denotano i limiti inferiore e superiore sui vincoli e i vettori
-$x_L$ e $x_U$ sono i limiti delle variabili $x$. Le funzioni $f(x)$ e $g(x)$ possono essere 
-sia non lineari che non convesse, ma la loro derivata seconda deve esistere e deve essere 
-continua.
+È stato esplorato un terzo approccio basato su Ipopt 
+(Interior Point OPTimizer), un pacchetto software per l'ottimizzazione 
+non lineare su larga scala. Ipopt è progettato per trovare soluzioni 
+locali a problemi di ottimizzazione matematica, con funzioni obiettivo e 
+vincoli non lineari. \cite{Wächter2006}
 
 \begin{minipage}{\linewidth}
     \centering
@@ -147,13 +93,12 @@ continua.
     \label{fig:Ipopt_solver}
 \end{minipage}
 
-Ipopt è scritto in \textbf{C++} ed è stato rilasciato come software open source sotto la licenza \textbf{Eclipse Public License (EPL)}.
-
-L'utilizzo della suite \textbf{Ipopt} è stato fatto per l'applicazione di un sistema
-di monitoraggio e intervento all'interno del modello di simulazione. Successivamente l'idea
-di utilizzare un integrazione con la suite \textbf{SciML.ai} verrà sfruttata per 
-aggiungere algoritmi di Machine Learning per rendere più realistico e consistente il modello 
-nelle sue predizioni e scelte.
+L'approccio ha previsto l'applicazione di un sistema di 
+monitoraggio e intervento all'interno del modello di simulazione, 
+con l'obiettivo di ridurre il numero di individui infetti. 
+Le regole per il comportamento del modello sono state definite, 
+inclusa una rappresentazione degli stati SEIR e un nuovo stato per 
+il controllo delle risorse.
 
 \begin{minipage}{\linewidth}
 	\centering
@@ -162,29 +107,12 @@ nelle sue predizioni e scelte.
 	\label{fig:controller_ipopt}
 \end{minipage}
 
-L'approccio generale è stato semplice ma efficace, in quanto viene definito un modello 
-per raccogliere tutte le informazioni relative e necessarie per l'algoritmo di ottimizzazione
-e successivamente vengono definite le regole che governano il comportamento del modello. 
-
-Le regole in questione sono principalmente le stesse che sono usate per descrivere il modello SEIR
-che viene utilizzato all'interno del modello ad agente.
-
 \begin{minipage}{\linewidth}
 	\centering
 	\includegraphics[width=\textwidth]{img/controller_rules.png}
 	\captionof{figure}{Definizione regole del modello del controller}
 	\label{fig:controller_rules}
 \end{minipage}
-
-Essendo che le regole mostrate in figura \ref{fig:controller_rules} sono relative agli stati 
-SEIR e l'idea alla base del controllore è quella di ridurre quanto più possibile il numero di
-infetti cumulati che ci sono all'interno del sistema, è stato aggiunto uno stato che descrive
-appunto questo stato aggiuntivo.
-
-Successivamente vi sono delle regole su quanto il modello può impiegare in termini di risorse, 
-le quali sono le nostre contromisure con relativo costo, dato dall'integrale del valore della nostra
-contromisura applicata nel tempo. Infine viene ottimizzato il modello e ritornato il valore medio delle contromisure applicate
-quando applicate. 
 
 \begin{minipage}{\linewidth}
 	\centering
@@ -193,11 +121,17 @@ quando applicate.
 	\label{fig:controller_rules_1}
 \end{minipage}
 
-I risultati ottenuti \ref{fig:ipopt_res1} \ref{fig:ipopt_res2} non si discostano troppo da quelli ottenuti tramite l'utilizzo del controllore con 
-NeuralODE \ref{fig:controller1} implementato come mostra la figura \ref{fig:abm_intervent} \ref{fig:abm_all}. Si può notare
-come i risultati siano molto simili, e per questo è stato deciso di mantenere l'utilizzo dell'implementazione 
-custom su quella della librearia Ipopt, in quanto questa scelta sembrava portare un aumento prestazionale non 
-troppo significativo, ma sicuramente incoraggiante.
+Sono state stabilite anche regole per il consumo di risorse, 
+rappresentando le contromisure con il loro costo associato. 
+L'ottimizzazione del modello è stata eseguita e sono stati restituiti 
+i valori medi delle contromisure applicate.
+
+I risultati ottenuti con Ipopt sono stati confrontati con quelli 
+dell'implementazione personalizzata, rivelando somiglianze 
+significative. Tuttavia, la possibilità di convertire facilmente 
+il codice da CPU a GPU è stata determinante nella decisione di 
+utilizzare l'implementazione personalizzata, in previsione di futuri 
+miglioramenti delle prestazioni del codice.
 
 \begin{figure}[!hb]
 	\centering
@@ -216,13 +150,7 @@ troppo significativo, ma sicuramente incoraggiante.
 	\end{subfigure}
 \end{figure}
 
-Da notare come la possibilità di convertire il codice da \textbf{CPU based} a \textbf{GPU based} tramite
-l'ausilio di poche semplici istruzioni, sia qualcosa che è stato preponderante nella scelta di non 
-utilizzare la libreria esterna Ipopt, soprattutto in vista di possibili sviluppi futuri legati al miglioramento 
-delle performance del codice in termini di risorse computazionali e soprattutto temporali \ref{fig:NeuralODE_Julia_example}.
-
-La scelta di utilizzare un approccio ibrido come controllore piuttosto che un approccio definito tramite una suite
-di ottimizzazione non lineare, è stato optato anche in vista del fatto che la definizione del controllore diveniva 
-più semplice rispetto alla controparte Ipopt. Questa semplicità tuttavia è data dal fatto che non si ha diretto 
-controllo sulla funzione da ottimizzare in quanto è mascherata da una rete neurale, cosa che con il controllore 
-esplicito di Ipopt era possibile fare definendo vari vincoli sul sistema in questione.
+L'approccio ibrido del controllore è stato preferito per la sua 
+semplicità e la possibilità di mascherare la funzione obiettivo 
+tramite una rete neurale, semplificando notevolmente la definizione 
+delle regole rispetto all'implementazione esplicita di Ipopt.

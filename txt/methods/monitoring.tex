@@ -1,46 +1,65 @@
 \subsection{Monitoraggio e Intervento}
-Il sistema di controllo e intervento scelto segue l'idea del controllo autonomo tramite l'utilizzo di 
-una Neural ODE. Questo approccio permette di specificare un sistema di ODE che descrive il sistema reale 
-con le sue relazioni e inserire chirurgicamente una rete neurale al suo interno che controlli il 
-dosaggio delle contromisure. \cite{B_ttcher_2022} \cite{innes2019differentiable} \cite{sandoval2022neural}
+Il sistema di controllo e intervento adottato segue il principio 
+del controllo autonomo mediante l'impiego di una Neural ODE. 
+Questa strategia permette di definire un sistema di Equazioni 
+Differenziali Ordinarie (ODE) che descriva il sistema del mondo 
+reale con le sue relazioni, e di inserire all'interno di esso in 
+modo mirato una rete neurale che controlli il dosaggio delle 
+contromisure \cite{B_ttcher_2022} \cite{innes2019differentiable} 
+\cite{sandoval2022neural}.
 
-Questa tecnica permette di ottenere ottimi risultati, i quali tuttavia dipendono fortemente dalla 
-tipologia di modellazione del sistema scelto e dalla tipologia di funzione di costo o di controllo 
-applicata per addestrare il modello. La sfida in questo caso ricade sull'attenta modellazione del 
-sistema di partenza e sulla comprensione dei risultati offerti dal controllore. Questo controllore 
-difatti ritorna dei valori nell'ambito $\in[0, 1]$, i quali possono essere difficilmente interpretabili.
-Perciò è necessario a priori avere ben chiaro cosa significhi il range di valori che può ritornare
-il controllore, e capire a cosa è associato nel mondo reale. 
+Questa tecnica ha dimostrato di produrre risultati eccellenti, 
+ma è fortemente influenzata dalla corretta modellazione del sistema 
+sottostante e dalla selezione della funzione di costo o di controllo 
+utilizzata per addestrare il modello. La sfida principale in questo 
+contesto è garantire una modellazione accurata del sistema di 
+partenza e una comprensione approfondita dei risultati generati 
+dal controllore. Questo perché il controllore restituisce valori 
+nel range $\in [0, 1]$, i quali possono risultare difficilmente 
+interpretabili. Pertanto, è fondamentale definire chiaramente in 
+anticipo il significato di questo intervallo di valori nel contesto 
+del mondo reale.
 
-Inizialmente la funzione di controllo inserita all'interno del modello ad agente è definita 
-come riportato in figura \ref{fig:controller_abm}. è possibile osservare come vengano inseriti dei valori di 
-controllo per gestire la chiamata al controllore vero e proprio.
+Inizialmente, la funzione di controllo incorporata nel modello 
+agente è definita come illustrato in figura \ref{fig:controller_abm}. 
+È possibile notare come siano inseriti dei parametri di controllo per 
+gestire l'invocazione effettiva del controllore.
 
-I valori di controllo sono generalmente associati a quado bisogna realisticamente parlando, chiamare la 
-funzione di controllo. Da un lato servono sia a ridurre il numero di chiamate, e quindi ridurre l'impatto 
-prestazionale sia a rendere più realistica l'idea di avere accesso ad un sistema di controllo solamente 
-in determinati punti del tempo e non sempre. Questo va ad imitare anche il ritardo tra la raccolta dati, 
-la formulazione di una contromisura adeguata e l'applicazione della stessa.
+Questi parametri di controllo sono principalmente associati a quando 
+è necessario, dal punto di vista pratico, richiamare la funzione di 
+controllo. Da un lato, servono per ridurre il numero di chiamate al 
+controllore, contribuendo così a migliorare le prestazioni, e 
+dall'altro lato, rendono più realistica l'idea di avere accesso a 
+un sistema di controllo solo in determinati momenti temporali, 
+anziché in modo continuo. Ciò riflette anche il ritardo tra la 
+raccolta dei dati, la formulazione di una contromisura appropriata 
+e la sua attuazione.
 
-Successivamente vengono definite ulteriori regole di attivazione, questa volta legate alla prima attivazione
-del controllore. A posteriori è chiaro come avere delle regole di prevenzione già in atto possa essere di 
-enorme aiuto nel combattimento contro il dilagare di un epidemia, ma alle volte vi è un ritardo nel riconoscere
-il pericolo, e questo è dato dal valore di \emph{tolerance} il quale non attiva il controllore fintanto che 
-la situazione sembra rimanere sotto i minimi di soglia. 
+In seguito, vengono definite ulteriori regole di attivazione, 
+questa volta legate alla prima attivazione del controllore. 
+Retrospettivamente, è evidente come avere regole di prevenzione 
+già attive possa essere di grande aiuto nella gestione di una pandemia. 
+Tuttavia, a volte può esserci un ritardo nel riconoscere il pericolo, 
+determinato dal valore di "tolerance", il quale evita l'attivazione 
+del controllore fintanto che la situazione sembra rimanere al di sotto 
+della soglia minima.
 
 \begin{minipage}{\linewidth}
 	\centering
 	\includegraphics[width=\textwidth]{img/controller_neuralode.png}
-	\captionof{figure}{Definizione controller all'interno del modello ad agente}
+	\captionof{figure}{Definizione del controllore all'interno del modello ad agente}
 	\label{fig:controller_abm}
 \end{minipage}
 
-Altri valori definiscono principalmente i parametri che servono alla funzione di controllo per operare correttamente.
-Tra questi vi è un parametro opzionale $\upsilon$ il quale descrive quanto potrà essere il valore massimo delle 
-contromisure applicabili in relazione a quanti infetti sono presenti all'interno di un dato nodo. Questo valore viene 
-calcolato come un esponenziale nel numero degli infetti. Questa assunzione è utile come valore di appoggio ulteriore 
-per il controllore nel caso in cui dovesse ritornare un valore troppo alto rispetto a quello che di buon senso sarebbe 
-adatto. 
+Altri parametri definiscono principalmente i fattori necessari affinché 
+la funzione di controllo operi correttamente. Tra questi c'è un parametro 
+opzionale $\upsilon$, che descrive quanto potrebbe essere il valore 
+massimo delle contromisure applicabili in relazione al numero di 
+individui infetti in un determinato nodo. Questo valore è calcolato 
+come un'esponenziale rispetto al numero di infetti. Questa assunzione 
+è utile come ulteriore valore di riferimento per il controllore nel 
+caso in cui restituisca un valore troppo elevato rispetto a quanto 
+sia sensato.
 
 \begin{minipage}{\linewidth}
 	\centering
@@ -49,82 +68,97 @@ adatto.
 	\label{fig:max_countermeasures_function_abm}
 \end{minipage}
 
-Come si può osservare, la funzione descritta in figura \ref{fig:max_countermeasures_function_abm} 
-descrive la \emph{funzione di distribuzione cumulativa} per la distribuzione \emph{beta}  
-con parametri $\alpha = 2$ e $\beta = 5$. Questo tipo di funzione è stata scelta in quanto descrive abbastanza 
-bene il valore di pericolo che, soprattutto durante i primi mesi di pandemia, è stato attribuito al numero di infetti che 
-si riscontravano. Questo valore cresce rapidamente e poi tende a rallentare abbastanza bruscamente una volta superata la 
-soglia del cinquanta percento di infetti. 
+Come evidenziato nella figura \ref{fig:max_countermeasures_function_abm}, 
+la funzione rappresenta la "funzione di distribuzione cumulativa" per 
+la distribuzione "beta" con parametri $\alpha = 2$ e $\beta = 5$. 
+Questo tipo di funzione è stato scelto poiché approssima abbastanza 
+bene il concetto di pericolo, soprattutto durante le prime fasi di 
+una pandemia, quando il numero di infetti cresce rapidamente e poi 
+tende a stabilizzarsi una volta superato il cinquanta percento di infetti.
 
-Questo può essere anche relazionato all'idea che una pandemia abbia un punto critico dopo il quale le speranze decadono. Questo 
-ovviamente in relazione alla pandemia stessa. Questa funzione potrebbe anche alterarsi nel corso del tempo, modellando perciò 
-una sorta di abitudine alla pandemia. 
+Questa rappresentazione può anche essere correlata all'idea di un 
+punto critico in una pandemia, oltre il quale le speranze di controllo 
+diminuiscono drasticamente. È importante notare che questa funzione 
+potrebbe evolversi nel tempo, riflettendo una sorta di adattamento 
+alla pandemia.
 
-Il controllore vero e proprio si articola principalmente come già accennatto nella sezione relativa alle Neural ODE. 
+Il controllore effettivo è principalmente strutturato come già 
+accennato nella sezione relativa alle Neural ODE.
 
 \begin{minipage}{\linewidth}
 	\centering
 	\includegraphics[width=\textwidth]{img/controller1.png}
-	\captionof{figure}{Definizione controllore tramite Neural ODE}
+	\captionof{figure}{Definizione del controllore mediante Neural ODE}
 	\label{fig:controller1}
 \end{minipage}
 
-Viene definita una rete neurale tramite l'ausilio del framework \textbf{Lux.jl} \cite{pal2023lux}, e questa viene utilizzata
-esclusivamente per il guess del valore di controllo $\eta$ durante la fase di addestramento, il quale verrà 
-alla fine utilizzato come valore di controllo per il modello. Successivamente viene definito il sistema di ODE che governa il fenomeno che vogliamo analizzare, nello specifico il sistema in 
-questione è un sistema \textbf{SEIR} che modella la perdita di immunità con il tempo. 
+Una rete neurale è definita utilizzando il framework 
+\textbf{Lux.jl} \cite{pal2023lux} e viene utilizzata esclusivamente per 
+fare una stima del valore di controllo $\eta$ durante la fase di 
+addestramento, il quale sarà alla fine utilizzato come valore di 
+controllo per il modello. Successivamente, viene definito il sistema 
+di ODE che governa il fenomeno che si desidera analizzare, 
+nello specifico, il sistema è un modello \textbf{SEIR} che tiene 
+conto della perdita di immunità nel tempo.
 
-Successivamente viene istanziato il problema con l'ausilio dell'interfaccia \textbf{ODEProblem} e da qui in avanti il modello potrà iniziare a 
-essere allenato. Innanzitutto vengono definite delle funzioni per la predizione e il calcolo della loss del modello, 
-e infine anche una funzione ausiliaria di callback utile per osservare l'andamento dell'apprendimento del modello.
+Successivamente, il problema viene istanziato utilizzando 
+l'interfaccia \textbf{ODEProblem}, a partire dalla quale il modello 
+può iniziare ad essere addestrato. Prima di procedere con 
+l'addestramento effettivo, vengono definite funzioni per la predizione, 
+il calcolo della perdita del modello (loss) e una funzione di callback 
+ausiliaria utile per monitorare l'andamento dell'apprendimento del modello.
 
 \begin{minipage}{\linewidth}
 	\centering
 	\includegraphics[width=\textwidth]{img/controller2.png}
-	\captionof{figure}{Definizione funzioni di appoggio del controllore}
+	\captionof{figure}{Definizione delle funzioni di supporto del controllore}
 	\label{fig:controller2}
 \end{minipage}
 
-Come si può osservare in figura \ref{fig:controller2} la funzione di \emph{callback} oltre ad essere una funzione di 
-appoggio nella stampa dei dati relativi all'addestramento, è anche una utile funzione per implementare un controllo sulla tipologia 
-di apprendimento del modello. Infatti per ridurre ancora di più il numero di iterazioni necessarie per avere dei buoni risultati 
-è stato scelto di inserire un controllo simile al metodo di \textbf{early stopping} per prevenire 
-l'addestramento eccessivo quando si trova un valore di ottimo. Questo approccio è puramente \emph{empirico} in quanto 
-è stato riscontrato come il valore di loss generale del sistema tende a decrescere o crescere stabilmente e una volta trovato il 
-valore ottimale, se rimangono delle iterazioni da fare, questo non migliora per cui una volta che i valori rimangono identici 
-è un buon azzardo terminare il periodo di addestramento del modello.
+Come mostrato nella figura \ref{fig:controller2}, la funzione di 
+callback svolge un doppio ruolo: da un lato, fornisce un supporto 
+nella visualizzazione dei dati relativi all'addestramento, e dall'altro, 
+implementa una forma di "early stopping" per evitare l'addestramento 
+eccessivo una volta che il modello ha raggiunto un risultato ottimale. 
+Questo approccio si basa sull'osservazione che il valore della loss 
+tende a stabilizzarsi una volta che il modello ha raggiunto una buona 
+soluzione.
 
-La parte di addestramento vero e proprio del modello avviene con le seguenti funzioni
+La fase di addestramento effettiva del modello avviene attraverso le 
+seguenti funzioni:
 
 \begin{minipage}{\linewidth}
 	\centering
 	\includegraphics[width=\textwidth]{img/controller3.png}
-	\captionof{figure}{Definizione funzioni di addestramento del controllore}
+	\captionof{figure}{Definizione delle funzioni di addestramento del controllore}
 	\label{fig:controller3}
 \end{minipage}
 
-Il ciclo di addestramento può essere scomposto idealmente in due parti, ma per quanto osservato, non sono 
-entrambe necessarie. La prima parte, riportata in figura \ref{fig:controller3} si propone di utilizzare un ciclo di addestramento 
-con l'utilizzo dell'ottimizzatore \textbf{ADAM}. Se i risultati dovessero esser soddisfacenti, allora è possibile terminare. 
-Tuttavia in questi casi, è buona pratica utilizzare due differenti cicli di addestramento per migliorare i risultati. 
+Il ciclo di addestramento può essere idealmente suddiviso in due parti, 
+ma in pratica, entrambe potrebbero non essere necessarie. 
+La prima parte, come mostrato nella figura \ref{fig:controller3}, 
+impiega un ciclo di addestramento con l'uso dell'ottimizzatore 
+\textbf{ADAM}. Se i risultati sono soddisfacenti, è possibile 
+concludere l'addestramento. Tuttavia, è comune utilizzare due cicli 
+di addestramento differenti per massimizzare le prestazioni. 
+In particolare, si associano due cicli di addestramento con due 
+ottimizzatori diversi al fine di sfruttare al massimo le peculiarità 
+di ognuno. Questo approccio è utile per massimizzare il processo di 
+ottimizzazione dei parametri. Solitamente, si utilizza un 
+ottimizzatore per la maggior parte dell'addestramento, in quanto 
+è in grado di trovare rapidamente un buon spazio di iperparametri. 
+Successivamente, si passa a un secondo ottimizzatore, come ad esempio 
+\textbf{BFGS}, che eccelle nel trovare rapidamente un minimo locale 
+all'interno dello spazio dei parametri.
 
-Più nello specifico vengono associati due differenti cicli di addestramento con due differenti ottimizzatori per ottenere il massimo 
-da entrambi. Questo approccio serve per massimizzare le peculiarità di ognuno degli ottimizzatori. è pratica comune utilizzare per la 
-buona parte dell'addestramento un ottimizzatore in grado di trovare un buono spazio degli iperparametri e successivamente utilizzare 
-un ottimizzatore come ad esempio \textbf{BFGS} \cite{10.1093/imamat/6.1.76} \cite{35d0019d-775a-3628-b0b4-67be112e346b} \cite{10.1093/comjnl/13.3.317} \cite{e3177091-3094-3792-9d61-0ab445735ddb}
-il quale è estremamente utile nel trovare rapidamente un minimo locale all'interno dello spazio dei parametri.
-
-L'utilizzo di questi due ottimizzatori in successione è utile in quanto utilizzando solamente \textbf{ADAM} si potrebbe 
-incorrere nell'avere un numero di iterazioni troppo elevate per raggiungere lo stesso risultato, mentre utilizzando solamente \textbf{BFGS} si 
-potrebbe incorrere in un brutto minimo locale.
-
-La mia scelta di non utilizzare l'approccio sopra descritto, ovvero di utilizzare due differenti ottimizzatori per 
-ottenere il massimo risultato da entrambi, è dato dal fatto che generalmente l'utilizzo di ADAM 
-con un numero di iterazioni molto contenuto, dato anche dall'utilizzo di una tecnica per ridurre ulteriormente
-le iterazioni di addestramento se non vi è un guadagno di accuratezza \ref{fig:controller2}, 
-permette di arrivare al miglior risultato in breve tempo senza l'utilizzo di un 
-secondo ottimizzatore, il quale se comunque utilizzato non porta alcun 
-miglioramento di sorta, impegnando solamente risorse computazionali.
+La mia scelta di non adottare questo approccio, ovvero di utilizzare 
+un solo ottimizzatore, deriva dal fatto che l'uso di \textbf{ADAM} 
+con un numero limitato di iterazioni, combinato con una tecnica per 
+ridurre ulteriormente le iterazioni quando non si verifica un 
+miglioramento significativo, consente di raggiungere un risultato 
+ottimale in tempi brevi, senza la necessità di utilizzare un secondo 
+ottimizzatore, il quale non apporterebbe ulteriori miglioramenti e 
+comporterebbe solo un aumento delle risorse computazionali.
 
 \begin{minipage}{\linewidth}
 	\centering
@@ -133,19 +167,25 @@ miglioramento di sorta, impegnando solamente risorse computazionali.
 	\label{fig:two_otpimizers}
 \end{minipage}
 
-\subsubsection*{Funzione di attivazione rete neurale}
-% inserisci qualcosa in più
-La scelta della funzione di attivazione all'interno delle reti neurali pone un grande impatto sulle 
-dinamiche di apprendimento. Attualmente la più utilizzata e di grande successo è la \textbf{ReLU}
-(\textbf{Re}ctified \textbf{L}inear \textbf{U}nit) la quale è della forma $f(x) = max(0,x)$. 
-Tuttavia svariate alternative sono state proposte, ma nessuna di queste è riuscita a 
-spodestare il primato della ReLU, principalmente a causa di guadagni prestazionali inconsistenti. 
+\subsubsection*{Funzione di Attivazione della Rete Neurale}
+La scelta della funzione di attivazione all'interno delle reti neurali 
+ha un notevole impatto sulle dinamiche di apprendimento. Attualmente, 
+la funzione più comunemente utilizzata e di successo è la funzione 
+\textbf{ReLU} (\textbf{Re}ctified \textbf{L}inear \textbf{U}nit), 
+definita come $f(x) = \max(0, x)$. Tuttavia, sono state proposte 
+diverse alternative, ma nessuna di esse è riuscita a superare la 
+popolarità della ReLU, principalmente a causa di risultati 
+prestazionali variabili.
 
-La funzione di attivazione che ho deciso di utilizzare si chiama \textbf{Swish} ed è stata proposta dal 
-\emph{Google Brain Team} \cite{ramachandran2017searching}, la quale è la seguente funzione $f(x) = x \cdot sigmoid(x)$. 
-Nei loro esperimenti è stato osservato come sostituire la funzione di attivazione ReLU con Swish permetteva 
-di avere un aumento prestazionale sui task di \emph{top-1 classification} sul dataset \textbf{ImageNet} del $0.9\%$ utilizzando
-\textbf{NASNetA} e dello $0.6\%$ utilizzado \textbf{Inception-ResNet-v2}. 
+La funzione di attivazione che ho scelto di utilizzare è chiamata 
+\textbf{Swish} ed è stata proposta dal \emph{Google Brain Team} 
+\cite{ramachandran2017searching}. La funzione Swish è definita 
+come $f(x) = x \cdot sigmoid(x)$. In esperimenti condotti, è 
+stato osservato che sostituire la funzione di attivazione ReLU 
+con Swish ha portato a miglioramenti nelle prestazioni sui task 
+di classificazione "top-1" su dataset come \textbf{ImageNet}, con 
+guadagni fino al $0.9\%$ utilizzando \textbf{NASNetA} e fino al 
+$0.6\%$ utilizzando \textbf{Inception-ResNet-v2}.
 
 \begin{minipage}{\linewidth}
 	\centering
@@ -155,17 +195,32 @@ di avere un aumento prestazionale sui task di \emph{top-1 classification} sul da
 	\label{fig:swish}
 \end{minipage}
 
-Il punto forte di Swish è la sua semplicità e forte somiglianza con ReLU, la quale la rende estremamente facile da implementare
-al suo posto. La principale problematica con l'utilizzo di ReLU è il fatto che il valore della derivata è 0 per metà 
-dei valori in input $x$. 
+La peculiarità distintiva di Swish risiede nella sua semplicità e 
+nella notevole somiglianza con la funzione di attivazione ReLU, 
+il che la rende estremamente agevole da implementare come sua alternativa. 
+Un'importante problematica associata all'utilizzo di ReLU è 
+rappresentata dal fatto che il valore della sua derivata è pari 
+a zero per la metà dei valori di input $x$.
 
-è stato dimostrato come, utilizzando il dataset \textbf{MNIST}, le prestazioni di Swish e ReLU siano 
-equiparabili nei fintanto che le reti avevano un numero di layer all'incirca fino a 40. Successivamente Swish riusciva ad ottenere 
-prestazioni migliori di ReLU in maniera considerevole, soprattutto quando il numero di layer si attestava tra i 40 e i 50, casi 
-in cui l'ottimizzazione tendenzialmente diventa più complessa. Questo suggeri, e venne poi osservato, come 
-in reti molto profonde, Swish tendeva ad avere prestazioni migliori nei test di accuracy rispetto alla controparte presa in esame. 
-Entrambe comunque hanno esperienziato un calo delle prestazioni all'aumentare della dimensioni dei batch; in ogni caso comunque Swish otteneva 
-dei risultati migliori. 
+È stato dimostrato, mediante l'impiego del dataset \textbf{MNIST}, 
+che le prestazioni di Swish e ReLU sono sostanzialmente comparabili 
+quando si utilizzano reti neurali con un numero di strati (layer) 
+che si aggira intorno a 40. Tuttavia, emerge chiaramente che Swish 
+supera in modo significativo ReLU in termini di prestazioni, 
+specialmente quando il numero di strati si avvicina ai 40-50, 
+situazione in cui l'ottimizzazione tende a diventare più complessa. 
+Ciò suggerisce, ed è stato successivamente confermato, che in reti 
+neurali molto profonde, Swish mostra prestazioni superiori nei test 
+di accuratezza rispetto alla funzione ReLU. Tuttavia, è importante 
+notare che entrambe le funzioni sperimentano un declino delle 
+prestazioni all'aumentare delle dimensioni dei batch, ma in ogni caso, 
+Swish ottiene risultati migliori.
 
-Alla luce di questi dati ho deciso di utilizzare questa funzione come funzione di attivazione all'interno della rete neurale, 
-anche se tendenzialmente essendo essa poco profonda, i risultati e soprattutto il guadagno di accuratezza non dovrebbe essere troppo sensibile \ref{fig:controller1}.
+Alla luce di questi dati e considerando la struttura relativamente 
+poco profonda del modello, ho preso la decisione di utilizzare 
+Swish come funzione di attivazione all'interno della rete neurale. 
+È importante notare che questa scelta è attesa per contribuire 
+positivamente alle prestazioni complessive, anche se ci si aspetta 
+che il guadagno di accuratezza non sia eccessivamente sensibile, 
+dato il contesto dell'applicazione illustrata nella figura 
+\ref{fig:controller1}.

@@ -1,85 +1,79 @@
-\section{Stato dell'Arte}
+\section{Panoramica dello Stato dell'Arte}
 
 \subsection{Epidemiologia}
-L'epidemiologia è la disciplina biomedica che studia la 
-distribuzione e la frequenza delle malattie ed eventi di 
-rilevanza sanitaria nella popolazione.
-Si occupa di analizzare le cause, il decorso e le 
-conseguenze delle malattie.\cite{Galea2009-lj} \cite{Parascandola2001-kw}
+L'epidemiologia rappresenta una disciplina biomedica di fondamentale 
+importanza, focalizzata sull'analisi della distribuzione e dell'incidenza 
+delle malattie e degli eventi sanitari rilevanti all'interno di una 
+popolazione. Questo campo di studio si dedica all'approfondimento 
+delle cause, dei pattern temporali e delle conseguenze delle patologie 
+\cite{Galea2009-lj} \cite{Parascandola2001-kw}.
 
-L'epidemiologia è una disciplina molto pratica, che visto 
-l'obiettivo che si pone, ovvero quello di trovare le cause
-relative ad un dato effetto, non può esentarsi dagli 
-svariati problemi che gravitano e definiscono questo 
-nobile obiettivo, primo tra tutti: cosa vuol dire che un
-evento è causa di un altro e come definisco questo 
-tipo di rapporto in maniera inequivocabile?
+L'epidemiologia si caratterizza per la sua natura essenzialmente 
+pratica, poiché il suo obiettivo principale consiste nel determinare 
+le cause sottese a un determinato effetto sanitario. Ciò nonostante, 
+questa disciplina si trova ad affrontare una serie di sfide complesse 
+che definiscono il suo percorso. Tra queste sfide, la più rilevante è 
+l'identificazione precisa delle relazioni di causalità tra eventi.
 
-Questi interrogativi possono sembrare banali in quanto 
-come specie ci siamo evoluti per trovare una correlazione
-di causalità tra eventi anche quando questi non ne hanno.
-Ad esempio se fossimo in un bosco, al buio e soli con
-l'unico rumore ad accompagnarci che è quello di una 
-piacevole brezza estiva, se percepissimo un rumore tra 
-i cespugli, molto probabilmente penseremmo che c'è 
-qualcosa che non va, che ci sia un pericolo in agguato,
-un predatore, anche se magari la motivazione è 
-la suddetta brezza. 
+Tali interrogativi possono sembrare elementari, dato che, come specie, 
+abbiamo sviluppato un istinto innato nell'individuare correlazioni 
+causali tra eventi, anche quando queste non esistono effettivamente. 
+Ad esempio, se ci trovassimo in un bosco buio, soli e circondati 
+solo dal sussurro di una leggera brezza estiva e dovessimo udire un 
+rumore provenire dai cespugli, è probabile che lo assoceremmo a un 
+pericolo imminente, come la presenza di un predatore, sebbene il 
+rumore sia causato dalla brezza stessa.
 
-Questo adattamento evolutivo ci ha permeso di sopravvivere
-in situazioni di pericolo, ma sfortunatamente quando 
-si parla di scienza e di dati, non sempre l'istinto è 
-qualcosa a cui affidarsi, in quanto i dati di
-per loro non dicono assolutamente nulla, siamo noi 
-in quanto individui dotati di intelletto, tecniche e metodi a dover
-estrapolare dei significati che verifichiamo essere corretti e inequivocabili.
+Questo adattamento evolutivo ci ha permesso di sopravvivere in 
+situazioni di pericolo, ma purtroppo, quando si tratta di scienza e dati, 
+l'istinto non è sempre una guida affidabile. I dati, per loro natura, 
+sono neutri e non trasmettono automaticamente informazioni significative; 
+spetta a noi, in quanto individui dotati di intelligenza, 
+tecniche e metodi, estrarre significato da questi dati in modo accurato 
+ed inequivocabile.
 
-Se ci soffermiamo su questa ultima affermazione, possiamo
-essere facilmente tratti in inganno. Prendiamo per esempio 
-il seguente grafico che mostra in maniera \emph{inequivocabile} 
-come la spesa da parte degli USA sulla ricerca aerospaziale sia 
-direttamente collegata al numero di suicidi per strangolamento. 
+Un'osservazione chiave è che ciò che sembra ovvio può essere fuorviante. 
+Per esempio, il grafico seguente sembra dimostrare in modo 
+"inequivocabile" una relazione diretta tra la spesa degli Stati Uniti 
+per la ricerca aerospaziale e il numero di suicidi per strangolamento:
 
 \begin{figure}[h]
-    \begin{center}
-        \includegraphics[width=\linewidth]{img/chart.png}
-        \caption{Esempio di correlazione spuria}
-        \url{https://www.tylervigen.com/spurious-correlations}
-        \label{fig:spurious_relations}
-    \end{center}
+\begin{center}
+\includegraphics[width=\linewidth]{img/chart.png}
+\caption{Esempio di correlazione spuria}
+\url{https://www.tylervigen.com/spurious-correlations}
+\label{fig:spurious_relations}
+\end{center}
 \end{figure}
 
-Affidandoci solamente al grafico e ai dati riportati in 
-figura, ci verrebbbe da pensare che le due categorie 
-siano in qualche modo correlate, e che il governo 
-americano debba essere fermato, in quanto respondabile di 
-incitamento al suicidio.
-Ebbene non è così, questo è un caso di \textbf{relazione 
-spuria}, ovvero che due o 
-più variabili sono associate ma non causalmente correlate.
+Sulla base di questo grafico e dei dati presentati, si potrebbe 
+erroneamente concludere che le due categorie sono in qualche modo 
+correlate e che il governo degli Stati Uniti debba essere 
+accusato di incitare al suicidio. Tuttavia, questa è un esempio 
+di una "relazione spuria", in cui due o più variabili sono 
+associate ma non sono causalmente collegate.
 
-Associatività e causalità infatti non sono la stessa cosa,
-ed è bene quando si studia l'una, non confondersi con l'altra.
-In statistica, una correlazione tra dati è una qualsiasi 
-relazione che vi è tra due o più variabili, sia essa di 
-tipo causale oppure non. 
-Nell'esempio di prima la correlazione
-tra le due variabili potrebbe essere banalmente il tempo, 
-infatti con il passare del tempo la spesa media per la 
-ricerca aerospaziale è continuata a salire per via 
-del sempre più alto interesse e investimento nel settore
-e sfortunatamente con il passare degli anni si è registrato
-un aumento costante del numero di suicidi. 
+È importante sottolineare che l'associazione e la causalità non sono 
+la stessa cosa, e quando si studia una, è fondamentale non confonderla 
+con l'altra. In statistica, una correlazione tra dati rappresenta 
+qualsiasi tipo di relazione tra due o più variabili, indipendentemente 
+dalla sua natura causale o non causale. Nel caso precedente, 
+la correlazione tra le due variabili potrebbe essere semplicemente 
+dovuta al passare del tempo: nel corso degli anni, la spesa media per 
+la ricerca aerospaziale è continuata a crescere a causa di un interesse 
+e di investimenti sempre maggiori in quel settore, mentre nel tempo 
+si è verificato un costante aumento del numero di suicidi.
 
-Il \textbf{bias} che abbiamo verso la ricerca di un intreccio
-tra gli eventi, in maniera che questi siano sempre contigui
-l'uno con l'altro, in maniera che si possa tracciare una 
-chiara e distinta linea dal primo all'ultimo ci trae in 
-inganno quando questi sembrano esserlo ma in realtà non lo sono.
-Molto spesso la risposta più semplice è anche quella meno 
-interessante, benchè corretta, ovvero che due eventi 
-completamente slegati tra loro possono avere andamenti simili, 
-così come differenti addendi possono portare lo stesso risultato; 
+Il nostro pregiudizio verso la ricerca di collegamenti tra eventi, 
+in modo che sembrino sempre collegati in modo tangibile e che si 
+possa tracciare una chiara e distinta linea causale dall'inizio alla 
+fine, può ingannarci quando tali collegamenti sembrano evidenti ma 
+non lo sono. Spesso, la spiegazione più semplice è anche la meno 
+interessante, sebbene sia corretta: due eventi completamente svincolati 
+tra loro possono avere andamenti simili, e differenti fattori possono 
+portare allo stesso risultato. 
+
+Un altro esempio illustrativo di correlazione spuria è il seguente:
 
 \begin{figure}[h]
     \begin{center}
@@ -90,65 +84,57 @@ così come differenti addendi possono portare lo stesso risultato;
     \end{center}
 \end{figure}
 
-\newpage
+Il problema della causalità è di estrema importanza e rappresenta 
+una delle sfide principali quando si cercano di sviluppare e 
+applicare interventi all'interno di una popolazione per mitigare, 
+ad esempio, la diffusione di un agente patogeno \cite{Parascandola2001-kw}.
 
-Il problema della causalità non è da prendere sotto gamba
-ed è uno dei problemi cardine quando si vogliono determinare e 
-applicare degli intervanti all'interno di una popolazione per
-cercare di mitigare ad esempio la diffusione di un agente 
-patogeno \cite{Parascandola2001-kw}. 
+Come già accennato, i dati per se stessi sono privi di significato; 
+è il nostro compito imparare a interpretare il loro significato. 
+Un esempio eloquente di come, nonostante la consapevolezza del problema 
+delle correlazioni spurie, i dati possano comunque trarre in inganno 
+è il seguente:
 
-Come è stato già introdotto precedentemente, i dati di per loro
-non dicono nulla, siamo noi che dobbiamo imparare a 
-capire il significato di ciò che esprimono. Un esempio 
-estremamente calzante di come pur avendo bene in mente il
-problema sopra citato delle correlazioni \emph{spurie}, si
-possa comunque essere ingannati dai dati, è il seguente:
+Supponiamo di essere medici e di dover decidere se prescrivere un 
+certo farmaco a un paziente. Per prendere questa decisione, abbiamo 
+a disposizione la storia clinica del paziente e i risultati di uno 
+studio su un nuovo farmaco che sembra promettente nel trattamento 
+della sua malattia. Questo farmaco è stato testato su un gruppo di 
+700 persone, suddivise in due sottogruppi di 350 pazienti ciascuno. 
+In uno di questi sottogruppi, i pazienti hanno scelto autonomamente se 
+assumere o meno il farmaco, mentre nell'altro gruppo, i pazienti hanno 
+fatto l'opposto. Ecco i risultati:
 
-Poniamo di essere un medico e di dover decidere se 
-prescrivere o meno ad un paziente un determinato medicinale.
-Per aiutarci nella decisione abbiamo la storia clinica
-del paziente e i risultati di uno studio su una nuova 
-medicina che attesta di curare il malessere del paziente.
-Questa nuova medicina è stata testata su un gruppo di 
-settecento persone divise in due pari sottogruppi in cui 
-350 pazienti decidevano autonomamente se prendere o meno 
-la medicina e 350 decidevano autonomamente il contrario.
-I risultati sono i seguenti:
-
-\begin{tabular}{ |p{2,2cm}||p{1,6cm}|p{1,6cm}|p{1,6cm}||p{1,6cm}|p{1,6cm}|p{1,6cm}|  }
-	\hline
-	\multicolumn{7}{|c|}{Simpson's paradox} \\
-	\hline
-	Category & Patients & Recovered & \% Recovered & Patients & Recovered & \% Recovered\\
-	\hline
-	Men & 87 & 81 & 93\% & 270 & 234 & 87\% \\
-	Women & 263 & 192 & 73\% & 80 & 55 & 69\% \\
-    Combined data & 350 & 273 & 78\% & 350 & 289 & 83\% \\
-	\hline
+\begin{tabular}{ |p{2.2cm}||p{1.6cm}|p{1.6cm}|p{1.6cm}||p{1.6cm}|p{1.6cm}|p{1.6cm}| }
+    \hline
+    \multicolumn{7}{|c|}{Paradosso di Simpson} \\
+    \hline
+    Categoria & Pazienti & Guariti & \% Guariti & Pazienti & Guariti & \% Guariti\\
+    \hline
+    Uomini & 87 & 81 & 93\% & 270 & 234 & 87\% \\
+    Donne & 263 & 192 & 73\% & 80 & 55 & 69\% \\
+    Dati combinati & 350 & 273 & 78\% & 350 & 289 & 83\% \\
+    \hline
 \end{tabular}
 
-Questi risultati sembrano suggerire come la prescrizione 
-di questa nuova medicina non aiuti i pazienti a stare meglio.
-Tuttavia questo risultato cade nel così detto \emph{paradosso di Simpson}
-per cui i dati aggregati relativi 
-ad uno specifico trattamento sembrano descrivere una sua 
-perdita di efficacia relativamente ai singoli dati delle 
-singole categorie in esame, portando un lettore non attento 
-a cadere nell'inganno di pensare che ci sia una perdita di 
-efficacia. Questo esempio pone l'accento sul fatto che non sempre
-estrapolare informazioni da dei dati aggregati può risultare
-efficace, e anzi, alle volte questi possono ingannare.
-In questi casi bisogna estrapolare le informazioni di 
-causalità dai dati singoli.
+Questi risultati sembrano suggerire che la prescrizione di questo 
+nuovo farmaco non abbia un impatto positivo sulla guarigione dei 
+pazienti. Tuttavia, questo risultato è in realtà un esempio del 
+cosiddetto "paradosso di Simpson", in cui i dati aggregati relativi 
+a un trattamento specifico sembrano indicare una perdita di efficacia, 
+mentre i dati delle singole categorie mostrano risultati opposti. 
+Questo esempio sottolinea il fatto che l'interpretazione di dati 
+aggregati non sempre può essere affidabile, e talvolta può ingannare. 
+In questi casi, è necessario estrarre le informazioni sulla causalità 
+dai dati individuali.
 
-è chiaro che non sia così semplice comprendere le cause 
-di un determinato effetto, o insieme di effetti. Conoscere
-l'agente patogeno, o quanto meno la sua natura può aiutare,
-ma non sempre è sufficiente. L'utilizzo di modelli di 
-Machine Learning per l'estrapolazione di dati, di correlazioni
-e successivamente per la definizione di policy di intervento
-può risultare in un rischio non indifferente ma al contempo 
-descrive un potente alleato per la definizione di policy di 
-intervento all'interno di settori estremamente delicati come 
-quelli sanitari \cite{doi:10.1098/rsos.220638}.
+È evidente che comprendere le cause di un determinato effetto o 
+insieme di effetti non è un compito banale. Anche conoscendo 
+l'agente patogeno o almeno la sua natura, non sempre è sufficiente 
+per spiegare la complessità delle interazioni. 
+L'utilizzo di modelli di apprendimento automatico per l'analisi dei 
+dati, la ricerca di correlazioni e la successiva formulazione di 
+politiche di intervento può rappresentare un rischio, ma al contempo 
+offre un alleato potente nella definizione di politiche di intervento 
+in settori estremamente delicati come quello della sanità 
+\cite{doi:10.1098/rsos.220638}.
