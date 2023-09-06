@@ -15,28 +15,59 @@ dagli altri.
 
 \subsubsection*{Equazioni Ordinarie Differenziali}
 
-Un'equazione ordinaria differenziale (ODE) è un tipo di equazione che 
-coinvolge derivate ordinarie di una funzione rispetto a una variabile 
-indipendente, di solito il tempo. In generale, quando abbiamo una 
-derivata di una funzione, desideriamo studiare la funzione stessa e, 
-per farlo, dobbiamo trovare l'antiderivata (o integrale) della funzione 
-data. Ad esempio:
+Nel contesto matematico, le Equazioni Differenziali Ordinarie (ODE) 
+costituiscono una categoria fondamentale di equazioni differenziali 
+che coinvolgono una sola variabile indipendente, generalmente 
+rappresentata come il tempo. All'interno delle numerose tipologie di 
+equazioni differenziali, le ODE lineari occupano una posizione di 
+particolare rilievo. Questo perché molteplici fenomeni fisici e 
+matematici possono essere accuratamente descritti attraverso la 
+risoluzione di ODE lineari.
 
-\[ \frac{dx}{dt}(t) = \cos(t) \Rightarrow x(t) = \sin(t) + C \]
+Le ODE lineari si caratterizzano per la loro forma generale, 
+che si presenta come un polinomio lineare delle derivate successive 
+della funzione incognita rispetto alla variabile indipendente.
 
-Tuttavia, risolvere un'ODE può essere più complesso rispetto a calcolare 
-un semplice integrale. Anche se il principio fondamentale è lo stesso 
-(risolvere un integrale), la difficoltà principale consiste nel 
-determinare quale tipo di integrazione sia necessario per ottenere 
+$$\alpha_0(x)y + \alpha_1(x)y' + \alpha_2(x)y'' + \ldots + \alpha_n(x)y^{(n)} + b(x) = 0$$
+
+In questa formulazione, i coefficienti $\alpha_0(x), \ldots, \alpha_n(x)$ 
+e la funzione $b(x)$ possono assumere qualsiasi forma differenziabile, 
+senza la necessità di essere lineari, mentre le derivate 
+$y', \ldots, y^{(n)}$ rappresentano le successive derivate della funzione 
+$y$ rispetto alla variabile $x$.
+
+È da notare che in diversi contesti, le equazioni differenziali non 
+lineari possono essere approssimate attraverso equazioni lineari, 
+semplificando notevolmente il processo di ottenimento delle soluzioni.
+
+Le equazioni differenziali ordinarie (ODE) costituiscono un'importante 
+classe di equazioni che coinvolgono le derivate ordinarie di una funzione 
+rispetto a una variabile indipendente, comunemente rappresentata come il 
+tempo. In generale, quando ci troviamo di fronte a una derivata di una 
+funzione, il nostro obiettivo è comprendere e studiare la funzione stessa. 
+Per fare ciò, è necessario trovare l'antiderivata, o integrale, della 
+funzione data.
+
+Un esempio semplice di questa idea è l'equazione 
+$\frac{dx}{dt}(t) = \cos(t)$, la cui soluzione è $x(t) = \sin(t) + C$, 
+dove $C$ è una costante di integrazione.
+
+Tuttavia, risolvere un'ODE può essere più complesso rispetto al calcolo 
+di un semplice integrale. Anche se il concetto di base è lo stesso 
+(ovvero, risolvere un integrale), la difficoltà principale risiede 
+nella determinazione del tipo di integrazione necessario per ottenere 
 la soluzione desiderata.
 
-Nel caso in cui le equazioni associate a $\frac{dx}{dt}$ dipendano solo 
-dalla variabile $t$ e non dalla funzione $x(t)$, la loro soluzione 
-risulta molto più semplice di quanto possa sembrare. Tuttavia, quando 
-$\frac{dx}{dt}$ dipende da $x(t)$, la situazione diventa più complessa e 
-richiede spesso manipolazioni matematiche, come l'applicazione delle 
-regole di derivazione o la sostituzione delle variabili 
-(\emph{chain rules} o \emph{u-substitution}).
+Nel caso in cui le equazioni coinvolgano $\frac{dx}{dt}$ e queste 
+dipendano unicamente dalla variabile $t$, la soluzione risulta 
+relativamente più semplice. Tuttavia, quando le equazioni coinvolgono 
+$\frac{dx}{dt}$ come funzione di $x(t)$, la situazione diventa più 
+complessa e richiede spesso l'applicazione di manipolazioni matematiche 
+avanzate, come l'utilizzo delle regole di derivazione o la sostituzione 
+delle variabili (\emph{chain rules} o \emph{u-substitution}). In queste situazioni, 
+la risoluzione delle ODE può richiedere una comprensione approfondita 
+delle tecniche matematiche e dell'applicazione dei principi di calcolo 
+differenziale.
 
 \subsubsection{Il modello Kermack-McKendrick}
 

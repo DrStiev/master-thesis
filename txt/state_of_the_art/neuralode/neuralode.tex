@@ -5,7 +5,7 @@ Sin dalla pubblicazione dell'articolo di Chen et al. (2019)
 (END) ha attirato notevole attenzione, portando all'ibridazione di due 
 paradigmi di modellazione distinti: le Equazioni Differenziali Ordinarie 
 (ODE) e le reti neurali (NN). Questo sforzo mira a sfruttare al meglio 
-entrambi i paradigmi, minimizzando gli effetti indesiderati \cite{Kim_2021} \cite{chen2019neural}.
+entrambi i paradigmi, minimizzando gli effetti indesiderati \cite{chen2019neural} \cite{Kim_2021}.
 
 Un'Equazione Differenziale è un metodo per specificare una trasformazione 
 non lineare arbitraria, codificando matematicamente le ipotesi strutturali 
@@ -160,7 +160,7 @@ vettore di dimensione $m$ come output. Questo si allinea con l'idea che
 i risolutori di DE rientrano nella categoria delle funzioni 
 differenziabili, il che significa che possono essere incorporati 
 direttamente in un programma più grande basato su differenziazione 
-automatica, come una rete neurale. \cite{pal2023lux} \cite{Flux.jl-2018}
+automatica, come una rete neurale \cite{Flux.jl-2018} \cite{pal2023lux}. 
 
 \begin{minipage}{\linewidth}
     \centering
@@ -200,37 +200,41 @@ definisce una nuova ODE il cui obiettivo è calcolare il gradiente della
 funzione di costo rispetto ai parametri e successivamente risolvere 
 questa seconda ODE.
 
-\subsubsection*{Equazioni Differenziali Ordinarie}
+L'approccio dell'analisi di sensitività (adjointed) comporta la 
+definizione di una nuova ODE, chiamata anche "ODE aggiunta" o 
+"ODE ausiliaria," il cui scopo principale è calcolare il gradiente 
+della funzione di costo rispetto ai parametri della rete. 
+Questa ODE ausiliaria è progettata in modo specifico per catturare 
+come varia la funzione di costo al variare dei parametri, 
+consentendo così il calcolo efficiente del gradiente.
 
-Nel campo matematico, un'Equazione Differenziale Ordinaria (ODE) è un 
-tipo di equazione differenziale che coinvolge una sola variabile 
-indipendente, solitamente il tempo. Tra le diverse categorie di equazioni 
-differenziali, le Equazioni Differenziali Lineari occupano un ruolo 
-predominante poiché molti fenomeni fisici e matematici possono essere 
-descritti tramite la soluzione di tali equazioni.
+Il processo può essere riassunto in modo generale nei seguenti passaggi:
 
-Un'ODE lineare è definita da un polinomio lineare, e la sua forma generale è:
+\begin{itemize}
+    \item \textbf{Forward Pass}: Durante la fase di forward pass 
+    della rete neurale, vengono registrati i valori intermedi 
+    necessari per risolvere l'ODE ausiliaria.
+    \item \textbf{Calcolo della ODE Ausiliaria}: Durante la fase di 
+    backward pass, la ODE ausiliaria viene risolta. 
+    Questa ODE tiene conto dei valori intermedi registrati durante 
+    il forward pass e calcola il gradiente della funzione di costo 
+    rispetto ai parametri.
+    \item \textbf{Backward Pass}: Il gradiente calcolato dalla ODE 
+    ausiliaria viene quindi utilizzato per aggiornare i parametri 
+    della rete neurale durante la fase di backward pass, consentendo 
+    l'addestramento della rete mediante la discesa del gradiente.
+\end{itemize}
 
-$$\alpha_0(x)y + \alpha_1(x)y' + \alpha_2(x)y'' + \ldots + \alpha_n(x)y^{(n)} + b(x) = 0$$
+Questo approccio è potente perché consente di calcolare il gradiente 
+in modo efficiente anche quando sono presenti risolutori di ODE 
+all'interno della rete. È uno strumento fondamentale nella progettazione 
+e nell'addestramento di reti neurali che includono componenti basate 
+su ODE, come le reti neurali differenziali (DNN).
 
-Dove $\alpha_0(x), \ldots, \alpha_n(x)$ e $b(x)$ sono funzioni 
-differenziabili arbitrarie (non necessariamente lineari), 
-e $y', \ldots, y^{(n)}$ rappresentano le derivate successive della 
-funzione incognita $y$ rispetto alla variabile $x$.
-
-L'utilizzo di equazioni differenziali non lineari può spesso essere 
-approssimato con equazioni lineari per ottenere soluzioni più semplici. 
-La libreria SciML.ai offre un ampio set di framework per la risoluzione 
-di sistemi di equazioni differenziali, principalmente attraverso la 
-libreria DifferentialEquations.jl, con vari metodi di risoluzione e 
-prestazioni elevate \cite{10.15200/winn.153459.98975}.
-
-\begin{minipage}{\linewidth}
-    \centering
-    \includegraphics[width=\textwidth]{img/de_solver_software_comparsion.pdf}
-    \captionof{figure}{Tabella comparativa tra le varie implementazioni dei vari risolutori \cite{10.15200/winn.153459.98975}}
-    \label{fig:de_comparison_table}
-\end{minipage}
+In generale, l'analisi di sensitività è un concetto cruciale per 
+consentire l'addestramento efficiente di modelli complessi e ibridi 
+che combinano reti neurali con risoluzione di ODE o altre funzioni non 
+lineari.
 
 \subsubsection{Equazioni Differenziali Universali}
 

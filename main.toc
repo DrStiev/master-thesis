@@ -2,7 +2,7 @@
 \contentsline {section}{\numberline {2}Panoramica dello Stato dell'Arte}{3}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Epidemiologia}{3}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Modelli Compartimentali}{6}{subsection.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.1}Il modello Kermack-McKendrick}{6}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.1}Il modello Kermack-McKendrick}{7}{subsubsection.2.2.1}%
 \contentsline {subsection}{\numberline {2.3}Modelli basati su Agenti}{10}{subsection.2.3}%
 \contentsline {subsubsection}{\numberline {2.3.1}Comportamento Emergente}{11}{subsubsection.2.3.1}%
 \contentsline {subsubsection}{\numberline {2.3.2}Discretizzazione}{11}{subsubsection.2.3.2}%
@@ -13,32 +13,33 @@
 \contentsline {subsubsection}{\numberline {2.5.1}Inserire un'ODE all'interno di una NN}{21}{subsubsection.2.5.1}%
 \contentsline {subsubsection}{\numberline {2.5.2}Backpropagation tramite ODE solver}{22}{subsubsection.2.5.2}%
 \contentsline {subsubsection}{\numberline {2.5.3}Equazioni Differenziali Universali}{23}{subsubsection.2.5.3}%
-\contentsline {section}{\numberline {3}Metodi e Modelli}{26}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Approccio con Rete Sociale}{26}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Agente}{27}{subsection.3.2}%
+\contentsline {section}{\numberline {3}Metodi e Modelli}{25}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Approccio con Rete Sociale}{25}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Agente}{28}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Spazio e Modello}{29}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Funzione di Avanzamento Agente}{29}{subsection.3.4}%
-\contentsline {subsection}{\numberline {3.5}Funzione di Avanzamento Modello}{31}{subsection.3.5}%
-\contentsline {subsubsection}{\numberline {3.5.1}Funzione per la Generazione delle Varianti del Virus (VOC)}{32}{subsubsection.3.5.1}%
-\contentsline {subsubsection}{\numberline {3.5.2}Funzione per la Simulazione della Campagna di Vaccinazione}{32}{subsubsection.3.5.2}%
-\contentsline {subsection}{\numberline {3.6}Monitoraggio e Intervento}{35}{subsection.3.6}%
-\contentsline {section}{\numberline {4}Analisi di Sensibilità}{43}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Analisi del Comportamento in Base al Numero Iniziale di Nodi Infetti}{45}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Analisi del Comportamento in Base al Tasso di Migrazione}{46}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Analisi del Comportamento in Base al Numero di Nodi della Rete}{47}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Analisi del Comportamento in Base alla Copertura della Rete}{48}{subsection.4.4}%
-\contentsline {section}{\numberline {5}Risultati Ottenuti}{49}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Nessun Intervento}{50}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Intervento Non Farmaceutico}{51}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Intervento Farmaceutico}{52}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Intervento Farmaceutico e Non Farmaceutico}{53}{subsection.5.4}%
-\contentsline {section}{\numberline {6}Conclusione}{54}{section.6}%
-\contentsline {section}{\numberline {7}Sviluppi Futuri}{55}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Perfezionamento del Controllore}{55}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Miglioramento della Funzione di Happiness}{55}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Perfezionamento Generale del Modello}{55}{subsection.7.3}%
-\contentsline {subsection}{\numberline {7.4}Ottimizzazione Generale}{55}{subsection.7.4}%
-\contentsline {section}{\numberline {A}Altri Approcci}{62}{appendix.A}%
-\contentsline {subsection}{\numberline {A.1}Modello ad Agente su Spazio Continuo}{62}{subsection.A.1}%
-\contentsline {subsection}{\numberline {A.2}Modello ad Agente con Spazio a Grafo e Modellazione Singolo Agente}{64}{subsection.A.2}%
-\contentsline {subsection}{\numberline {A.3}Controllore Ipopt}{66}{subsection.A.3}%
+\contentsline {subsection}{\numberline {3.4}Funzione di Avanzamento Agente}{30}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Funzione di Avanzamento Modello}{33}{subsection.3.5}%
+\contentsline {subsubsection}{\numberline {3.5.1}Funzione per la Generazione delle Varianti del Virus (VOC)}{33}{subsubsection.3.5.1}%
+\contentsline {subsubsection}{\numberline {3.5.2}Funzione per la Simulazione della Campagna di Vaccinazione}{34}{subsubsection.3.5.2}%
+\contentsline {subsection}{\numberline {3.6}Monitoraggio e Intervento}{36}{subsection.3.6}%
+\contentsline {section}{\numberline {4}Analisi di Sensibilità}{44}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Analisi del Comportamento in Base al Numero Iniziale di Nodi Infetti}{46}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Analisi del Comportamento in Base al Tasso di Migrazione}{47}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Analisi del Comportamento in Base al Numero di Nodi della Rete}{48}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Analisi del Comportamento in Base alla Copertura della Rete}{49}{subsection.4.4}%
+\contentsline {section}{\numberline {5}Risultati Ottenuti}{50}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Nessun Intervento}{51}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Intervento Non Farmaceutico}{52}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Intervento Farmaceutico}{53}{subsection.5.3}%
+\contentsline {subsubsection}{\numberline {5.3.1}Grafici di Confronto}{54}{subsubsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.4}Intervento Farmaceutico e Non Farmaceutico}{54}{subsection.5.4}%
+\contentsline {section}{\numberline {6}Conclusioni}{56}{section.6}%
+\contentsline {section}{\numberline {7}Sviluppi Futuri}{57}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Perfezionamento del Controllore}{57}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Miglioramento della Funzione di Happiness}{57}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Perfezionamento Generale del Modello}{57}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Ottimizzazione Generale}{57}{subsection.7.4}%
+\contentsline {section}{\numberline {A}Altri Approcci}{64}{appendix.A}%
+\contentsline {subsection}{\numberline {A.1}Modello ad Agente su Spazio Continuo}{64}{subsection.A.1}%
+\contentsline {subsection}{\numberline {A.2}Modello ad Agente con Spazio a Grafo e Modellazione Singolo Agente}{66}{subsection.A.2}%
+\contentsline {subsection}{\numberline {A.3}Controllore Ipopt}{68}{subsection.A.3}%

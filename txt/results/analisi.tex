@@ -30,11 +30,14 @@ $\xi$ mostra un comportamento singolare, probabilmente dovuto
 alla sua correlazione con $\omega$, entrambi legati al compartimento 
 "R" del modello, che gestisce gli individui guariti e vaccinati.
 
-Successivamente, è stata condotta un'analisi di sensitività sui 
-parametri specifici del modello ad agenti utilizzando la funzione 
-\textbf{paramscan} fornita dalla libreria \textbf{Agents.jl}. 
-Sono stati selezionati parametri potenzialmente influenti sul 
-comportamento del modello:
+In una fase successiva dell'analisi, è stata condotta un'analisi di 
+sensitività sui parametri specifici del modello ad agenti, 
+utilizzando la funzione \textbf{paramscan} fornita dalla libreria 
+\textbf{Agents.jl}. Sono stati individuati e selezionati quei 
+parametri che potrebbero avere un notevole impatto sul comportamento 
+generale del modello. Questa selezione è stata fatta in base al 
+potenziale di tali parametri di innescare cambiamenti significativi nei 
+risultati della simulazione.
 
 \begin{minipage}{\linewidth}
 	\centering
@@ -43,21 +46,43 @@ comportamento del modello:
 	\label{fig:paramscan}
 \end{minipage}
 
-Questi parametri sono stati scelti in quanto potenziali 
-agenti di cambiamenti significativi nel comportamento del modello. 
-I parametri relativi al controllore e al vaccino sono stati esclusi, 
-poiché è stato dimostrato che le loro variazioni possono comportare 
-cambiamenti significativi nella simulazione.
+È importante notare che alcuni parametri, specificamente quelli 
+legati al controllore e alla campagna di vaccinazione, sono stati 
+esclusi da questa analisi. Ciò è dovuto al fatto che variazioni in 
+questi parametri possono comportare cambiamenti sostanziali nella 
+simulazione, e pertanto sono stati considerati separatamente e 
+successivamente analizzati in modo dettagliato.
+
+L'analisi di sensitività sui parametri rimanenti mira a esplorare 
+come variazioni specifiche in ciascuno di essi possano influenzare 
+il comportamento complessivo del modello. Questo tipo di analisi è 
+fondamentale per comprendere la sensibilità del sistema a variazioni 
+nei parametri e per valutare le risposte del modello a differenti 
+condizioni.
+
+In definitiva, questa analisi di sensitività fornisce un quadro più 
+completo della dinamica del modello, consentendo di identificare i 
+parametri chiave che influenzano le sue prestazioni e fornendo 
+indicazioni importanti per la calibrazione e l'ottimizzazione del 
+modello stesso.
 \newpage
 
 \subsection{Analisi del Comportamento in Base al Numero Iniziale di Nodi Infetti}
 
-L'analisi ha esaminato come il numero iniziale di nodi infetti 
-influenzi il comportamento del modello. Si è osservato che un numero 
-maggiore di nodi infetti iniziali porta a un raggiungimento più 
-rapido del picco di infetti, ma non ha comportato altri comportamenti 
-significativi. Questo risultato era atteso e coerente con le 
-dinamiche epidemiologiche.
+L'analisi condotta ha investigato l'impatto del numero iniziale di 
+nodi infetti sul comportamento complessivo del modello. 
+I risultati hanno dimostrato che un numero maggiore di nodi infetti 
+iniziali conduce a un raggiungimento più rapido del picco di infetti 
+nel corso della simulazione. Tuttavia, non sono stati osservati altri 
+cambiamenti significativi nel comportamento del modello.
+
+Questo risultato era atteso e coerenza con le dinamiche epidemiologiche 
+conosciute. Infatti, è noto che un aumento del numero iniziale di 
+individui infetti in una popolazione può accelerare l'espansione della 
+malattia e portare a un picco di infetti più precoce. 
+Tuttavia, le altre dinamiche del modello, come il tasso di diffusione 
+del virus, la progressione della pandemia e le misure di intervento, 
+non sono state influenzate in modo significativo da questa variazione.
 
 \begin{figure}[!hb]
 	\centering
@@ -89,15 +114,30 @@ dinamiche epidemiologiche.
 		\label{fig:comparison_init_node_inf_10}
 	\end{subfigure}
 \end{figure}
+
+In definitiva, questo risultato conferma la validità delle dinamiche 
+epidemiologiche incorporate nel modello e suggerisce che il modello sia 
+in grado di riflettere realisticamente l'effetto del numero iniziale di 
+infetti sulla diffusione della pandemia, come si verifica anche nella 
+realtà.
 \newpage
 
 \subsection{Analisi del Comportamento in Base al Tasso di Migrazione}
 
-L'analisi ha esaminato come il tasso di migrazione influenzi il 
-comportamento del modello. Si è notato che un tasso di migrazione 
-più alto ha portato a un picco di infetti più alto in un periodo 
-di tempo più breve. Questo risultato è coerente con l'effetto 
-della mobilità sulla diffusione delle malattie infettive.
+L'analisi condotta ha esplorato l'influenza del tasso di migrazione sul 
+comportamento del modello. I risultati hanno evidenziato che un tasso di 
+migrazione più elevato ha generato un picco di individui infetti più alto, 
+e ciò è avvenuto in un periodo di tempo più breve rispetto ai casi in cui 
+il tasso di migrazione era più basso.
+
+Questo risultato è coerente con le conoscenze consolidate riguardo 
+all'effetto della mobilità sulla diffusione delle malattie infettive. 
+Infatti, un aumento del tasso di migrazione implica un maggiore movimento 
+delle persone tra i nodi del grafo (rappresentanti aree geografiche o 
+comunità), il che può facilitare la trasmissione del virus da un luogo 
+all'altro. Di conseguenza, si verifica un aumento più rapido e 
+pronunciato nel numero di individui infetti, portando a un picco più 
+alto in un tempo più breve.
 
 \begin{figure}[!hb]
 	\centering
@@ -129,15 +169,38 @@ della mobilità sulla diffusione delle malattie infettive.
 		\label{fig:comparison_maxTravelingRate_high}
 	\end{subfigure}
 \end{figure}
+
+Questi risultati sottolineano l'importanza della mobilità e dei flussi 
+di persone nel contesto della diffusione di malattie infettive, come le 
+pandemie. Essi sottolineano anche la capacità del modello di catturare 
+in modo realistico queste dinamiche epidemiologiche, consentendo una 
+valutazione approfondita degli effetti del tasso di migrazione sul 
+comportamento del sistema.
 \newpage
 
 \subsection{Analisi del Comportamento in Base al Numero di Nodi della Rete}
 
-L'analisi ha esaminato come il numero di nodi della rete influenzi 
-il comportamento del modello. Si è osservato che un numero maggiore
- di nodi ha portato a una diffusione più lenta e a picchi meno 
- ripidi ma più prolungati nel tempo. Questo risultato è influenzato 
- dalla topologia delle connessioni e dalla posizione del focolaio iniziale.
+L'analisi condotta ha investigato come il numero di nodi nella rete 
+influenzi il comportamento complessivo del modello. 
+Dai risultati è emerso che un numero maggiore di nodi nella rete ha 
+comportato una diffusione più lenta della pandemia e ha generato picchi 
+meno ripidi ma più prolungati nel tempo.
+
+Questo risultato è influenzato da diversi fattori, tra cui la 
+topologia delle connessioni tra i nodi e la posizione del focolaio 
+iniziale della pandemia. Quando ci sono più nodi nella rete, 
+la trasmissione del virus può richiedere più tempo per propagarsi 
+attraverso l'intera popolazione, dato che ci sono più "tappe" attraverso 
+cui deve passare. Inoltre, la posizione iniziale del focolaio può 
+influenzare la velocità di diffusione, in quanto i nodi vicini al 
+focolaio avranno una probabilità maggiore di essere infettati 
+inizialmente rispetto ai nodi più lontani.
+
+Di conseguenza, si osserva una diffusione più graduale della pandemia 
+nel corso del tempo, con picchi meno ripidi ma più prolungati. 
+Questo risultato è coerente con l'effetto della dimensione della 
+popolazione e della struttura della rete sulla diffusione di malattie 
+infettive.
 
 \begin{figure}[!hb]
 	\centering
@@ -169,17 +232,32 @@ il comportamento del modello. Si è osservato che un numero maggiore
 		\label{fig:comparison_numberOfNodes_80}
 	\end{subfigure}
 \end{figure}
+
+In sintesi, l'analisi ha dimostrato come il numero di nodi nella rete, 
+insieme a variabili come la topologia delle connessioni e la posizione 
+iniziale del focolaio, possa influenzare in modo significativo le 
+dinamiche della pandemia e i profili temporali di infezione.
 \newpage
 
 \subsection{Analisi del Comportamento in Base alla Copertura della Rete}
 
-L'analisi ha esaminato come la copertura della rete, rappresentata 
-dal numero di archi, influenzi il comportamento del modello. 
-Si è notato che una copertura bassa ha comportato un rallentamento 
-della diffusione del virus, simile all'effetto di un lockdown. 
+L'analisi condotta ha esaminato l'effetto della copertura della rete, 
+rappresentata dal numero di archi, sul comportamento del modello. 
+Dai risultati è emerso che una copertura bassa, ovvero un numero 
+limitato di connessioni tra i nodi del grafo, ha comportato un 
+rallentamento significativo nella diffusione del virus, analogamente 
+all'effetto di misure di contenimento come il lockdown. 
 Questo risultato è coerente con l'importanza della mobilità nella 
-diffusione delle malattie infettive e con il ruolo delle misure di 
-contenimento.
+diffusione delle malattie infettive e sottolinea il ruolo cruciale 
+delle misure di contenimento nel limitare la propagazione del virus.
+
+Inoltre, è stato osservato che il numero di Varianti di Interesse 
+(VOC) tende ad aumentare con il numero di nodi nella rete. 
+Questo suggerisce che in una popolazione più ampia, c'è una maggiore 
+probabilità di emergere nuove mutazioni. Tuttavia, è interessante 
+notare che la presenza di una bassa copertura, cioè una limitata 
+interconnessione tra i nodi, può limitare la diffusione delle varianti 
+stesse, poiché la trasmissione tra gli individui è ridotta.
 
 \begin{figure}[!hb]
 	\centering
@@ -205,13 +283,11 @@ contenimento.
 	\end{subfigure}
 \end{figure}
 
-Inoltre, è stato osservato che il numero di varianti del virus 
-(VOC) tende ad aumentare con il numero di nodi nella rete, 
-suggerendo che più individui possono portare a un aumento delle 
-mutazioni, ma la presenza di una bassa copertura può limitare la 
-loro diffusione.
-
-In sintesi, l'analisi ha evidenziato come vari parametri e 
-condizioni possano influenzare il comportamento del modello 
-epidemiologico, fornendo importanti informazioni per la 
-comprensione e la gestione delle epidemie.
+In sintesi, l'analisi ha rivelato come vari parametri e condizioni, 
+tra cui la copertura della rete, la mobilità, le misure di contenimento 
+e il numero di nodi, possono influenzare in modo significativo il 
+comportamento del modello epidemiologico. Questi risultati forniscono 
+importanti informazioni per la comprensione e la gestione delle epidemie, 
+evidenziando l'importanza delle strategie di mitigazione e della 
+considerazione della struttura della rete nella prevenzione della 
+diffusione del virus.

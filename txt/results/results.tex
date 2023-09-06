@@ -1,56 +1,55 @@
 \section{Risultati Ottenuti}
 
-I risultati ottenuti, che verranno dettagliatamente presentati 
-nelle sezioni successive, possono essere riassunti in modo 
-generale come risultati positivi, sia in termini di performance 
-che di politiche applicate. In particolare, è possibile notare come 
-il tempo generale della simulazione dipenda principalmente 
-dall'applicazione del controllore e quindi dal calcolo della 
-Neural ODE e tutte le operazioni correlate.
+I risultati ottenuti, che verranno analizzati in dettaglio nelle 
+sezioni successive, possono essere riassunti in termini generali come 
+risultati positivi, sia in termini di prestazioni del modello che di 
+efficacia delle politiche di intervento adottate. In particolare, 
+è evidente che il tempo totale di simulazione è principalmente 
+influenzato dall'implementazione del controllore e, di conseguenza, 
+dal calcolo delle Neural ODE e da tutte le operazioni connesse.
 
 \begin{table}[htb]
     \centering
-    \caption{Tempo Impiegato (HH:MM:SS)}
+    \caption{Benchmarking con BenchmarkTools.jl \cite{chen2016robust}}
     \begin{tabular}{|p{2.57cm}||p{2.57cm}|p{2.57cm}|p{2.57cm}|p{2.57cm}|}
         \hline
-        \multicolumn{5}{|c|}{Tipologia di Test} \\
+        \multicolumn{5}{|c|}{Singlerun} \\
         \hline
         & Nessun Intervento & Intervento Non Farmaceutico & Intervento Farmaceutico & Intervento Farmaceutico e Non \\
         \hline
-        Singlerun (50 PdI) & 0:00:15 & 0:06:52 & 0:00:13 & 0:02:52 \\
-        Ensemblerun (5 ripetizioni, 50 PdI) & 0:00:34 & 0:06:22 & 0:00:24 & 0:02:55 \\
+        Evaluation Time & 12.510 s (9.87\% GC) & 184.610 s (11.12\% GC) & 13.298 s (7.74\% GC) & 155.704 s (11.32\% GC) \\
+        Memory Estimation and Allocation & 5.71 GiB, over 80290339 allocations & 329.73 GiB, over 781832810 allocations & 5.87 GiB, over 81130491 allocations & 290.19 GiB, over 694491852 allocations \\
         \hline
     \end{tabular}
 \end{table}
 
-\begin{table}[htb]
-    \centering
-    \caption{Tempo Impiegato (HH:MM:SS)}
-    \begin{tabular}{|p{2.57cm}||p{2.57cm}|p{2.57cm}|p{2.57cm}|p{2.57cm}|}
-        \hline
-        \multicolumn{5}{|c|}{Tipologia di Test} \\
-        \hline
-        & Nodi Infetti Iniziali Variabili & Valore di Migrazione Variabile & Nodi della Rete Variabile & Copertura dei Nodi Variabile \\
-        \hline
-        Paramscan & 0:00:13 & 0:00:21 & 0:00:32 & 0:00:12 \\
-        \hline
-    \end{tabular}
-\end{table}
-
-Questi lunghi tempi di calcolo derivano dalla computazione delle 
-contromisure non farmaceutiche applicate alla popolazione. 
-Le contromisure farmaceutiche, se applicate con il giusto tempismo, 
-oltre a contribuire notevolmente alla riduzione della diffusione 
-della pandemia (vedi Figura \ref{fig:comparison_vax_1}, Figura 
+I lunghi tempi di calcolo riscontrati sono principalmente attribuibili 
+al processo di calcolo delle contromisure non farmaceutiche applicate 
+alla popolazione. Diversamente, le contromisure farmaceutiche, 
+se applicate con tempismo adeguato, oltre a contribuire in modo 
+significativo alla riduzione della diffusione della pandemia 
+(vedi Figura \ref{fig:comparison_vax_1}, Figura 
 \ref{fig:comparison_vax_2}, Figura \ref{fig:comparison_vax_3}, 
-Figura \ref{fig:comparison_vax_4}), consentono una significativa 
+Figura \ref{fig:comparison_vax_4}), consentono anche una significativa 
 riduzione dei tempi di calcolo.
 
+In altre parole, l'applicazione tempestiva di misure farmaceutiche, 
+come la somministrazione di vaccini, non solo contribuisce in modo 
+sostanziale a mitigare la diffusione del virus, ma riduce anche 
+sensibilmente i tempi necessari per completare le simulazioni. 
+Questo aspetto sottolinea l'importanza delle strategie di vaccinazione 
+e delle misure farmaceutiche nella gestione delle pandemie, 
+non solo dal punto di vista della salute pubblica, ma anche dal punto 
+di vista della computazione e dell'efficienza dei modelli epidemiologici.
 \newpage
 
 \subsection{Nessun Intervento}
 
-Il seguente grafico (Figura \ref{fig:abm_no_intervent}) mostra l'andamento delle curve del modello quando questo viene eseguito senza alcuna tipologia di intervento. Questo andamento è rappresentato in modo cumulativo rispetto all'andamento dei singoli agenti, i quali possono mostrare comportamenti differenti tra loro.
+Il seguente grafico (Figura \ref{fig:abm_no_intervent}) mostra 
+l'andamento delle curve del modello quando questo viene eseguito 
+senza alcuna tipologia di intervento. Questo andamento è rappresentato 
+in modo cumulativo rispetto all'andamento dei singoli agenti, 
+i quali possono mostrare comportamenti differenti tra loro.
 
 \begin{minipage}{\linewidth}
     \centering
@@ -154,6 +153,44 @@ pronunciate rispetto ai casi precedenti.
 In generale, l'intervento farmaceutico è estremamente efficace nel 
 contenere e ridurre l'epidemia.
 
+\subsubsection{Grafici di Confronto}
+
+I grafici di confronto mostrano l'impatto del momento di inizio della 
+campagna di vaccinazione su diversi scenari. Questi grafici illustrano 
+come l'efficacia della campagna vaccinale possa dipendere dal suo avvio, 
+oltre al numero di persone vaccinate.
+
+\begin{figure}[!hb]
+	\centering
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/SocialNetworkABM_4_V.pdf}
+		\caption{Grafico per la comparazione sul periodo di inizio della campagna vaccinale. Immediata}
+		\label{fig:comparison_vax_1}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/SocialNetworkABM_3_V.pdf}
+		\caption{Grafico per la comparazione sul periodo di inizio della campagna vaccinale. Durante prima ondata}
+		\label{fig:comparison_vax_2}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/SocialNetworkABM_5_V.pdf}
+		\caption{Grafico per la comparazione sul periodo di inizio della campagna vaccinale. Poco dopo la prima ondata}
+		\label{fig:comparison_vax_3}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/SocialNetworkABM_2_V.pdf}
+		\caption{Grafico per la comparazione sul periodo di inizio della campagna vaccinale. In ritardo}
+		\label{fig:comparison_vax_4}
+	\end{subfigure}
+\end{figure}
+
 \subsection{Intervento Farmaceutico e Non Farmaceutico}
 
 Il seguente grafico (Figura \ref{fig:abm_combined_intervent}) 
@@ -185,27 +222,34 @@ molto meno pronunciate rispetto ai casi precedenti.
 In generale, la combinazione di intervento farmaceutico e non 
 farmaceutico è altamente efficace nel contenere e ridurre 
 l'epidemia in modo ottimale.
+\newpage
 
-\section{Conclusione}
+\section{Conclusioni}
 
-In conclusione, i risultati ottenuti dimostrano che l'applicazione 
-di misure di controllo, sia farmaceutiche che non farmaceutiche, 
-è estremamente efficace nel contenere e ridurre la diffusione del virus. 
-L'intervento farmaceutico, in particolare, ha dimostrato di essere 
-altamente efficace nel contenere l'epidemia e prevenire il ciclo 
-insostenibile di infezioni. Tuttavia, l'intervento farmaceutico 
-da solo potrebbe non essere sufficiente a eliminare completamente 
-l'epidemia, mentre la combinazione di intervento farmaceutico e 
-non farmaceutico offre una protezione ottimale.
+In conclusione, i risultati ottenuti dimostrano chiaramente 
+l'efficacia delle misure di controllo, sia farmaceutiche che non 
+farmaceutiche, nel contenere e ridurre la diffusione del virus. 
+L'intervento farmaceutico, in particolare, si è dimostrato altamente 
+efficace nel contrastare l'epidemia e nel prevenire il ciclo 
+insostenibile di infezioni. Tuttavia, è importante sottolineare che 
+l'intervento farmaceutico da solo potrebbe non essere sufficiente per 
+l'eliminazione completa dell'epidemia. Al contrario, l'adozione di una 
+combinazione di interventi farmaceutici e non farmaceutici offre una 
+protezione ottimale e una strategia più completa per la gestione delle 
+pandemie.
 
-I tempi di calcolo delle simulazioni sono significativamente 
-influenzati dall'applicazione delle misure di controllo non 
-farmaceutiche, ma questo è un compromesso necessario per ottenere 
-risultati accurati e realistici. Inoltre, l'uso di misure di controllo 
-cicliche può portare a oscillazioni nelle curve di felicità, 
-ma queste oscillazioni sono gestibili.
+Va notato che i tempi di calcolo delle simulazioni sono notevolmente 
+influenzati dall'applicazione delle misure di controllo non farmaceutiche. 
+Tuttavia, questa è una compromissione necessaria per ottenere risultati 
+accurati e realistici che tengano conto della complessità delle dinamiche 
+sociali ed epidemiologiche. Inoltre, l'osservazione di oscillazioni 
+nelle curve di felicità, causate dall'uso di misure di controllo cicliche, 
+non rappresenta un problema insormontabile e può essere gestita 
+adeguatamente.
 
-In generale, il modello di simulazione dell'epidemia su una 
-rete sociale offre una piattaforma utile per studiare gli effetti 
-delle misure di controllo e per sviluppare strategie ottimali per 
-la gestione delle epidemie.
+In generale, il modello di simulazione dell'epidemia su una rete sociale 
+si configura come una piattaforma estremamente utile per lo studio degli 
+effetti delle misure di controllo e per lo sviluppo di strategie ottimali 
+per la gestione delle epidemie. I risultati ottenuti contribuiscono alla 
+comprensione e alla preparazione per affrontare situazioni 
+epidemiologiche complesse e dinamiche come quelle delle pandemie.
