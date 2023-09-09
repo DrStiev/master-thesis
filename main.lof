@@ -25,12 +25,11 @@
 \contentsline {figure}{\numberline {27}{\ignorespaces Funzione che si occupa di generare la VOC\relax }}{34}{figure.27}%
 \contentsline {figure}{\numberline {28}{\ignorespaces Funzione che si occupa di simulare la ricerca di un vaccino e la sua successiva applicazoine\relax }}{35}{figure.28}%
 \contentsline {figure}{\numberline {29}{\ignorespaces Definizione del controllore all'interno del modello ad agente\relax }}{37}{figure.29}%
-\contentsline {figure}{\numberline {30}{\ignorespaces Funzione per il calcolo del limite superiore per le contromisure non farmaceutiche\relax }}{38}{figure.30}%
-\contentsline {figure}{\numberline {31}{\ignorespaces Definizione del controllore mediante Neural ODE\relax }}{39}{figure.31}%
-\contentsline {figure}{\numberline {32}{\ignorespaces Definizione delle funzioni di supporto del controllore\relax }}{40}{figure.32}%
-\contentsline {figure}{\numberline {33}{\ignorespaces Definizione delle funzioni di addestramento del controllore\relax }}{41}{figure.33}%
-\contentsline {figure}{\numberline {34}{\ignorespaces Esempio di utilizzo congiunto di due ottimizzatori differenti in uno stesso ciclo di addestramento\relax }}{42}{figure.34}%
-\contentsline {figure}{\numberline {35}{\ignorespaces Funzione di attivazione Swish\relax }}{43}{figure.35}%
+\contentsline {figure}{\numberline {30}{\ignorespaces Definizione del controllore mediante Neural ODE\relax }}{38}{figure.30}%
+\contentsline {figure}{\numberline {31}{\ignorespaces Definizione delle funzioni di supporto del controllore\relax }}{39}{figure.31}%
+\contentsline {figure}{\numberline {33}{\ignorespaces Definizione della funzione di loss per la Rete Neurale\relax }}{41}{figure.33}%
+\contentsline {figure}{\numberline {34}{\ignorespaces Definizione delle funzioni di addestramento del controllore\relax }}{41}{figure.34}%
+\contentsline {figure}{\numberline {35}{\ignorespaces Funzione di attivazione Swish\relax }}{42}{figure.35}%
 \contentsline {figure}{\numberline {36}{\ignorespaces Grafico rappresentante l'analisi di sensitività del modello\relax }}{44}{figure.36}%
 \contentsline {figure}{\numberline {37}{\ignorespaces Parametri usati per l'analisi di sensitività del modello ad agente\relax }}{45}{figure.37}%
 \contentsline {figure}{\numberline {42}{\ignorespaces Grafico cumulativo del modello senza alcun tipo di intervento\relax }}{51}{figure.42}%

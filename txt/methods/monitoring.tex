@@ -52,42 +52,44 @@ della soglia minima.
 \end{minipage}
 
 Altri parametri definiscono principalmente i fattori necessari affinché 
-la funzione di controllo operi correttamente. Tra questi c'è un parametro 
-opzionale $\upsilon$, che descrive quanto potrebbe essere il valore 
-massimo delle contromisure applicabili in relazione al numero di 
-individui infetti in un determinato nodo. Questo valore è calcolato 
-come un'esponenziale rispetto al numero di infetti. Questa assunzione 
-è utile come ulteriore valore di riferimento per il controllore nel 
-caso in cui restituisca un valore troppo elevato rispetto a quanto 
-sia sensato.
+la funzione di controllo operi correttamente. 
 
-\begin{minipage}{\linewidth}
-	\centering
-	\includegraphics[width=\textwidth]{img/beta_cdf.pdf}
-	\captionof{figure}{Funzione per il calcolo del limite superiore per le contromisure non farmaceutiche}
-	\label{fig:max_countermeasures_function_abm}
-\end{minipage}
+% Tra questi c'è un parametro 
+% opzionale $\upsilon$, che descrive quanto potrebbe essere il valore 
+% massimo delle contromisure applicabili in relazione al numero di 
+% individui infetti in un determinato nodo. Questo valore è calcolato 
+% come un'esponenziale rispetto al numero di infetti. Questa assunzione 
+% è utile come ulteriore valore di riferimento per il controllore nel 
+% caso in cui restituisca un valore troppo elevato rispetto a quanto 
+% sia sensato.
 
-Come evidenziato nella figura \ref{fig:max_countermeasures_function_abm}, 
-la funzione rappresenta la "funzione di distribuzione cumulativa" per 
-la distribuzione "beta" con parametri $\alpha = 2$ e $\beta = 5$. 
-Questo tipo di funzione è stato scelto poiché approssima abbastanza 
-bene il concetto di pericolo, soprattutto durante le prime fasi di 
-una pandemia, quando il numero di infetti cresce rapidamente e poi 
-tende a stabilizzarsi una volta superato il cinquanta percento di infetti.
+% \begin{minipage}{\linewidth}
+% 	\centering
+% 	\includegraphics[width=\textwidth]{img/beta_cdf.pdf}
+% 	\captionof{figure}{Funzione per il calcolo del limite superiore per le contromisure non farmaceutiche}
+% 	\label{fig:max_countermeasures_function_abm}
+% \end{minipage}
 
-Questa rappresentazione può anche essere correlata all'idea di un 
-punto critico in una pandemia, oltre il quale le speranze di controllo 
-diminuiscono drasticamente. È importante notare che questa funzione 
-potrebbe evolversi nel tempo, riflettendo una sorta di adattamento 
-alla pandemia.
+% Come evidenziato nella figura \ref{fig:max_countermeasures_function_abm}, 
+% la funzione rappresenta la "funzione di distribuzione cumulativa" per 
+% la distribuzione "beta" con parametri $\alpha = 2$ e $\beta = 5$. 
+% Questo tipo di funzione è stato scelto poiché approssima abbastanza 
+% bene il concetto di pericolo, soprattutto durante le prime fasi di 
+% una pandemia, quando il numero di infetti cresce rapidamente e poi 
+% tende a stabilizzarsi una volta superato il cinquanta percento di infetti.
+
+% Questa rappresentazione può anche essere correlata all'idea di un 
+% punto critico in una pandemia, oltre il quale le speranze di controllo 
+% diminuiscono drasticamente. È importante notare che questa funzione 
+% potrebbe evolversi nel tempo, riflettendo una sorta di adattamento 
+% alla pandemia.
 
 Il controllore effettivo è principalmente strutturato come già 
 accennato nella sezione relativa alle Neural ODE.
 
 \begin{minipage}{\linewidth}
 	\centering
-	\includegraphics[width=\textwidth]{img/controller1.png}
+	\includegraphics[width=\textwidth]{img/fann.png}
 	\captionof{figure}{Definizione del controllore mediante Neural ODE}
 	\label{fig:controller1}
 \end{minipage}
@@ -124,6 +126,61 @@ Questo approccio si basa sull'osservazione che il valore della loss
 tende a stabilizzarsi una volta che il modello ha raggiunto una buona 
 soluzione.
 
+\begin{figure}[!hb]
+	\centering
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/loss1.png}
+		\caption{Esempio dell'andamento della funzione di loss durante il calcolo delle contromisure sul nodo 1}
+		\label{fig:loss1}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/loss2.png}
+		\caption{Esempio dell'andamento della funzione di loss durante il calcolo delle contromisure sul nodo 2}
+		\label{fig:loss2}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/loss3.png}
+		\caption{Esempio dell'andamento della funzione di loss durante il calcolo delle contromisure sul nodo 3}
+		\label{fig:loss3}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/loss4.png}
+		\caption{Esempio dell'andamento della funzione di loss durante il calcolo delle contromisure sul nodo 4}
+		\label{fig:loss4}
+	\end{subfigure}
+\end{figure}
+
+La definizione della funzione di perdita, come illustrato nella Figura 
+\ref{fig:lossFunction}, rivela un approccio che enfatizza la 
+massimizzazione del numero di individui in uno stato di salute ottimale, 
+mentre cerca di minimizzare il numero di individui affetti da patologie. 
+In aggiunta a questa considerazione, la funzione di perdita prende in 
+considerazione il valore complessivo di felicità dell'agente, cercando di 
+massimizzarlo. 
+
+L'obiettivo ottimale da perseguire è rappresentato da un valore prossimo 
+allo zero. È importante notare che un valore leggermente superiore a zero 
+indica comunque che il modello ha identificato una soluzione accettabile, 
+seppur non ottimale. Tale approccio mette in evidenza l'importanza di 
+equilibrare la salute degli individui con il loro benessere complessivo, 
+creando così una soluzione che tiene conto di entrambi questi aspetti 
+fondamentali.
+
+\begin{minipage}{\linewidth}
+	\centering
+	\includegraphics[width=\textwidth]{img/lossFunction.png}
+	\captionof{figure}{Definizione della funzione di loss per la Rete Neurale}
+	\label{fig:lossFunction}
+\end{minipage}
+
+
 La fase di addestramento effettiva del modello avviene attraverso le 
 seguenti funzioni:
 
@@ -145,27 +202,18 @@ In particolare, si associano due cicli di addestramento con due
 ottimizzatori diversi al fine di sfruttare al massimo le peculiarità 
 di ognuno. Questo approccio è utile per massimizzare il processo di 
 ottimizzazione dei parametri. Solitamente, si utilizza un 
-ottimizzatore per la maggior parte dell'addestramento, in quanto 
-è in grado di trovare rapidamente un buon spazio di iperparametri. 
+ottimizzatore tipo \textbf{ADAM} per la maggior parte dell'addestramento, 
+in quanto è in grado di trovare rapidamente un buon spazio di iperparametri. 
 Successivamente, si passa a un secondo ottimizzatore, come ad esempio 
 \textbf{BFGS}, che eccelle nel trovare rapidamente un minimo locale 
 all'interno dello spazio dei parametri.
 
-La mia scelta di non adottare questo approccio, ovvero di utilizzare 
-un solo ottimizzatore, deriva dal fatto che l'uso di \textbf{ADAM} 
-con un numero limitato di iterazioni, combinato con una tecnica per 
-ridurre ulteriormente le iterazioni quando non si verifica un 
-miglioramento significativo, consente di raggiungere un risultato 
-ottimale in tempi brevi, senza la necessità di utilizzare un secondo 
-ottimizzatore, il quale non apporterebbe ulteriori miglioramenti e 
-comporterebbe solo un aumento delle risorse computazionali.
-
-\begin{minipage}{\linewidth}
-	\centering
-	\includegraphics[width=\textwidth]{img/optimizers_example.png}
-	\captionof{figure}{Esempio di utilizzo congiunto di due ottimizzatori differenti in uno stesso ciclo di addestramento}
-	\label{fig:two_otpimizers}
-\end{minipage}
+% Ho deciso di utilizzare un solo ottimizzatore, in quanto \textbf{ADAM} 
+% in questo caso, pur con un numero limitato di iterazioni, consente di 
+% raggiungere un risultato ottimale in tempi brevi, senza la necessità di 
+% utilizzare un secondo ottimizzatore, il quale in questo caso non 
+% apporterebbe ulteriori miglioramenti  e comporterebbe solo un aumento 
+% delle risorse computazionali.
 
 \subsubsection*{Funzione di Attivazione della Rete Neurale}
 La scelta della funzione di attivazione all'interno delle reti neurali 
