@@ -17,9 +17,11 @@ dal calcolo delle Neural ODE e da tutte le operazioni connesse.
         \hline
         & Nessun Intervento & Intervento Non Farmaceutico & Intervento Farmaceutico & Intervento Farmaceutico e Non \\
         \hline
-        Evaluation Time & 11.872 s (8.54\% GC) & 184.610 s (11.12\% GC) & 13.298 s (7.74\% GC) & 155.704 s (11.32\% GC) \\
-        Memory Estimation and Allocation & 5.73 GiB, over 80290489 allocations & 329.73 GiB, over 781832810 allocations & 5.87 GiB, over 81130491 allocations & 290.19 GiB, over 694491852 allocations \\
-        \hline
+        Evaluation Time & 11.12 s & 1004.52 s & 12.28 s & 883.85 s \\
+        GC Time & 6.09\% GC & 11.03\% GC & 6.56\% GC & 10.77\% GC \\
+		Memory Estimation & 6.13 GiB & 1.05 TiB & 7.93 GiB & 936.06 GiB \\
+        \# Allocation & 80299055 & 11803509066 & 88006856 & 10487571414 \\
+		\hline
     \end{tabular}
 \end{table}
 
@@ -32,6 +34,20 @@ significativo alla riduzione della diffusione della pandemia
 \ref{fig:comparison_vax_2}, Figura \ref{fig:comparison_vax_3}, 
 Figura \ref{fig:comparison_vax_4}), consentono anche una significativa 
 riduzione dei tempi di calcolo.
+
+\begin{table}[htb]
+    \centering
+    \caption{Risultati Ensemblerun con ProgressMeter.jl}
+    \begin{tabular}{|p{2.57cm}||p{2.57cm}|p{2.57cm}|p{2.57cm}|p{2.57cm}|}
+        \hline
+        \multicolumn{5}{|c|}{Singlerun} \\
+        \hline
+        & Nessun Intervento & Intervento Non Farmaceutico & Intervento Farmaceutico & Intervento Farmaceutico e Non \\
+        \hline
+        5 Run (Progress: 100\%) H:MM:SS & Time: 0:00:56 & Time: 1:21:33 & Time: 0:01:06 & Time: 1:09:45 \\
+        \hline
+    \end{tabular}
+\end{table}
 
 In altre parole, l'applicazione tempestiva di misure farmaceutiche, 
 come la somministrazione di vaccini, non solo contribuisce in modo 
@@ -164,7 +180,7 @@ oltre al numero di persone vaccinate.
 	\centering
 	\begin{subfigure}[b]{0.45\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{img/SocialNetworkABM_4_V.pdf}
+		\includegraphics[width=\textwidth]{img/SocialNetworkABM_1_V.pdf}
 		\caption{Grafico per la comparazione sul periodo di inizio della campagna vaccinale. Immediata}
 		\label{fig:comparison_vax_1}
 	\end{subfigure}
@@ -222,6 +238,46 @@ molto meno pronunciate rispetto ai casi precedenti.
 In generale, la combinazione di intervento farmaceutico e non 
 farmaceutico è altamente efficace nel contenere e ridurre 
 l'epidemia in modo ottimale.
+\newpage
+
+\subsubsection{Grafici di Confronto}
+
+I grafici di confronto mostrano l'impatto del momento di inizio della 
+campagna di vaccinazione su diversi scenari. Questi grafici illustrano 
+come l'efficacia della campagna vaccinale possa dipendere dal suo avvio, 
+oltre al numero di persone vaccinate, e come questa influenzi attivamente
+le contromisure non farmaceutiche.
+
+\begin{figure}[!hb]
+	\centering
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/SocialNetworkABM_5_A.pdf}
+		\caption{Grafico per la comparazione sul periodo di inizio della campagna vaccinale. Immediata}
+		\label{fig:comparison_all_1}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/SocialNetworkABM_1_A.pdf}
+		\caption{Grafico per la comparazione sul periodo di inizio della campagna vaccinale. Durante prima ondata}
+		\label{fig:comparison_all_2}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/SocialNetworkABM_4_A.pdf}
+		\caption{Grafico per la comparazione sul periodo di inizio della campagna vaccinale. Poco dopo la prima ondata}
+		\label{fig:comparison_all_3}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/SocialNetworkABM_2_A.pdf}
+		\caption{Grafico per la comparazione sul periodo di inizio della campagna vaccinale. In ritardo}
+		\label{fig:comparison_all_4}
+	\end{subfigure}
+\end{figure}
 \newpage
 
 \section{Conclusioni}

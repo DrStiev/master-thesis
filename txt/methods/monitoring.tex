@@ -54,36 +54,6 @@ della soglia minima.
 Altri parametri definiscono principalmente i fattori necessari affinché 
 la funzione di controllo operi correttamente. 
 
-% Tra questi c'è un parametro 
-% opzionale $\upsilon$, che descrive quanto potrebbe essere il valore 
-% massimo delle contromisure applicabili in relazione al numero di 
-% individui infetti in un determinato nodo. Questo valore è calcolato 
-% come un'esponenziale rispetto al numero di infetti. Questa assunzione 
-% è utile come ulteriore valore di riferimento per il controllore nel 
-% caso in cui restituisca un valore troppo elevato rispetto a quanto 
-% sia sensato.
-
-% \begin{minipage}{\linewidth}
-% 	\centering
-% 	\includegraphics[width=\textwidth]{img/beta_cdf.pdf}
-% 	\captionof{figure}{Funzione per il calcolo del limite superiore per le contromisure non farmaceutiche}
-% 	\label{fig:max_countermeasures_function_abm}
-% \end{minipage}
-
-% Come evidenziato nella figura \ref{fig:max_countermeasures_function_abm}, 
-% la funzione rappresenta la "funzione di distribuzione cumulativa" per 
-% la distribuzione "beta" con parametri $\alpha = 2$ e $\beta = 5$. 
-% Questo tipo di funzione è stato scelto poiché approssima abbastanza 
-% bene il concetto di pericolo, soprattutto durante le prime fasi di 
-% una pandemia, quando il numero di infetti cresce rapidamente e poi 
-% tende a stabilizzarsi una volta superato il cinquanta percento di infetti.
-
-% Questa rappresentazione può anche essere correlata all'idea di un 
-% punto critico in una pandemia, oltre il quale le speranze di controllo 
-% diminuiscono drasticamente. È importante notare che questa funzione 
-% potrebbe evolversi nel tempo, riflettendo una sorta di adattamento 
-% alla pandemia.
-
 Il controllore effettivo è principalmente strutturato come già 
 accennato nella sezione relativa alle Neural ODE.
 
@@ -208,12 +178,12 @@ Successivamente, si passa a un secondo ottimizzatore, come ad esempio
 \textbf{BFGS}, che eccelle nel trovare rapidamente un minimo locale 
 all'interno dello spazio dei parametri.
 
-% Ho deciso di utilizzare un solo ottimizzatore, in quanto \textbf{ADAM} 
-% in questo caso, pur con un numero limitato di iterazioni, consente di 
-% raggiungere un risultato ottimale in tempi brevi, senza la necessità di 
-% utilizzare un secondo ottimizzatore, il quale in questo caso non 
-% apporterebbe ulteriori miglioramenti  e comporterebbe solo un aumento 
-% delle risorse computazionali.
+Ho deciso di utilizzare un solo ottimizzatore, in quanto \textbf{ADAM} 
+in questo caso, pur con un numero limitato di iterazioni, consente di 
+raggiungere un risultato ottimale in tempi brevi, senza la necessità di 
+utilizzare un secondo ottimizzatore, il quale in questo caso non 
+apporterebbe miglioramenti significativi comportando solo un aumento 
+delle risorse computazionali.
 
 \subsubsection*{Funzione di Attivazione della Rete Neurale}
 La scelta della funzione di attivazione all'interno delle reti neurali 

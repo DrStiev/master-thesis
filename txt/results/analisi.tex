@@ -209,29 +209,29 @@ infettive.
 	\begin{subfigure}[b]{0.45\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{img/SocialNetworkABM_1_NN.pdf}
-		\caption{Grafico per la comparazione sul numero di nodi della rete. Numero nodi 5}
-		\label{fig:comparison_numberOfNodes_5}
+		\caption{Grafico per la comparazione sul numero di nodi della rete. Numero nodi 8}
+		\label{fig:comparison_numberOfNodes_8}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[b]{0.45\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{img/SocialNetworkABM_2_NN.pdf}
-		\caption{Grafico per la comparazione sul numero di nodi della rete. Numero nodi 30}
-		\label{fig:comparison_numberOfNodes_30}
+		\caption{Grafico per la comparazione sul numero di nodi della rete. Numero nodi 16}
+		\label{fig:comparison_numberOfNodes_16}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[b]{0.45\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{img/SocialNetworkABM_3_NN.pdf}
-		\caption{Grafico per la comparazione sul numero di nodi della rete. Numero nodi 55}
-		\label{fig:comparison_numberOfNodes_55}
+		\caption{Grafico per la comparazione sul numero di nodi della rete. Numero nodi 32}
+		\label{fig:comparison_numberOfNodes_32}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[b]{0.45\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{img/SocialNetworkABM_4_NN.pdf}
-		\caption{Grafico per la comparazione sul numero di nodi della rete. Numero nodi 80}
-		\label{fig:comparison_numberOfNodes_80}
+		\caption{Grafico per la comparazione sul numero di nodi della rete. Numero nodi 64}
+		\label{fig:comparison_numberOfNodes_64}
 	\end{subfigure}
 \end{figure}
 
@@ -293,3 +293,156 @@ importanti informazioni per la comprensione e la gestione delle epidemie,
 evidenziando l'importanza delle strategie di mitigazione e della 
 considerazione della struttura della rete nella prevenzione della 
 diffusione del virus.
+
+\subsection{Studio dell'Andamento del Controllore in Relazione all'Intervallo di Intervento}
+L'analisi condotta nel presente studio ha investigato l'influenza 
+dell'intervallo di intervento del controllore in relazione al controllo 
+della pandemia e all'andamento della curva di "happiness". I risultati 
+ottenuti hanno rivelato che un incremento nel valore associato 
+all'intervallo di intervento provoca un notevole sbilanciamento nella 
+curva di felicità ("happiness") e, in generale, comporta un repentino 
+aumento nei valori associati alle contromisure adottate.
+
+Tale andamento, coerente e previsto, può essere spiegato dalla 
+complessità intrinseca nel formulare contromisure a lungo termine 
+rispetto a quelle a breve termine, oltre al fatto che le prime 
+comportano costi maggiori. È interessante notare che l'andamento delle 
+curve, come mostrato nelle Figure \ref{fig:comparison_dt_21} e 
+\ref{fig:comparison_dt_28}, ha rivelato comportamenti inaspettati che 
+non erano stati previsti inizialmente. Questo comportamento inusuale è 
+probabilmente riconducibile alla definizione della funzione di loss, 
+come illustrato nella Figura \ref{fig:lossFunction}, e alle successive 
+iterazioni di addestramento della rete.
+
+In conclusione, dai risultati ottenuti emerge che attualmente le curve 
+più affidabili sono quelle associate a un intervallo di intervento più 
+breve. Tuttavia, è importante notare che non sono stati esplorati 
+intervalli troppo granulari a causa del loro significativo impatto 
+sulle prestazioni del sistema e, soprattutto, della loro limitata 
+rappresentatività nella realtà.
+
+\begin{figure}[!hb]
+	\centering
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/SocialNetworkABM_1_DT.pdf}
+		\caption{Grafico per la comparazione sul valore dell'intervallo di intervento del controllore. Valore 7 step}
+		\label{fig:comparison_dt_7}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/SocialNetworkABM_2_DT.pdf}
+		\caption{Grafico per la comparazione sul valore dell'intervallo di intervento del controllore. Valore 14 step}
+		\label{fig:comparison_dt_14}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/SocialNetworkABM_3_DT.pdf}
+		\caption{Grafico per la comparazione sul valore dell'intervallo di intervento del controllore. Valore 21 step}
+		\label{fig:comparison_dt_21}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/SocialNetworkABM_4_DT.pdf}
+		\caption{Grafico per la comparazione sul valore dell'intervallo di intervento del controllore. Valore 28 step}
+		\label{fig:comparison_dt_28}
+	\end{subfigure}
+\end{figure}
+
+\subsection{Studio dell'Andamento del Controllore in Relazione all'Intervallo di Tolleranza}
+L'analisi condotta nel corso di questa indagine ha approfondito 
+l'influenza dell'intervallo di tolleranza del controllore in relazione 
+al controllo della pandemia e all'andamento della curva di "happiness". 
+Dalla nostra analisi emerge chiaramente che il valore di tolleranza del 
+controllore svolge un ruolo cruciale soprattutto durante il picco pandemico.
+
+Tuttavia, è degno di nota che un valore di tolleranza estremamente 
+elevato incide in maniera significativa sull'andamento complessivo del 
+modello, ritardando l'attuazione delle contromisure e costringendo il 
+controllore ad adottare un comportamento molto più drastico rispetto alle 
+aspettative.
+
+È fondamentale sottolineare che tali risultati sono ampiamente 
+condizionati dal numero di individui presenti in ciascun nodo del modello. 
+Il test è stato condotto su un modello composto da cinquanta nodi, ognuno 
+dei quali ospitava un numero di individui distribuiti secondo una 
+distribuzione esponenziale con un parametro medio pari a 10.000. 
+Questo implica che l'interpretazione dei risultati deve essere 
+attentamente valutata tenendo conto del valore medio di popolazione 
+all'interno del modello.
+
+Evidentemente, è cruciale riconoscere come l'aumento del valore di 
+popolazione generi risultati differenti. In scenari caratterizzati da 
+valori di popolazione medio relativamente bassi, è possibile adottare 
+una soglia di tolleranza più elevata, mentre in situazioni in cui la 
+popolazione è notevolmente elevata, diventa necessario aumentare la 
+tolleranza al fine di garantire un adeguato controllo.
+
+In conclusione, l'analisi effettuata dimostra che l'intervallo di 
+tolleranza del controllore rappresenta un fattore chiave nella gestione 
+della pandemia e dell'andamento della "happiness". La sua ottimizzazione 
+deve essere attentamente bilanciata in base al contesto specifico, inclusi 
+il numero di individui e le dinamiche di popolazione, al fine di garantire 
+un controllo efficace e tempestivo della pandemia.
+
+\begin{figure}[!hb]
+	\centering
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/SocialNetworkABM_1_TOL.pdf}
+		\caption{Grafico per la comparazione sul valore di attivazione del controllore. Valore di tolleranza 0.0001}
+		\label{fig:comparison_tol_1e-4}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/SocialNetworkABM_2_TOL.pdf}
+		\caption{Grafico per la comparazione sul valore di attivazione del controllore. Valore di tolleranza 0.001}
+		\label{fig:comparison_tol_1e-3}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/SocialNetworkABM_3_TOL.pdf}
+		\caption{Grafico per la comparazione sul valore di attivazione del controllore. Valore di tolleranza 0.01}
+		\label{fig:comparison_tol_1e-2}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/SocialNetworkABM_4_TOL.pdf}
+		\caption{Grafico per la comparazione sul valore di attivazione del controllore. Valore di tolleranza 0.1}
+		\label{fig:comparison_tol_1e-1}
+	\end{subfigure}
+\end{figure}
+
+In entrambi i contesti in cui sono stati esaminati e testati alcuni 
+parametri fondamentali del controllore, è evidente come la curva di 
+"happiness" mostri un comportamento apparentemente opposto rispetto alla 
+curva delle contromisure adottate. Questo fenomeno è chiaramente 
+attribuibile alla natura estremamente semplicistica con cui è stata 
+definita la curva di "happiness", come illustrato nella Figura 
+\ref{fig:happinessf}.
+
+Va notato che questa semplificazione nella rappresentazione della 
+felicità è stata scelta consapevolmente per scopi specifici di questo 
+studio, sebbene sia riconosciuta come irrealistica. Tuttavia, questa 
+semplice rappresentazione ha dimostrato di essere adeguata per gli 
+obiettivi attuali della ricerca. 
+
+Nonostante l'apparente discrepanza tra i comportamenti delle due curve, 
+è importante sottolineare che questa semplificazione sarà oggetto di 
+ulteriori raffinamenti in futuro. Tale rifinitura mirerà a renderla più 
+realistica e coerente con le dinamiche reali delle emozioni umane e 
+delle reazioni della società a situazioni di emergenza.
+
+In conclusione, la discrepanza osservata tra le curve di "happiness" e 
+le curve delle contromisure è attribuibile alla semplificazione 
+deliberata della curva di "happiness" utilizzata in questo studio. 
+Tale semplificazione, sebbene irrealistica, è adeguata agli scopi attuali, 
+ma verrà affinata in future ricerche al fine di migliorare la 
+rappresentazione delle dinamiche umane in contesti pandemici e di 
+emergenza.

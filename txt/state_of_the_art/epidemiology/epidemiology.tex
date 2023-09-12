@@ -38,12 +38,12 @@ Per esempio, il grafico seguente sembra dimostrare in modo
 per la ricerca aerospaziale e il numero di suicidi per strangolamento:
 
 \begin{figure}[h]
-\begin{center}
-\includegraphics[width=\linewidth]{img/chart.png}
-\caption{Esempio di correlazione spuria}
-\url{https://www.tylervigen.com/spurious-correlations}
-\label{fig:spurious_relations}
-\end{center}
+    \begin{center}
+        \includegraphics[width=\linewidth]{img/chart.png}
+        \caption{Esempio di correlazione spuria}
+        \url{https://www.tylervigen.com/spurious-correlations}
+        \label{fig:spurious_relations}
+    \end{center}
 \end{figure}
 
 Sulla base di questo grafico e dei dati presentati, si potrebbe 
@@ -105,17 +105,21 @@ In uno di questi sottogruppi, i pazienti hanno scelto autonomamente se
 assumere o meno il farmaco, mentre nell'altro gruppo, i pazienti hanno 
 fatto l'opposto. Ecco i risultati:
 
-\begin{tabular}{ |p{2.2cm}||p{1.6cm}|p{1.6cm}|p{1.6cm}||p{1.6cm}|p{1.6cm}|p{1.6cm}| }
-    \hline
-    \multicolumn{7}{|c|}{Paradosso di Simpson} \\
-    \hline
-    Categoria & Pazienti & Guariti & \% Guariti & Pazienti & Guariti & \% Guariti\\
-    \hline
-    Uomini & 87 & 81 & 93\% & 270 & 234 & 87\% \\
-    Donne & 263 & 192 & 73\% & 80 & 55 & 69\% \\
-    Dati combinati & 350 & 273 & 78\% & 350 & 289 & 83\% \\
-    \hline
-\end{tabular}
+\begin{table}[htb]
+    \centering
+    \caption{Paradosso di Simpson}
+    \begin{tabular}{ |p{2.2cm}||p{1.6cm}|p{1.6cm}|p{1.6cm}||p{1.6cm}|p{1.6cm}|p{1.6cm}| }
+        \hline
+        \multicolumn{7}{|c|}{Paradosso di Simpson} \\
+        \hline
+        Categoria & Pazienti & Guariti & \% Guariti & Pazienti & Guariti & \% Guariti\\
+        \hline
+        Uomini & 87 & 81 & 93\% & 270 & 234 & 87\% \\
+        Donne & 263 & 192 & 73\% & 80 & 55 & 69\% \\
+        Dati combinati & 350 & 273 & 78\% & 350 & 289 & 83\% \\
+        \hline
+    \end{tabular}
+\end{table}
 
 Questi risultati sembrano suggerire che la prescrizione di questo 
 nuovo farmaco non abbia un impatto positivo sulla guarigione dei 
