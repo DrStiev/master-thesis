@@ -53,16 +53,12 @@ della soglia minima.
 
 Altri parametri definiscono principalmente i fattori necessari affinché 
 la funzione di controllo operi correttamente. 
+\newpage
+
+\subsubsection{Implementazione Controllore}
 
 Il controllore effettivo è principalmente strutturato come già 
 accennato nella sezione relativa alle Neural ODE.
-
-\begin{minipage}{\linewidth}
-	\centering
-	\includegraphics[width=\textwidth]{img/fann.png}
-	\captionof{figure}{Definizione del controllore mediante Neural ODE}
-	\label{fig:controller1}
-\end{minipage}
 
 Una rete neurale è definita utilizzando il framework 
 \textbf{Lux.jl} \cite{pal2023lux} e viene utilizzata esclusivamente per 
@@ -72,6 +68,13 @@ controllo per il modello. Successivamente, viene definito il sistema
 di ODE che governa il fenomeno che si desidera analizzare, 
 nello specifico, il sistema è un modello \textbf{SEIR} che tiene 
 conto della perdita di immunità nel tempo.
+
+\begin{minipage}{\linewidth}
+	\centering
+	\includegraphics[width=\textwidth]{img/fann.png}
+	\captionof{figure}{Definizione del controllore mediante Neural ODE}
+	\label{fig:controller1}
+\end{minipage}
 
 Successivamente, il problema viene istanziato utilizzando 
 l'interfaccia \textbf{ODEProblem}, a partire dalla quale il modello 
@@ -88,13 +91,23 @@ ausiliaria utile per monitorare l'andamento dell'apprendimento del modello.
 \end{minipage}
 
 Come mostrato nella figura \ref{fig:controller2}, la funzione di 
-callback svolge un doppio ruolo: da un lato, fornisce un supporto 
-nella visualizzazione dei dati relativi all'addestramento, e dall'altro, 
-implementa una forma di "early stopping" per evitare l'addestramento 
-eccessivo una volta che il modello ha raggiunto un risultato ottimale. 
-Questo approccio si basa sull'osservazione che il valore della loss 
-tende a stabilizzarsi una volta che il modello ha raggiunto una buona 
-soluzione.
+callback implementa una forma di "early stopping" per evitare 
+l'addestramento eccessivo una volta che il modello ha raggiunto un 
+risultato ottimale. Questo approccio si basa sull'osservazione che 
+il valore della loss tende a stabilizzarsi una volta che il modello 
+ha raggiunto una buona soluzione.
+
+\newpage
+
+\subsubsection{Esplorazione Funzione di Loss}
+
+La definizione della funzione di perdita, come illustrato nella Figura 
+\ref{fig:lossFunction}, rivela un approccio che enfatizza la 
+massimizzazione del numero di individui in uno stato di salute ottimale, 
+mentre cerca di minimizzare il numero di individui affetti da patologie. 
+In aggiunta a questa considerazione, la funzione di perdita prende in 
+considerazione il valore complessivo di felicità dell'agente, cercando di 
+massimizzarlo. 
 
 \begin{figure}[!hb]
 	\centering
@@ -127,14 +140,6 @@ soluzione.
 	\end{subfigure}
 \end{figure}
 
-La definizione della funzione di perdita, come illustrato nella Figura 
-\ref{fig:lossFunction}, rivela un approccio che enfatizza la 
-massimizzazione del numero di individui in uno stato di salute ottimale, 
-mentre cerca di minimizzare il numero di individui affetti da patologie. 
-In aggiunta a questa considerazione, la funzione di perdita prende in 
-considerazione il valore complessivo di felicità dell'agente, cercando di 
-massimizzarlo. 
-
 L'obiettivo ottimale da perseguire è rappresentato da un valore prossimo 
 allo zero. È importante notare che un valore leggermente superiore a zero 
 indica comunque che il modello ha identificato una soluzione accettabile, 
@@ -150,16 +155,7 @@ fondamentali.
 	\label{fig:lossFunction}
 \end{minipage}
 
-
-La fase di addestramento effettiva del modello avviene attraverso le 
-seguenti funzioni:
-
-\begin{minipage}{\linewidth}
-	\centering
-	\includegraphics[width=\textwidth]{img/controller3.png}
-	\captionof{figure}{Definizione delle funzioni di addestramento del controllore}
-	\label{fig:controller3}
-\end{minipage}
+\subsubsection{Esplorazione Funzione di Addestramento}
 
 Il ciclo di addestramento può essere idealmente suddiviso in due parti, 
 ma in pratica, entrambe potrebbero non essere necessarie. 
@@ -184,6 +180,13 @@ raggiungere un risultato ottimale in tempi brevi, senza la necessità di
 utilizzare un secondo ottimizzatore, il quale in questo caso non 
 apporterebbe miglioramenti significativi comportando solo un aumento 
 delle risorse computazionali.
+
+\begin{minipage}{\linewidth}
+	\centering
+	\includegraphics[width=\textwidth]{img/controller3.png}
+	\captionof{figure}{Definizione delle funzioni di addestramento del controllore}
+	\label{fig:controller3}
+\end{minipage}
 
 \subsubsection*{Funzione di Attivazione della Rete Neurale}
 La scelta della funzione di attivazione all'interno delle reti neurali 

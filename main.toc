@@ -9,40 +9,43 @@
 \contentsline {subsection}{\numberline {2.4}Julia}{13}{subsection.2.4}%
 \contentsline {subsubsection}{\numberline {2.4.1}Agents.jl}{13}{subsubsection.2.4.1}%
 \contentsline {subsubsection}{\numberline {2.4.2}Benchmarking e confronto con altri linguaggi}{14}{subsubsection.2.4.2}%
-\contentsline {subsection}{\numberline {2.5}Equazioni Neurali Differenziali}{17}{subsection.2.5}%
-\contentsline {subsubsection}{\numberline {2.5.1}Inserire un'ODE all'interno di una NN}{21}{subsubsection.2.5.1}%
-\contentsline {subsubsection}{\numberline {2.5.2}Backpropagation tramite ODE solver}{21}{subsubsection.2.5.2}%
-\contentsline {subsubsection}{\numberline {2.5.3}Equazioni Differenziali Universali}{22}{subsubsection.2.5.3}%
-\contentsline {section}{\numberline {3}Metodi e Modelli}{25}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Approccio con Rete Sociale}{25}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Agente}{28}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Spazio e Modello}{29}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Funzione di Avanzamento Agente}{30}{subsection.3.4}%
-\contentsline {subsection}{\numberline {3.5}Funzione di Avanzamento Modello}{33}{subsection.3.5}%
-\contentsline {subsubsection}{\numberline {3.5.1}Funzione per la Generazione delle Varianti del Virus (VOC)}{33}{subsubsection.3.5.1}%
-\contentsline {subsubsection}{\numberline {3.5.2}Funzione per la Simulazione della Campagna di Vaccinazione}{34}{subsubsection.3.5.2}%
-\contentsline {subsection}{\numberline {3.6}Monitoraggio e Intervento}{36}{subsection.3.6}%
-\contentsline {section}{\numberline {4}Analisi di Sensibilità}{44}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Analisi del Comportamento in Base al Numero Iniziale di Nodi Infetti}{46}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Analisi del Comportamento in Base al Tasso di Migrazione}{47}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Analisi del Comportamento in Base al Numero di Nodi della Rete}{48}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Analisi del Comportamento in Base alla Copertura della Rete}{49}{subsection.4.4}%
-\contentsline {subsection}{\numberline {4.5}Studio dell'Andamento del Controllore in Relazione all'Intervallo di Intervento}{49}{subsection.4.5}%
-\contentsline {subsection}{\numberline {4.6}Studio dell'Andamento del Controllore in Relazione all'Intervallo di Tolleranza}{50}{subsection.4.6}%
-\contentsline {section}{\numberline {5}Risultati Ottenuti}{53}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Nessun Intervento}{54}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Intervento Non Farmaceutico}{55}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Intervento Farmaceutico}{56}{subsection.5.3}%
-\contentsline {subsubsection}{\numberline {5.3.1}Grafici di Confronto}{57}{subsubsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.4}Intervento Farmaceutico e Non Farmaceutico}{57}{subsection.5.4}%
-\contentsline {subsubsection}{\numberline {5.4.1}Grafici di Confronto}{59}{subsubsection.5.4.1}%
-\contentsline {section}{\numberline {6}Conclusioni}{60}{section.6}%
-\contentsline {section}{\numberline {7}Sviluppi Futuri}{61}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Perfezionamento del Controllore}{61}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Miglioramento della Funzione di Happiness}{61}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Perfezionamento Generale del Modello}{61}{subsection.7.3}%
-\contentsline {subsection}{\numberline {7.4}Ottimizzazione Generale}{61}{subsection.7.4}%
-\contentsline {section}{\numberline {A}Altri Approcci}{68}{appendix.A}%
-\contentsline {subsection}{\numberline {A.1}Modello ad Agente su Spazio Continuo}{68}{subsection.A.1}%
-\contentsline {subsection}{\numberline {A.2}Modello ad Agente con Spazio a Grafo e Modellazione Singolo Agente}{70}{subsection.A.2}%
-\contentsline {subsection}{\numberline {A.3}Controllore Ipopt}{72}{subsection.A.3}%
+\contentsline {subsection}{\numberline {2.5}Equazioni Neurali Differenziali}{16}{subsection.2.5}%
+\contentsline {subsubsection}{\numberline {2.5.1}Inserire un'ODE all'interno di una NN}{20}{subsubsection.2.5.1}%
+\contentsline {subsubsection}{\numberline {2.5.2}Backpropagation tramite ODE solver}{20}{subsubsection.2.5.2}%
+\contentsline {subsubsection}{\numberline {2.5.3}Equazioni Differenziali Universali}{21}{subsubsection.2.5.3}%
+\contentsline {section}{\numberline {3}Metodi e Modelli}{23}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Approccio con Rete Sociale}{23}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Agente}{25}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Spazio e Modello}{26}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Funzione di Avanzamento Agente}{27}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Funzione di Avanzamento Modello}{30}{subsection.3.5}%
+\contentsline {subsubsection}{\numberline {3.5.1}Funzione per la Generazione delle Varianti del Virus (VOC)}{30}{subsubsection.3.5.1}%
+\contentsline {subsubsection}{\numberline {3.5.2}Funzione per la Simulazione della Campagna di Vaccinazione}{30}{subsubsection.3.5.2}%
+\contentsline {subsection}{\numberline {3.6}Monitoraggio e Intervento}{33}{subsection.3.6}%
+\contentsline {subsubsection}{\numberline {3.6.1}Implementazione Controllore}{35}{subsubsection.3.6.1}%
+\contentsline {subsubsection}{\numberline {3.6.2}Esplorazione Funzione di Loss}{37}{subsubsection.3.6.2}%
+\contentsline {subsubsection}{\numberline {3.6.3}Esplorazione Funzione di Addestramento}{38}{subsubsection.3.6.3}%
+\contentsline {section}{\numberline {4}Analisi di Sensibilità}{41}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Analisi del Comportamento in Base al Numero Iniziale di Nodi Infetti}{43}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Analisi del Comportamento in Base al Tasso di Migrazione}{44}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Analisi del Comportamento in Base al Numero di Nodi della Rete}{45}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Analisi del Comportamento in Base alla Copertura della Rete}{46}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Studio dell'Andamento del Controllore in Relazione all'Intervallo di Intervento}{46}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}Studio dell'Andamento del Controllore in Relazione all'Intervallo di Tolleranza}{47}{subsection.4.6}%
+\contentsline {section}{\numberline {5}Risultati Ottenuti}{50}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Nessun Intervento}{51}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Intervento Non Farmaceutico}{53}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Intervento Farmaceutico}{54}{subsection.5.3}%
+\contentsline {subsubsection}{\numberline {5.3.1}Grafici di Confronto}{55}{subsubsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.4}Intervento Farmaceutico e Non Farmaceutico}{56}{subsection.5.4}%
+\contentsline {subsubsection}{\numberline {5.4.1}Grafici di Confronto}{57}{subsubsection.5.4.1}%
+\contentsline {section}{\numberline {6}Conclusioni}{58}{section.6}%
+\contentsline {section}{\numberline {7}Sviluppi Futuri}{59}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Perfezionamento del Controllore}{59}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Miglioramento della Funzione di Happiness}{59}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Perfezionamento Generale del Modello}{59}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Ottimizzazione Generale}{59}{subsection.7.4}%
+\contentsline {section}{\numberline {A}Altri Approcci}{66}{appendix.A}%
+\contentsline {subsection}{\numberline {A.1}Modello ad Agente su Spazio Continuo}{66}{subsection.A.1}%
+\contentsline {subsection}{\numberline {A.2}Modello ad Agente con Spazio a Grafo e Modellazione Singolo Agente}{68}{subsection.A.2}%
+\contentsline {subsection}{\numberline {A.3}Controllore Ipopt}{70}{subsection.A.3}%

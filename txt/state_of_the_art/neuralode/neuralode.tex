@@ -135,13 +135,6 @@ delle derivate delle equazioni nella forma $u' = f(u, p, t)$, fornendo
 un set di condizioni iniziali $u0$, un intervallo di tempo $t$, e un 
 insieme di parametri $p$.
 
-\begin{minipage}{\linewidth}
-    \centering
-    \includegraphics[width=\textwidth]{img/fdefinition.png}
-    \captionof{figure}{Esempio definizione ODE in Julia}
-    \label{fig:ODE_Julia_example}
-\end{minipage}
-
 Successivamente, è possibile risolvere il sistema di ODE utilizzando la 
 funzione "solve". È possibile specificare diversi metodi per la 
 risoluzione del sistema. Ad esempio, il metodo "Tsit5" è un metodo 
@@ -149,6 +142,13 @@ esplicito di quinto ordine di tipo Runge-Kutta con un stimatore di
 errore integrato di tipo Tsitouras \cite{10.1016/j.camwa.2011.06.002}. 
 La libreria DifferentialEquations.jl offre una vasta gamma di parametri 
 aggiuntivi per un approccio più dettagliato \cite{rackauckas2017differentialequations}.
+
+\begin{minipage}{\linewidth}
+    \centering
+    \includegraphics[width=\textwidth]{img/fdefinition.png}
+    \captionof{figure}{Esempio definizione ODE in Julia}
+    \label{fig:ODE_Julia_example}
+\end{minipage}
 
 \subsubsection{Inserire un'ODE all'interno di una NN}
 
@@ -162,13 +162,6 @@ differenziabili, il che significa che possono essere incorporati
 direttamente in un programma più grande basato su differenziazione 
 automatica, come una rete neurale \cite{Flux.jl-2018} \cite{pal2023lux}. 
 
-\begin{minipage}{\linewidth}
-    \centering
-    \includegraphics[width=\textwidth]{img/fann.png}
-    \captionof{figure}{Esempio implementazione di una rete neurale in Julia}
-    \label{fig:NN_Julia_example}
-\end{minipage}
-
 Successivamente, è possibile addestrare la NN per un numero specifico di 
 integrazioni per ottenere i risultati desiderati. È importante 
 sottolineare che il sistema non sta apprendendo una soluzione 
@@ -178,6 +171,13 @@ effettivamente apprendendo una rappresentazione compatta del comportamento
 della serie di dati nel tempo e può estrapolare facilmente cosa 
 potrebbe accadere con diverse condizioni iniziali. La suite DiffEqFlux.jl 
 offre un wrapper comodo per definire una "NeuralODE" \cite{rackauckas2019diffeqflux}.
+
+\begin{minipage}{\linewidth}
+    \centering
+    \includegraphics[width=\textwidth]{img/fann.png}
+    \captionof{figure}{Esempio implementazione di una rete neurale in Julia}
+    \label{fig:NN_Julia_example}
+\end{minipage}
 
 \subsubsection{Backpropagation tramite ODE solver}
 
@@ -237,14 +237,6 @@ di dati, noti come "big data", per risolvere problemi precedentemente
 considerati difficili e complessi, come il riconoscimento di immagini o 
 il processing del linguaggio naturale.
 
-\begin{minipage}{\linewidth}
-    \centering
-    \includegraphics[width=\textwidth]{img/Caratteristiche-e-funzionamento-del-Deep-Learning-in-informatica.png}
-    \captionof{figure}{Esempio comparativo tra funzionamento Machine Learning e Deep Learning}
-    \url{https://goodboychan.github.io/images/copied_from_nb/image/fe.png}
-    \label{fig:ml_dl_example}
-\end{minipage}
-
 Tuttavia, in molti settori, specialmente nella medicina e in altre 
 discipline correlate, è difficile ottenere un insieme di dati 
 sufficientemente ampio e diversificato per applicare queste tecniche. 
@@ -252,6 +244,14 @@ In questi contesti, i modelli meccanicistici rimangono la scelta
 principale. L'approccio data-driven dei modelli di machine learning, 
 tuttavia, offre maggiore flessibilità e la possibilità di evitare 
 ipotesi semplificative richieste dai modelli teorici.
+
+\begin{minipage}{\linewidth}
+    \centering
+    \includegraphics[scale=0.4]{img/Caratteristiche-e-funzionamento-del-Deep-Learning-in-informatica.png}
+    \captionof{figure}{Esempio comparativo tra funzionamento Machine Learning e Deep Learning}
+    \url{https://goodboychan.github.io/images/copied_from_nb/image/fe.png}
+    \label{fig:ml_dl_example}
+\end{minipage}
 
 Un'Equazione Differenziale Universale (UDE) è definita da un 
 "approssimatore universale", un oggetto parametrico in grado di 
@@ -273,7 +273,7 @@ complessi come dinamiche dei fluidi o reti biologiche \cite{datadrivendiffeq}.
 
 \begin{minipage}{\linewidth}
     \centering
-    \includegraphics[width=\textwidth]{img/ude_approx.png}
+    \includegraphics[scale=0.4]{img/ude_approx.png}
     \captionof{figure}{Comportamento UDE nell'approssimazione di fenomeni non lineari \cite{rackauckas2020universal}}
     \label{fig:UDE_approx}
 \end{minipage}

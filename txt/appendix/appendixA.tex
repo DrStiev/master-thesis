@@ -17,13 +17,6 @@ modo casuale e rappresentati come punti colorati.
     \label{fig:ball_covid}
 \end{minipage}
 
-\begin{minipage}{\linewidth}
-    \centering
-    \includegraphics[width=\textwidth]{img/plot_abm_continuousspace.jpg}
-    \captionof{figure}{Esempio del comportamento delle curve nel modello continuo}
-    \label{fig:seir_curve_continuous}
-\end{minipage}
-
 Questo approccio prendeva spunto dalla fisica delle palline da 
 biliardo per modellare le interazioni tra gli agenti all'interno 
 dello spazio del modello. Ogni agente poteva casualmente infettare 
@@ -35,6 +28,14 @@ Tuttavia, questo approccio è risultato eccessivamente granulare e
 poco adatto agli obiettivi del progetto. Inoltre, richiedeva una 
 quantità considerevole di risorse computazionali e tempo, il che 
 ha portato alla sua sostituzione con un approccio più astratto e flessibile.
+
+\begin{minipage}{\linewidth}
+    \centering
+    \includegraphics[width=\textwidth]{img/plot_abm_continuousspace.jpg}
+    \captionof{figure}{Esempio del comportamento delle curve nel modello continuo}
+    \label{fig:seir_curve_continuous}
+\end{minipage}
+
 \newpage
 
 \subsection{Modello ad Agente con Spazio a Grafo e Modellazione Singolo Agente}
@@ -66,12 +67,7 @@ Anche se è stata formulata una formula approssimativa per
 descrivere la relazione tra i risultati del modello ABM e SEIR, 
 questo comportamento rimane inspiegabile. 
 
-\begin{minipage}{\linewidth}
-    \centering
-    \includegraphics[width=\textwidth]{img/rapporto_strano.png}
-    \captionof{figure}{Formula che si occupa di descrivere il rapporto tra il comportamento del modello scartato e del modello SEIR. In particolare questa formula descrive il rapporto tra gli $R_0$}
-    \label{fig:strange_behaviour_R0}
-\end{minipage}
+$$ ADAPTED R_0 = 1.1730158534328545 + 0.21570538523224972 * x $$
 
 L'uso di un approccio basato su un grafo e la modellazione del 
 singolo agente ha portato a risultati incoerenti e ha reso necessario 

@@ -8,39 +8,38 @@
 \contentsline {figure}{\numberline {8}{\ignorespaces Esempio di differenti tipologie di discretizzazione, siano esse nel tempo o nei valori\relax }}{12}{figure.8}%
 \contentsline {figure}{\numberline {9}{\ignorespaces Esempio di metriche per il calcolo della distanza su uno spazio a griglia \cite {Agents.jl}\relax }}{14}{figure.9}%
 \contentsline {figure}{\numberline {10}{\ignorespaces Tabella comparativa \cite {ABAR201713}\relax }}{15}{figure.10}%
-\contentsline {figure}{\numberline {11}{\ignorespaces Differenti approcci di apprendimento di machine learning\relax }}{17}{figure.11}%
-\contentsline {figure}{\numberline {12}{\ignorespaces Esempio di funzionamento di una rete neurale\relax }}{18}{figure.12}%
-\contentsline {figure}{\numberline {13}{\ignorespaces Esempio grafico ODE rappresentante la famosa equazione di Lotka-Volterra\relax }}{19}{figure.13}%
-\contentsline {figure}{\numberline {14}{\ignorespaces Esempio definizione ODE in Julia\relax }}{20}{figure.14}%
-\contentsline {figure}{\numberline {15}{\ignorespaces Esempio implementazione di una rete neurale in Julia\relax }}{21}{figure.15}%
-\contentsline {figure}{\numberline {16}{\ignorespaces Esempio comparativo tra funzionamento Machine Learning e Deep Learning\relax }}{23}{figure.16}%
-\contentsline {figure}{\numberline {17}{\ignorespaces Comportamento UDE nell'approssimazione di fenomeni non lineari \cite {rackauckas2020universal}\relax }}{24}{figure.17}%
-\contentsline {figure}{\numberline {19}{\ignorespaces Moreno's Sociagram of a 3rd grade class\relax }}{27}{figure.19}%
-\contentsline {figure}{\numberline {20}{\ignorespaces Codice Agente\relax }}{28}{figure.20}%
-\contentsline {figure}{\numberline {22}{\ignorespaces Codice Modello\relax }}{30}{figure.22}%
-\contentsline {figure}{\numberline {23}{\ignorespaces Funzione atta a calcolare lo spostamento di agenti da un nodo all'altro del grafo\relax }}{31}{figure.23}%
-\contentsline {figure}{\numberline {24}{\ignorespaces Funzione che crea la matrice di migrazione data la topologia di un grafo\relax }}{32}{figure.24}%
-\contentsline {figure}{\numberline {25}{\ignorespaces Funzione atta a calcolare la felicità degli agenti\relax }}{32}{figure.25}%
-\contentsline {figure}{\numberline {26}{\ignorespaces Funzione che si occupa di generare la VOC\relax }}{34}{figure.26}%
-\contentsline {figure}{\numberline {27}{\ignorespaces Funzione che si occupa di simulare la ricerca di un vaccino e la sua successiva applicazoine\relax }}{35}{figure.27}%
-\contentsline {figure}{\numberline {28}{\ignorespaces Definizione del controllore all'interno del modello ad agente\relax }}{37}{figure.28}%
-\contentsline {figure}{\numberline {29}{\ignorespaces Definizione del controllore mediante Neural ODE\relax }}{38}{figure.29}%
-\contentsline {figure}{\numberline {30}{\ignorespaces Definizione delle funzioni di supporto del controllore\relax }}{39}{figure.30}%
-\contentsline {figure}{\numberline {32}{\ignorespaces Definizione della funzione di loss per la Rete Neurale\relax }}{41}{figure.32}%
-\contentsline {figure}{\numberline {33}{\ignorespaces Definizione delle funzioni di addestramento del controllore\relax }}{41}{figure.33}%
-\contentsline {figure}{\numberline {34}{\ignorespaces Funzione di attivazione Swish\relax }}{42}{figure.34}%
-\contentsline {figure}{\numberline {35}{\ignorespaces Grafico rappresentante l'analisi di sensitività del modello\relax }}{44}{figure.35}%
-\contentsline {figure}{\numberline {36}{\ignorespaces Parametri usati per l'analisi di sensitività del modello ad agente\relax }}{45}{figure.36}%
-\contentsline {figure}{\numberline {43}{\ignorespaces Grafico cumulativo del modello senza alcun tipo di intervento\relax }}{54}{figure.43}%
-\contentsline {figure}{\numberline {44}{\ignorespaces Grafico cumulativo del modello con intervento non farmaceutico\relax }}{55}{figure.44}%
-\contentsline {figure}{\numberline {45}{\ignorespaces Grafico cumulativo del modello con intervento farmaceutico\relax }}{56}{figure.45}%
-\contentsline {figure}{\numberline {47}{\ignorespaces Grafico cumulativo del modello con intervento farmaceutico e non farmaceutico combinato\relax }}{58}{figure.47}%
-\contentsline {figure}{\numberline {49}{\ignorespaces Esempio del modello modellato su spazio continuo\relax }}{68}{figure.49}%
-\contentsline {figure}{\numberline {50}{\ignorespaces Esempio del comportamento delle curve nel modello continuo\relax }}{69}{figure.50}%
-\contentsline {figure}{\numberline {51}{\ignorespaces Comportamento modello ABM su spazio a grafo al variare del parametro $R_0$\relax }}{70}{figure.51}%
-\contentsline {figure}{\numberline {52}{\ignorespaces Comportamento modello SEIR al variare del parametro $R_0$\relax }}{71}{figure.52}%
-\contentsline {figure}{\numberline {53}{\ignorespaces Formula che si occupa di descrivere il rapporto tra il comportamento del modello scartato e del modello SEIR. In particolare questa formula descrive il rapporto tra gli $R_0$\relax }}{71}{figure.53}%
-\contentsline {figure}{\numberline {54}{\ignorespaces Comparison of Ipopt performance over various linear solvers using the two-dimensional partial differential equation test problem set. \cite {unknown}\relax }}{72}{figure.54}%
-\contentsline {figure}{\numberline {55}{\ignorespaces Definizione del controllore tramite Ipopt\relax }}{73}{figure.55}%
-\contentsline {figure}{\numberline {56}{\ignorespaces Definizione regole del modello del controller\relax }}{74}{figure.56}%
-\contentsline {figure}{\numberline {57}{\ignorespaces Definizione regole del modello del controller per le contromisure\relax }}{74}{figure.57}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Differenti approcci di apprendimento di machine learning\relax }}{16}{figure.11}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Esempio di funzionamento di una rete neurale\relax }}{17}{figure.12}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Esempio grafico ODE rappresentante la famosa equazione di Lotka-Volterra\relax }}{18}{figure.13}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Esempio definizione ODE in Julia\relax }}{19}{figure.14}%
+\contentsline {figure}{\numberline {15}{\ignorespaces Esempio implementazione di una rete neurale in Julia\relax }}{20}{figure.15}%
+\contentsline {figure}{\numberline {16}{\ignorespaces Esempio comparativo tra funzionamento Machine Learning e Deep Learning\relax }}{22}{figure.16}%
+\contentsline {figure}{\numberline {17}{\ignorespaces Comportamento UDE nell'approssimazione di fenomeni non lineari \cite {rackauckas2020universal}\relax }}{22}{figure.17}%
+\contentsline {figure}{\numberline {19}{\ignorespaces Moreno's Sociagram of a 3rd grade class\relax }}{24}{figure.19}%
+\contentsline {figure}{\numberline {20}{\ignorespaces Codice Agente\relax }}{25}{figure.20}%
+\contentsline {figure}{\numberline {22}{\ignorespaces Codice Modello\relax }}{27}{figure.22}%
+\contentsline {figure}{\numberline {23}{\ignorespaces Funzione atta a calcolare lo spostamento di agenti da un nodo all'altro del grafo\relax }}{28}{figure.23}%
+\contentsline {figure}{\numberline {24}{\ignorespaces Funzione che crea la matrice di migrazione data la topologia di un grafo\relax }}{29}{figure.24}%
+\contentsline {figure}{\numberline {25}{\ignorespaces Funzione atta a calcolare la felicità degli agenti\relax }}{29}{figure.25}%
+\contentsline {figure}{\numberline {26}{\ignorespaces Funzione che si occupa di generare la VOC\relax }}{31}{figure.26}%
+\contentsline {figure}{\numberline {27}{\ignorespaces Funzione che si occupa di simulare la ricerca di un vaccino e la sua successiva applicazoine\relax }}{32}{figure.27}%
+\contentsline {figure}{\numberline {28}{\ignorespaces Definizione del controllore all'interno del modello ad agente\relax }}{34}{figure.28}%
+\contentsline {figure}{\numberline {29}{\ignorespaces Definizione del controllore mediante Neural ODE\relax }}{35}{figure.29}%
+\contentsline {figure}{\numberline {30}{\ignorespaces Definizione delle funzioni di supporto del controllore\relax }}{36}{figure.30}%
+\contentsline {figure}{\numberline {32}{\ignorespaces Definizione della funzione di loss per la Rete Neurale\relax }}{38}{figure.32}%
+\contentsline {figure}{\numberline {33}{\ignorespaces Definizione delle funzioni di addestramento del controllore\relax }}{39}{figure.33}%
+\contentsline {figure}{\numberline {34}{\ignorespaces Funzione di attivazione Swish\relax }}{40}{figure.34}%
+\contentsline {figure}{\numberline {35}{\ignorespaces Grafico rappresentante l'analisi di sensitività del modello\relax }}{41}{figure.35}%
+\contentsline {figure}{\numberline {36}{\ignorespaces Parametri usati per l'analisi di sensitività del modello ad agente\relax }}{42}{figure.36}%
+\contentsline {figure}{\numberline {43}{\ignorespaces Grafico cumulativo del modello senza alcun tipo di intervento\relax }}{51}{figure.43}%
+\contentsline {figure}{\numberline {44}{\ignorespaces Grafico cumulativo del modello con intervento non farmaceutico\relax }}{53}{figure.44}%
+\contentsline {figure}{\numberline {45}{\ignorespaces Grafico cumulativo del modello con intervento farmaceutico\relax }}{54}{figure.45}%
+\contentsline {figure}{\numberline {47}{\ignorespaces Grafico cumulativo del modello con intervento farmaceutico e non farmaceutico combinato\relax }}{56}{figure.47}%
+\contentsline {figure}{\numberline {49}{\ignorespaces Esempio del modello modellato su spazio continuo\relax }}{66}{figure.49}%
+\contentsline {figure}{\numberline {50}{\ignorespaces Esempio del comportamento delle curve nel modello continuo\relax }}{67}{figure.50}%
+\contentsline {figure}{\numberline {51}{\ignorespaces Comportamento modello ABM su spazio a grafo al variare del parametro $R_0$\relax }}{68}{figure.51}%
+\contentsline {figure}{\numberline {52}{\ignorespaces Comportamento modello SEIR al variare del parametro $R_0$\relax }}{69}{figure.52}%
+\contentsline {figure}{\numberline {53}{\ignorespaces Comparison of Ipopt performance over various linear solvers using the two-dimensional partial differential equation test problem set. \cite {unknown}\relax }}{70}{figure.53}%
+\contentsline {figure}{\numberline {54}{\ignorespaces Definizione del controllore tramite Ipopt\relax }}{71}{figure.54}%
+\contentsline {figure}{\numberline {55}{\ignorespaces Definizione regole del modello del controller\relax }}{72}{figure.55}%
+\contentsline {figure}{\numberline {56}{\ignorespaces Definizione regole del modello del controller per le contromisure\relax }}{72}{figure.56}%

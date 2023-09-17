@@ -40,7 +40,7 @@ riduzione dei tempi di calcolo.
     \caption{Risultati Ensemblerun con ProgressMeter.jl}
     \begin{tabular}{|p{2.57cm}||p{2.57cm}|p{2.57cm}|p{2.57cm}|p{2.57cm}|}
         \hline
-        \multicolumn{5}{|c|}{Singlerun} \\
+        \multicolumn{5}{|c|}{Ensemblerun} \\
         \hline
         & Nessun Intervento & Intervento Non Farmaceutico & Intervento Farmaceutico & Intervento Farmaceutico e Non \\
         \hline
@@ -59,13 +59,30 @@ non solo dal punto di vista della salute pubblica, ma anche dal punto
 di vista della computazione e dell'efficienza dei modelli epidemiologici.
 \newpage
 
-\subsection{Nessun Intervento}
+\subsubsection*{Parametri Simulazione}
 
-Il seguente grafico (Figura \ref{fig:abm_no_intervent}) mostra 
-l'andamento delle curve del modello quando questo viene eseguito 
-senza alcuna tipologia di intervento. Questo andamento è rappresentato 
-in modo cumulativo rispetto all'andamento dei singoli agenti, 
-i quali possono mostrare comportamenti differenti tra loro.
+\begin{table}[htb]
+    \centering
+    \caption{Parametri utilizzati per la simulazione del modello}
+    \begin{tabular}{ |c||c| } 
+		\hline
+		\textbf{Parametri} & \textbf{Valori} \\ 
+		\hline
+		Numero Nodi & $50$ \\
+		Copertura Archi & Alta \\
+		Numero Nodi Infetti Iniziali & $1$ \\
+		Parametri Pandemici & $R_0 = 3.54$, $\gamma = \frac{1}{14}$, $\sigma = \frac{1}{5}$, $\omega = \frac{1}{280}$, $\delta = 0.01$ \\
+		Popolazione Media & $10000$ \\
+		Tasso di Migrazione Massimo & $0.001$ \\
+		Tolleranza Controllore & $1e-3$ \\
+		Finestra di Intervento & $10$ \\
+		Massimo Numero di Iterazioni Training Loop & $100$ \\
+		Massimo Numero di Iterazioni Senza Miglioramento & $3$ \\
+		\hline
+		\end{tabular}
+\end{table}
+
+\subsection{Nessun Intervento}
 
 \begin{minipage}{\linewidth}
     \centering
@@ -73,6 +90,12 @@ i quali possono mostrare comportamenti differenti tra loro.
     \captionof{figure}{Grafico cumulativo del modello senza alcun tipo di intervento}
     \label{fig:abm_no_intervent}
 \end{minipage}
+
+Il grafico (Figura \ref{fig:abm_no_intervent}) mostra 
+l'andamento delle curve del modello quando questo viene eseguito 
+senza alcuna tipologia di intervento. Questo andamento è rappresentato 
+in modo cumulativo rispetto all'andamento dei singoli agenti, 
+i quali possono mostrare comportamenti differenti tra loro.
 
 Complessivamente, l'andamento del modello è simile a quello 
 standard di un modello di tipo SEIR, con alcune variazioni 
@@ -108,19 +131,19 @@ diffusione del virus.
 
 \subsection{Intervento Non Farmaceutico}
 
-Nel seguente grafico (Figura \ref{fig:abm_nonpharm_intervent}) è 
-rappresentato l'andamento delle curve quando viene applicato un 
-intervento non farmaceutico, come il distanziamento sociale, 
-l'uso di maschere, ecc. L'obiettivo di questo tipo di intervento 
-è quello di rallentare la diffusione del virus senza utilizzare 
-farmaci o vaccini.
-
 \begin{minipage}{\linewidth}
     \centering
     \includegraphics[width=\textwidth]{img/SocialNetworkABM_CONTROL.jpg}
     \captionof{figure}{Grafico cumulativo del modello con intervento non farmaceutico}
     \label{fig:abm_nonpharm_intervent}
 \end{minipage}
+
+Nel grafico (Figura \ref{fig:abm_nonpharm_intervent}) è 
+rappresentato l'andamento delle curve quando viene applicato un 
+intervento non farmaceutico, come il distanziamento sociale, 
+l'uso di maschere, ecc. L'obiettivo di questo tipo di intervento 
+è quello di rallentare la diffusione del virus senza utilizzare 
+farmaci o vaccini.
 
 Come si può vedere dal grafico, l'intervento non farmaceutico 
 ha un impatto significativo sulla diffusione del virus. 
@@ -136,6 +159,7 @@ mostra comunque oscillazioni dovute alle misure di controllo cicliche.
 In generale, l'intervento non farmaceutico riesce a contenere 
 l'epidemia e a ridurne l'entità, ma non riesce a eliminarla 
 completamente.
+\newpage
 
 \subsection{Intervento Farmaceutico}
 
@@ -164,10 +188,9 @@ l'intervento farmaceutico acquisiscono immunità duratura.
 
 La curva di felicità mostra ancora alcune oscillazioni dovute alle 
 misure di controllo cicliche, ma queste oscillazioni sono meno 
-pronunciate rispetto ai casi precedenti.
-
-In generale, l'intervento farmaceutico è estremamente efficace nel 
-contenere e ridurre l'epidemia.
+pronunciate rispetto ai casi precedenti. In generale, l'intervento 
+farmaceutico è estremamente efficace nel contenere e ridurre l'epidemia.
+\newpage
 
 \subsubsection{Grafici di Confronto}
 
@@ -206,6 +229,7 @@ oltre al numero di persone vaccinate.
 		\label{fig:comparison_vax_4}
 	\end{subfigure}
 \end{figure}
+\newpage
 
 \subsection{Intervento Farmaceutico e Non Farmaceutico}
 
