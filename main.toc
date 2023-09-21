@@ -45,7 +45,7 @@
 \contentsline {subsection}{\numberline {7.2}Miglioramento della Funzione di Happiness}{59}{subsection.7.2}%
 \contentsline {subsection}{\numberline {7.3}Perfezionamento Generale del Modello}{59}{subsection.7.3}%
 \contentsline {subsection}{\numberline {7.4}Ottimizzazione Generale}{59}{subsection.7.4}%
-\contentsline {section}{\numberline {A}Altri Approcci}{66}{appendix.A}%
-\contentsline {subsection}{\numberline {A.1}Modello ad Agente su Spazio Continuo}{66}{subsection.A.1}%
-\contentsline {subsection}{\numberline {A.2}Modello ad Agente con Spazio a Grafo e Modellazione Singolo Agente}{68}{subsection.A.2}%
-\contentsline {subsection}{\numberline {A.3}Controllore Ipopt}{70}{subsection.A.3}%
+\contentsline {section}{\numberline {A}Altri Approcci}{67}{appendix.A}%
+\contentsline {subsection}{\numberline {A.1}Modello ad Agente su Spazio Continuo}{67}{subsection.A.1}%
+\contentsline {subsection}{\numberline {A.2}Modello ad Agente con Spazio a Grafo e Modellazione Singolo Agente}{69}{subsection.A.2}%
+\contentsline {subsection}{\numberline {A.3}Controllore Ipopt}{71}{subsection.A.3}%

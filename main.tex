@@ -1,5 +1,5 @@
 \documentclass{article}
-\usepackage{graphicx} % Required for inserting images
+\usepackage{graphicx} 
 \graphicspath{{figures/}}
 \usepackage{array}
 \usepackage{caption}
@@ -11,7 +11,7 @@
 \usepackage{subcaption}
 \usepackage[T1]{fontenc}
 \usepackage[parfill]{parskip}
-%\usepackage{multirow}
+\usepackage{lmodern}
 
 \title{MODELLAZIONE E APPRENDIMENTO DI STUDI EPIDEMIOLOGICI CON AGENTI SU GRAFO}
 \author{m.stievano1@campus.unimib.it}
@@ -47,7 +47,7 @@
     del grafo. Il controllore si basa sull'idea di una Neural ODE, 
     che regola in modo autonomo e automatico il livello di contromisure 
     applicate. Tali contromisure sono identificate come una riduzione 
-    dell'indice di infettività $R_0$. Per evitare l'applicazione di 
+    del numero di individui infetti. Per evitare l'applicazione di 
     contromisure praticamente insostenibili, è stato introdotto un 
     parametro di "felicità", che agisce come una funzione di costo 
     aggiuntiva per il controllore.
@@ -75,6 +75,7 @@
 \include{./txt/state_of_the_art/agente_based/agent_based_model.tex}
 % julia
 \include{./txt/state_of_the_art/julia/julia.tex}
+% neuralode
 \include{./txt/state_of_the_art/neuralode/neuralode.tex}
 
 % descrizione dei metodi, strumenti e approcci utilizzati
@@ -86,15 +87,8 @@
 \include{./txt/results/results.tex}
 \include{./txt/results/future_development.tex}
 
-% discussione delle conclusioni e possibili ringraziamenti
-% \include{./txt/conclusions/conclusion.tex}
-% \include{./txt/conclusions/ringraziamenti}
-
 \nocite{*}
-
-% \bibliographystyle{IEEEtran}
-% \bibliographystyle{alpha}
-\bibliographystyle{plain}
+\bibliographystyle{IEEEtran}
 \bibliography{reference.bib}
 
 \appendix

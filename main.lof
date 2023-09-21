@@ -35,11 +35,11 @@
 \contentsline {figure}{\numberline {44}{\ignorespaces Grafico cumulativo del modello con intervento non farmaceutico\relax }}{53}{figure.44}%
 \contentsline {figure}{\numberline {45}{\ignorespaces Grafico cumulativo del modello con intervento farmaceutico\relax }}{54}{figure.45}%
 \contentsline {figure}{\numberline {47}{\ignorespaces Grafico cumulativo del modello con intervento farmaceutico e non farmaceutico combinato\relax }}{56}{figure.47}%
-\contentsline {figure}{\numberline {49}{\ignorespaces Esempio del modello modellato su spazio continuo\relax }}{66}{figure.49}%
-\contentsline {figure}{\numberline {50}{\ignorespaces Esempio del comportamento delle curve nel modello continuo\relax }}{67}{figure.50}%
-\contentsline {figure}{\numberline {51}{\ignorespaces Comportamento modello ABM su spazio a grafo al variare del parametro $R_0$\relax }}{68}{figure.51}%
-\contentsline {figure}{\numberline {52}{\ignorespaces Comportamento modello SEIR al variare del parametro $R_0$\relax }}{69}{figure.52}%
-\contentsline {figure}{\numberline {53}{\ignorespaces Comparison of Ipopt performance over various linear solvers using the two-dimensional partial differential equation test problem set. \cite {unknown}\relax }}{70}{figure.53}%
-\contentsline {figure}{\numberline {54}{\ignorespaces Definizione del controllore tramite Ipopt\relax }}{71}{figure.54}%
-\contentsline {figure}{\numberline {55}{\ignorespaces Definizione regole del modello del controller\relax }}{72}{figure.55}%
-\contentsline {figure}{\numberline {56}{\ignorespaces Definizione regole del modello del controller per le contromisure\relax }}{72}{figure.56}%
+\contentsline {figure}{\numberline {49}{\ignorespaces Esempio del modello modellato su spazio continuo\relax }}{67}{figure.49}%
+\contentsline {figure}{\numberline {50}{\ignorespaces Esempio del comportamento delle curve nel modello continuo\relax }}{68}{figure.50}%
+\contentsline {figure}{\numberline {51}{\ignorespaces Comportamento modello ABM su spazio a grafo al variare del parametro $R_0$\relax }}{69}{figure.51}%
+\contentsline {figure}{\numberline {52}{\ignorespaces Comportamento modello SEIR al variare del parametro $R_0$\relax }}{70}{figure.52}%
+\contentsline {figure}{\numberline {53}{\ignorespaces Comparison of Ipopt performance over various linear solvers using the two-dimensional partial differential equation test problem set. \cite {unknown}\relax }}{71}{figure.53}%
+\contentsline {figure}{\numberline {54}{\ignorespaces Definizione del controllore tramite Ipopt\relax }}{72}{figure.54}%
+\contentsline {figure}{\numberline {55}{\ignorespaces Definizione regole del modello del controller\relax }}{73}{figure.55}%
+\contentsline {figure}{\numberline {56}{\ignorespaces Definizione regole del modello del controller per le contromisure\relax }}{73}{figure.56}%
