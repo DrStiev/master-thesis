@@ -44,12 +44,13 @@ determinato dal valore di "tolerance", il quale evita l'attivazione
 del controllore fintanto che la situazione sembra rimanere al di sotto 
 della soglia minima.
 
-\begin{minipage}{\linewidth}
-	\centering
-	\includegraphics[width=\textwidth]{img/controller_neuralode.png}
-	\captionof{figure}{Definizione del controllore all'interno del modello ad agente}
-	\label{fig:controller_abm}
-\end{minipage}
+\begin{figure}[H]
+    \begin{center}
+		\includegraphics[width=\textwidth]{img/controller_neuralode.png}
+		\caption{Definizione del controllore all'interno del modello ad agente}
+		\label{fig:controller_abm}
+	\end{center}
+\end{figure}
 
 Altri parametri definiscono principalmente i fattori necessari affinché 
 la funzione di controllo operi correttamente. 
@@ -69,12 +70,13 @@ di ODE che governa il fenomeno che si desidera analizzare,
 nello specifico, il sistema è un modello \textbf{SEIR} che tiene 
 conto della perdita di immunità nel tempo.
 
-\begin{minipage}{\linewidth}
-	\centering
-	\includegraphics[width=\textwidth]{img/fann.png}
-	\captionof{figure}{Definizione del controllore mediante Neural ODE}
-	\label{fig:controller1}
-\end{minipage}
+\begin{figure}[H]
+    \begin{center}
+		\includegraphics[width=\textwidth]{img/fann.png}
+		\caption{Definizione del controllore mediante Neural ODE}
+		\label{fig:controller1}
+	\end{center}
+\end{figure}
 
 Successivamente, il problema viene istanziato utilizzando 
 l'interfaccia \textbf{ODEProblem}, a partire dalla quale il modello 
@@ -83,12 +85,13 @@ l'addestramento effettivo, vengono definite funzioni per la predizione,
 il calcolo della perdita del modello (loss) e una funzione di callback 
 ausiliaria utile per monitorare l'andamento dell'apprendimento del modello.
 
-\begin{minipage}{\linewidth}
-	\centering
-	\includegraphics[width=\textwidth]{img/controller2.png}
-	\captionof{figure}{Definizione delle funzioni di supporto del controllore}
-	\label{fig:controller2}
-\end{minipage}
+\begin{figure}[H]
+    \begin{center}
+		\includegraphics[width=\textwidth]{img/controller2.png}
+		\caption{Definizione delle funzioni di supporto del controllore}
+		\label{fig:controller2}
+	\end{center}
+\end{figure}
 
 Come mostrato nella figura \ref{fig:controller2}, la funzione di 
 callback implementa una forma di "early stopping" per evitare 
@@ -109,7 +112,7 @@ In aggiunta a questa considerazione, la funzione di perdita prende in
 considerazione il valore complessivo di felicità dell'agente, cercando di 
 massimizzarlo. 
 
-\begin{figure}[!hb]
+\begin{figure}[H]
 	\centering
 	\begin{subfigure}[b]{0.45\textwidth}
 		\centering
@@ -148,12 +151,13 @@ equilibrare la salute degli individui con il loro benessere complessivo,
 creando così una soluzione che tiene conto di entrambi questi aspetti 
 fondamentali.
 
-\begin{minipage}{\linewidth}
-	\centering
-	\includegraphics[width=\textwidth]{img/loss.png}
-	\captionof{figure}{Definizione della funzione di loss per la Rete Neurale}
-	\label{fig:lossFunction}
-\end{minipage}
+\begin{figure}[H]
+    \begin{center}
+		\includegraphics[width=\textwidth]{img/loss.png}
+		\caption{Definizione della funzione di loss per la Rete Neurale}
+		\label{fig:lossFunction}
+	\end{center}
+\end{figure}
 
 \subsubsection{Esplorazione Funzione di Addestramento}
 
@@ -181,12 +185,13 @@ utilizzare un secondo ottimizzatore, il quale in questo caso non
 apporterebbe miglioramenti significativi comportando solo un aumento 
 delle risorse computazionali.
 
-\begin{minipage}{\linewidth}
-	\centering
-	\includegraphics[width=\textwidth]{img/controller3.png}
-	\captionof{figure}{Definizione delle funzioni di addestramento del controllore}
-	\label{fig:controller3}
-\end{minipage}
+\begin{figure}[H]
+    \begin{center}
+		\includegraphics[width=\textwidth]{img/controller3.png}
+		\caption{Definizione delle funzioni di addestramento del controllore}
+		\label{fig:controller3}
+	\end{center}
+\end{figure}
 
 \subsubsection*{Funzione di Attivazione della Rete Neurale}
 La scelta della funzione di attivazione all'interno delle reti neurali 
@@ -208,13 +213,14 @@ di classificazione "top-1" su dataset come \textbf{ImageNet}, con
 guadagni fino al $0.9\%$ utilizzando \textbf{NASNetA} e fino al 
 $0.6\%$ utilizzando \textbf{Inception-ResNet-v2}.
 
-\begin{minipage}{\linewidth}
-	\centering
-	\includegraphics[width=\textwidth]{img/Screen-Shot-2017-10-18-at-2.39.55-PM.png}
-	\captionof{figure}{Funzione di attivazione Swish}
-	\url{https://lazyprogrammer.me/wp-content/uploads/2017/10/Screen-Shot-2017-10-18-at-2.39.55-PM.png}
-	\label{fig:swish}
-\end{minipage}
+\begin{figure}[H]
+    \begin{center}
+		\includegraphics[width=\textwidth]{img/Screen-Shot-2017-10-18-at-2.39.55-PM.png}
+		\caption{Funzione di attivazione Swish}
+		\url{https://lazyprogrammer.me/wp-content/uploads/2017/10/Screen-Shot-2017-10-18-at-2.39.55-PM.png}
+		\label{fig:swish}	
+	\end{center}
+\end{figure}
 
 La peculiarità distintiva di Swish risiede nella sua semplicità e 
 nella notevole somiglianza con la funzione di attivazione ReLU, 

@@ -90,10 +90,12 @@ malattia, gli individui possano trovarsi in uno dei tre stati:
     \item \textbf{Recovered (R)}: Questo stato rappresenta gli individui che, al termine della malattia, sopravvivono o muoiono a causa di essa. A volte, questo stato è chiamato anche "Removed".
 \end{itemize}
 
-\begin{figure}[h]
-    \includegraphics[width=\linewidth]{img/sir.png}
-    \caption{Esempio della struttura del modello SIR} 
-    \label{fig:SIR_Structure}
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=\linewidth]{img/sir.png}
+        \caption{Esempio della struttura del modello SIR} 
+        \label{fig:SIR_Structure}
+    \end{center}
 \end{figure}
 
 Da questa idea di base, è stato sviluppato un modello matematico che 
@@ -151,12 +153,13 @@ Il sistema di equazioni differenziali che descrive il modello SEIR è il seguent
 \[ \frac{dI}{dt} = \kappa \cdot E - \gamma \cdot I \]
 \[ \frac{dR}{dt} = \gamma \cdot I \]
 
-\begin{minipage}{\linewidth}
-    \centering
-    \includegraphics[width=\textwidth]{img/41592_2020_856_Fig1_HTML.png}
-    \captionof{figure}{Esempio di modello SEIRS \cite{Bjornstad2020}}
-    \label{fig:SEIRS_model}
-\end{minipage}
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=\textwidth]{img/41592_2020_856_Fig1_HTML.png}
+        \caption{Esempio di modello SEIRS \cite{Bjornstad2020}}
+        \label{fig:SEIRS_model}
+    \end{center}
+\end{figure}
 
 Un altro sviluppo importante è l'analisi dei modelli epidemiologici in 
 forma stocastica, che tiene conto della variabilità individuale e delle 
@@ -173,10 +176,11 @@ modellazione e la comprensione della diffusione delle malattie infettive,
 consentendo agli epidemiologi di studiare scenari diversi e sviluppare 
 strategie di controllo più efficaci.
 
-\begin{minipage}{\linewidth}
-    \centering
-    \includegraphics[width=\textwidth]{img/stochastic_SEIR.png}
-    \captionof{figure}{Esempio di modello SEIR stocastico}
-    \url{https://community.wolfram.com//c/portal/getImageAttachment?filename=stochastic_SEIR.png&userId=228444}
-    \label{fig:stochastic_SEIR_model}
-\end{minipage}
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=\textwidth]{img/stochastic_SEIR.png}
+        \caption{Esempio di modello SEIR stocastico}
+        \url{https://community.wolfram.com//c/portal/getImageAttachment?filename=stochastic_SEIR.png&userId=228444}
+        \label{fig:stochastic_SEIR_model}
+    \end{center}
+\end{figure}

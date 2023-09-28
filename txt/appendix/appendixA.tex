@@ -10,12 +10,13 @@ di modello continuo poteva essere visualizzato come una griglia di
 dimensioni $N \times M$ in cui gli agenti venivano posizionati in 
 modo casuale e rappresentati come punti colorati.
 
-\begin{minipage}{\linewidth}
-    \centering
-    \includegraphics[width=\textwidth]{img/ball-covid.png}
-    \captionof{figure}{Esempio del modello modellato su spazio continuo}
-    \label{fig:ball_covid}
-\end{minipage}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=\textwidth]{img/ball-covid.png}
+        \caption{Esempio del modello modellato su spazio continuo}
+		\label{fig:ball_covid}
+    \end{center}
+\end{figure}
 
 Questo approccio prendeva spunto dalla fisica delle palline da 
 biliardo per modellare le interazioni tra gli agenti all'interno 
@@ -29,12 +30,13 @@ poco adatto agli obiettivi del progetto. Inoltre, richiedeva una
 quantità considerevole di risorse computazionali e tempo, il che 
 ha portato alla sua sostituzione con un approccio più astratto e flessibile.
 
-\begin{minipage}{\linewidth}
-    \centering
-    \includegraphics[width=\textwidth]{img/plot_abm_continuousspace.jpg}
-    \captionof{figure}{Esempio del comportamento delle curve nel modello continuo}
-    \label{fig:seir_curve_continuous}
-\end{minipage}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=\textwidth]{img/plot_abm_continuousspace.jpg}
+        \caption{Esempio del comportamento delle curve nel modello continuo}
+		\label{fig:seir_curve_continuous}
+    \end{center}
+\end{figure}
 
 \newpage
 
@@ -49,19 +51,21 @@ completamente divergente rispetto al modello SEIR deterministico.
 Questo comportamento anomalo è stato osservato in presenza di variazioni 
 nel parametro $R_0$, e la causa rimane sconosciuta.
 
-\begin{minipage}{\linewidth}
-    \centering
-    \includegraphics[width=\textwidth]{img/COMPARISON DIFFERENT R0 VALUE_2023-06-29.jpg}
-    \captionof{figure}{Comportamento modello ABM su spazio a grafo al variare del parametro $R_0$}
-    \label{fig:strange_behaviour_R0_abm}
-\end{minipage}
+\begin{figure}[H]
+    \begin{center}
+		\includegraphics[width=\textwidth]{img/COMPARISON DIFFERENT R0 VALUE_2023-06-29.jpg}
+		\caption{Comportamento modello ABM su spazio a grafo al variare del parametro $R_0$}
+		\label{fig:strange_behaviour_R0_abm}
+	\end{center}
+\end{figure}
 
-\begin{minipage}{\linewidth}
-    \centering
-    \includegraphics[width=\textwidth]{img/COMPARISON DIFFERENT R0 VALUE_2023-06-29 (1).jpg}
-    \captionof{figure}{Comportamento modello SEIR al variare del parametro $R_0$}
-    \label{fig:strange_behaviour_R0_ode}
-\end{minipage}
+\begin{figure}[H]
+    \begin{center}
+		\includegraphics[width=\textwidth]{img/COMPARISON DIFFERENT R0 VALUE_2023-06-29 (1).jpg}
+		\caption{Comportamento modello SEIR al variare del parametro $R_0$}
+		\label{fig:strange_behaviour_R0_ode}
+	\end{center}
+\end{figure}
 
 Anche se è stata formulata una formula approssimativa per 
 descrivere la relazione tra i risultati del modello ABM e SEIR, 
@@ -82,12 +86,13 @@ non lineare su larga scala. Ipopt è progettato per trovare soluzioni
 locali a problemi di ottimizzazione matematica, con funzioni obiettivo e 
 vincoli non lineari. \cite{Wächter2006}
 
-\begin{minipage}{\linewidth}
-    \centering
-    \includegraphics[width=\textwidth]{img/Comparison-of-Ipopt-performance-over-various-linear-solvers-using-the-two-dimensional.png}
-    \captionof{figure}{Comparison of Ipopt performance over various linear solvers using the two-dimensional partial differential equation test problem set. \cite{unknown}}
-    \label{fig:Ipopt_solver}
-\end{minipage}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=\textwidth]{img/Comparison-of-Ipopt-performance-over-various-linear-solvers-using-the-two-dimensional.png}
+		\caption{Comparison of Ipopt performance over various linear solvers using the two-dimensional partial differential equation test problem set. \cite{unknown}}
+		\label{fig:Ipopt_solver}	
+    \end{center}
+\end{figure}
 
 L'approccio ha previsto l'applicazione di un sistema di 
 monitoraggio e intervento all'interno del modello di simulazione, 
@@ -96,26 +101,29 @@ Le regole per il comportamento del modello sono state definite,
 inclusa una rappresentazione degli stati SEIR e un nuovo stato per 
 il controllo delle risorse.
 
-\begin{minipage}{\linewidth}
-	\centering
-	\includegraphics[width=\textwidth]{img/controller_ipopt.png}
-	\captionof{figure}{Definizione del controllore tramite Ipopt}
-	\label{fig:controller_ipopt}
-\end{minipage}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=\textwidth]{img/controller_ipopt.png}
+		\caption{Definizione del controllore tramite Ipopt}
+		\label{fig:controller_ipopt}	
+    \end{center}
+\end{figure}
 
-\begin{minipage}{\linewidth}
-	\centering
-	\includegraphics[width=\textwidth]{img/controller_rules.png}
-	\captionof{figure}{Definizione regole del modello del controller}
-	\label{fig:controller_rules}
-\end{minipage}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=\textwidth]{img/controller_rules.png}
+		\caption{Definizione regole del modello del controller}
+		\label{fig:controller_rules}	
+    \end{center}
+\end{figure}
 
-\begin{minipage}{\linewidth}
-	\centering
-	\includegraphics[width=\textwidth]{img/controller_rules_1.png}
-	\captionof{figure}{Definizione regole del modello del controller per le contromisure}
-	\label{fig:controller_rules_1}
-\end{minipage}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=\textwidth]{img/controller_rules_1.png}
+		\caption{Definizione regole del modello del controller per le contromisure}
+		\label{fig:controller_rules_1}	
+    \end{center}
+\end{figure}
 
 Sono state stabilite anche regole per il consumo di risorse, 
 rappresentando le contromisure con il loro costo associato. 
@@ -129,7 +137,7 @@ il codice da CPU a GPU è stata determinante nella decisione di
 utilizzare l'implementazione personalizzata, in previsione di futuri 
 miglioramenti delle prestazioni del codice.
 
-\begin{figure}[!hb]
+\begin{figure}[H]
 	\centering
 	\begin{subfigure}[b]{\textwidth}
 		\centering

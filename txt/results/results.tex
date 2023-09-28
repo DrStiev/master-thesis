@@ -8,7 +8,7 @@ efficacia delle politiche di intervento adottate. In particolare,
 influenzato dall'implementazione del controllore e, di conseguenza, 
 dal calcolo delle Neural ODE e da tutte le operazioni connesse.
 
-\begin{table}[htb]
+\begin{table}[H]
     \centering
     \caption{Benchmarking con BenchmarkTools.jl \cite{chen2016robust}}
     \begin{tabular}{|p{2.57cm}||p{2.57cm}|p{2.57cm}|p{2.57cm}|p{2.57cm}|}
@@ -35,7 +35,7 @@ significativo alla riduzione della diffusione della pandemia
 Figura \ref{fig:comparison_vax_4}), consentono anche una significativa 
 riduzione dei tempi di calcolo.
 
-\begin{table}[htb]
+\begin{table}[H]
     \centering
     \caption{Risultati Ensemblerun con ProgressMeter.jl}
     \begin{tabular}{|p{2.57cm}||p{2.57cm}|p{2.57cm}|p{2.57cm}|p{2.57cm}|}
@@ -57,14 +57,13 @@ Questo aspetto sottolinea l'importanza delle strategie di vaccinazione
 e delle misure farmaceutiche nella gestione delle pandemie, 
 non solo dal punto di vista della salute pubblica, ma anche dal punto 
 di vista della computazione e dell'efficienza dei modelli epidemiologici.
-\newpage
 
 \subsubsection*{Parametri Simulazione}
 
-\begin{table}[htb]
+\begin{table}[H]
     \centering
     \caption{Parametri utilizzati per la simulazione del modello}
-    \begin{tabular}{ |c||c| } 
+    \begin{tabular}{ |p{6.5cm}||p{6.5cm}| } 
 		\hline
 		\textbf{Parametri} & \textbf{Valori} \\ 
 		\hline
@@ -84,12 +83,13 @@ di vista della computazione e dell'efficienza dei modelli epidemiologici.
 
 \subsection{Nessun Intervento}
 
-\begin{minipage}{\linewidth}
-    \centering
-    \includegraphics[width=\textwidth]{img/SocialNetworkABM_NO_CONTROL.jpg}
-    \captionof{figure}{Grafico cumulativo del modello senza alcun tipo di intervento}
-    \label{fig:abm_no_intervent}
-\end{minipage}
+\begin{figure}[H]
+    \begin{center}
+		\includegraphics[width=\textwidth]{img/SocialNetworkABM_NO_CONTROL.jpg}
+		\caption{Grafico cumulativo del modello senza alcun tipo di intervento}
+		\label{fig:abm_no_intervent}
+	\end{center}
+\end{figure}
 
 Il grafico (Figura \ref{fig:abm_no_intervent}) mostra 
 l'andamento delle curve del modello quando questo viene eseguito 
@@ -131,12 +131,13 @@ diffusione del virus.
 
 \subsection{Intervento Non Farmaceutico}
 
-\begin{minipage}{\linewidth}
-    \centering
-    \includegraphics[width=\textwidth]{img/SocialNetworkABM_CONTROL.jpg}
-    \captionof{figure}{Grafico cumulativo del modello con intervento non farmaceutico}
-    \label{fig:abm_nonpharm_intervent}
-\end{minipage}
+\begin{figure}[H]
+    \begin{center}
+		\includegraphics[width=\textwidth]{img/SocialNetworkABM_CONTROL.jpg}
+		\caption{Grafico cumulativo del modello con intervento non farmaceutico}
+		\label{fig:abm_nonpharm_intervent}
+	\end{center}
+\end{figure}
 
 Nel grafico (Figura \ref{fig:abm_nonpharm_intervent}) è 
 rappresentato l'andamento delle curve quando viene applicato un 
@@ -159,7 +160,6 @@ mostra comunque oscillazioni dovute alle misure di controllo cicliche.
 In generale, l'intervento non farmaceutico riesce a contenere 
 l'epidemia e a ridurne l'entità, ma non riesce a eliminarla 
 completamente.
-\newpage
 
 \subsection{Intervento Farmaceutico}
 
@@ -170,12 +170,13 @@ farmaci antivirali. L'obiettivo di questo tipo di intervento è
 quello di ridurre significativamente la diffusione del virus e, 
 idealmente, di eliminare l'epidemia.
 
-\begin{minipage}{\linewidth}
-    \centering
-    \includegraphics[width=\textwidth]{img/SocialNetworkABM_VACCINE.jpg}
-    \captionof{figure}{Grafico cumulativo del modello con intervento farmaceutico}
-    \label{fig:abm_pharm_intervent}
-\end{minipage}
+\begin{figure}[H]
+    \begin{center}
+		\includegraphics[width=\textwidth]{img/SocialNetworkABM_VACCINE.jpg}
+		\caption{Grafico cumulativo del modello con intervento farmaceutico}
+		\label{fig:abm_pharm_intervent}
+	\end{center}
+\end{figure}
 
 Come si può notare, l'intervento farmaceutico ha un impatto 
 molto positivo sulla diffusione del virus. Il numero di individui 
@@ -190,7 +191,6 @@ La curva di felicità mostra ancora alcune oscillazioni dovute alle
 misure di controllo cicliche, ma queste oscillazioni sono meno 
 pronunciate rispetto ai casi precedenti. In generale, l'intervento 
 farmaceutico è estremamente efficace nel contenere e ridurre l'epidemia.
-\newpage
 
 \subsubsection{Grafici di Confronto}
 
@@ -199,7 +199,7 @@ campagna di vaccinazione su diversi scenari. Questi grafici illustrano
 come l'efficacia della campagna vaccinale possa dipendere dal suo avvio, 
 oltre al numero di persone vaccinate.
 
-\begin{figure}[!hb]
+\begin{figure}[H]
 	\centering
 	\begin{subfigure}[b]{0.45\textwidth}
 		\centering
@@ -229,7 +229,6 @@ oltre al numero di persone vaccinate.
 		\label{fig:comparison_vax_4}
 	\end{subfigure}
 \end{figure}
-\newpage
 
 \subsection{Intervento Farmaceutico e Non Farmaceutico}
 
@@ -240,12 +239,13 @@ L'obiettivo di questa combinazione di interventi è quello di
 massimizzare la riduzione della diffusione del virus e di contenere 
 l'epidemia in modo ottimale.
 
-\begin{minipage}{\linewidth}
-    \centering
-    \includegraphics[width=\textwidth]{img/SocialNetworkABM_ALL.jpg}
-    \captionof{figure}{Grafico cumulativo del modello con intervento farmaceutico e non farmaceutico combinato}
-    \label{fig:abm_combined_intervent}
-\end{minipage}
+\begin{figure}[H]
+    \begin{center}
+		\includegraphics[width=\textwidth]{img/SocialNetworkABM_ALL.jpg}
+		\caption{Grafico cumulativo del modello con intervento farmaceutico e non farmaceutico combinato}
+		\label{fig:abm_combined_intervent}
+	\end{center}
+\end{figure}
 
 Come mostrato nel grafico, l'effetto combinato di intervento 
 farmaceutico e non farmaceutico è estremamente efficace nel 
@@ -262,7 +262,6 @@ molto meno pronunciate rispetto ai casi precedenti.
 In generale, la combinazione di intervento farmaceutico e non 
 farmaceutico è altamente efficace nel contenere e ridurre 
 l'epidemia in modo ottimale.
-\newpage
 
 \subsubsection{Grafici di Confronto}
 
@@ -272,7 +271,7 @@ come l'efficacia della campagna vaccinale possa dipendere dal suo avvio,
 oltre al numero di persone vaccinate, e come questa influenzi attivamente
 le contromisure non farmaceutiche.
 
-\begin{figure}[!hb]
+\begin{figure}[H]
 	\centering
 	\begin{subfigure}[b]{0.45\textwidth}
 		\centering

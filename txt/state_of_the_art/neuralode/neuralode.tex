@@ -23,13 +23,14 @@ maggior parte dei casi, questa relazione è sconosciuta a priori,
 rendendo impossibile applicare questo metodo. In questi casi, l'approccio 
 di machine learning diventa una soluzione valida.
 
-\begin{minipage}{\linewidth}
-    \centering
-    \includegraphics[width=\textwidth]{img/1689243301131.png}
-    \captionof{figure}{Differenti approcci di apprendimento di machine learning}
-    \url{https://it.mathworks.com/discovery/reinforcement-learning/_jcr_content/mainParsys3/discoverysubsection/mainParsys/image.adapt.full.medium.png/1689243301131.png}
-    \label{fig:ML_example}
-\end{minipage}
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=\textwidth]{img/1689243301131.png}
+        \caption{Differenti approcci di apprendimento di machine learning}
+        \url{https://it.mathworks.com/discovery/reinforcement-learning/_jcr_content/mainParsys3/discoverysubsection/mainParsys/image.adapt.full.medium.png/1689243301131.png}
+        \label{fig:ML_example}
+    \end{center}
+\end{figure}
 
 Nel contesto generale del machine learning, dato un insieme di dati $x$, 
 l'obiettivo è predire un insieme $y$ di dati correlati utilizzando una 
@@ -57,13 +58,14 @@ che con un numero sufficientemente grande di parametri o strati, è
 possibile approssimare qualsiasi funzione non lineare in modo 
 sufficientemente preciso.
 
-\begin{minipage}{\linewidth}
-    \centering
-    \includegraphics[width=\textwidth]{img/1_ZXAOUqmlyECgfVa81Sr6Ew.png}
-    \captionof{figure}{Esempio di funzionamento di una rete neurale}
-    \url{https://miro.medium.com/v2/resize:fit:4800/format:webp/1*ZXAOUqmlyECgfVa81Sr6Ew.png}
-    \label{fig:NN_example}
-\end{minipage}
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=\textwidth]{img/1_ZXAOUqmlyECgfVa81Sr6Ew.png}
+        \caption{Esempio di funzionamento di una rete neurale}
+        \url{https://miro.medium.com/v2/resize:fit:4800/format:webp/1*ZXAOUqmlyECgfVa81Sr6Ew.png}
+        \label{fig:NN_example}
+    \end{center}
+\end{figure}
 
 Questo approccio richiede l'apprendimento di ogni aspetto della 
 trasformazione non lineare direttamente dai dati disponibili. 
@@ -84,12 +86,13 @@ essenzialmente un insieme di equazioni che descrivono il cambiamento
 delle variabili nel tempo, con la soluzione dell'equazione differenziale 
 come risultato finale.
 
-\begin{minipage}{\linewidth}
-    \centering
-    \includegraphics[width=\textwidth]{img/lotkavolterra.png}
-    \captionof{figure}{Esempio grafico ODE rappresentante la famosa equazione di Lotka-Volterra}
-    \label{fig:lotkavolterra_example}
-\end{minipage}
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=\textwidth]{img/lotkavolterra.png}
+        \caption{Esempio grafico ODE rappresentante la famosa equazione di Lotka-Volterra}
+        \label{fig:lotkavolterra_example}
+    \end{center}
+\end{figure}
 
 Questo metodo è stato ampiamente utilizzato in campi scientifici, e 
 recentemente ha visto ulteriori sviluppi tramite l'integrazione di 
@@ -114,7 +117,7 @@ l'equazione differenziale associata.
 
 L'approccio fondamentale qui è che definendo il modello in questo modo e 
 utilizzando un risolutore semplice e propenso agli errori come il metodo 
-di Euler, è possibile ottenere risultati equivalenti a quelli ottenuti 
+di Eulero, è possibile ottenere risultati equivalenti a quelli ottenuti 
 con una ResNet \cite{he2015deep}. L'idea di base è che invece di 
 modellare una rete neurale con sempre più strati, diventando sempre 
 più profonda, è sufficiente modellare direttamente il sistema di 
@@ -125,6 +128,57 @@ grado di gestire dati irregolari, ha una forte conoscenza a priori
 dello spazio del modello, è in grado di approssimare sia funzioni 
 lineari che non lineari e si basa su solide basi teoriche derivanti da 
 entrambi i lati.
+
+\subsubsection{Equazioni Differenziali Universali}
+
+Recentemente, gli sviluppi nel campo del machine learning sono stati 
+guidati dalle tecniche di deep learning, che richiedono grandi quantità 
+di dati, noti come "big data", per risolvere problemi precedentemente 
+considerati difficili e complessi, come il riconoscimento di immagini o 
+il processing del linguaggio naturale.
+
+Tuttavia, in molti settori, specialmente nella medicina e in altre 
+discipline correlate, è difficile ottenere un insieme di dati 
+sufficientemente ampio e diversificato per applicare queste tecniche. 
+In questi contesti, i modelli meccanicistici rimangono la scelta 
+principale. L'approccio data-driven dei modelli di machine learning, 
+tuttavia, offre maggiore flessibilità e la possibilità di evitare 
+ipotesi semplificative richieste dai modelli teorici.
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[scale=0.4]{img/Caratteristiche-e-funzionamento-del-Deep-Learning-in-informatica.png}
+        \caption{Esempio comparativo tra funzionamento Machine Learning e Deep Learning}
+        \url{https://goodboychan.github.io/images/copied_from_nb/image/fe.png}
+        \label{fig:ml_dl_example}
+    \end{center}
+\end{figure}
+
+Un'Equazione Differenziale Universale (UDE) è definita da un 
+"approssimatore universale", un oggetto parametrico in grado di 
+rappresentare qualsiasi funzione dati un certo numero di parametri. 
+Gli approssimatori universali includono, ad esempio, le serie di Fourier 
+o di Chebyshev per spazi a basse dimensioni e le reti neurali per spazi 
+ad alta dimensione \cite{rackauckas2020universal}.
+
+Un'UDE è un sistema di equazioni differenziali o algebriche non triviali 
+che può approssimare qualsiasi funzione continua su un intervallo a 
+qualsiasi livello di precisione desiderato. In altre parole, un'UDE è 
+in grado di rappresentare qualsiasi sistema dinamico continuo con 
+qualsiasi grado di dettaglio richiesto.
+
+L'approccio delle UDE può essere accoppiato con tecniche data-driven, 
+come l'algoritmo SINDy (Sparse Identification of Non-linear Dynamics), 
+per l'identificazione sparsa di dinamiche non lineari in sistemi 
+complessi come dinamiche dei fluidi o reti biologiche \cite{datadrivendiffeq}.
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[scale=0.35]{img/ude_approx.png}
+        \caption{Comportamento UDE nell'approssimazione di fenomeni non lineari \cite{rackauckas2020universal}}
+        \label{fig:UDE_approx}
+    \end{center}
+\end{figure}
 
 \subsubsection*{Risolvere un'ODE in Julia}
 
@@ -142,12 +196,13 @@ errore integrato di tipo Tsitouras \cite{10.1016/j.camwa.2011.06.002}.
 La libreria DifferentialEquations.jl offre una vasta gamma di parametri 
 aggiuntivi per un approccio più dettagliato \cite{rackauckas2017differentialequations}.
 
-\begin{minipage}{\linewidth}
-    \centering
-    \includegraphics[width=\textwidth]{img/fdefinition.png}
-    \captionof{figure}{Esempio definizione ODE in Julia}
-    \label{fig:ODE_Julia_example}
-\end{minipage}
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=\textwidth]{img/fdefinition.png}
+        \caption{Esempio definizione ODE in Julia}
+        \label{fig:ODE_Julia_example}
+    \end{center}
+\end{figure}
 
 \subsubsection{Inserire un'ODE all'interno di una NN}
 
@@ -171,12 +226,13 @@ della serie di dati nel tempo e può estrapolare facilmente cosa
 potrebbe accadere con diverse condizioni iniziali. La suite DiffEqFlux.jl 
 offre un wrapper comodo per definire una "NeuralODE" \cite{rackauckas2019diffeqflux}.
 
-\begin{minipage}{\linewidth}
-    \centering
-    \includegraphics[width=\textwidth]{img/fann.png}
-    \captionof{figure}{Esempio implementazione di una rete neurale in Julia}
-    \label{fig:NN_Julia_example}
-\end{minipage}
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=\textwidth]{img/fann.png}
+        \caption{Esempio implementazione di una rete neurale in Julia}
+        \label{fig:NN_Julia_example}
+    \end{center}
+\end{figure}
 
 \subsubsection{Backpropagation tramite ODE solver}
 
@@ -227,52 +283,3 @@ In generale, l'analisi di sensitività è un concetto cruciale per
 consentire l'addestramento efficiente di modelli complessi e ibridi 
 che combinano reti neurali con risoluzione di ODE o altre funzioni non 
 lineari.
-
-\subsubsection{Equazioni Differenziali Universali}
-
-Recentemente, gli sviluppi nel campo del machine learning sono stati 
-guidati dalle tecniche di deep learning, che richiedono grandi quantità 
-di dati, noti come "big data", per risolvere problemi precedentemente 
-considerati difficili e complessi, come il riconoscimento di immagini o 
-il processing del linguaggio naturale.
-
-Tuttavia, in molti settori, specialmente nella medicina e in altre 
-discipline correlate, è difficile ottenere un insieme di dati 
-sufficientemente ampio e diversificato per applicare queste tecniche. 
-In questi contesti, i modelli meccanicistici rimangono la scelta 
-principale. L'approccio data-driven dei modelli di machine learning, 
-tuttavia, offre maggiore flessibilità e la possibilità di evitare 
-ipotesi semplificative richieste dai modelli teorici.
-
-\begin{minipage}{\linewidth}
-    \centering
-    \includegraphics[scale=0.4]{img/Caratteristiche-e-funzionamento-del-Deep-Learning-in-informatica.png}
-    \captionof{figure}{Esempio comparativo tra funzionamento Machine Learning e Deep Learning}
-    \url{https://goodboychan.github.io/images/copied_from_nb/image/fe.png}
-    \label{fig:ml_dl_example}
-\end{minipage}
-
-Un'Equazione Differenziale Universale (UDE) è definita da un 
-"approssimatore universale", un oggetto parametrico in grado di 
-rappresentare qualsiasi funzione dati un certo numero di parametri. 
-Gli approssimatori universali includono, ad esempio, le serie di Fourier 
-o di Chebyshev per spazi a basse dimensioni e le reti neurali per spazi 
-ad alta dimensione \cite{rackauckas2020universal}.
-
-Un'UDE è un sistema di equazioni differenziali o algebriche non triviali 
-che può approssimare qualsiasi funzione continua su un intervallo a 
-qualsiasi livello di precisione desiderato. In altre parole, un'UDE è 
-in grado di rappresentare qualsiasi sistema dinamico continuo con 
-qualsiasi grado di dettaglio richiesto.
-
-L'approccio delle UDE può essere accoppiato con tecniche data-driven, 
-come l'algoritmo SINDy (Sparse Identification of Non-linear Dynamics), 
-per l'identificazione sparsa di dinamiche non lineari in sistemi 
-complessi come dinamiche dei fluidi o reti biologiche \cite{datadrivendiffeq}.
-
-\begin{minipage}{\linewidth}
-    \centering
-    \includegraphics[scale=0.4]{img/ude_approx.png}
-    \captionof{figure}{Comportamento UDE nell'approssimazione di fenomeni non lineari \cite{rackauckas2020universal}}
-    \label{fig:UDE_approx}
-\end{minipage}

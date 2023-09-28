@@ -9,7 +9,7 @@ principalmente costituito da punti di interesse (PdI) interconnessi tra
 loro attraverso una struttura di collegamenti, rappresentata graficamente 
 sotto forma di un grafo. 
 
-\begin{figure}[!hb]
+\begin{figure}[H]
 	\centering
 	\begin{subfigure}[b]{0.3\textwidth}
 		\centering
@@ -86,14 +86,14 @@ una vasta gamma di fenomeni sociali, inclusi processi di diffusione
 dell'informazione, dinamiche di influenza reciproca, 
 formazione di comunità, e molte altre interazioni sociali complesse.
 
-\begin{minipage}{\linewidth}
-    \centering
-    \includegraphics[scale=0.4]{img/Moreno_Sociogram_3rd_Grade.png}
-    \captionof{figure}{Moreno's Sociagram of a 3rd grade class}
-	\url{https://en.wikipedia.org/wiki/Sociogram#/media/File:Moreno_Sociogram_3rd_Grade.png}
-    \label{fig:social_graph}
-\end{minipage}
-\newpage
+\begin{figure}[H]
+    \begin{center}
+		\includegraphics[scale=0.4]{img/Moreno_Sociogram_3rd_Grade.png}
+		\caption{Moreno's Sociagram of a 3rd grade class}
+		\url{https://en.wikipedia.org/wiki/Sociogram#/media/File:Moreno_Sociogram_3rd_Grade.png}
+		\label{fig:social_graph}
+		\end{center}
+\end{figure}
 
 \subsection{Agente}
 
@@ -123,12 +123,14 @@ Questo meccanismo consente un grado di adattamento e cooperazione tra
 agenti, sebbene ognuno di essi mantenga la propria autonomia decisionale
 (Figura \ref{fig:migration_matrix_function}).
 
-\begin{minipage}{\linewidth}
-    \centering
-    \includegraphics[width=\textwidth]{img/node_agent.png}
-    \captionof{figure}{Codice Agente}
-    \label{fig:Agent_code}
-\end{minipage}
+\begin{figure}[H]
+    \begin{center}
+		\includegraphics[width=\textwidth]{img/node_agent.png}
+		\caption{Codice Agente}
+		\label{fig:Agent_code}
+	\end{center}
+\end{figure}
+
 \newpage
 
 \subsection{Spazio e Modello}
@@ -148,7 +150,7 @@ tra gli agenti, mentre il limite superiore consentirebbe la massima
 interconnessione possibile, ovvero una situazione in cui ogni agente è 
 connesso a tutti gli altri.
 
-\begin{figure}[!hb]
+\begin{figure}[H]
 	\centering
 	\begin{subfigure}[b]{0.45\textwidth}
 		\centering
@@ -174,12 +176,13 @@ livello di personalizzazione che può essere fondamentale per la
 comprensione e la modellazione dei fenomeni legati alla diffusione della 
 pandemia virale all'interno del sistema.
 
-\begin{minipage}{\linewidth}
-    \centering
-    \includegraphics[width=\textwidth]{img/sngraph_model.png}
-    \captionof{figure}{Codice Modello}
-    \label{fig:Model_code}
-\end{minipage}
+\begin{figure}[H]
+    \begin{center}
+		\includegraphics[width=\textwidth]{img/sngraph_model.png}
+		\caption{Codice Modello}
+		\label{fig:Model_code}
+	\end{center}
+\end{figure}
 
 \subsection{Funzione di Avanzamento Agente}
 
@@ -219,26 +222,29 @@ ogni agente esegue ciclicamente all'interno del modello, contribuendo
 in modo significativo all'analisi della diffusione della pandemia e 
 alla valutazione delle misure di intervento.
 
-\begin{minipage}{\linewidth}
-	\centering
-	\includegraphics[width=\textwidth]{img/migratef.png}
-	\captionof{figure}{Funzione atta a calcolare lo spostamento di agenti da un nodo all'altro del grafo}
-	\label{fig:migrationf}
-\end{minipage}
+\begin{figure}[H]
+    \begin{center}
+		\includegraphics[width=\textwidth]{img/migratef.png}
+		\caption{Funzione atta a calcolare lo spostamento di agenti da un nodo all'altro del grafo}
+		\label{fig:migrationf}
+	\end{center}
+\end{figure}
 
-\begin{minipage}{\linewidth}
-	\centering
-	\includegraphics[width=\textwidth]{img/mmfunc.png}
-	\captionof{figure}{Funzione che crea la matrice di migrazione data la topologia di un grafo}
-	\label{fig:migration_matrix_function}
-\end{minipage}
+\begin{figure}[H]
+    \begin{center}
+		\includegraphics[width=\textwidth]{img/mmfunc.png}
+		\caption{Funzione che crea la matrice di migrazione data la topologia di un grafo}
+		\label{fig:migration_matrix_function}
+	\end{center}
+\end{figure}
 
-\begin{minipage}{\linewidth}
-	\centering
-	\includegraphics[width=\textwidth]{img/happiness.png}
-	\captionof{figure}{Funzione atta a calcolare la felicità degli agenti}
-	\label{fig:happinessf}
-\end{minipage}
+\begin{figure}[H]
+    \begin{center}
+		\includegraphics[width=\textwidth]{img/happiness.png}
+		\caption{Funzione atta a calcolare la felicità degli agenti}
+		\label{fig:happinessf}
+	\end{center}
+\end{figure}
 
 \newpage
 
@@ -338,16 +344,18 @@ del mondo reale. Le simulazioni sono uno strumento utile per l'analisi
 e la previsione, ma devono essere interpretate con consapevolezza delle 
 limitazioni delle assunzioni adottate.
 
-\begin{minipage}{\linewidth}
-	\centering
-	\includegraphics[width=\textwidth]{img/voc.png}
-	\captionof{figure}{Funzione che si occupa di generare la VOC}
-	\label{fig:voc}
-\end{minipage}
+\begin{figure}[H]
+    \begin{center}
+		\includegraphics[width=\textwidth]{img/voc.png}
+		\caption{Funzione che si occupa di generare la VOC}
+		\label{fig:voc}
+	\end{center}
+\end{figure}
 
-\begin{minipage}{\linewidth}
-	\centering
-	\includegraphics[width=\textwidth]{img/vaccine.png}
-	\captionof{figure}{Funzione che si occupa di simulare la ricerca di un vaccino e la sua successiva applicazoine}
-	\label{fig:vaccine}
-\end{minipage}
+\begin{figure}[H]
+    \begin{center}
+		\includegraphics[width=\textwidth]{img/vaccine.png}
+		\caption{Funzione che si occupa di simulare la ricerca di un vaccino e la sua successiva applicazoine}
+		\label{fig:vaccine}
+	\end{center}
+\end{figure}
