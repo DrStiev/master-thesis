@@ -11,7 +11,7 @@ dal calcolo delle Neural ODE e da tutte le operazioni connesse.
 \begin{table}[H]
     \centering
     \caption{Benchmarking con BenchmarkTools.jl \cite{chen2016robust}}
-    \begin{tabular}{|p{2.57cm}||p{2.57cm}|p{2.57cm}|p{2.57cm}|p{2.57cm}|}
+    \begin{tabular}{|p{2.5cm}||p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
         \hline
         \multicolumn{5}{|c|}{Singlerun} \\
         \hline
@@ -38,7 +38,7 @@ riduzione dei tempi di calcolo.
 \begin{table}[H]
     \centering
     \caption{Risultati Ensemblerun con ProgressMeter.jl}
-    \begin{tabular}{|p{2.57cm}||p{2.57cm}|p{2.57cm}|p{2.57cm}|p{2.57cm}|}
+    \begin{tabular}{|p{2.5cm}||p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
         \hline
         \multicolumn{5}{|c|}{Ensemblerun} \\
         \hline
@@ -85,7 +85,7 @@ di vista della computazione e dell'efficienza dei modelli epidemiologici.
 
 \begin{figure}[H]
     \begin{center}
-		\includegraphics[width=\textwidth]{img/SocialNetworkABM_NO_CONTROL.jpg}
+		\includegraphics[width=\textwidth]{img/SocialNetworkABM_NO_CONTROL.png}
 		\caption{Grafico cumulativo del modello senza alcun tipo di intervento}
 		\label{fig:abm_no_intervent}
 	\end{center}
@@ -133,7 +133,7 @@ diffusione del virus.
 
 \begin{figure}[H]
     \begin{center}
-		\includegraphics[width=\textwidth]{img/SocialNetworkABM_CONTROL.jpg}
+		\includegraphics[width=\textwidth]{img/SocialNetworkABM_CONTROL.png}
 		\caption{Grafico cumulativo del modello con intervento non farmaceutico}
 		\label{fig:abm_nonpharm_intervent}
 	\end{center}
@@ -172,7 +172,7 @@ idealmente, di eliminare l'epidemia.
 
 \begin{figure}[H]
     \begin{center}
-		\includegraphics[width=\textwidth]{img/SocialNetworkABM_VACCINE.jpg}
+		\includegraphics[width=\textwidth]{img/SocialNetworkABM_VACCINE.png}
 		\caption{Grafico cumulativo del modello con intervento farmaceutico}
 		\label{fig:abm_pharm_intervent}
 	\end{center}
@@ -203,28 +203,28 @@ oltre al numero di persone vaccinate.
 	\centering
 	\begin{subfigure}[b]{0.45\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{img/SocialNetworkABM_1_V.jpg}
+		\includegraphics[width=\textwidth]{img/SocialNetworkABM_1_V.png}
 		\caption{Grafico per la comparazione sul periodo di inizio della campagna vaccinale. Immediata}
 		\label{fig:comparison_vax_1}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[b]{0.45\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{img/SocialNetworkABM_3_V.jpg}
+		\includegraphics[width=\textwidth]{img/SocialNetworkABM_4_V.png}
 		\caption{Grafico per la comparazione sul periodo di inizio della campagna vaccinale. Durante prima ondata}
 		\label{fig:comparison_vax_2}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[b]{0.45\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{img/SocialNetworkABM_5_V.jpg}
+		\includegraphics[width=\textwidth]{img/SocialNetworkABM_3_V.png}
 		\caption{Grafico per la comparazione sul periodo di inizio della campagna vaccinale. Poco dopo la prima ondata}
 		\label{fig:comparison_vax_3}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[b]{0.45\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{img/SocialNetworkABM_2_V.jpg}
+		\includegraphics[width=\textwidth]{img/SocialNetworkABM_5_V.png}
 		\caption{Grafico per la comparazione sul periodo di inizio della campagna vaccinale. In ritardo}
 		\label{fig:comparison_vax_4}
 	\end{subfigure}
@@ -241,7 +241,7 @@ l'epidemia in modo ottimale.
 
 \begin{figure}[H]
     \begin{center}
-		\includegraphics[width=\textwidth]{img/SocialNetworkABM_ALL.jpg}
+		\includegraphics[width=\textwidth]{img/SocialNetworkABM_ALL.png}
 		\caption{Grafico cumulativo del modello con intervento farmaceutico e non farmaceutico combinato}
 		\label{fig:abm_combined_intervent}
 	\end{center}
@@ -275,28 +275,28 @@ le contromisure non farmaceutiche.
 	\centering
 	\begin{subfigure}[b]{0.45\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{img/SocialNetworkABM_5_A.jpg}
+		\includegraphics[width=\textwidth]{img/SocialNetworkABM_2_A.png}
 		\caption{Grafico per la comparazione sul periodo di inizio della campagna vaccinale. Immediata}
 		\label{fig:comparison_all_1}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[b]{0.45\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{img/SocialNetworkABM_1_A.jpg}
+		\includegraphics[width=\textwidth]{img/SocialNetworkABM_4_A.png}
 		\caption{Grafico per la comparazione sul periodo di inizio della campagna vaccinale. Durante prima ondata}
 		\label{fig:comparison_all_2}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[b]{0.45\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{img/SocialNetworkABM_4_A.jpg}
+		\includegraphics[width=\textwidth]{img/SocialNetworkABM_1_A.png}
 		\caption{Grafico per la comparazione sul periodo di inizio della campagna vaccinale. Poco dopo la prima ondata}
 		\label{fig:comparison_all_3}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[b]{0.45\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{img/SocialNetworkABM_2_A.jpg}
+		\includegraphics[width=\textwidth]{img/SocialNetworkABM_3_A.png}
 		\caption{Grafico per la comparazione sul periodo di inizio della campagna vaccinale. In ritardo}
 		\label{fig:comparison_all_4}
 	\end{subfigure}
