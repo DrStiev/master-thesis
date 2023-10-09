@@ -21,7 +21,7 @@
 \contentsline {figure}{\numberline {23}{\ignorespaces Funzione atta a calcolare lo spostamento di agenti da un nodo all'altro del grafo\relax }}{32}{figure.caption.29}%
 \contentsline {figure}{\numberline {24}{\ignorespaces Funzione che crea la matrice di migrazione data la topologia di un grafo\relax }}{33}{figure.caption.30}%
 \contentsline {figure}{\numberline {25}{\ignorespaces Funzione atta a calcolare la felicità degli agenti\relax }}{33}{figure.caption.31}%
-\contentsline {figure}{\numberline {26}{\ignorespaces Funzione che si occupa di generare la VOC\relax }}{35}{figure.caption.32}%
+\contentsline {figure}{\numberline {26}{\ignorespaces Funzione che si occupa di generare la VOC\relax }}{36}{figure.caption.32}%
 \contentsline {figure}{\numberline {27}{\ignorespaces Funzione che si occupa di simulare la ricerca di un vaccino e la sua successiva applicazoine\relax }}{36}{figure.caption.33}%
 \contentsline {figure}{\numberline {28}{\ignorespaces Definizione del controllore all'interno del modello ad agente\relax }}{38}{figure.caption.34}%
 \contentsline {figure}{\numberline {29}{\ignorespaces Definizione del controllore mediante Neural ODE\relax }}{39}{figure.caption.35}%
