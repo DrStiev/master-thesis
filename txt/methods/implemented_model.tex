@@ -37,35 +37,22 @@ Questo approccio si avvicina a una prospettiva di tipo mesoscopico,
 orientata al macroscopico. La scelta di tale approccio deriva dalla 
 necessità di modellare il sistema in maniera più ampia, concentrandosi 
 sulla risposta collettiva di un agente astratto agli interventi mirati 
-per contrastare l'epidemia in modo localizzato.
+per contrastare l'epidemia in modo localizzato, piuttosto che sulla risposta
+di ogni singolo agente concreto alle stesse tipologie di intervento.
 
 \subsection{Approccio con Rete Sociale}
 
 Il modello sviluppato fa uso del framework "Agents.jl" \cite{Agents.jl} e 
-definisce un modello ad agenti (ABM). In questo contesto, la struttura 
-spaziale del modello non è rilevante, ma le connessioni tra gli agenti 
-lo sono. Gli agenti vengono considerati come nodi all'interno di un grafo, 
+definisce un modello ad agente (ABM). In questo contesto, la struttura 
+spaziale, o topologia, del modello non è rilevante, ma le connessioni tra gli agenti 
+lo sono, per questo è  stato scelto di utilizzare una rappresentazione tramite 
+grafo sociale. Gli agenti vengono considerati come nodi all'interno di un grafo,
+andando a rappresentare un punto di interesse specifico, sia esso 
+una stazione ferroviaria, un terminal aeroportuale, oppure una città,
 in cui viene simulato il ciclo di vita della pandemia attraverso un 
 modello SEIR deterministico. Gli agenti sono definiti come oggetti di tipo 
-"ContinuousAgent", poiché lo spazio del modello è considerato continuo.
-
-La struttura dell'agente è essenziale e include i seguenti campi principali:
-
-\begin{itemize}
-	\item \textbf{population}: un intero che rappresenta il numero totale 
-	di individui presenti nel nodo.
-	\item \textbf{status}: un vettore di numeri decimali che 
-	rappresenta lo stato della popolazione nel nodo, espressa 
-	come percentuale di individui.
-	\item \textbf{param}: un vettore di numeri decimali che contiene 
-	i parametri specifici del modello SEIR per il nodo.
-	\item \textbf{happiness}: un campo di supporto per il bilanciamento 
-	delle contromisure applicate dal controllore.
-\end{itemize}
-
-Questi campi costituiscono l'ossatura dell'agente e sono essenziali per 
-la rappresentazione e la gestione delle dinamiche della pandemia 
-all'interno del sistema modellato.
+"ContinuousAgent", poiché lo spazio degli agenti è considerato continuo,
+seppur la struttura del modello sia a grafo e quindi discreta.
 
 \subsubsection*{Grafo Sociale}
 
@@ -88,7 +75,7 @@ formazione di comunità, e molte altre interazioni sociali complesse.
 
 \begin{figure}[H]
     \begin{center}
-		\includegraphics[scale=0.4]{img/Moreno_Sociogram_3rd_Grade.png}
+		\includegraphics[scale=0.6]{img/Moreno_Sociogram_3rd_Grade.png}
 		\caption{Moreno's Sociagram of a 3rd grade class}
 		\url{https://en.wikipedia.org/wiki/Sociogram#/media/File:Moreno_Sociogram_3rd_Grade.png}
 		\label{fig:social_graph}
@@ -105,6 +92,28 @@ funzionamento. Tali attributi costituiscono l'ossatura di base che
 consente all'agente di interagire con l'ambiente circostante e con 
 altri agenti all'interno del sistema.
 
+La struttura dell'agente è essenziale e include i seguenti campi principali:
+
+\begin{itemize}
+	\item \textbf{population}: un intero che rappresenta il numero totale 
+	di individui presenti nel nodo.
+	\item \textbf{status}: un vettore di numeri decimali che 
+	rappresenta lo stato della popolazione nel nodo, espressa 
+	come percentuale di individui.
+	\item \textbf{param}: un vettore di numeri decimali che contiene 
+	i parametri specifici del modello SEIR per il nodo.
+	\item \textbf{happiness}: un campo di supporto per il bilanciamento 
+	delle contromisure applicate dal controllore.
+\end{itemize}
+
+\begin{figure}[H]
+    \begin{center}
+		\includegraphics[width=\textwidth]{img/node_agent.png}
+		\caption{Codice Agente}
+		\label{fig:Agent_code}
+	\end{center}
+\end{figure}
+
 Nel contesto dell'evoluzione degli agenti, è fondamentale notare che 
 questa si svolge in maniera indipendente rispetto agli altri agenti 
 presenti nel medesimo contesto. Tale indipendenza è regolamentata da un 
@@ -116,7 +125,20 @@ l'agente non opera in un isolamento completo.
 Le interazioni tra agenti sono agevolate dalle connessioni esistenti 
 tra i nodi del grafo, che possono essere interpretate come canali di 
 comunicazione o canali attraverso i quali fluiscono influenze e 
-informazioni. Inoltre, la matrice di migrazione rappresenta un elemento 
+informazioni. A tal proposito è stata aggiunta in supporto, una matrice
+detta "di migrazione", utile per rappresentare il flusso di informazioni 
+(dati) che fluiscono da un agente ad un altro durante ogni passo della
+simulazione. 
+
+\begin{figure}[H]
+    \begin{center}
+		\includegraphics[width=\textwidth]{img/Screenshot 2023-10-16 110330.png}
+		\caption{Esempio di matrice di migrazione in una rete con 8 nodi}
+		\label{fig:Migration_Matrix_example}
+	\end{center}
+\end{figure}
+
+La matrice di migrazione rappresenta un elemento 
 importante in questo contesto. Essa definisce come l'agente può essere 
 influenzato da altri agenti all'interno della stessa rete. 
 Questo meccanismo consente un grado di adattamento e cooperazione tra 
@@ -125,13 +147,11 @@ agenti, sebbene ognuno di essi mantenga la propria autonomia decisionale
 
 \begin{figure}[H]
     \begin{center}
-		\includegraphics[width=\textwidth]{img/node_agent.png}
-		\caption{Codice Agente}
-		\label{fig:Agent_code}
+		\includegraphics[width=\textwidth]{img/sngraph_model.png}
+		\caption{Codice Modello}
+		\label{fig:Model_code}
 	\end{center}
 \end{figure}
-
-\newpage
 
 \subsection{Spazio e Modello}
 Lo spazio del modello è fondato su un grafo connesso, il cui numero 
@@ -140,15 +160,6 @@ La topologia specifica del grafo viene creata in conformità alle
 preferenze dell'utente, rispettando un limite inferiore imposto dalla 
 connessione minima e un limite superiore rappresentato dalla connessione 
 completa.
-
-In altre parole, il grafo che costituisce il contesto spaziale del 
-modello è progettato in modo dinamico per adattarsi alle esigenze e 
-alle scelte dell'utente. Queste preferenze determinano sia il grado di 
-interconnessione tra gli agenti (nodi del grafo) sia la forma generale 
-del grafo stesso. Il limite inferiore garantisce una connessione minima 
-tra gli agenti, mentre il limite superiore consentirebbe la massima 
-interconnessione possibile, ovvero una situazione in cui ogni agente è 
-connesso a tutti gli altri.
 
 \begin{figure}[H]
 	\centering
@@ -169,6 +180,15 @@ connesso a tutti gli altri.
 	\end{subfigure}
 \end{figure}
 
+In altre parole, il grafo che costituisce il contesto spaziale del 
+modello è progettato in modo dinamico per adattarsi alle esigenze e 
+alle scelte dell'utente. Queste preferenze determinano sia il grado di 
+interconnessione tra gli agenti (nodi del grafo) sia la forma generale 
+del grafo stesso. Il limite inferiore garantisce una connessione minima 
+tra gli agenti, mentre il limite superiore consentirebbe la massima 
+interconnessione possibile, ovvero una situazione in cui ogni agente è 
+connesso a tutti gli altri.
+
 Questo approccio flessibile alla creazione della topologia del grafo 
 permette agli utenti di configurare il modello in modo adatto alle 
 specifiche condizioni e alle variabili in gioco, fornendo così un 
@@ -176,13 +196,7 @@ livello di personalizzazione che può essere fondamentale per la
 comprensione e la modellazione dei fenomeni legati alla diffusione della 
 pandemia virale all'interno del sistema.
 
-\begin{figure}[H]
-    \begin{center}
-		\includegraphics[width=\textwidth]{img/sngraph_model.png}
-		\caption{Codice Modello}
-		\label{fig:Model_code}
-	\end{center}
-\end{figure}
+\newpage
 
 \subsection{Funzione di Avanzamento Agente}
 
@@ -224,17 +238,17 @@ alla valutazione delle misure di intervento.
 
 \begin{figure}[H]
     \begin{center}
-		\includegraphics[width=\textwidth]{img/migratef.png}
-		\caption{Funzione atta a calcolare lo spostamento di agenti da un nodo all'altro del grafo}
-		\label{fig:migrationf}
+		\includegraphics[width=\textwidth]{img/mmfunc.png}
+		\caption{Funzione che crea la matrice di migrazione data la topologia di un grafo}
+		\label{fig:migration_matrix_function}
 	\end{center}
 \end{figure}
 
 \begin{figure}[H]
     \begin{center}
-		\includegraphics[width=\textwidth]{img/mmfunc.png}
-		\caption{Funzione che crea la matrice di migrazione data la topologia di un grafo}
-		\label{fig:migration_matrix_function}
+		\includegraphics[width=\textwidth]{img/migratef.png}
+		\caption{Funzione atta a calcolare lo spostamento di agenti da un nodo all'altro del grafo}
+		\label{fig:migrationf}
 	\end{center}
 \end{figure}
 
@@ -253,7 +267,7 @@ alla valutazione delle misure di intervento.
 Il modello svolge un ruolo di coordinamento nell'evoluzione degli agenti 
 e si occupa di operazioni che coinvolgono l'intero sistema, 
 anziché focalizzarsi sugli agenti individuali. 
-Queste operazioni includono principalmente due aspetti chiave:
+Queste operazioni includono principalmente tre aspetti chiave:
 
 \begin{itemize}
 	\item \textbf{Aggiornamento delle equazioni differenziali 
@@ -272,7 +286,23 @@ Queste operazioni includono principalmente due aspetti chiave:
 	La gestione efficace delle varianti è essenziale per valutare in 
 	modo realistico l'andamento della pandemia e determinare 
 	l'efficacia delle misure di intervento.
+     \item \textbf{Simulazione della campagna vaccinale}: Il 
+	modello si occupa della simulazione della campagna vaccinale.
+    Questo include la simulazione del tempo di ricerca di un vaccino,
+    il calcolo della sua efficacia e della copertura minima per contrastare
+    l'avanzata pandemica, la simulazione della diffusione del vaccino 
+    all'interno della rete. Questa simulazione è interessante e 
+    soprattutto utile per osservare i differenti comportamenti 
+    del modello con varie opportunità farmacologiche.
 \end{itemize}
+
+\begin{figure}[H]
+    \begin{center}
+		\includegraphics[width=\textwidth]{img/model_step_code.png}
+		\caption{Codice per l'aggiornamento del modello ad ogni passo della simulazione}
+		\label{fig:model_step_code}
+	\end{center}
+\end{figure}
 
 \subsubsection{Funzione per la Generazione delle Varianti del Virus (VOC)}
 
@@ -307,6 +337,14 @@ semplificate consente al modello di fornire una rappresentazione
 approssimativa del comportamento delle varianti all'interno del 
 contesto della simulazione \cite{Abavisani2022} \cite{Markov2023} 
 \cite{https://doi.org/10.1002/jmv.27331} 
+
+\begin{figure}[H]
+    \begin{center}
+		\includegraphics[width=\textwidth]{img/voc.png}
+		\caption{Funzione che si occupa di generare la VOC}
+		\label{fig:voc}
+	\end{center}
+\end{figure}
 
 \subsubsection{Funzione per la Simulazione della Campagna di Vaccinazione}
 
@@ -346,16 +384,8 @@ limitazioni delle assunzioni adottate.
 
 \begin{figure}[H]
     \begin{center}
-		\includegraphics[width=\textwidth]{img/voc.png}
-		\caption{Funzione che si occupa di generare la VOC}
-		\label{fig:voc}
-	\end{center}
-\end{figure}
-
-\begin{figure}[H]
-    \begin{center}
 		\includegraphics[width=\textwidth]{img/vaccine.png}
-		\caption{Funzione che si occupa di simulare la ricerca di un vaccino e la sua successiva applicazoine}
+		\caption{Funzione che si occupa di simulare la ricerca di un vaccino e la sua successiva applicazione}
 		\label{fig:vaccine}
 	\end{center}
 \end{figure}

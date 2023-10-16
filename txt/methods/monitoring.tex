@@ -8,7 +8,7 @@ modo mirato una rete neurale che controlli il dosaggio delle
 contromisure \cite{B_ttcher_2022} \cite{innes2019differentiable} 
 \cite{sandoval2022neural}.
 
-Questa tecnica ha dimostrato di produrre risultati eccellenti, 
+Questa tecnica ha dimostrato di produrre risultati promettenti, 
 ma è fortemente influenzata dalla corretta modellazione del sistema 
 sottostante e dalla selezione della funzione di costo o di controllo 
 utilizzata per addestrare il modello. La sfida principale in questo 
@@ -19,6 +19,49 @@ nel range $\in [0, 1]$, i quali possono risultare difficilmente
 interpretabili. Pertanto, è fondamentale definire chiaramente in 
 anticipo il significato di questo intervallo di valori nel contesto 
 del mondo reale.
+
+Nell'elaborato è stato scelto di utilizzare un approccio aggregato 
+per definire le contromisure non farmaceutiche risultanti dall'
+applicazione del controllore. Queste contromisure indicano in 
+maniera compatta e aggregata la rigidezza di un insieme di 
+contromisure prese ad esempio dal seguente articolo \cite{Hale2021}.
+Nell'articolo vengono presentate 8 differenti contromisure applicate
+dai vari governi durante l'intera gestione della pandemia da COVID-19
+insieme alla loro rigidezza (strictness), e non insieme alla loro 
+efficacia una volta applicate. 
+
+\begin{table}[H]
+    \centering
+    \caption{A global panel database of pandemic policies Oxford COVID-19 Government Response Tracker \cite{Hale2021}}
+    \begin{tabular}{|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
+        \hline
+        ID & Name & Type & Targeted / General? \\
+        \hline
+        C1 & School closing & Ordinal & Geographic \\
+        \hline
+        C2 & Workplace closing & Ordinal & Geographic \\
+        \hline
+        C3 & Cancel public events & Ordinal & Geographic \\
+        \hline
+        C4 & Restrictions on gathering size & Ordinal & Geographic \\
+        \hline
+        C5 & Close public transport & Ordinal & Geographic \\
+        \hline
+        C6 & Stay-at-home requirements & Ordinal & Geographic \\
+        \hline
+        C7 & Restrictions on internal movement & Ordinal & Geographic \\
+        \hline
+        C8 & Restrictions on internal travel & Ordinal & No \\
+		\hline
+    \end{tabular}
+\end{table}
+
+La scelta di utilizzare questo approccio deriva dal fatto che in 
+questo modo, si può avere un risultato compatto e immediato 
+dell'efficacia delle contromisure applicate data una media generale
+della loro rigidezza. Tuttavia non è possibile comprendere l'efficacia
+singola di ogni tipologia di intervento relativa alla propria rigidezza, 
+essendo questi presi come media generale.
 
 Inizialmente, la funzione di controllo incorporata nel modello 
 agente è definita come illustrato in figura \ref{fig:controller_abm}. 
@@ -40,9 +83,12 @@ questa volta legate alla prima attivazione del controllore.
 Retrospettivamente, è evidente come avere regole di prevenzione 
 già attive possa essere di grande aiuto nella gestione di una pandemia. 
 Tuttavia, a volte può esserci un ritardo nel riconoscere il pericolo, 
-determinato dal valore di "tolerance", il quale evita l'attivazione 
+determinato dal valore di tolleranza, il quale evita l'attivazione 
 del controllore fintanto che la situazione sembra rimanere al di sotto 
 della soglia minima.
+
+Altri parametri definiscono principalmente i fattori necessari affinché 
+la funzione di controllo operi correttamente.
 
 \begin{figure}[H]
     \begin{center}
@@ -51,9 +97,7 @@ della soglia minima.
 		\label{fig:controller_abm}
 	\end{center}
 \end{figure}
-
-Altri parametri definiscono principalmente i fattori necessari affinché 
-la funzione di controllo operi correttamente. 
+ 
 \newpage
 
 \subsubsection{Implementazione Controllore}
@@ -204,7 +248,7 @@ popolarità della ReLU, principalmente a causa di risultati
 prestazionali variabili.
 
 La funzione di attivazione che ho scelto di utilizzare è chiamata 
-\textbf{Swish} ed è stata proposta dal \emph{Google Brain Team} 
+\textbf{Swish} ed è stata proposta dal Google Brain Team 
 \cite{ramachandran2017searching}. La funzione Swish è definita 
 come $f(x) = x \cdot sigmoid(x)$. In esperimenti condotti, è 
 stato osservato che sostituire la funzione di attivazione ReLU 

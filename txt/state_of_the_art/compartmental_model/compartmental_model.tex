@@ -13,6 +13,11 @@ particolare malattia. Questo processo crea compartimenti ben distinti che
 possono interagire tra loro, ma rimangono chiaramente separati gli uni 
 dagli altri.
 
+I modelli compartimentali sono di solito costruiti con equazioni differenziali 
+ordinarie (che sono deterministiche), ma, utilizzando come input delle probabilità, 
+possono anche essere visualizzati in un quadro stocastico che è più realistico ma 
+anche più complicato da analizzare.
+
 \subsubsection*{Equazioni Ordinarie Differenziali}
 
 Nel contesto matematico, le Equazioni Differenziali Ordinarie (ODE) 
@@ -64,25 +69,26 @@ relativamente più semplice. Tuttavia, quando le equazioni coinvolgono
 $\frac{dx}{dt}$ come funzione di $x(t)$, la situazione diventa più 
 complessa e richiede spesso l'applicazione di manipolazioni matematiche 
 avanzate, come l'utilizzo delle regole di derivazione o la sostituzione 
-delle variabili (\emph{chain rules} o \emph{u-substitution}). In queste situazioni, 
+delle variabili (chain rules o u-substitution). In queste situazioni, 
 la risoluzione delle ODE può richiedere una comprensione approfondita 
 delle tecniche matematiche e dell'applicazione dei principi di calcolo 
 differenziale.
 
 \subsubsection{Il modello Kermack-McKendrick}
 
-Secondo la definizione sopra riportata, è possibile suddividere la 
+Secondo le definizioni sopra riportate, è possibile suddividere la 
 popolazione oggetto di studio in categorie o compartimenti, stabilendo 
 una relazione temporale che descrive il passaggio degli individui da un 
-compartimento all'altro. Malattie che conferiscono immunità avranno una 
-struttura compartimentale diversa rispetto a malattie che non la 
-conferiscono.
+compartimento all'altro. In base alla tipologia di malattia analizzata
+si avrà una struttura compartimentale differente. Malattie che conferiscono 
+immunità avranno una struttura compartimentale diversa rispetto a 
+malattie che non la conferiscono.
 
 Il modello più utilizzato come riferimento per lo studio e la 
 modellazione epidemiologica è il modello "Susceptible, Infectious, 
 Recovered" (SIR), ideato nel 1927 da Kermack e McKendrick. 
 Questo modello si basa sull'assunzione che, durante lo sviluppo di una 
-malattia, gli individui possano trovarsi in uno dei tre stati:
+malattia, gli individui possano trovarsi in uno di tre stati:
 
 \begin{itemize}
     \item \textbf{Susceptible (S)}: Rappresenta lo stato iniziale per la maggior parte degli individui all'interno di una popolazione, indicando il numero di persone che possono contrarre la malattia.
@@ -144,7 +150,8 @@ di una fase di esposizione, in cui gli individui infetti non sono
 immediatamente infettivi. In questo caso, è possibile aggiungere un 
 compartimento "Exposed (E)" al modello, che influenzerà il sistema di 
 equazioni differenziali. Questo tipo di modello è noto come SEIR 
-(Susceptible, Exposed, Infectious, Recovered).
+(Susceptible, Exposed, Infectious, Recovered) ed è largamente
+utilizzato all'interno dell'ambito epidemiologico e medico.
 
 Il sistema di equazioni differenziali che descrive il modello SEIR è il seguente:
 
@@ -156,7 +163,7 @@ Il sistema di equazioni differenziali che descrive il modello SEIR è il seguent
 \begin{figure}[H]
     \begin{center}
         \includegraphics[width=\textwidth]{img/41592_2020_856_Fig1_HTML.png}
-        \caption{Esempio di modello SEIRS \cite{Bjornstad2020}}
+        \caption{Esempio di modello SEIR con perdita di immunità \cite{Bjornstad2020}}
         \label{fig:SEIRS_model}
     \end{center}
 \end{figure}

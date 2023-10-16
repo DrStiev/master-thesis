@@ -34,7 +34,7 @@ di machine learning diventa una soluzione valida.
 
 Nel contesto generale del machine learning, dato un insieme di dati $x$, 
 l'obiettivo è predire un insieme $y$ di dati correlati utilizzando una 
-funzione sottostante. Questa funzione viene comunemente chiamata "modello". 
+funzione sottostante. Questa funzione viene comunemente chiamata modello. 
 Si inizia con una fase di addestramento in cui si cercano di regolare i 
 parametri (iperparametri) del modello per ottenere un modello in grado di 
 generare previsioni accurate. Successivamente, il modello viene utilizzato 
@@ -185,7 +185,7 @@ complessi come dinamiche dei fluidi o reti biologiche \cite{datadrivendiffeq}.
 L'idea di base è quella di definire un oggetto "ODEProblem" specificando 
 una funzione che descrive il sistema di ODE attraverso la specifica 
 delle derivate delle equazioni nella forma $u' = f(u, p, t)$, fornendo 
-un set di condizioni iniziali $u0$, un intervallo di tempo $t$, e un 
+un set di condizioni iniziali $u$, un intervallo di tempo $t$, e un 
 insieme di parametri $p$.
 
 Successivamente, è possibile risolvere il sistema di ODE utilizzando la 
@@ -223,8 +223,10 @@ all'equazione differenziale, ma piuttosto sta apprendendo il sistema di
 equazioni differenziali da cui è generata la soluzione. La NN sta 
 effettivamente apprendendo una rappresentazione compatta del comportamento 
 della serie di dati nel tempo e può estrapolare facilmente cosa 
-potrebbe accadere con diverse condizioni iniziali. La suite DiffEqFlux.jl 
-offre un wrapper comodo per definire una "NeuralODE" \cite{rackauckas2019diffeqflux}.
+potrebbe accadere con diverse condizioni iniziali. 
+
+La suite DiffEqFlux.jl offre un wrapper comodo per definire una "NeuralODE" 
+\cite{rackauckas2019diffeqflux}.
 
 \begin{figure}[H]
     \begin{center}
