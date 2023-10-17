@@ -1,11 +1,4 @@
 \section{Introduzione}
-
-L'impiego di metodologie e tecniche sempre più avanzate è stato oggetto 
-di discussione e interesse nella comunità scientifica, in particolare tra 
-epidemiologi e medici. Negli ultimi anni, il mondo è diventato notevolmente
-interconnesso, aumentando significativamente la probabilità di diffusione 
-globale di virus e di conseguenti catastrofi senza precedenti.
-
 La storia umana è segnata da epidemie, ma solo alcune di esse hanno 
 lasciato un'impronta duratura nella memoria collettiva a causa delle loro 
 conseguenze catastrofiche. Tra queste, alcune delle più note includono la 
@@ -39,23 +32,26 @@ eventi di questo genere.
 
 L'epidemiologia è una disciplina relativamente giovane che si è evoluta 
 per affrontare emergenze sanitarie. La sua definizione originale risale 
-al 1978, ma nel corso del tempo è cresciuta e si è adattata alle esigenze 
-della società. Attualmente, l'epidemiologia è definita come lo studio 
-della distribuzione e dei determinanti delle condizioni o eventi legati 
-alla salute in una specifica popolazione, con l'applicazione di questo 
-studio al controllo dei problemi di salute.
+al 1978 \cite{Frerichs1978-cn} e cita: 
+\begin{quote}
+    	"Epidemiology is the study of the prevalence and dynamics of stages of health in populations."
+\end{quote}
+ma nel corso del tempo è cresciuta e si è adattata alle esigenze 
+della società. 
+
+Attualmente \cite{ward2012oxford}, l'epidemiologia è definita come:
+\begin{quote}
+    "Epidemiology is the study of the distribution and determinants of health-related states or events (including disease), and the application of this study to the control of diseases and other health problems. Various methods can be used to carry out epidemiological investigations: surveillance and descriptive studies can be used to study distribution; analytical studies are used to study determinants."
+\end{quote}
 
 Uno strumento ampiamente utilizzato in epidemiologia è la simulazione 
 tramite software, che si basa su modelli matematici per trarre conclusioni 
 sui sistemi analizzati. Questi sistemi, spesso definiti complessi, 
-coinvolgono molteplici componenti che interagiscono tra loro e possono 
-essere descritti mediante modelli matematici.
+coinvolgono molteplici componenti che interagiscono tra loro.
 
-I primi modelli epidemiologici erano compartimentali, basati su gruppi di 
-individui separati che interagivano tra loro e potevano essere descritti 
-mediante equazioni differenziali ordinarie (ODE). Uno dei modelli più noti 
-è il modello Susceptible-Infected-Recovered (SIR) sviluppato da 
-Kermack e McKendrick nel 1927. Successivamente, sono emersi i modelli ad 
+I primi modelli epidemiologici erano basati sul paradigma compartimentale, dove gruppi di individui separati interagivano tra loro e potevano essere descritti 
+mediante equazioni differenziali ordinarie (ODE). Tra i primi modelli utilizzanti le ODEs troviamo il così detto "Susceptible-Infected-Recovered" (SIR) sviluppato da 
+Kermack e McKendrick nel 1927 \cite{kermack1927contribution}. Successivamente, sono emersi i modelli ad 
 agente, che consentono la simulazione di sistemi complessi 
 tramite l'interazione di entità autonome.
 
@@ -63,7 +59,7 @@ La simulazione ha fatto notevoli progressi dagli anni '90 grazie
 all'espansione delle risorse computazionali. Tuttavia, i modelli di 
 simulazione richiedono compromessi e semplificazioni, ad esempio la 
 discretizzazione degli ambienti di simulazione, ma permettono lo 
-studio di fenomeni definiti emergenti. Questi sono comportamenti 
+studio di fenomeni definiti \emph{emergenti}. Questi sono comportamenti 
 dell'intero sistema che non possono venire predetti osservando 
 il comportamento dei singoli agenti. Inoltre, è necessario considerare 
 il comportamento umano in situazioni di pericolo, il che può 
@@ -76,8 +72,6 @@ causa-effetto tra eventi o variabili, non è sempre evidente e richiede
 un'analisi rigorosa. La correlazione tra eventi non implica 
 necessariamente causalità.
 
-In questa introduzione, abbiamo fornito una panoramica sull'epidemiologia, 
-la simulazione di sistemi complessi e la sfida della causalità. 
 Le sezioni successive analizzeranno lo stato dell'arte dell'epidemiologia 
 e della simulazione, con un focus sulla pandemia da COVID-19 e sui metodi 
 di monitoraggio e intervento nelle simulazioni epidemiologiche.

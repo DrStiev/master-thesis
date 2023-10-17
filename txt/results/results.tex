@@ -8,6 +8,16 @@ efficacia delle politiche di intervento adottate. In particolare,
 influenzato dall'implementazione del controllore e, di conseguenza, 
 dal calcolo delle Neural ODE e da tutte le operazioni connesse.
 
+I lunghi tempi di calcolo riscontrati sono principalmente attribuibili 
+al processo di calcolo delle contromisure non farmaceutiche applicate 
+alla popolazione. Diversamente, le contromisure farmaceutiche, 
+se applicate con tempismo adeguato, oltre a contribuire in modo 
+significativo alla riduzione della diffusione della pandemia 
+(vedi Figura \ref{fig:comparison_vax_1}, Figura 
+\ref{fig:comparison_vax_2}, Figura \ref{fig:comparison_vax_3}, 
+Figura \ref{fig:comparison_vax_4}), consentono anche una significativa 
+riduzione dei tempi di calcolo.
+
 \begin{table}[H]
     \centering
     \caption{Benchmarking con BenchmarkTools.jl \cite{chen2016robust}}
@@ -25,38 +35,20 @@ dal calcolo delle Neural ODE e da tutte le operazioni connesse.
     \end{tabular}
 \end{table}
 
-I lunghi tempi di calcolo riscontrati sono principalmente attribuibili 
-al processo di calcolo delle contromisure non farmaceutiche applicate 
-alla popolazione. Diversamente, le contromisure farmaceutiche, 
-se applicate con tempismo adeguato, oltre a contribuire in modo 
-significativo alla riduzione della diffusione della pandemia 
-(vedi Figura \ref{fig:comparison_vax_1}, Figura 
-\ref{fig:comparison_vax_2}, Figura \ref{fig:comparison_vax_3}, 
-Figura \ref{fig:comparison_vax_4}), consentono anche una significativa 
-riduzione dei tempi di calcolo.
+Si può notare come la riduzione dei tempi di calcolo ottenuta con l'applicazione delle misure farmaceutiche e non, possa essere un indicatore per misurare la ``bontà'' dei risultati ottenuti dall'applicazione del controllore.
 
-\begin{table}[H]
-    \centering
-    \caption{Risultati Ensemblerun con ProgressMeter.jl}
-    \begin{tabular}{|p{2.5cm}||p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
-        \hline
-        \multicolumn{5}{|c|}{Ensemblerun} \\
-        \hline
-        & Nessun Intervento & Intervento Non Farmaceutico & Intervento Farmaceutico & Intervento Farmaceutico e Non \\
-        \hline
-        5 Run (Progress: 100\%) H:MM:SS & Time: 0:00:56 & Time: 1:21:33 & Time: 0:01:06 & Time: 1:09:45 \\
-        \hline
-    \end{tabular}
-\end{table}
-
-In altre parole, l'applicazione tempestiva di misure farmaceutiche, 
-come la somministrazione di vaccini, non solo contribuisce in modo 
-sostanziale a mitigare la diffusione del virus, ma riduce anche 
-sensibilmente i tempi necessari per completare le simulazioni. 
 Questo aspetto sottolinea l'importanza delle strategie di vaccinazione 
 e delle misure farmaceutiche nella gestione delle pandemie, 
 non solo dal punto di vista della salute pubblica, ma anche dal punto 
-di vista della computazione e dell'efficienza dei modelli epidemiologici.
+di vista della computazione e dell'efficienza dei modelli epidemiologici.  Ciò nonostante, i risultati per essere considerabili affidabili è stato osservato che devono essere usati congiuntamente; l'unione delle contromisure farmaceutiche e non, permette di ottenere un miglioramento delle prestazioni del modello unitamente ad un miglioramento dei risultati complessivi della simulazione.
+
+\begin{figure}[H]
+    \begin{center}
+		\includegraphics[width=\textwidth]{img/reduction_comparison.png}
+		\caption{Grafici cumulativi descriventi il numero cumulativo medio di indivudui Exposed, Infected e Dead insieme al valore di Happiness ottenuto da una simulazione multipla (\texttt{EnsembleRun}) considerando differenti contromisure}
+		\label{fig:reduction_comparison}
+	\end{center}
+\end{figure}
 
 \subsubsection*{Parametri Simulazione}
 
@@ -310,7 +302,7 @@ l'efficacia delle misure di controllo, sia farmaceutiche che non
 farmaceutiche, nel contenere e ridurre la diffusione del virus. 
 L'intervento farmaceutico, in particolare, si è dimostrato altamente 
 efficace nel contrastare l'epidemia e nel prevenire il ciclo 
-insostenibile di infezioni. Tuttavia, è importante sottolineare che 
+insostenibile di infezioni. Tuttavia, da queste simulazioni, è importante sottolineare che 
 l'intervento farmaceutico da solo potrebbe non essere sufficiente per 
 l'eliminazione completa dell'epidemia. Al contrario, l'adozione di una 
 combinazione di interventi farmaceutici e non farmaceutici offre una 

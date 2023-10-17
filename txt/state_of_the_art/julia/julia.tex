@@ -1,11 +1,9 @@
 \subsection{Julia}
 
 Il linguaggio di programmazione Julia rappresenta un sistema di alto 
-livello, multi-paradigma e open-source concepito per l'analisi numerica 
-e l'esecuzione efficiente di operazioni di computer science. Julia è 
-emerso come linguaggio di programmazione ufficiale nel 2012 con 
-l'obiettivo di fornire un potente strumento in grado di rivaleggiare, se non 
-superare, i linguaggi di riferimento nel settore, come C e Fortran, 
+livello, multi-paradigma e open-source concepito soprattutto per la soluzione di problemi di ``Scientific Computing''. Julia è 
+emerso come linguaggio di programmazione nel 2012 con 
+l'obiettivo di fornire uno strumento in grado di rivaleggiare i linguaggi di riferimento nel settore, come C e Fortran, 
 in termini di velocità e affidabilità. Inoltre, Julia è stato progettato 
 anche per essere di facile accesso anche a coloro che non possiedono una 
 solida base di programmazione. Il linguaggio è stato sviluppato 
@@ -25,10 +23,9 @@ Le principali caratteristiche di Julia sono:
     anche un alto supporto per l'interazione in tempo reale.
     \item \textbf{Ambiente riproducibile}: Julia mira a garantire che le 
     condizioni di esecuzione di un programma siano ricreabili su 
-    qualsiasi macchina. Questo obiettivo è raggiunto attraverso l'uso di 
-    file binari pre-compilati.
+    qualsiasi macchina. 
     \item \textbf{Componibilità}: Julia fa uso dell'approccio del 
-    "multiple dispatch" come paradigma di programmazione, consentendo 
+    ``multiple dispatch'' come paradigma di programmazione, consentendo 
     una grande flessibilità nella rappresentazione di una vasta gamma 
     di pattern di programmazione, dall'orientato agli oggetti a quello 
     funzionale.
@@ -49,7 +46,7 @@ In linea con la filosofia di sviluppo di Julia, la libreria Agents.jl
 \cite{Agents.jl} è stata progettata con l'obiettivo di essere facilmente 
 apprendibile, estendibile e di offrire modelli di simulazione veloci e 
 scalabili. Numerosi confronti hanno dimostrato che questa libreria offre 
-significativi vantaggi prestazionali rispetto ai principali competitor 
+significativi vantaggi prestazionali rispetto ai principali concorrenti 
 presenti sul mercato, come Mesa, Netlogo e MASON \cite{ABAR201713}.
 
 La facilità d'uso di Agents.jl non va confusa con una mancanza di opzioni 
@@ -64,9 +61,9 @@ Agents.jl offre diverse opzioni di configurazione, ma si basa principalmente su 
 
 \begin{itemize}
     \item \textbf{Definizione del tipo di agente}: È generalmente 
-    consigliato estendere la tipologia "StandardABM", che rappresenta 
+    consigliato estendere la tipologia \texttt{StandardABM}, che rappresenta 
     l'implementazione predefinita di un modello basato su agenti. 
-    Questo tipo consente la creazione di un "AgentBasedModel".
+    Questo tipo consente la creazione di un \texttt{AgentBasedModel}.
     \item \textbf{Definizione del tipo di spazio}: Sono supportati 
     principalmente due tipi di spazio: spazio discreto a grafo 
     \cite{Graphs2021} e spazio discreto a griglia. Entrambi 
@@ -83,13 +80,12 @@ Agents.jl offre diverse opzioni di configurazione, ma si basa principalmente su 
     Inoltre, è possibile utilizzare uno spazio continuo, che 
     rappresenta uno spazio di dimensione variabile con attributi di 
     posizione e velocità. Infine, esiste uno spazio misto, chiamato 
-    "OpenStreetMapSpace", che rappresenta mappe come entità continue.
+    \texttt{OpenStreetMapSpace}, che rappresenta mappe come entità continue.
 \end{itemize}
 
 \subsubsection{Benchmarking e confronto con altri linguaggi}
 
-Uno degli aspetti di maggior rilevanza nel contesto di Julia è la sua 
-eccellente performance rispetto ad altri linguaggi di programmazione. 
+Uno degli aspetti di maggior rilevanza nel contesto di Julia sono le sue eccellenti prestazioni rispetto ad altri linguaggi di programmazione. 
 Questo è stato dimostrato in diversi benchmark, in cui Julia ha superato 
 linguaggi come Python, R e MATLAB \cite{ABAR201713} in termini di velocità 
 computazionale. Questo vantaggio è particolarmente importante nelle 
@@ -105,18 +101,6 @@ riesce a superare questa limitazione senza compromettere la facilità
 d'uso \cite{rackauckas2020universal} \cite{rackauckas2017differentialequations} 
 \cite{Flux.jl-2018} \cite{innes:2018} \cite{pal2023lux} \cite{rackauckas2019diffeqflux}.
 
-Julia è emerso come un linguaggio di programmazione di alto livello, 
-versatile ed efficiente, che ha trovato applicazioni in vari campi, 
-tra cui la simulazione basata su agenti. La libreria Agents.jl ha 
-semplificato notevolmente lo sviluppo di modelli di simulazione basati 
-su agenti in Julia, offrendo prestazioni eccezionali e una vasta gamma 
-di funzionalità.
-
-Il confronto con altri linguaggi, in particolare con Python, 
-ha dimostrato che Julia può offrire un notevole vantaggio in termini 
-di prestazioni computazionali, senza sacrificare la facilità d'uso e 
-la versatilità.
-
 In conclusione, Julia e la libreria Agents.jl rappresentano strumenti 
 potenti per la creazione di modelli di simulazione basati su agenti che 
 richiedono elevate prestazioni computazionali. La combinazione di un 
@@ -127,7 +111,7 @@ sviluppo di simulazioni avanzate in una vasta gamma di settori.
 \begin{figure}[H]
     \begin{center}
         \includegraphics[width=\textwidth]{img/1-s2.0-S1574013716301198-gr1_lrg.jpg}
-        \caption{Tabella comparativa \cite{ABAR201713}}
+        \caption{Agent Based Modelling and Simulation tools: A review of the state-of-art software \cite{ABAR201713}}
         \label{fig:Comparative_table}
     \end{center}
 \end{figure}

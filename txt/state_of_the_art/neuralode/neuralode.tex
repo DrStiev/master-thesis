@@ -4,7 +4,7 @@ La tecnica delle Equazioni Neurali Differenziali
 (END) ha attirato notevole attenzione, portando all'ibridazione di due 
 paradigmi di modellazione distinti: le Equazioni Differenziali Ordinarie 
 (ODE) e le reti neurali (NN). Questo sforzo mira a sfruttare al meglio 
-entrambi i paradigmi, minimizzando gli effetti indesiderati \cite{chen2019neural} \cite{Kim_2021}.
+entrambi i paradigmi, minimizzando gli effetti indesiderati \cite{NEURIPS2018_69386f6b} \cite{Kim_2021}.
 
 Un'Equazione Differenziale è un metodo per specificare una trasformazione 
 non lineare arbitraria, codificando matematicamente le ipotesi strutturali 
@@ -32,28 +32,32 @@ di machine learning diventa una soluzione valida.
     \end{center}
 \end{figure}
 
-Nel contesto generale del machine learning, dato un insieme di dati $x$, 
-l'obiettivo è predire un insieme $y$ di dati correlati utilizzando una 
-funzione sottostante. Questa funzione viene comunemente chiamata modello. 
+Nel contesto generale del machine learning, l'obiettivo è sviluppare algoritmi e modelli che possano apprendere dai dati e migliorare le prestazioni su specifici compiti senza essere programmati esplicitamente. Questa funzione viene comunemente chiamata ``modello''. Alcuni degli obiettivi chiave del machine learning sono:
+
+\begin{itemize}
+    \item \textbf{Predizione}: Uno degli obiettivi più comuni è creare modelli in grado di fare previsioni accurate. Ad esempio, si possono creare modelli di previsione del tempo, modelli di previsione di vendite, o modelli di previsione della probabilità di un paziente di sviluppare una determinata malattia.
+    \item \textbf{Classificazione}: Questo obiettivo riguarda la capacità di assegnare oggetti o dati a categorie specifiche. Ad esempio, un modello di machine learning può essere addestrato per classificare email in "spam" o "non spam", o per riconoscere oggetti in immagini, come gatti e cani.
+    \item \textbf{Clustering}: Gli algoritmi di clustering cercano di trovare pattern nei dati e raggruppare gli oggetti simili. Questo è utile per identificare segmenti di clientela, raggruppare documenti simili e molto altro.
+    \item \textbf{Ottimizzazione e pianificazione}: L'obiettivo può essere quello di sviluppare modelli di machine learning che aiutino a prendere decisioni ottimali in situazioni complesse, come la pianificazione dei percorsi per veicoli autonomi o l'ottimizzazione della gestione della catena di approvvigionamento.
+\end{itemize}
+
 Si inizia con una fase di addestramento in cui si cercano di regolare i 
 parametri (iperparametri) del modello per ottenere un modello in grado di 
 generare previsioni accurate. Successivamente, il modello viene utilizzato 
-per inferire dati $x$ mai visti in precedenza. In sostanza, questo 
-approccio consiste in una serie di trasformazioni non lineari.
+per inferire dati $x$ mai visti in precedenza.
 
-L'uso del machine learning è affascinante perché si basa su un concetto 
-estremamente semplice ma potente: adattare il modello ai dati forniti in 
+L'uso del machine learning si basa su un concetto estremamente semplice ma potente: adattare il modello ai dati forniti in 
 modo efficace. Questa idea si estende ulteriormente alle reti neurali (NN), 
 che sono essenzialmente insiemi di moltiplicazioni tra matrici seguite 
 dall'applicazione di una funzione di attivazione. Ad esempio, una 
 semplice rete neurale a tre strati è definita come:
 
-$$ML(x) = \sigma(W_3 \cdot \sigma(W_2 \cdot \sigma(W_1 \cdot x)))$$
+$$\mathrm{ML}(x) = \sigma(W_3 \cdot \sigma(W_2 \cdot \sigma(W_1 \cdot x)))$$
 
 Dove $W_1$, $W_2$, e $W_3$ sono parametri apprendibili. L'obiettivo è 
 selezionare questi parametri in modo che $ML(x) = y$ si comporti in modo 
 simile alla funzione incognita che si desidera adattare. Grazie 
-all'applicazione del teorema di approssimazione universale, si afferma 
+al teorema di approssimazione universale \cite{nishijima2021universal}, si afferma 
 che con un numero sufficientemente grande di parametri o strati, è 
 possibile approssimare qualsiasi funzione non lineare in modo 
 sufficientemente preciso.
@@ -70,9 +74,8 @@ sufficientemente preciso.
 Questo approccio richiede l'apprendimento di ogni aspetto della 
 trasformazione non lineare direttamente dai dati disponibili. 
 In molti casi, però, non è possibile conoscere l'intera equazione non 
-lineare, ma forse se ne conosce la struttura generale. Un modo per 
-definire matematicamente questo tipo di approccio è attraverso le 
-equazioni differenziali. Un metodo immediato è quello di definire un 
+lineare, ma forse se ne conosce la struttura generale. Un modo per utilizzare questa conoscenza pregressa - la struttura generale della funzione o i suoi vincoli - è di ricorrere di nuovo alle Equazioni Differenziali (DE).
+Un metodo immediato è quello di definire un 
 modello matematico in cui si cerca di apprendere una costante associata al 
 comportamento di un insieme di dati:
 
@@ -83,51 +86,40 @@ differenziale per convalidare la correttezza del modello. La struttura del
 modello e la matematica stessa sono incorporate nel modello stesso, il 
 quale successivamente produce una soluzione. Questo tipo di modelli è 
 essenzialmente un insieme di equazioni che descrivono il cambiamento 
-delle variabili nel tempo, con la soluzione dell'equazione differenziale 
-come risultato finale.
+delle variabili nel tempo, con le soluzioni che dipendono dal parametro $\alpha$. Per riuscire ad adattare il modello ai dati si utilizzano varie tecniche di \emph{parameter sweep} \cite{FITZPATRICK201879}.
 
-\begin{figure}[H]
-    \begin{center}
-        \includegraphics[width=\textwidth]{img/lotkavolterra.png}
-        \caption{Esempio grafico ODE rappresentante la famosa equazione di Lotka-Volterra}
-        \label{fig:lotkavolterra_example}
-    \end{center}
-\end{figure}
-
-Questo metodo è stato ampiamente utilizzato in campi scientifici, e 
-recentemente ha visto ulteriori sviluppi tramite l'integrazione di 
-strutture matematiche aggiuntive che permettono di modellare sistemi 
-complessi come quelli in ambito farmacologico o biologico.
-
-Ciò che rende i modelli di machine learning interessanti è la loro fame 
-di dati e la necessità di un grande insieme di dati di allenamento. 
-In questo contesto, l'uso delle equazioni differenziali è diventato 
+I metodi di approssimazione, predizione o classificazione basati su ML richiedono una grande mole di dati per poter essere addestrati in modo soddisfacente, eseguendo, de-facto, quella che è un operazione di parameter sweep. In questo contesto, l'uso delle equazioni differenziali neurali è diventato 
 una scelta interessante per specificare la non linearità in modo 
 apprendibile (tramite parametri) in modo più efficiente. Questo permette 
 di incorporare la conoscenza specifica di un dominio nelle relazioni 
 strutturali tra input e output del modello.
 
-Un'Equazione Differenziale Neurale (Neural ODE) rappresenta un modo per 
+Un'Equazione Differenziale Neurale (Neural ODE o NDE) rappresenta un modo per 
 collegare i mondi del machine learning e delle equazioni differenziali. 
 L'approccio generale è quello di non apprendere solo la trasformazione 
 non lineare tra i dati, ma anche la struttura stessa della 
-trasformazione non lineare. Invece di avere il modello $y = ML(x)$, 
-si ha il modello $y' = ML(x)$, e successivamente si tenta di risolvere 
-l'equazione differenziale associata.
+trasformazione non lineare. Invece di avere il modello $y = \mathrm{ML}(x)$, 
+si ha il modello $y' = \mathrm{ML}(x)$, e successivamente si tenta di risolvere 
+l'equazione differenziale associata. Le NDE utilizzano una rete neurale per approssimare la funzione $f(x,t)$ nell'ODE. Invece di specificare esplicitamente $f(x,t)$, si definisce una rete neurale che apprende questa funzione. Quindi, l'ODE diventa: $dxdt=NN(x,t;\theta)$, dove $NN(x,t;\theta)$ rappresenta la rete neurale con i suoi parametri $\theta$.
 
 L'approccio fondamentale qui è che definendo il modello in questo modo e 
 utilizzando un risolutore semplice e propenso agli errori come il metodo 
 di Eulero, è possibile ottenere risultati equivalenti a quelli ottenuti 
-con una ResNet \cite{he2015deep}. L'idea di base è che invece di 
+con una ResNet \cite{7780459}. L'idea di base è che invece di 
 modellare una rete neurale con sempre più strati, diventando sempre 
 più profonda, è sufficiente modellare direttamente il sistema di 
 equazioni differenziali e risolverlo con un risolutore specifico.
 
-Questo approccio è efficiente dal punto di vista della memoria, è in 
-grado di gestire dati irregolari, ha una forte conoscenza a priori 
+Le NDE si basano sull'idea di integrazione continua, il che significa che piuttosto che discretizzare il tempo o la variabile indipendente, l'ODE viene risolto in modo continuo. Ciò consente una rappresentazione più fluida dei dati temporali e una maggiore flessibilità nel modellare cambiamenti graduati nel tempo.
+
+L'addestramento di una NDE comporta la soluzione dell'ODE usando un algoritmo di ottimizzazione come la discesa del gradiente. I dati osservati sono utilizzati per calibrare i parametri della rete neurale in modo che l'ODE approssimi correttamente la dinamica dei dati di input. Ciò significa che le NDE possono essere addestrate su dati sequenziali o temporali per prevedere future evoluzioni.
+
+Le NDE sono particolarmente adatte per affrontare problemi in cui la dinamica dei dati può variare in modo non uniforme nel tempo e in cui i dati sequenziali possono essere incompleti o rumorosi, ha una forte conoscenza a priori 
 dello spazio del modello, è in grado di approssimare sia funzioni 
 lineari che non lineari e si basa su solide basi teoriche derivanti da 
-entrambi i lati.
+entrambi i lati. 
+
+Sono state utilizzate in vari campi, tra cui l'elaborazione del linguaggio naturale, la previsione del traffico e la modellazione di processi biologici. La loro flessibilità e capacità di modellare dati continui le rendono una potente aggiunta al campo del machine learning.
 
 \subsubsection{Equazioni Differenziali Universali}
 
@@ -174,7 +166,7 @@ complessi come dinamiche dei fluidi o reti biologiche \cite{datadrivendiffeq}.
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[scale=0.35]{img/ude_approx.png}
+        \includegraphics[width=\textwidth]{img/ude_approx.png}
         \caption{Comportamento UDE nell'approssimazione di fenomeni non lineari \cite{rackauckas2020universal}}
         \label{fig:UDE_approx}
     \end{center}
@@ -182,7 +174,7 @@ complessi come dinamiche dei fluidi o reti biologiche \cite{datadrivendiffeq}.
 
 \subsubsection*{Risolvere un'ODE in Julia}
 
-L'idea di base è quella di definire un oggetto "ODEProblem" specificando 
+Per risolvere una ODE in Julia si definisce un oggetto \texttt{ODEProblem} come 
 una funzione che descrive il sistema di ODE attraverso la specifica 
 delle derivate delle equazioni nella forma $u' = f(u, p, t)$, fornendo 
 un set di condizioni iniziali $u$, un intervallo di tempo $t$, e un 
@@ -214,7 +206,7 @@ vettore di dimensione $m$ come output. Questo si allinea con l'idea che
 i risolutori di DE rientrano nella categoria delle funzioni 
 differenziabili, il che significa che possono essere incorporati 
 direttamente in un programma più grande basato su differenziazione 
-automatica, come una rete neurale \cite{Flux.jl-2018} \cite{pal2023lux}. 
+automatica \cite{BARTHOLOMEWBIGGS2000171}, come una rete neurale \cite{Flux.jl-2018} \cite{pal2023lux}. 
 
 Successivamente, è possibile addestrare la NN per un numero specifico di 
 integrazioni per ottenere i risultati desiderati. È importante 
@@ -225,13 +217,13 @@ effettivamente apprendendo una rappresentazione compatta del comportamento
 della serie di dati nel tempo e può estrapolare facilmente cosa 
 potrebbe accadere con diverse condizioni iniziali. 
 
-La suite DiffEqFlux.jl offre un wrapper comodo per definire una "NeuralODE" 
+La suite \texttt{DiffEqFlux.jl} offre un wrapper comodo per definire una ``NeuralODE'' 
 \cite{rackauckas2019diffeqflux}.
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=\textwidth]{img/fann.png}
-        \caption{Esempio implementazione di una rete neurale in Julia}
+        \includegraphics[width=\textwidth]{img/neuralode.png}
+        \caption{Esempio implementazione di una Neural ODE in Julia tramite l'utilizzo della libreria \texttt{DiffEqFlux.jl} \cite{rackauckas2019diffeqflux}}
         \label{fig:NN_Julia_example}
     \end{center}
 \end{figure}
@@ -245,14 +237,14 @@ trovare un modo per applicare lo stesso principio quando si utilizzano
 risolutori di ODE all'interno di una rete neurale.
 
 Esistono vari approcci per affrontare questo problema, ma il più comune 
-è attraverso l'analisi di sensitività (adjointed). Questo approccio 
+è attraverso l'analisi di sensitività definita come ``Forward Adjoint'' \cite{NEURIPS2018_69386f6b} \cite{WANG20131}. Questo approccio 
 definisce una nuova ODE il cui obiettivo è calcolare il gradiente della 
 funzione di costo rispetto ai parametri e successivamente risolvere 
 questa seconda ODE.
 
-L'approccio dell'analisi di sensitività (adjointed) comporta la 
-definizione di una nuova ODE, chiamata anche "ODE aggiunta" o 
-"ODE ausiliaria," il cui scopo principale è calcolare il gradiente 
+L'approccio dell'analisi di sensitività (Forward Adjoint) comporta la 
+definizione di una nuova ODE, chiamata anche ``ODE aggiunta'' o 
+``ODE ausiliaria'', il cui scopo principale è calcolare il gradiente 
 della funzione di costo rispetto ai parametri della rete. 
 Questa ODE ausiliaria è progettata in modo specifico per catturare 
 come varia la funzione di costo al variare dei parametri, 
@@ -275,7 +267,7 @@ Il processo può essere riassunto in modo generale nei seguenti passaggi:
     l'addestramento della rete mediante la discesa del gradiente.
 \end{itemize}
 
-Questo approccio è potente perché consente di calcolare il gradiente 
+Questo approccio consente di calcolare il gradiente 
 in modo efficiente anche quando sono presenti risolutori di ODE 
 all'interno della rete. È uno strumento fondamentale nella progettazione 
 e nell'addestramento di reti neurali che includono componenti basate 

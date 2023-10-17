@@ -1,7 +1,7 @@
 \section{Metodi e Modelli}
 
-Nell'ambito di questa ricerca, l'approccio adottato è stato incentrato 
-sulla prospettiva di modellare il problema specifico all'interno del 
+Nell'ambito di questa tesi, l'approccio adottato è stato incentrato 
+sulla prospettiva di modellare il problema specifico - la modellazione di epidemie - all'interno del 
 contesto di una rete sociale. L'obiettivo principale di questa indagine 
 è stato quello di analizzare e comprendere il processo di diffusione di 
 una pandemia virale all'interno di un ambiente concreto, il quale è 
@@ -42,7 +42,7 @@ di ogni singolo agente concreto alle stesse tipologie di intervento.
 
 \subsection{Approccio con Rete Sociale}
 
-Il modello sviluppato fa uso del framework "Agents.jl" \cite{Agents.jl} e 
+Il modello sviluppato fa uso del framework \texttt{Agents.jl} \cite{Agents.jl} e 
 definisce un modello ad agente (ABM). In questo contesto, la struttura 
 spaziale, o topologia, del modello non è rilevante, ma le connessioni tra gli agenti 
 lo sono, per questo è  stato scelto di utilizzare una rappresentazione tramite 
@@ -51,7 +51,7 @@ andando a rappresentare un punto di interesse specifico, sia esso
 una stazione ferroviaria, un terminal aeroportuale, oppure una città,
 in cui viene simulato il ciclo di vita della pandemia attraverso un 
 modello SEIR deterministico. Gli agenti sono definiti come oggetti di tipo 
-"ContinuousAgent", poiché lo spazio degli agenti è considerato continuo,
+\texttt{ContinuousAgent}, poiché lo spazio degli agenti è considerato continuo,
 seppur la struttura del modello sia a grafo e quindi discreta.
 
 \subsubsection*{Grafo Sociale}
@@ -66,7 +66,7 @@ simboleggiano le relazioni sociali che legano tali individui tra loro.
 Questa metodologia di rappresentazione è comunemente adottata per 
 modellare le reti sociali, che costituiscono un settore di grande 
 interesse in diverse discipline, come sociologia, informatica, e analisi 
-delle reti. Nell'ambito delle reti sociali, gli individui stessi sono 
+delle reti \cite{doi:10.1126/science.1165821} \cite{doi:10.1177/009430610803700308} \cite{deNooy2012}. Nell'ambito delle reti sociali, gli individui stessi sono 
 considerati i nodi del grafo, mentre le connessioni tra di essi vengono 
 tradotte in archi. Questo approccio consente di analizzare e studiare 
 una vasta gamma di fenomeni sociali, inclusi processi di diffusione 
@@ -76,7 +76,7 @@ formazione di comunità, e molte altre interazioni sociali complesse.
 \begin{figure}[H]
     \begin{center}
 		\includegraphics[scale=0.6]{img/Moreno_Sociogram_3rd_Grade.png}
-		\caption{Moreno's Sociagram of a 3rd grade class}
+		\caption{Grafo Sociale di una rete di classe 3}
 		\url{https://en.wikipedia.org/wiki/Sociogram#/media/File:Moreno_Sociogram_3rd_Grade.png}
 		\label{fig:social_graph}
 		\end{center}
@@ -142,16 +142,17 @@ La matrice di migrazione rappresenta un elemento
 importante in questo contesto. Essa definisce come l'agente può essere 
 influenzato da altri agenti all'interno della stessa rete. 
 Questo meccanismo consente un grado di adattamento e cooperazione tra 
-agenti, sebbene ognuno di essi mantenga la propria autonomia decisionale
-(Figura \ref{fig:migration_matrix_function}).
+agenti, sebbene ognuno di essi mantenga la propria autonomia decisionale.
 
 \begin{figure}[H]
     \begin{center}
-		\includegraphics[width=\textwidth]{img/sngraph_model.png}
-		\caption{Codice Modello}
-		\label{fig:Model_code}
+		\includegraphics[width=\textwidth]{img/mmfunc.png}
+		\caption{Funzione che crea la matrice di migrazione data la topologia di un grafo}
+		\label{fig:migration_matrix_function}
 	\end{center}
 \end{figure}
+
+\newpage
 
 \subsection{Spazio e Modello}
 Lo spazio del modello è fondato su un grafo connesso, il cui numero 
@@ -238,9 +239,9 @@ alla valutazione delle misure di intervento.
 
 \begin{figure}[H]
     \begin{center}
-		\includegraphics[width=\textwidth]{img/mmfunc.png}
-		\caption{Funzione che crea la matrice di migrazione data la topologia di un grafo}
-		\label{fig:migration_matrix_function}
+		\includegraphics[width=\textwidth]{img/agent_step.png}
+		\caption{Funzione che si occupa di gestire la simulazione di ogni singolo agente presente all'interno del modello}
+		\label{fig:agent_step}
 	\end{center}
 \end{figure}
 

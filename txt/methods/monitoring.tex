@@ -93,7 +93,7 @@ la funzione di controllo operi correttamente.
 \begin{figure}[H]
     \begin{center}
 		\includegraphics[width=\textwidth]{img/controller_neuralode.png}
-		\caption{Definizione del controllore all'interno del modello ad agente}
+		\caption{Definizione della funzione di attivazione del controllore all'interno della funzione \texttt{agent\_step!} (Figura \ref{fig:agent_step}) definita nel modello di simulazione}
 		\label{fig:controller_abm}
 	\end{center}
 \end{figure}
@@ -209,7 +209,7 @@ Il ciclo di addestramento può essere idealmente suddiviso in due parti,
 ma in pratica, entrambe potrebbero non essere necessarie. 
 La prima parte, come mostrato nella figura \ref{fig:controller3}, 
 impiega un ciclo di addestramento con l'uso dell'ottimizzatore 
-\textbf{ADAM}. Se i risultati sono soddisfacenti, è possibile 
+\textbf{ADAM} \cite{kingma2017adam}. Se i risultati sono soddisfacenti, è possibile 
 concludere l'addestramento. Tuttavia, è comune utilizzare due cicli 
 di addestramento differenti per massimizzare le prestazioni. 
 In particolare, si associano due cicli di addestramento con due 
@@ -219,10 +219,10 @@ ottimizzazione dei parametri. Solitamente, si utilizza un
 ottimizzatore tipo \textbf{ADAM} per la maggior parte dell'addestramento, 
 in quanto è in grado di trovare rapidamente un buon spazio di iperparametri. 
 Successivamente, si passa a un secondo ottimizzatore, come ad esempio 
-\textbf{BFGS}, che eccelle nel trovare rapidamente un minimo locale 
+\textbf{BFGS} \cite{10.1093/imamat/6.1.76} \cite{35d0019d-775a-3628-b0b4-67be112e346b} \cite{e3177091-3094-3792-9d61-0ab445735ddb}, che eccelle nel trovare rapidamente un minimo locale 
 all'interno dello spazio dei parametri.
 
-Ho deciso di utilizzare un solo ottimizzatore, in quanto \textbf{ADAM} 
+Si è deciso di utilizzare un solo ottimizzatore, in quanto \textbf{ADAM} 
 in questo caso, pur con un numero limitato di iterazioni, consente di 
 raggiungere un risultato ottimale in tempi brevi, senza la necessità di 
 utilizzare un secondo ottimizzatore, il quale in questo caso non 

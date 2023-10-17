@@ -1,6 +1,6 @@
 \subsection{Modelli Compartimentali}
 
-In campo epidemiologico, i modelli compartimentali rappresentano una 
+In campo epidemiologico, i modelli compartimentali \cite{ENDERLE2012359} rappresentano una 
 metodologia di modellazione generica che si presta bene all'analisi 
 globale del comportamento di una malattia infettiva. Questa tecnica di 
 modellazione trova applicazione anche in altri ambiti scientifici, tra 
@@ -13,7 +13,7 @@ particolare malattia. Questo processo crea compartimenti ben distinti che
 possono interagire tra loro, ma rimangono chiaramente separati gli uni 
 dagli altri.
 
-I modelli compartimentali sono di solito costruiti con equazioni differenziali 
+I modelli compartimentali sono di solito basati su equazioni differenziali 
 ordinarie (che sono deterministiche), ma, utilizzando come input delle probabilità, 
 possono anche essere visualizzati in un quadro stocastico che è più realistico ma 
 anche più complicato da analizzare.
@@ -43,12 +43,9 @@ $y$ rispetto alla variabile $x$.
 
 È da notare che in diversi contesti, le equazioni differenziali non 
 lineari possono essere approssimate attraverso equazioni lineari, 
-semplificando notevolmente il processo di ottenimento delle soluzioni.
+semplificando notevolmente il processo di ottenimento delle soluzioni. Naturalmente ci sono dei compromessi da accettare applicando talune approssimazioni.
 
-Le equazioni differenziali ordinarie (ODE) costituiscono un'importante 
-classe di equazioni che coinvolgono le derivate ordinarie di una funzione 
-rispetto a una variabile indipendente, comunemente rappresentata come il 
-tempo. In generale, quando ci troviamo di fronte a una derivata di una 
+In generale, quando ci troviamo di fronte a una derivata di una 
 funzione, il nostro obiettivo è comprendere e studiare la funzione stessa. 
 Per fare ciò, è necessario trovare l'antiderivata, o integrale, della 
 funzione data.
@@ -72,7 +69,41 @@ avanzate, come l'utilizzo delle regole di derivazione o la sostituzione
 delle variabili (chain rules o u-substitution). In queste situazioni, 
 la risoluzione delle ODE può richiedere una comprensione approfondita 
 delle tecniche matematiche e dell'applicazione dei principi di calcolo 
-differenziale.
+differenziale. Un esempio è l'utilizzo dei metodi di integrazione numerica Runge-Kutta.
+
+\subsubsection*{Metodi di integrazione numerica Runge-Kutta}
+I metodi di integrazione di Runge-Kutta \cite{ABELL2023283} \cite{GOTTLIEB2016549} sono una famiglia di algoritmi ampiamente utilizzati per risolvere equazioni differenziali ordinarie (ODE). Questi metodi consentono di approssimare la soluzione di un'ODE attraverso passi discreti nel tempo. La forma generale di un metodo di Runge-Kutta è la seguente:
+
+Dato un problema di ODE del primo ordine:
+\(\frac{dy}{dt} = f(t, y)\)
+
+Un metodo di Runge-Kutta approssima \(y(t)\) nei punti discreti \(t_n\) come segue:
+
+\(y_{n+1} = y_n + h \cdot \sum_{i=1}^{s} b_i \cdot k_i\)
+
+\(k_i = f(t_n + c_i \cdot h, y_n + h \cdot \sum_{j=1}^{s} a_{ij} \cdot k_j)\)
+
+Dove:
+\begin{itemize}
+    \item \(y_n\) è l'approssimazione di \(y\) al tempo \(t_n\).
+    \item \(h\) è la dimensione del passo temporale.
+    \item \(s\) è il numero di stadi (spesso denominato ordine del metodo).
+    \item \(b_i\) sono i pesi per calcolare l'approssimazione finale.
+    \item \(c_i\) sono i coefficienti che specificano la posizione dei punti intermedi nel passo temporale.
+    \item \(a_{ij}\) sono i coefficienti che governano l'interazione tra i punti intermedi \(k_i\).
+\end{itemize}
+
+I metodi di Runge-Kutta sono molto flessibili e possono variare notevolmente in termini di complessità e precisione. Alcuni dei metodi di Runge-Kutta più noti includono il metodo di Euler (un metodo di Runge-Kutta di primo ordine), il metodo di Heun (un metodo di Runge-Kutta di secondo ordine), e il metodo di Runge-Kutta a quarto ordine. Quest'ultimo è uno dei più comuni e ampiamente utilizzati per la sua buona precisione e stabilità.
+
+Un esempio del metodo di Runge-Kutta a quarto ordine (RK4) con \(s = 4\):
+
+\begin{itemize}
+    \item \(b_i = \frac{1}{6}\) per \(i = 1, 2, 3, 4\).
+    \item \(c_1 = 0\), \(c_2 = \frac{1}{2}\), \(c_3 = \frac{1}{2}\), \(c_4 = 1\).
+    \item \(a_{21} = \frac{1}{2}\), \(a_{31} = 0\), \(a_{32} = \frac{1}{2}\), \(a_{41} = 0\), \(a_{42} = 0\), \(a_{43} = 1\).
+\end{itemize}
+
+I metodi di Runge-Kutta sono ampiamente utilizzati nella simulazione numerica, nella risoluzione di ODEs in fisica, ingegneria e molti altri campi in cui è necessario risolvere problemi che coinvolgono equazioni differenziali. Sono apprezzati per la loro accuratezza e robustezza in una vasta gamma di applicazioni.
 
 \subsubsection{Il modello Kermack-McKendrick}
 
@@ -86,7 +117,7 @@ malattie che non la conferiscono.
 
 Il modello più utilizzato come riferimento per lo studio e la 
 modellazione epidemiologica è il modello "Susceptible, Infectious, 
-Recovered" (SIR), ideato nel 1927 da Kermack e McKendrick. 
+Recovered" (SIR), ideato nel 1927 da Kermack e McKendrick \cite{kermack1927contribution}. 
 Questo modello si basa sull'assunzione che, durante lo sviluppo di una 
 malattia, gli individui possano trovarsi in uno di tre stati:
 

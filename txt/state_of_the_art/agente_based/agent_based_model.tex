@@ -7,23 +7,21 @@ Lo scopo principale di tali modelli è comprendere il comportamento di un
 sistema e le relazioni che influenzano i suoi risultati \cite{7822080}.
 
 Nella modellazione basata su agenti, un sistema viene suddiviso in un 
-insieme di entità decisionali autonome chiamate "agenti". Ciascun agente 
+insieme di entità decisionali autonome chiamate ``agenti''. Ciascun agente 
 valuta autonomamente la propria situazione e prende decisioni basate su 
-un insieme di regole specifiche. Gli agenti possono eseguire una serie 
-di comportamenti che sono appropriati per il sistema che rappresentano. 
-Le interazioni competitive e ripetute tra gli agenti costituiscono una 
+un insieme di regole specifiche. Le interazioni, competitive e cooperative, ripetute tra gli agenti costituiscono una 
 caratteristica distintiva di un modello basato su agenti, sfruttando la 
 potenza computazionale dei computer per esplorare dinamiche altrimenti 
 difficilmente accessibili attraverso la modellazione matematica tradizionale.
 
-In una forma di base, un modello basato su agenti consiste in un sistema 
+In una forma di base, un modello basato su agenti consiste in un insieme 
 di agenti e delle relazioni tra di essi. Anche un modello estremamente 
 semplice può rivelare comportamenti complessi e offrire informazioni 
 preziose sulle dinamiche del mondo reale che stanno modellando.
 
 Generalmente, gli agenti possono evolvere nel tempo, consentendo di 
 osservare comportamenti precedentemente inaccessibili, noti come 
-"comportamenti emergenti". I modelli più sofisticati spesso incorporano 
+``comportamenti emergenti''. I modelli più sofisticati spesso incorporano 
 reti neurali, algoritmi evolutivi o altre tecniche di apprendimento per 
 rendere la simulazione il più realistica possibile, tentando di 
 incentivare la comparsa di queste tipologie di comportamenti.
@@ -76,22 +74,18 @@ sull'essenza stessa del comportamento emergente.
 
 \subsubsection{Discretizzazione}
 
-La discretizzazione è una delle sfide fondamentali nella simulazione, 
-in quanto il mondo reale è continuo mentre gli strumenti di simulazione 
-attuali operano su dati discreti. Durante la simulazione di eventi, 
-è necessario decidere come adattare la realtà alla simulazione, 
-con il rischio di perdere informazioni nel processo.
+La discretizzazione è una delle sfide fondamentali nella simulazione. Il mondo reale è costituito sia da fenomeni continui che da fenomeni discreti; solo i primi di reale interesse in questa sezione.
 
-La discretizzazione in una simulazione può riguardare principalmente 
+Gli strumenti a nostra disposizione sono in grado solamente di rappresentare e operare su dati discreti, ed è quindi necessario decidere come adattare la realtà alla simulazione, con il rischio di perdere informazioni nel processo.
+
+La discretizzazione in una simulazione riguarda principalmente 
 due aspetti: lo spazio e il tempo. Molti framework di simulazione offrono 
-la possibilità di specificare come gestire la discretizzazione, 
-ad esempio attraverso l'uso di parole chiave come "ContinuousSpace". 
-Tuttavia, la scelta della discretizzazione può influenzare 
+la possibilità di specificare come gestire la discretizzazione, tuttavia, la scelta della discretizzazione può influenzare 
 significativamente l'adeguatezza della simulazione per un dato contesto.
 
 Va notato che la discretizzazione non è sempre negativa e che alcune 
-simulazioni possono fornire risultati accurati anche con una 
-discretizzazione significativa. La scelta della discretizzazione 
+simulazioni possono fornire risultati accurati, se non migliori, anche con una 
+discretizzazione significativa. Un esempio tra tutti è l'algoritmo di Gillespie \cite{ref1}, il quale è più preciso ed è in grado di rivelare comportamenti non visibili tramite l'utilizzo di modelli continui. La scelta della discretizzazione 
 dipende spesso dalla specifica applicazione e dall'obiettivo della simulazione, nonché dai mezzi tecnici a disposizione.
 
 \begin{figure}[H]
