@@ -117,7 +117,7 @@ conto della perdita di immunità nel tempo.
 \begin{figure}[H]
     \begin{center}
 		\includegraphics[width=\textwidth]{img/fann.png}
-		\caption{Definizione del controllore mediante Neural ODE}
+		\caption{Definizione del controllore mediante Neural ODE. Definizione della Neural Network tramite \texttt{Lux.jl} e definizione del sistema di ODE}
 		\label{fig:controller1}
 	\end{center}
 \end{figure}
@@ -132,7 +132,7 @@ ausiliaria utile per monitorare l'andamento dell'apprendimento del modello.
 \begin{figure}[H]
     \begin{center}
 		\includegraphics[width=\textwidth]{img/controller2.png}
-		\caption{Definizione delle funzioni di supporto del controllore}
+		\caption{Definizione delle funzioni di supporto del controllore. Definizione della funzione di Predict che ricalcola la soluzione della ODE. Definizione della funzione di Loss atta a perfezionare la Neural Network. Definizione della funzione di Callback utile per l'implementazione di un Early Stopping custom}
 		\label{fig:controller2}
 	\end{center}
 \end{figure}
@@ -232,7 +232,7 @@ delle risorse computazionali.
 \begin{figure}[H]
     \begin{center}
 		\includegraphics[width=\textwidth]{img/controller3.png}
-		\caption{Definizione delle funzioni di addestramento del controllore}
+		\caption{Definizione delle funzioni di addestramento del controllore. Principalmente il ciclo di ottimizzazione tramite ADAM e BFGS}
 		\label{fig:controller3}
 	\end{center}
 \end{figure}
