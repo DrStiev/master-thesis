@@ -120,6 +120,7 @@ lineari che non lineari e si basa su solide basi teoriche derivanti da
 entrambi i lati. 
 
 Sono state utilizzate in vari campi, tra cui l'elaborazione del linguaggio naturale, la previsione del traffico e la modellazione di processi biologici. La loro flessibilità e capacità di modellare dati continui le rendono una potente aggiunta al campo del machine learning.
+\newpage
 
 \subsubsection{Equazioni Differenziali Universali}
 
@@ -166,7 +167,7 @@ complessi come dinamiche dei fluidi o reti biologiche \cite{datadrivendiffeq}.
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=\textwidth]{img/ude_approx.png}
+        \includegraphics[scale=0.35]{img/ude_approx.png}
         \caption{Comportamento UDE nell'approssimazione di fenomeni non lineari \cite{rackauckas2020universal}}
         \label{fig:UDE_approx}
     \end{center}
@@ -181,16 +182,16 @@ un set di condizioni iniziali $u$, un intervallo di tempo $t$, e un
 insieme di parametri $p$.
 
 Successivamente, è possibile risolvere il sistema di ODE utilizzando la 
-funzione ``solve''. È possibile specificare diversi metodi per la 
-risoluzione del sistema. Ad esempio, il metodo ``Tsit5'' è un metodo 
+funzione ``\texttt{solve}''. È possibile specificare diversi metodi per la 
+risoluzione del sistema. Ad esempio, il metodo ``\texttt{Tsit5}'' è un metodo 
 esplicito di quinto ordine di tipo Runge-Kutta con un stimatore di 
 errore integrato di tipo Tsitouras \cite{10.1016/j.camwa.2011.06.002}. 
-La libreria DifferentialEquations.jl offre una vasta gamma di parametri 
+La libreria \texttt{DifferentialEquations.jl} offre una vasta gamma di parametri 
 aggiuntivi per un approccio più dettagliato \cite{rackauckas2017differentialequations}.
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=\textwidth]{img/fdefinition.png}
+        \includegraphics[scale=0.23]{img/fdefinition.png}
         \caption{Esempio definizione ODE in Julia tramite l'ausilio dell'interfaccia \texttt{ODEProblem}}
         \label{fig:ODE_Julia_example}
     \end{center}

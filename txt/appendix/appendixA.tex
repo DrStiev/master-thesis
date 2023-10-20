@@ -137,6 +137,11 @@ il codice da CPU a GPU è stata determinante nella decisione di
 utilizzare l'implementazione personalizzata, in previsione di futuri 
 miglioramenti delle prestazioni del codice.
 
+L'approccio ibrido del controllore è stato preferito per la sua 
+semplicità e la possibilità di mascherare la funzione obiettivo 
+tramite una rete neurale, semplificando notevolmente la definizione 
+delle regole rispetto all'implementazione esplicita di Ipopt.
+
 \begin{figure}[H]
 	\centering
 	\begin{subfigure}[b]{\textwidth}
@@ -153,8 +158,3 @@ miglioramenti delle prestazioni del codice.
 		\label{fig:ipopt_res2}
 	\end{subfigure}
 \end{figure}
-
-L'approccio ibrido del controllore è stato preferito per la sua 
-semplicità e la possibilità di mascherare la funzione obiettivo 
-tramite una rete neurale, semplificando notevolmente la definizione 
-delle regole rispetto all'implementazione esplicita di Ipopt.
